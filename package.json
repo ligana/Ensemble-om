@@ -1,5 +1,5 @@
 {
-  "name": "vue-ensembleOm",
+  "name": "vue-EnsembleOm",
   "version": "1.0.0",
   "description": "A Vue Material Admin Template",
   "author": "Micahel Wang <wangqiangshen@gmail.com>",
@@ -28,10 +28,7 @@
     "vue-quill-editor": "^3.0.6",
     "vue-resize": "^0.4.4",
     "vue-router": "^3.0.1",
-    "vuetify": "^1.1.9",
-    "vuex": "3.0.1",
-    "vue-i18n": "^8.0.0",
-    "vuetify": "^1.1.0-alpha.5"
+    "vuetify": "^1.1.9"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -106,9 +103,7 @@
     "webpack": "^3.12.0",
     "webpack-bundle-analyzer": "^2.12.0",
     "webpack-dev-server": "^2.9.1",
-    "webpack-merge": "^4.1.0",
-    "sass-loader": "6.0.6",
-    "node-sass": "^4.7.2"
+    "webpack-merge": "^4.1.0"
   },
   "engines": {
     "node": ">= 6.0.0",

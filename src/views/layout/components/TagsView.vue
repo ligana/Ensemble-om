@@ -148,7 +148,7 @@
           border-color: #3f51b5 !important;
           &::before {
             content: '';
-            background: #57ff4f;
+            // background: #57ff4f;
             display: inline-block;
             width: 8px;
             height: 8px;

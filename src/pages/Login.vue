@@ -10,9 +10,8 @@
                   <img src="/static/logo.png" alt="SmartEnsemble-om<" width="120" height="120">
                   <h1 class="flex my-4 primary--text">神州数码-产品工厂</h1>
                   <h2 class="flex my-4 primary--text">SmartEnsemble-om</h2>
-                  
                 </div>
-                <v-form>
+                <v-form  ref="model">
                   <v-text-field append-icon="person" name="login" label="用户名" type="text" v-model="model.username"></v-text-field>
                   <v-text-field append-icon="lock" name="password" label="密码" id="password" type="password" v-model="model.password"></v-text-field>
                 </v-form>
@@ -39,6 +38,7 @@
 </template>
 
 <script>
+  import {getMenu} from '@/api/menu'
     export default {
         data: () => ({
             loading: false,
@@ -50,13 +50,19 @@
 
         methods: {
             login () {
-                this.loading = true;
-                setTimeout(() => {
+                this.loading = true
+                this.$store.dispatch('LoginByUsername', this.model).then(response => {
+
+                    this.loading = false;
+                    if(this.model.username=='para') {
+                        const menu = getMenu()
+                    }
                     this.$router.push('/dashboard');
-                }, 1000);
+                }).catch(() => {
+                    this.loading = false
+                })
             }
         }
-
     };
 </script>
 <style scoped lang="css">

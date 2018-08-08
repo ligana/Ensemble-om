@@ -48,8 +48,8 @@
                 <v-icon :class="[item.iconClass]">{{ item.icon }}</v-icon>
               </v-list-tile-avatar>
               <v-list-tile-content>
-                <v-list-tile-title>{{ item.label }}</v-list-tile-title>
-                <v-list-tile-sub-title>【产品代码:{{ item.value }}】</v-list-tile-sub-title>
+                <v-list-tile-title>{{ item.value }}</v-list-tile-title>
+                <v-list-tile-sub-title>{{ item.label }}</v-list-tile-sub-title>
               </v-list-tile-content>
               <v-list-tile-action>
                 <v-btn icon ripple>
@@ -104,8 +104,7 @@
                     { icon: 'assignment', iconClass: 'blue white--text', value: '', lable: '' }
                 ],
                 folders: [
-                    { icon: 'call_to_action', iconClass: 'amber white--text', value : 'RBBASE', label: '存款基础产品' }
-                ]
+                 ]
             }
         },
         created() {

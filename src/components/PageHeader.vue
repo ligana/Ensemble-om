@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import menu from '@/api/menu';
+import {Menu} from '@/api/menu';
 export default {
   data () {
     return {

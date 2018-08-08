@@ -21,7 +21,7 @@
           <v-card-text>
             <search-list-smart v-on:listenToSearch="showSearch"></search-list-smart>
           </v-card-text>
-        </v-card>
+        </v-card>l
       </v-dialog>
 
       <v-layout row wrap>
@@ -29,7 +29,7 @@
       <v-list dense>
       <template v-for="(item, index) in prodList.items"  >
         <v-btn class="diffIdButton"  color="red" v-if="index==0&&index1!=0"  dark @click="deleteTd(prodList.prodType)">
-          <v-icon dark >block</v-icon>{{prodList.prodType}}
+          {{prodList.prodType}}<v-icon dark >block</v-icon>
         </v-btn>
         <div class="diffEg" v-if="index==0&&index1==0"  dark >
         </div>

@@ -1,7 +1,4 @@
-import Mock from 'mockjs'
-
-const baseContent = '<p>我是测试数据我是测试数据</p><p><img src="https://wpimg.wallstcn.com/4c69009c-0fd4-4153-b112-6cb53d1cf943"></p>'
-const image_uri = 'https://wpimg.wallstcn.com/e4558086-631c-425c-9430-56ffb46e70b3'
+import Mock from 'mockjs';
 
 export default {
     getProdType: () => ({
@@ -12,10 +9,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111002',
             label: '个人活期存款-多币种(钞)',
@@ -23,10 +22,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111003',
             label: '个人活期存款-多币种(汇)',
@@ -34,10 +35,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111004',
             label: '个人整存整取储蓄存款',
@@ -45,10 +48,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111005',
             label: '个人一天通知存款',
@@ -56,10 +61,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111006',
             label: '个人七天通知存款',
@@ -67,10 +74,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111007',
             label: '个人存本取息存款',
@@ -78,10 +87,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111008',
             label: '个人定活两便存款',
@@ -89,10 +100,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111009',
             label: '个人零存整取储蓄存款',
@@ -100,10 +113,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '111010',
             label: '个人教育储蓄定期存款',
@@ -111,10 +126,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121001',
             label: '单位活期存款',
@@ -122,10 +139,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121002',
             label: '单位外币活期存款(钞)',
@@ -133,10 +152,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121003',
             label: '单位外币活期存款(汇)',
@@ -144,10 +165,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121004',
             label: '单位定期存款',
@@ -155,10 +178,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121005',
             label: '单位一天通知存款',
@@ -166,10 +191,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121006',
             label: '单位七天通知存款',
@@ -177,10 +204,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121007',
             label: '单位外币定期存款(汇)',
@@ -188,10 +217,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121008',
             label: '单位外币七天通知存款(汇)',
@@ -199,10 +230,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121009',
             label: '单位协议存款',
@@ -210,10 +243,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '121010',
             label: '单位委托存款',
@@ -221,10 +256,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '130001',
             label: '存款类金融机构存放清算款项',
@@ -232,10 +269,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '130002',
             label: '银行业非存款类金融机构存放清算款项',
@@ -243,10 +282,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '130003',
             label: '证券业金融机构存放清算款项',
@@ -254,10 +295,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '130004',
             label: '保险业金融机构存放清算款项',
@@ -265,10 +308,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '130005',
             label: '境内特殊目的载体存放清算款项',
@@ -276,10 +321,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '130006',
             label: '其他非存款类金融机构存放清算款项',
@@ -287,10 +334,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB001',
             label: '活期单币种基础产品',
@@ -298,10 +347,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB002',
             label: '活期多币种基础产品',
@@ -309,10 +360,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB003',
             label: '整存整取定期基础产品',
@@ -320,10 +373,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB004',
             label: '零整/教育储蓄基础产品',
@@ -331,10 +386,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB005',
             label: '通知存款基础产品',
@@ -342,10 +399,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB006',
             label: '定活两便基础产品',
@@ -353,10 +412,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB008',
             label: '大额存单基础产品',
@@ -364,10 +425,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB009',
             label: '定期一本通基础产品',
@@ -375,10 +438,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'RB010',
             label: '借记卡基础产品',
@@ -386,10 +451,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210001',
             label: '个人汽车贷款',
@@ -397,10 +464,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210002',
             label: '个人保险保证贷款',
@@ -408,10 +477,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210003',
             label: '个人消费性循环贷款',
@@ -419,10 +490,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210004',
             label: '个人住房按揭贷款',
@@ -430,10 +503,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210005',
             label: '个人自助循环贷款',
@@ -441,10 +516,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210006',
             label: '个人综合消费贷款',
@@ -452,10 +529,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210007',
             label: '个人小微经营贷款',
@@ -463,10 +542,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210008',
             label: '个人经营用房按揭贷款',
@@ -474,10 +555,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210009',
             label: '个人经营流动资金贷款',
@@ -485,10 +568,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '210010',
             label: '下岗失业人员小额担保贷款',
@@ -496,10 +581,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'B',
             basevalue: 'CL001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220001',
             label: '单位流动资金贷款',
@@ -507,10 +594,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220002',
             label: '单位循环贷款（法透专用）',
@@ -518,10 +607,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220003',
             label: '固定资产贷款',
@@ -529,10 +620,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220004',
             label: '房地产开发贷款',
@@ -540,10 +633,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220005',
             label: '保障性住房开发贷款',
@@ -551,10 +646,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220006',
             label: '法人按揭',
@@ -562,10 +659,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220007',
             label: '小微企业专项贷款',
@@ -573,10 +672,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220008',
             label: '微企扶持创业贷款',
@@ -584,10 +685,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220009',
             label: '单位循环贷款',
@@ -595,10 +698,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220010',
             label: '承诺贷款',
@@ -606,10 +711,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '240001',
             label: '票据直贴',
@@ -617,10 +724,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL004',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '240002',
             label: '买方付息贴现',
@@ -628,10 +737,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL004',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '240003',
             label: '买入返售式转贴现',
@@ -639,10 +750,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL004',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '240004',
             label: '回购式再贴现',
@@ -650,10 +763,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL004',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '240005',
             label: '卖出回购式转贴现',
@@ -661,10 +776,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL004',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220011',
             label: '银承垫款',
@@ -672,10 +789,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220012',
             label: '国内信用证垫款',
@@ -683,10 +802,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220013',
             label: '国内融资保函垫款',
@@ -694,10 +815,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220014',
             label: '国内保理垫款',
@@ -705,10 +828,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL006',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220015',
             label: '贴现垫款',
@@ -716,10 +841,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '220016',
             label: '其它垫款',
@@ -727,10 +854,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '260004',
             label: '单位委托贷款',
@@ -738,10 +867,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL003',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '260005',
             label: '个人委托贷款',
@@ -749,10 +880,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL003',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '260013',
             label: '公积金组合贷款',
@@ -760,10 +893,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL003',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '260014',
             label: '公积金装修贷款',
@@ -771,10 +906,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL003',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '260015',
             label: '公积金购房贷款',
@@ -782,10 +919,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL003',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '250002',
             label: '银团贷款-我行代管',
@@ -793,10 +932,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL005',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '250003',
             label: '银团贷款-组合管理',
@@ -804,10 +945,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'CL005',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL001',
             label: '个人贷款基础产品',
@@ -815,10 +958,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL002',
             label: '公司贷款基础产品',
@@ -826,10 +971,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL003',
             label: '委托贷款基础产品',
@@ -837,10 +984,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL004',
             label: '贴现贷款基础产品',
@@ -848,10 +997,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL005',
             label: '银团贷款基础产品',
@@ -859,10 +1010,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL006',
             label: '垫款基础产品',
@@ -870,10 +1023,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL007',
             label: '非自营贷款基础产品',
@@ -881,10 +1036,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL008',
             label: '保理基础产品',
@@ -892,10 +1049,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL009',
             label: '贸易融资基础产品',
@@ -903,10 +1062,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'CL010',
             label: '循环贷款基础产品',
@@ -914,10 +1075,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'RB001',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330001',
             label: '人行再贷款',
@@ -925,10 +1088,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330002',
             label: '其他应收款',
@@ -936,10 +1101,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330003',
             label: '其他应付款',
@@ -947,10 +1114,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330004',
             label: '存放上级行清算资金',
@@ -958,10 +1127,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330005',
             label: '下级行存放清算资金',
@@ -969,10 +1140,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330006',
             label: '大额往账清算款项',
@@ -980,10 +1153,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330007',
             label: '大额来账清算款项',
@@ -991,10 +1166,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330008',
             label: '大额挂账',
@@ -1002,10 +1179,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330017',
             label: '代收业务',
@@ -1013,10 +1192,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330023',
             label: '同城交换待报解预算收入',
@@ -1024,10 +1205,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL006',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '310098',
             label: '测试用存放同业定期',
@@ -1035,10 +1218,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '310001',
             label: '存放中央银行超额准备金',
@@ -1046,10 +1231,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '310002',
             label: '存放中央银行法定准备金',
@@ -1057,10 +1244,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL002',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '310003',
             label: '存放中央银行财政性存款',
@@ -1068,10 +1257,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '310004',
             label: '存放境内同业活期款项',
@@ -1079,10 +1270,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '310005',
             label: '存放境内同业定期款项',
@@ -1090,10 +1283,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '310006',
             label: '存放境外同业活期款项',
@@ -1101,10 +1296,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL002',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '310007',
             label: '存放境外同业定期款项',
@@ -1112,10 +1309,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL002',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: '330099',
             label: '测试用同业存放活期',
@@ -1123,10 +1322,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: 'GL003',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'GL001',
             label: '往账活期基础产品',
@@ -1134,10 +1335,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: '',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'GL002',
             label: '往账定期基础产品',
@@ -1145,10 +1348,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: '',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'GL003',
             label: '来账活期基础产品',
@@ -1156,10 +1361,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: '',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'GL004',
             label: '来账定期基础产品',
@@ -1167,10 +1374,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: '',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'GL005',
             label: '内部账基础产品（借方）',
@@ -1178,10 +1387,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: '',
-            status: 'A',
+            status: '停售',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
             value: 'GL006',
             label: '内部账基础产品（贷方）',
@@ -1189,10 +1400,12 @@ export default {
             prodGroup: 'N',
             prodRange: 'S',
             basevalue: '',
-            status: 'A',
+            status: '启用',
             company: 'DCITS',
             tranTimestamp: '',
-            tranTime: ''
+            tranTime: '',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }]
     })
 }

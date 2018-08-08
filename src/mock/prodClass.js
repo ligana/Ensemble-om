@@ -7,80 +7,110 @@ const image_uri = 'https://wpimg.wallstcn.com/e4558086-631c-425c-9430-56ffb46e70
 export default {
     getProdClass: () => ({
         prodClassForm: [{
-            prodClass: 'CL100',
-            prodClassDesc: '对私贷款组',
+            value: 'CL100',
+            label: '对私贷款组',
             prodClassLevel: '2',
-            parentProdClass: 'CL'
+            parentProdClass: 'CL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'CL200',
-            prodClassDesc: '对公贷款组',
+            value: 'CL200',
+            label: '对公贷款组',
             prodClassLevel: '2',
-            parentProdClass: 'CL'
+            parentProdClass: 'CL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'CL300',
-            prodClassDesc: '贴现组',
+            value: 'CL300',
+            label: '贴现组',
             prodClassLevel: '2',
-            parentProdClass: 'CL'
+            parentProdClass: 'CL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'CL400',
-            prodClassDesc: '垫款组',
+            value: 'CL400',
+            label: '垫款组',
             prodClassLevel: '2',
-            parentProdClass: 'CL'
+            parentProdClass: 'CL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'CL500',
-            prodClassDesc: '委托贷款组',
+            value: 'CL500',
+            label: '委托贷款组',
             prodClassLevel: '2',
-            parentProdClass: 'CL'
+            parentProdClass: 'CL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'CL600',
-            prodClassDesc: '银团贷款组',
+            value: 'CL600',
+            label: '银团贷款组',
             prodClassLevel: '2',
-            parentProdClass: 'CL'
+            parentProdClass: 'CL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'CLBASE',
-            prodClassDesc: '贷款基础产品组',
+            value: 'CLBASE',
+            label: '贷款基础产品组',
             prodClassLevel: '2',
-            parentProdClass: 'CL'
+            parentProdClass: 'CL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'GL100',
-            prodClassDesc: '内部账组',
+            value: 'GL100',
+            label: '内部账组',
             prodClassLevel: '2',
-            parentProdClass: 'GL'
+            parentProdClass: 'GL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'GL200',
-            prodClassDesc: '存放同业组',
+            value: 'GL200',
+            label: '存放同业组',
             prodClassLevel: '2',
-            parentProdClass: 'GL'
+            parentProdClass: 'GL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'GL300',
-            prodClassDesc: '同业存放组',
+            value: 'GL300',
+            label: '同业存放组',
             prodClassLevel: '2',
-            parentProdClass: 'GL'
+            parentProdClass: 'GL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'GLBASE',
-            prodClassDesc: '内部账基础产品组',
+            value: 'GLBASE',
+            label: '内部账基础产品组',
             prodClassLevel: '2',
-            parentProdClass: 'GL'
+            parentProdClass: 'GL',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'RB100',
-            prodClassDesc: '个人存款组',
+            value: 'RB100',
+            label: '个人存款组',
             prodClassLevel: '2',
-            parentProdClass: 'RB'
+            parentProdClass: 'RB',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'RB200',
-            prodClassDesc: '对公存款组',
+            value: 'RB200',
+            label: '对公存款组',
             prodClassLevel: '2',
-            parentProdClass: 'RB'
+            parentProdClass: 'RB',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'RB300',
-            prodClassDesc: '同业存款组',
+            value: 'RB300',
+            label: '同业存款组',
             prodClassLevel: '2',
-            parentProdClass: 'RB'
+            parentProdClass: 'RB',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }, {
-            prodClass: 'RBBASE',
-            prodClassDesc: '存款基础产品组',
+            value: 'RBBASE',
+            label: '存款基础产品组',
             prodClassLevel: '2',
-            parentProdClass: 'RB'
+            parentProdClass: 'RB',
+            icon: 'call_to_action',
+            iconClass: 'amber white--text'
         }]
     })
 }

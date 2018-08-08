@@ -157,4 +157,9 @@ Menu.forEach((item) => {
   }
 });
 
-export default Menu;
+export function getMenu(){
+  return  Menu.splice(5,10)
+}
+export {
+    Menu
+} ;

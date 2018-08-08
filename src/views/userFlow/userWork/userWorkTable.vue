@@ -1,13 +1,6 @@
 <template>
   <v-card>
-    <v-toolbar card dense color="transparent">
-        <v-btn depressed small color="primary">批量</v-btn>
-        <v-btn depressed small @click="prodAction" color="primary">跳转风格</v-btn>
-      <v-spacer></v-spacer>
-      <v-btn icon>
-        <v-icon>more_vert</v-icon>
-      </v-btn>
-    </v-toolbar>
+
     <v-divider></v-divider>
     <v-card-text class="pa-0">
         <v-data-table
@@ -17,6 +10,7 @@
                 class="elevation-1"
                 item-key="name"
                 select-all
+                light
                 v-model="selected"
         >
             <template slot="items" slot-scope="props">
@@ -28,20 +22,20 @@
                         v-model="props.selected"
                 ></v-checkbox>
               </td>
-                    <td>{{ props.item.name }}</td>
+                    <td class="text-xs-left">{{ props.item.code }}</td>
+                    <td class="text-xs-left">{{ props.item.name }}</td>
                     <td class="text-xs-left">{{ props.item.date }}</td>
                     <td class="text-xs-left">{{ props.item.status }}</td>
                     <td class="text-xs-left">{{ props.item.roleLast }}</td>
-                    <td class="text-xs-left">查看差异</td>
+                    <td class="text-xs-left" @click="getDataInfo">详细信息</td>
                 </tr>
           </template>
             <template slot="expand" slot-scope="props">
                 <v-card flat>
-                    <v-card-text>Peek-a-boo!</v-card-text>
+                    <v-card-text>录入人信息：para</v-card-text>
                 </v-card>
             </template>
         </v-data-table>
-      <v-divider></v-divider>
     </v-card-text>
   </v-card>
 </template>
@@ -54,6 +48,7 @@
                 selected:[],
                 desserts: [
                     {
+                        code: 'pf3007',
                         name: '产品工厂',
                         date: '2018/07/02',
                         status: '待复核',
@@ -62,6 +57,7 @@
                     },
                     {
                         
+                        code: 'pm2003',
                         name: '参数定义',
                         date: '2018/07/02',
                         status: '待复核',
@@ -70,6 +66,7 @@
                     },
                     {
 
+                        code: 'pm281',
                         name: '参数分类',
                         date: '2018/07/02',
                         status: '待复核',
@@ -78,6 +75,7 @@
                     },
                     {
 
+                        code: 'pm2211',
                         name: '币种信息',
                         date: '2018/07/02',
                         status: '待复核',
@@ -87,6 +85,11 @@
 
                 ],
                 headers: [
+                    {
+                        text: '操作单号',
+                        align: 'left',
+                        value: 'code'
+                    },
                     {
                         text: '交易名称',
                         align: 'left',
@@ -113,6 +116,9 @@
                 getList().then(response => {
                     this.projects = response.data.irlAccounting
                 })
+            },
+            getDataInfo() {
+                this.$router.push({ name: 'tranDataIndex'})
             }
         },
         mounted: function() {
