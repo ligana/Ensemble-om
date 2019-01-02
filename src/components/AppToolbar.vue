@@ -1,6 +1,6 @@
 <template>
 
-    <v-toolbar color="primary" fixed dark app>
+    <v-toolbar class="styleOmUi_Color1" fixed dark app>
         <img v-bind:src="computeLogo" height="36" alt="产品工厂">
         <v-toolbar-title class="ml-0 pl-1">
             <span class="hidden-sm-and-down pr-3">{{titleName}}</span>

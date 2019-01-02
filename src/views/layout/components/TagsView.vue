@@ -1,7 +1,7 @@
 <template>
   <div class="tags-view-container elevation-2">
     <scroll-pane class= 'tags-view-wrapper' ref= 'scrollPane'>
-      <router-link ref= 'tag' class= 'tags-view-item' :class= "isActive(tag)?'active primary lighten-1':''" v-for= 'tag in Array.from(visitedViews)'
+      <router-link ref= 'tag' class= 'tags-view-item' :class= "isActive(tag)?'active styleOmUi_Color3':''" v-for= 'tag in Array.from(visitedViews)'
                    :to= 'tag' :key= 'tag.path' @contextmenu.prevent.native= 'openMenu(tag,$event)'>
         {{generateTitle(tag.title)}}
         <v-icon @click.prevent.stop= 'closeSelectedTag(tag)' class="material-icons">close</v-icon>
@@ -121,7 +121,7 @@
 
   .tags-view-container {
     .tags-view-wrapper {
-      background: #fff;
+      background: #B7C1CF;
       height: 46px;
       box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
       .tags-view-item {
@@ -132,18 +132,17 @@
         height: 41px;
         line-height: 26px;
         color: #495060;
-        background: #fff;
+        background: #DCE2EB;
         padding: 0 10px;
         font-size: 16px;
-
-        margin-left: 1px;
+        margin-left: 10px;
         margin-top: 5px;
         padding-top: 5px;
         &:first-of-type {
           margin-left: 15px;
         }
         &.active {
-          color: #fff;
+          color: #0C88B6;
           &::before {
             content: "";
             // background: #57ff4f;
@@ -152,7 +151,6 @@
             height: 8px;
             border-radius: 50%;
             position: relative;
-            margin-right: 2px;
           }
         }
       }
@@ -160,7 +158,7 @@
 
     .contextMenu {
       margin: 0;
-      background: #fff;
+      background: #B7C1CF;
       z-index: 100;
       position: absolute;
       list-style-type: none;
