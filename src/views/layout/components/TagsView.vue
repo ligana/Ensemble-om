@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-view-container elevation-2">
+  <div class="tags-view-container "><!--elevation-2-->
     <scroll-pane class= 'tags-view-wrapper' ref= 'scrollPane'>
       <router-link ref= 'tag' class= 'tags-view-item' :class= "isActive(tag)?'active styleOmUi_Color3':''" v-for= 'tag in Array.from(visitedViews)'
                    :to= 'tag' :key= 'tag.path' @contextmenu.prevent.native= 'openMenu(tag,$event)'>
@@ -123,26 +123,33 @@
     .tags-view-wrapper {
       background: #B7C1CF;
       height: 46px;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+     // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
       .tags-view-item {
         text-decoration: none;
         display: inline-block;
         position: relative;
-        font-weight: 400;
-        height: 41px;
-        line-height: 26px;
-        color: #495060;
+        height: 35px;
+        line-height: 35px;
+        color: #a0a9ac;
         background: #DCE2EB;
-        padding: 0 10px;
+        font-weight: 400;
         font-size: 16px;
-        margin-left: 10px;
-        margin-top: 5px;
-        padding-top: 5px;
+        margin: 11px 5px 0px 5px;
+        text-align: center;
+        border-top: 2px solid #DCE2EB;
+        padding:0 6px;
+        border-radius: 3px 3px 0 0;
+
         &:first-of-type {
           margin-left: 15px;
         }
         &.active {
-          color: #0C88B6;
+          color: #0C88B5;
+          border-top: 2px solid #0C88B5;
+            .material-icons{
+                color: #0C88B5;
+            }
+
           &::before {
             content: "";
             // background: #57ff4f;
