@@ -1,22 +1,22 @@
 <template>
     <v-layout justify-center pt-4 class="ml-4 mr-4">
         <v-flex xs12 sm12>
-            <v-card class="radiusDc">
-                <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
-                    <v-icon>widgets</v-icon>
+            <v-card class="MB_box">
+                <v-toolbar color="" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
+                    <!--<v-icon>widgets</v-icon>-->
                     <v-toolbar-title>{{title}}</v-toolbar-title>
-                <v-spacer></v-spacer>
-            </v-toolbar>
+                    <v-spacer></v-spacer>
+                </v-toolbar>
 
                 <!--<v-toolbar card dense color="transparent">-->
-                    <!--<v-layout justify-center>-->
-                        <!--<v-flex xs6 sm6>-->
-                    <!--<dc-text-field label="产品类型" labelDesc="产品类型" v-model='prodTypeSearch'/>-->
-                        <!--</v-flex>-->
-                        <!--<v-flex xs6 sm6>-->
-                    <!--<dc-multiselect label="产品分类" labelDesc="产品分类" v-model='prodClassSearch' :options="prodClassOption"></dc-multiselect>-->
-                        <!--</v-flex>-->
-                    <!--</v-layout>-->
+                <!--<v-layout justify-center>-->
+                <!--<v-flex xs6 sm6>-->
+                <!--<dc-text-field label="产品类型" labelDesc="产品类型" v-model='prodTypeSearch'/>-->
+                <!--</v-flex>-->
+                <!--<v-flex xs6 sm6>-->
+                <!--<dc-multiselect label="产品分类" labelDesc="产品分类" v-model='prodClassSearch' :options="prodClassOption"></dc-multiselect>-->
+                <!--</v-flex>-->
+                <!--</v-layout>-->
                 <!--</v-toolbar>-->
                 <v-toolbar card dense color="transparent">
                     <a-button type="primary" @click="onAdd">新增</a-button>
@@ -164,38 +164,38 @@
             onSave() {
                 this.backValue.data = filterTableChangeData(this.columns, this.dataInfo, this.sourceDataInfo)
                 this.backValue.tableName = this.tableName
-                this.backValue.tableDesc= this.$route.params.tableDesc
+                this.backValue.tableDesc = this.$route.params.tableDesc
                 this.backValue.option = "save"
                 this.backValue.userName = sessionStorage.getItem("userId")
                 saveTable(this.backValue).then(response => {
                     if (response.status === 200) {
                         toast.success("提交成功！");
-                        this.$router.push({ name: "paramManage", params: { tableName: this.tableName} });
-                        let setTaskEvent= new Event("taskList");
+                        this.$router.push({name: "paramManage", params: {tableName: this.tableName}});
+                        let setTaskEvent = new Event("taskList");
                         window.dispatchEvent(setTaskEvent);
                     }
                 });
 
-                if(this.backValue.data.length==0){
+                if (this.backValue.data.length == 0) {
                     toast.error("未做任何修改,提交失败！");
                 }
-                else{
+                else {
                     this.backValue.tableName = this.tableName
                     this.backValue.option = "save"
                     this.backValue.userName = sessionStorage.getItem("userId")
                     saveTable(this.backValue).then(response => {
                         if (response.status === 200) {
                             toast.success("提交成功！");
-                            this.$router.push({ name: "paramManage", params: { tableName: this.tableName} });
+                            this.$router.push({name: "paramManage", params: {tableName: this.tableName}});
                         }
                     });
                 }
             },
-            close (){
-                this.dialog=false
+            close() {
+                this.dialog = false
             },
             editAction(option, editSelected) {
-                if(option == 'close'){
+                if (option == 'close') {
                     this.close()
                 }
                 if (option == 'submit') {
@@ -214,18 +214,18 @@
                         }
                         if (selected.CLIENT_TYPE == []) {
                             alert("客户类型代码不能为空")
-                        }else if (selected.CLIENT_TYPE_DESC == []) {
+                        } else if (selected.CLIENT_TYPE_DESC == []) {
                             alert("客户类型描述不能为空")
-                            this.dialog=true
+                            this.dialog = true
                         } else if (selected.IS_INDIVIDUAL == []) {
                             alert("是否是个体客户不能为空")
-                            this.dialog=true
-                        }else if (selected.COMPANY == []) {
+                            this.dialog = true
+                        } else if (selected.COMPANY == []) {
                             alert("法人代码不能为空")
-                            this.dialog=true
-                        }else if (equals == true) {
+                            this.dialog = true
+                        } else if (equals == true) {
                             alert("客户类型不能与已存在的客户类型相同")
-                        }else {
+                        } else {
                             this.dataInfo.splice(0, 0, selected)
                             this.close()
                         }
@@ -255,3 +255,17 @@
         }
     };
 </script>
+<style scoped>
+    .MB_box {
+        box-shadow: none!important;
+        border: 1px solid #D6D6D6;
+    }
+    .MB_box .v-toolbar {
+        background-color: #f5f5f5;
+        color: rgba(0,0,0,.87);
+        border-bottom:1px solid #D6D6D6;
+    }
+    .ant-table-pagination.ant-pagination {
+        margin: 16px 16px 16px 0!important;
+    }
+</style>

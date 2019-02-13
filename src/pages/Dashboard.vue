@@ -1,55 +1,55 @@
 <template>
-  <div id="pageDashboard">
+  <div class="pageDashboard">
     <v-container grid-list-xl fluid class="pb-5">
       <v-layout row wrap>
         <!-- mini statistic start -->
-        <v-flex lg3 sm6 xs12>
+        <v-flex lg3 sm6 xs12 pad>
           <mini-statistic
                   icon="fa fa-facebook"
                   mark="RB"
                   title="存款产品"
-                  class="elevation-2 radiusDc"
+                  class="elevation-2 radiusDc "
                   sub-title="210"
-                  color="indigo"
+                  color="subject1"
           >
           </mini-statistic>
         </v-flex>
-        <v-flex lg3 sm6 xs12>
+        <v-flex lg3 sm6 xs12 pad>
           <mini-statistic
                   icon="fa fa-google"
-                  class="elevation-2 radiusDc"
+                  class="elevation-2 radiusDc "
                   mark="CL"
                   title="贷款产品"
                   sub-title="187"
-                  color="red"
+                  color="subject2"
           >
           </mini-statistic>
         </v-flex>
-        <v-flex lg3 sm6 xs12>
+        <v-flex lg3 sm6 xs12 pad>
           <mini-statistic
                   icon="fa fa-twitter"
                   mark="GL"
                   class="elevation-2 radiusDc"
                   title="内部帐"
                   sub-title="120"
-                  color="light-blue"
+                  color=" subject3"
           >
           </mini-statistic>
         </v-flex>
-        <v-flex lg3 sm6 xs12>
+        <v-flex lg3 sm6 xs12 pad>
           <mini-statistic
                   icon="fa fa-instagram"
                   mark="SF"
-                  class="elevation-2 radiusDc"
+                  class="elevation-2 radiusDc "
                   title="特色理财"
                   sub-title="20"
-                  color="purple"
+                  color="subject4"
           >
           </mini-statistic>
         </v-flex>
         <!-- mini statistic  end -->
         <v-flex lg8 sm12 xs12>
-          <v-widget title="系统发布统计" content-bg="white" class="elevation-2">
+          <v-widget title="系统发布统计" content-bg="white" class="v-widget">
             <v-btn icon slot="widget-header-action">
               <v-icon class="text--secondary">refresh</v-icon>
             </v-btn>
@@ -79,7 +79,7 @@
           </v-widget>
         </v-flex>
         <v-flex lg4 sm12 xs12>
-          <v-widget title="产品扇形图" content-bg="white" class="elevation-2">
+          <v-widget title="产品扇形图" content-bg="white" class="v-widget">
             <div slot="widget-content">
               <e-chart
                       :path-option="[
@@ -261,4 +261,22 @@ export default {
     bottom 0;
     width: 100%
   }
+
+  .radiusDc {
+    /*padding: 0px!important;*/
+      box-shadow: 0px 0px 0px 0px #fff !important;
+      background-color: #ecf0f6;
+  }
+    .pageDashboard >>> .v-toolbar__title h4 {
+        margin-bottom: .0em;
+    }
+    .v-widget >>> .v-card{
+        border-radius:0!important;
+        box-shadow:none!important;
+        border 1px solid #E0E4EA;
+    }
+    #v-widget >>>.v-toolbar{
+        background-color: #F4F5F9 !important;
+    }
+
   </style>

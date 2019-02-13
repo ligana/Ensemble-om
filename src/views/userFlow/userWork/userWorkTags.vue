@@ -5,6 +5,7 @@
         <span class="itemDc">{{n}}</span>
       </v-tab>
       <v-tab-item v-for="n in 3" :key="n" class="pb-2">
+
         <user-work-check-table v-if="n==1" v-bind:userWorkData="userWorkData"></user-work-check-table>
         <user-work-release-table v-if="n==2"></user-work-release-table>
       </v-tab-item>
@@ -36,7 +37,7 @@
     methods: {
         queryDespositProdData() {
             getFlowList().then(response => {
-               this.userWorkData = response.data.data
+                this.userWorkData = response.data.data
             });
         }
     }

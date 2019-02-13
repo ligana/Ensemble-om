@@ -109,3 +109,8 @@
         }
     }
 </script>
+<style scoped>
+.green--text.text--darken-1 {
+   border: 1px solid;
+}
+</style>

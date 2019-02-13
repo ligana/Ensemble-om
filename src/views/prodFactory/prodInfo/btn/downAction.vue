@@ -2,21 +2,21 @@
   <div>
     <v-layout row wrap v-if="edit == 'false'">
       <v-flex md4 lg4>
-          <v-btn color="success" depressed="" @click="temp"><v-icon >assignment_turned_in</v-icon>暂存</v-btn>
+          <v-btn color="success" depressed="" @click="temp"><v-icon >sd_card</v-icon>暂存</v-btn>
       </v-flex>
       <v-flex md4 lg4>
-          <v-btn color="success" depressed="" @click='showCopy=!showCopy'><v-icon >history</v-icon>复制</v-btn>
+          <v-btn color="success" depressed="" @click='showCopy=!showCopy'><v-icon >file_copy</v-icon>复制</v-btn>
       </v-flex>
       <v-flex md4 lg4>
-          <v-btn color="success" depressed="" @click="save"><v-icon >history</v-icon>保存</v-btn>
+          <v-btn color="success" depressed="" @click="save"><v-icon >save</v-icon>保存</v-btn>
       </v-flex>
     </v-layout>
     <v-layout row wrap v-if="edit == 'true'">
       <v-flex md6 lg6>
-        <v-btn color="success" depressed="" @click="temp" class="downClass"><v-icon >assignment_turned_in</v-icon>暂存</v-btn>
+        <v-btn color="success" depressed="" @click="temp" class="downClass"><v-icon >sd_card</v-icon>暂存</v-btn>
       </v-flex>
       <v-flex md6 lg6>
-        <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >history</v-icon>保存</v-btn>
+        <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >save</v-icon>保存</v-btn>
       </v-flex>
     </v-layout>
     <div v-show="showCopy">
