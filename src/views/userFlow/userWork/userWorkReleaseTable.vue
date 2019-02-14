@@ -1,5 +1,5 @@
 <template>
-    
+
     <v-data-table :headers="headers" :items="desserts" :rows-per-page-items="[10,25,50,{text:'All','value':-1}]"
                   class=" px-0 " item-key="code" select-all light v-model="selected">
         <template slot="items" slot-scope="props">
@@ -22,6 +22,7 @@
 
     import {getCheckFlowList} from "@/api/url/prodInfo";
     import {getModuleByFlowCode} from "@/api/url/prodInfo";
+
     export default {
         data() {
             let value = "accountingStatus";
@@ -89,46 +90,46 @@
             this.queryCheckedProdData()
 
         },
-     this.queryCheckedProdData()
         methods: {
             prodAction() {
                 this.$router.push({
                     name: "userWorkTags"
                 });
             },
-            queryCheckedProdData() {
+            queryCheckedProdData(){
                 getCheckFlowList().then(response => {
                     this.desserts = []
                     let length = response.data.data.length
-                    for (let j = 0; j < length; j++) {
-                        if (response.data.data[j].flowManage.status === "3") {
+                    for(let j = 0; j<length; j++){
+                        if(response.data.data[j].flowManage.status === "3"){
                             response.data.data[j].flowManage.status = "已复核"
                             this.desserts.push(response.data.data[j])
                         }
                     }
                 });
             },
-
-
             getDataInfo(code) {
                 //获取当前处理数据
                 let tagInfo = []
-                for (let i = 0; i < this.desserts.length; i++) {
-                    if (code === this.desserts[i].flowManage.mainSeqNo) {
+                for(let i=0; i<this.desserts.length; i++){
+                    if(code === this.desserts[i].flowManage.mainSeqNo){
                         tagInfo.push(this.desserts[i])
                         break
                     }
                 }
-          getModuleByFlowCode(code).then(response => {
-            let sourceModule
-            for(let tId in response.data.data){
-            sourceModule = response.data.data[tId].SOURCE_MODULE
-        }
-            this.$router.push({name: "tranDataIndex", params: {code: code, optValue: "发布", flowInfo: tagInfo}});
-
-
-    });
+                getModuleByFlowCode(code).then(response => {
+                    let sourceModule
+                    for(let tId in response.data.data){
+                        sourceModule = response.data.data[tId].SOURCE_MODULE
+                    }
+//        if(sourceModule == "RB"){
+                    this.$router.push({name: "tranDataIndex", params: {code: code, optValue: "发布", flowInfo: tagInfo}});
+//        }
+//        if(sourceModule == "CL") {
+//            this.$router.push({name: "tranDataIndex", params: {code: code, optValue: "发布", flowInfo: tagInfo}});
+//        }
+                });
             }
         }
-       
+    };
 </script>
