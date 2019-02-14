@@ -12,6 +12,23 @@ import loginAPI from './login'
 import prodTypeAPI from './prodType'
 import userCollectAPI from './userCollect'
 import rbtableAPI from './rbTable'
+
+import {getMenu} from './menu'
+import rbBaseProdsAPI from './rbBaseProds'
+import getAllDefineAPI from './getAllDefineList'
+import getAllProdAPI from './getAllProdList'
+
+import getProdClassListAPI from './getProdClassList'
+import reviewListAPI from './reviewList'
+import getmoduleByFlowCodeAPI from './getmoduleByFlowCode'
+import reviewCheckListAPI from './reviewCheckList'
+import getTableListAPI from './getTableList'
+import getTableInfoAPI from './getTableInfo'
+import getProdListByClassAPI from './getProdListByClass'
+import getSysInfoByUseAPI from './getSysInfoByUser'
+import getSysTableeAPI from './getSysTable'
+
+
 // Mock.setup({
 //   timeout: '350-600'
 // })
@@ -33,7 +50,7 @@ Mock.mock(/\/table\/list/, 'get', tableAPI.getList);
 Mock.mock(/\/prod\/info\.*/, 'get', prodAPI.getProd);
 Mock.mock(/\/prod\/userCollect\.*/, 'get', userCollectAPI.getUserCollectProds());
 
-Mock.mock(/\/getProdInfo/, 'post', dataAPI.getProdInfo);
+
 
 Mock.mock(/\/getPrivateData/, 'post', privateDataAPI.getPrivateData);
 
@@ -49,10 +66,26 @@ Mock.mock(/\/table\/accountingInfo/, 'get', rbtableAPI.getAccountingInfo);
 // Mock.mock(/\/login/, 'post', loginAPI.loginByUsername)
 Mock.mock(/\/login/, 'post', loginAPI.login)
 
-Mock.mock(/\/getProdListByClass/, 'post', prodTypeAPI.getProdType)
+Mock.mock(/\/getProdListByClass/, 'post', getProdListByClassAPI.getProdListByClass)
+
+Mock.mock(/user\/login\.*/, 'post', loginAPI.login)
 
 
 Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
 Mock.mock(/\/user\/info\.*/, 'get', loginAPI.getUserInfo)
+// 新增挡板
+Mock.mock(/\/getMenuList\.*/, 'get', getMenu)
+Mock.mock(/\/getProdInfo\.*/, 'post', rbBaseProdsAPI.getRbBaseInfo);
+Mock.mock(/\/getAllDefineList\.*/, 'post', getAllDefineAPI.prodwindow);
+Mock.mock(/\/getAllProdList\.*/, 'post', getAllProdAPI.prodwindowlist);
+
+Mock.mock(/\/getProdClassList\.*/, 'post', getProdClassListAPI.ClassList);
+Mock.mock(/\/reviewList\.*/, 'post', reviewListAPI.reviewList);
+Mock.mock(/\/getModuleByFlowCode\.*/, 'post', getmoduleByFlowCodeAPI.getmoduleByFlowCode);
+Mock.mock(/\/reviewCheckList\.*/, 'post', reviewCheckListAPI.CheckList);
+Mock.mock(/\/getTableList\.*/, 'post', getTableListAPI.getTableList);
+Mock.mock(/\/getParamTable\.*/, 'post', getTableInfoAPI.getTableInfo);
+Mock.mock(/\/getSysInfoByUser\.*/, 'post', getSysInfoByUseAPI.getSysInfoByUser);
+Mock.mock(/\/getSysTable\.*/, 'post', getSysTableeAPI.getSysTable);
 
 export default Mock;

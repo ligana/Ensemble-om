@@ -3,13 +3,13 @@
         <v-layout>
             <v-flex md3 lg3 class="pl-4">
                 <v-flex xs12>
-                    <v-card class="pt-4 elevation-4 radiusDc">
+                    <v-card class="pt-4">
                         <v-card-media src="/static/avatar/sys1.jpg">
                         </v-card-media>
                     </v-card>
                 </v-flex>
                 <v-flex xs12 class="mt-2 pb-4">
-                    <v-card style="height: 200%" class="elevation-4 radiusDc">
+                    <v-card style="height: 200%" class="">
                         <v-list>
                             <v-list-tile v-for="item in items" :key="item.title" @click="actionTag(item)" :class="item.class">
                                 <v-list-tile-action>
@@ -53,10 +53,10 @@
                 action: 'menu',
                 items: [
                     {title: '菜单管理',name: 'menu', class: '',icon: 'menu',color: "blue"},
-                    {title: '角色管理',name: 'role', class: '', icon: 'event',color: "blue"},
-                    {title: '角色菜单授权',name: 'roleMenu', class: '', icon: 'widgets',color: "blue"},
-                    {title: '用户管理',name: 'user', class: '', icon: 'person',color: "blue"},
-                    {title: '用户角色管理',name: 'userRole', class: '',icon: 'widgets',color: "blue"}
+                    {title: '角色管理',name: 'role', class: '', icon: 'supervised_user_circle',color: "blue"},
+                    {title: '角色菜单授权',name: 'roleMenu', class: '', icon: 'verified_user',color: "blue"},
+                    {title: '用户管理',name: 'user', class: '', icon: 'how_to_reg',color: "blue"},
+                    {title: '用户角色管理',name: 'userRole', class: '',icon: 'supervisor_account',color: "blue"}
                 ],
                 window: 0,
                 windowItem: 'windowItem',
@@ -121,7 +121,23 @@
         margin-top: 15px;
         color: #000000;
     }
-    .titleItem {
-
+    .pt-5 .pl-4 >>> .v-card{
+        box-shadow: none;
+        border: 1px solid #E0E4EA;
+    }
+    .pt-5 .pl-4 >>> .v-toolbar{
+        box-shadow: none;
+        background-color: #F4F5F8!important;
+        border-bottom: 1px solid #E0E4EA!important;
+        color: #383B4D;
+    }
+    .pt-5 .pl-4 >>> .elevation-1,.elevation-4 {
+        box-shadow: none!important;
+    }
+    .pt-5 .pl-4 >>> .elevation-4 {
+        border:1px solid #E0E4EA!important;
+    }
+    .pt-5 .pl-4 >>> .v-btn__content td {
+        color: #383B4D!important;
     }
 </style>

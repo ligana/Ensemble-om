@@ -13,19 +13,19 @@ import Truncate from 'lodash.truncate';
 import store from './store';
 import qs from 'qs';
 import globalConfig from "./config.js";
-// import './mock';
+import './mock';
 
 import 'ant-design-vue/dist/antd.css';
 import 'vuetify/dist/vuetify.min.css'
 
-// µ¼Èë table ºÍ ·ÖÒ³×é¼þ
+// ï¿½ï¿½ï¿½ï¿½ table ï¿½ï¿½ ï¿½ï¿½Ò³ï¿½ï¿½ï¿½
 import { Spin, Table,Divider,Tag ,Button} from 'ant-design-vue'
 Vue.component(Table.name, Table)
 Vue.component(Divider.name, Divider)
 Vue.component(Tag.name, Tag)
 Vue.component(Button.name, Button)
 Vue.component(Spin.name, Spin)
-// ×¢²áµ½È«¾Ö
+// ×¢ï¿½áµ½È«ï¿½ï¿½
 Vue.prototype.$qs = qs
 //Global Config
 Vue.prototype.globalConfig = globalConfig

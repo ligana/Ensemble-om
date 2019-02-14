@@ -302,6 +302,7 @@ export default {
   border-color: rgba(40, 24, 31, 0.21);
   text-align: center;
   font-size: large;
+  margin-left: 20px;
 }
 .tbColor {
   background-color: #e3f2fd;

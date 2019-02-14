@@ -1,16 +1,18 @@
 <template>
   <a-spin tip="Loading..." size="large" :spinning="spinning">
-  <div class="ml-4">
-    <v-layout row wrap>
+  <div class="ml-4 tranDataIndex">    <v-layout row wrap>
       <v-flex md8 lg8>
         <!--<tran-check-flow-info v-if="optKey==3"></tran-check-flow-info>-->
         <!--<tran-release-flow-info v-if="optKey==4"></tran-release-flow-info>-->
         <!--复核流程信息-->
-        <v-card class="mt-4 elevation-4 radiusDc">
+      
+        <v-card class="mt-4 ">
           <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
-            <v-icon>call_split</v-icon>
+           
+            <!--<v-icon>call_split</v-icon>-->
             <v-toolbar-title>{{title}}</v-toolbar-title>
           </v-toolbar>
+          
           <v-stepper v-model="e11" v-if="optKey == 3" style="height: 330px;">
             <v-stepper-header style="font-size: large">
               <v-divider></v-divider>
@@ -82,6 +84,7 @@
           </v-stepper>
 
           <!--发布流程信息-->
+         
           <v-stepper v-model="e1" style="color: white;height: 330px;" v-if="optKey == 4" >
             <v-stepper-header style="font-size: large">
               <v-stepper-step editable :complete="e1 > 1" step="1">提交信息</v-stepper-step>
@@ -196,20 +199,24 @@
                 </v-card>-->
       </v-flex>
     </v-layout>
-    <v-card class="elevation-2 radiusDc">
+   
+    <v-card class="difference">
       <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" class="elevation-4 mt-4" flat>
-        <v-toolbar-side-icon @click="showClick"></v-toolbar-side-icon>
+       
+        <v-toolbar-side-icon @click="showClick" style="color: #46485B;"></v-toolbar-side-icon>
         <v-toolbar-title class="white--text">修改差异展示</v-toolbar-title>
         <v-spacer></v-spacer>
         <v-tooltip bottom color="blue">
           <v-btn flat icon="print" slot="activator">
-            <v-icon class="mr-2" @click="printDown()" style="color: white">print</v-icon>
+           
+            <v-icon class="mr-2" @click="printDown()" style="color: #46485B">print</v-icon>
           </v-btn>
           <span>打      印</span>
         </v-tooltip>
         <v-tooltip bottom color="blue">
           <v-btn flat icon="widgets" slot="activator">
-            <v-icon @click="downLoad()" style="color: white">widgets</v-icon>
+            
+            <v-icon @click="downLoad()" style="color: #46485B">widgets</v-icon>
           </v-btn>
           <span>导      出</span>
         </v-tooltip>
@@ -260,6 +267,7 @@
             </v-tab-item>
           </v-tabs-items>
         </v-tabs>
+        
         <!--<v-tabs fixed-tabs v-if="isTable == true">-->
           <!--<v-tab style="margin-left: 0px">{{diffTitles}}</v-tab>-->
           <!--<v-tabs-items>-->
@@ -378,6 +386,7 @@
                     key: '',
                     value: ''
                 }],
+               
                 tranId: '',
                 tranType: ''
             }
@@ -508,12 +517,17 @@
             //展开/隐藏差异信息列表
             showClick() {
                 this.showFlag = this.showFlag ===0?1:0
+              
+              
                 if(!this.isTable || this.tranType == '0') {
                     //产品差异获取数据处理
+                  
                     this.getDiffProdData(this.tranId);
                 }
+                
                 if(this.isTable|| this.tranType == '1'){
                     //单表差异获取数据组装
+              
                     this.getDiffTableData(this.tranId);
                 }
             },
@@ -534,9 +548,11 @@
             },
             getDiffTableData() {
                 //通过交易主单号 获取单表差异信息
+               
                 var data={'mainSeqNo': this.code,"tranId": this.tranId};
                 getDiffTable(data).then(response => {
                     console.log(response);
+                    
                     this.diffTitles = this.tranId
                     let tableDiffInfo = response.data.data.tableInfo
                     //获取单表列描述
@@ -602,6 +618,7 @@
             getDiffProdData(tranId){
                 //通过交易主单号 获取产品差异信息
                 let data={'mainSeqNo': this.code,'tranId': tranId};
+               
                 getModuleByFlowCode(this.code).then(response => {
                     for(let tId in response.data.data){
                         if(tranId == tId){
@@ -915,15 +932,20 @@
     margin-top: 4%;
   }
   .descClass {
-    color: #64b5f6;
+   
+    color: #A1A1A1;
     font-size: large;
     font-style: inherit;
     margin-right: 0px;
+   
     margin-top: 10px;
     margin-left: 10%
   }
   .textBox {
-    margin-top: 5px;
+   
+    margin-top: 10px;
+      padding-top: 0px;
+      border-bottom: 1px solid #DDE2E8!important;
   }
   .btnClass {
     margin-top: 5%;
@@ -931,5 +953,63 @@
     margin-bottom: 3%;
     width: 50%;
     font-size: large;
+  }
+  .primary.lighten-2  {
+      background-color: #F4F5F8 !important;
+      color: #58595E!important;
+      border-bottom: 1px solid #D6D7DB!important;
+  }
+    .tranDataIndex >>> .theme--light.v-card {
+        background-color: #F4F5F8 !important;
+        color: #58595E!important;
+        border: 1px solid #D6D7DB!important;
+        box-shadow: none!important;
+    }
+  .tranDataIndex >>> .radiusDc {
+      border-radius:0px!important;
+      box-shadow: none!important;
+      /*border: 1px solid #D6D7DB!important;*/
+      /*border-bottom: none;*/
+  }
+  .tranDataIndex >>> .theme--light .v-toolbar__content {
+      height: 64px!important;
+      line-height: 64px;
+  }
+  .tranDataIndex >>> .changeColor {
+      border-bottom: 1px solid rgba(0,0,0,.12);
+      background-color: #fff!important;
+  }
+  .tranDataIndex >>> .theme--light .v-toolbar__content h4 {
+      margin-bottom: 0;
+  }
+  .tranDataIndex >>> .theme--light.v-stepper .v-stepper__step__step {
+      background-color: #3399FF!important;
+  }
+  .tranDataIndex >>> .theme--light.v-text-field.v-input--is-disabled .v-input__slot:before {
+      border: none;
+  }
+  .tranDataIndex >>> .v-text-field>.v-input__control>.v-input__slot:before {
+      border: none;
+  }
+  .white--text {
+      color: #46485B!important;
+  }
+  .tranDataIndex >>> .v-btn:not(.v-btn--outline).primary {
+      background-color: #3C73E6!important;
+  }
+  .tranDataIndex >>>  .v-stepper__header {
+      box-shadow:none!important;
+      border-bottom: 1px solid #D0D1D5!important;
+  }
+
+  .tranDataIndex >>> .theme--light.v-stepper {
+      box-shadow: none;
+  }
+  .tranDataIndex >>> .difference.theme--light.v-card {
+      border: none!important;
+  }
+  .tranDataIndex >>> .difference .primary {
+      box-shadow: none!important;
+      border: 1px solid #D0D1D5!important;
   }
 </style>

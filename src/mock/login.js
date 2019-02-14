@@ -37,10 +37,12 @@ export default {
     },
     logout: () => 'success',
     login: config => {
-        let username = ""
-        let password = ""
+        let userId = "admin"
+        let omUser={userLevel: 1}
+        let para='{\"userId\": \"userId\", \"omUser\":\"omUser\"}'
         var data = {
-            code: "000000"
+            code: "000000",
+            data: para
         }
         return data
     },
