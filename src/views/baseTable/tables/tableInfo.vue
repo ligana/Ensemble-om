@@ -1,10 +1,10 @@
 <template>
     <v-layout justify-center pt-4 class="ml-4 mr-4">
         <v-flex xs12 sm12>
-            <v-card class="radiusDc">
-                <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
-                    <v-icon>widgets</v-icon>
-                    <v-toolbar-title>{{tableName}}-[{{tableDesc}}]</v-toolbar-title>
+            <v-card class="MB_box">
+                <v-toolbar color="" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
+                    <!--<v-icon>widgets</v-icon>-->
+                    <v-toolbar-title>{{title}}</v-toolbar-title>
                     <v-spacer></v-spacer>
                 </v-toolbar>
 
@@ -207,9 +207,10 @@
             onSave() {
                 this.backValue.data = filterTableChangeData(this.columnsTwo, this.dataInfo, this.sourceDataInfo)
                 this.backValue.tableName = this.tableName
-                this.backValue.tableDesc= this.$route.params.tableDesc
+                this.backValue.tableDesc = this.$route.params.tableDesc
                 this.backValue.option = "save"
                 this.backValue.userName = sessionStorage.getItem("userId")
+
                 if(this.backValue.data.length==0){
                     this.$swal({
                         allowOutsideClick: false,
@@ -227,12 +228,13 @@
                             this.$router.push({ name: "paramManage", params: { tableName: this.tableName} });
                             let setTaskEvent= new Event("taskList");
                             window.dispatchEvent(setTaskEvent);
+
                         }
                     });
                 }
             },
-            close (){
-                this.dialog=false
+            close() {
+                this.dialog = false
             },
             childLimit(editSelected){
                 this.childPd = true
@@ -347,7 +349,30 @@
                                 selected[key] = editSelected[key].value
                             }
                         }
+// <<<<<<< HEAD
                         if(this.limit(editSelected)){
+// =======
+//                         let equals = false;
+//                         for (let i = 0; i < this.dataInfo.length; i++) {
+//                             if (selected.CLIENT_TYPE == this.dataInfo[i].CLIENT_TYPE) {
+//                                 equals = true;
+//                             }
+//                         }
+//                         if (selected.CLIENT_TYPE == []) {
+//                             alert("客户类型代码不能为空")
+//                         } else if (selected.CLIENT_TYPE_DESC == []) {
+//                             alert("客户类型描述不能为空")
+//                             this.dialog = true
+//                         } else if (selected.IS_INDIVIDUAL == []) {
+//                             alert("是否是个体客户不能为空")
+//                             this.dialog = true
+//                         } else if (selected.COMPANY == []) {
+//                             alert("法人代码不能为空")
+//                             this.dialog = true
+//                         } else if (equals == true) {
+//                             alert("客户类型不能与已存在的客户类型相同")
+//                         } else {
+// >>>>>>> styleUi2.0
                             this.dataInfo.splice(0, 0, selected)
                             this.close()
                         }
@@ -370,3 +395,17 @@
         }
     };
 </script>
+<style scoped>
+    .MB_box {
+        box-shadow: none!important;
+        border: 1px solid #D6D6D6;
+    }
+    .MB_box .v-toolbar {
+        background-color: #f5f5f5;
+        color: rgba(0,0,0,.87);
+        border-bottom:1px solid #D6D6D6;
+    }
+    .ant-table-pagination.ant-pagination {
+        margin: 16px 16px 16px 0!important;
+    }
+</style>

@@ -1,7 +1,7 @@
 <template>
-  <div class="tags-view-container elevation-2">
+  <div class="tags-view-container "><!--elevation-2-->
     <scroll-pane class= 'tags-view-wrapper' ref= 'scrollPane'>
-      <router-link ref= 'tag' class= 'tags-view-item' :class= "isActive(tag)?'active primary lighten-1':''" v-for= 'tag in Array.from(visitedViews)'
+      <router-link ref= 'tag' class= 'tags-view-item' :class= "isActive(tag)?'active styleOmUi_Color3':''" v-for= 'tag in Array.from(visitedViews)'
                    :to= 'tag' :key= 'tag.path' @contextmenu.prevent.native= 'openMenu(tag,$event)'>
         {{titleName(tag)}}
         <v-icon @click.prevent.stop= 'closeSelectedTag(tag)' class="material-icons">close</v-icon>
@@ -131,29 +131,35 @@
 
   .tags-view-container {
     .tags-view-wrapper {
-      background: #fff;
+      background: #B7C1CF;
       height: 46px;
-      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
+     // box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
       .tags-view-item {
         text-decoration: none;
         display: inline-block;
         position: relative;
+        height: 35px;
+        line-height: 35px;
+        color: #a0a9ac;
+        background: #DCE2EB;
         font-weight: 400;
-        height: 41px;
-        line-height: 26px;
-        color: #495060;
-        background: #fff;
-        padding: 0 10px;
         font-size: 16px;
+        margin: 11px 5px 0px 5px;
+        text-align: center;
+        border-top: 2px solid #DCE2EB;
+        padding:0 6px;
+        border-radius: 3px 3px 0 0;
 
-        margin-left: 1px;
-        margin-top: 5px;
-        padding-top: 5px;
         &:first-of-type {
           margin-left: 15px;
         }
         &.active {
-          color: #fff;
+          color: #0C88B5;
+          border-top: 2px solid #0C88B5;
+            .material-icons{
+                color: #0C88B5;
+            }
+
           &::before {
             content: "";
             // background: #57ff4f;
@@ -162,7 +168,6 @@
             height: 8px;
             border-radius: 50%;
             position: relative;
-            margin-right: 2px;
           }
         }
       }
@@ -170,7 +175,7 @@
 
     .contextMenu {
       margin: 0;
-      background: #fff;
+      background: #B7C1CF;
       z-index: 100;
       position: absolute;
       list-style-type: none;

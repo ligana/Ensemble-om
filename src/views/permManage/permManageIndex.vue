@@ -3,13 +3,13 @@
         <v-layout>
             <v-flex md3 lg3 class="pl-4">
                 <v-flex xs12>
-                    <v-card class="pt-4 elevation-4 radiusDc">
+                    <v-card class="pt-4 e">
                         <v-card-media src="/static/avatar/perm2.jpg" style="margin-top: -10%">
                         </v-card-media>
                     </v-card>
                 </v-flex>
                 <v-flex xs12 class="mt-2 pb-4">
-                    <v-card style="height: 200%" class="elevation-4 radiusDc">
+                    <v-card style="height: 200%" class="">
                         <v-list>
                             <v-list-tile v-for="item in items" :key="item.title" @click="actionTag(item)" :class="item.class">
                                 <v-list-tile-action>
@@ -44,8 +44,8 @@
                 action: 'prod',
                 items: [
                     {title: '产品工厂权限管理',name: 'prod', class: '',icon: 'gavel',color: "blue"},
-                    {title: '参数系统权限管理',name: 'param', class: '', icon: 'settings',color: "blue"},
-                    {title: '网贷端权限管理',name: 'inter', class: '', icon: 'widgets',color: "blue"},
+                    {title: '参数系统权限管理',name: 'param', class: '', icon: 'keyboard',color: "blue"},
+                    {title: '网贷端权限管理',name: 'inter', class: '', icon: 'local_atm',color: "blue"},
 
                 ],
                 window: 0,
@@ -113,5 +113,24 @@
     }
     .titleItem {
 
+    }
+    .pt-5 .pl-4 >>> .v-card{
+        box-shadow: none;
+        border: 1px solid #E0E4EA;
+    }
+    .pt-5 .pl-4 >>> .v-toolbar{
+        box-shadow: none;
+        background-color: #F4F5F8!important;
+        border-bottom: 1px solid #E0E4EA!important;
+        color: #383B4D;
+    }
+    .pt-5 .pl-4 >>> .elevation-1,.elevation-4 {
+        box-shadow: none!important;
+    }
+    .pt-5 .pl-4 >>> .elevation-4 {
+        border:1px solid #E0E4EA!important;
+    }
+    .pt-5 .pl-4 >>> .v-btn__content td {
+        color: #383B4D!important;
     }
 </style>

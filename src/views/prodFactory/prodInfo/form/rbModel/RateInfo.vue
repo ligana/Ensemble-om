@@ -2,7 +2,7 @@
     <v-card>
         <v-toolbar card dense color="transparent">
             <v-flex xs12 sm2 d-flex>
-                <v-subheader class="primary--text subheading justify-start" >是否使用固定利率*</v-subheader>
+                <v-subheader class="primary--text subheading justify-start" style="padding: 0">是否使用固定利率*</v-subheader>
             </v-flex>
             <v-flex xs12 sm4>
                 <dc-switch v-model="switchValue"></dc-switch>

@@ -1,10 +1,10 @@
 <template>
         <v-layout row wrap>
-            <v-card style="height: 500px;width: 95%" class="elevation-4">
-                <v-toolbar color="primary lighten-2" dark>
-                    <v-btn icon>
-                        <v-icon>person</v-icon>
-                    </v-btn>
+            <v-card style="height: 500px;width: 95%" class="_userinfo">
+                <v-toolbar color="primary " dark>
+                        <!--<v-btn icon >-->
+                            <!--<v-icon >person</v-icon>-->
+                        <!--</v-btn>-->
                     <v-toolbar-title>个人信息管理</v-toolbar-title>
 
                 </v-toolbar>
@@ -162,5 +162,16 @@
     }
     .class3 {
         font-size: large; color: white; margin-left: 5px
+    }
+    ._userinfo {
+        box-shadow: none;
+        border: 1px solid #E0E4EA!important;
+    }
+    ._userinfo .v-toolbar{
+        background-color: #F4F5F8!important;
+        border-radius: 0;
+        box-shadow: none;
+        color: #383B4D!important;
+        border-bottom: 1px solid #E0E4EA!important;
     }
 </style>
