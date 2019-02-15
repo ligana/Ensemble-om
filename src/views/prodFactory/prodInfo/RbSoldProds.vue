@@ -1,10 +1,10 @@
 <template>
-    <a-spin tip="Loading..." size="large" :spinning="spinning">
+    <a-spin tip="Loading..." size="large" :spinning="spinning" class="RB">
     <div class="app-container pt-4">
         <v-layout row wrap>
-            <v-flex lg9 sm9 class="v-card elevation-2">
+            <v-flex lg9 sm9 style=" border:1px solid #DCE1E7!important;">
                 <v-toolbar color="primary lighten-2" dark tabs>
-                    <v-toolbar-side-icon></v-toolbar-side-icon>
+                    <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
                     <v-toolbar-title class="white--text">{{prodCode}}-{{prodDesc}}</v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-tooltip bottom color="orange">
@@ -42,15 +42,15 @@
                     </v-tab-item>
                 </v-tabs-items>
             </v-flex>
-            <v-flex lg3 sm3 class="v-card" pl-3>
-                <v-card class="elevation-2">
-                    <v-card-text>
+            <v-flex lg3 sm3 class="v-card pl-3">
+                <v-card class="">
+                    <v-card-text class="boartop_box">
                         <down-action v-if="pendFlag==0" v-bind:editShow="editShow" v-on:listenToCopy="listenToCopy" v-on:saveProd="saveProd" v-on:tempProd="tempProd"></down-action>
                         <pending-form v-if="pendFlag==1"></pending-form>
                     </v-card-text>
                 </v-card>
-                <v-window v-model="onboarding" :class="depositTree" class="pt-2">
-                    <v-card-actions v-if="windowShow == 3" class="elevation-2">
+                <v-window v-model="onboarding" :class="depositTree" class="">
+                    <v-card-actions v-if="windowShow == 3" class="">
                         <v-item-group v-model="onboarding" style="margin-left: 30%">
                             <v-item v-for="n in length" :key="`btn-${n}`">
                                 <v-btn slot-scope="{ active, toggle }" :input-value="active" icon @click="toggle">
@@ -59,9 +59,9 @@
                             </v-item>
                         </v-item-group>
                     </v-card-actions>
-                    <v-window-item v-for="n in length" :key="`card-${n}`" class="elevation-2">
+                    <v-window-item v-for="n in length" :key="`card-${n}`" class="">
                         <prod-list-form v-if="n == 2 || windowShow == 0" v-bind:prodClass="prodClass" v-on:listenToProdList="listenToProdList"></prod-list-form>
-                        <dc-treeAttr v-if="n == 1 && windowShow != 0" v-model="tree" :options="treeOptions" labelDesc="产品参数"></dc-treeAttr>
+                        <dc-treeAttr v-if="n == 1 && windowShow != 0" v-model="tree" :options="treeOptions" labelDesc="产品参数" style="background-color: #ff0405;"></dc-treeAttr>
                     </v-window-item>
                 </v-window>
             </v-flex>
@@ -583,4 +583,61 @@
         min-height: calc(90vh - 14px);
         padding-bottom: 120px;
     }
+    .RB >>> .v-tabs__container {
+        border-bottom: 1px solid #DCE1E7;
+        background-color: #fff!important;
+
+    }
+    .RB >>> .v-tabs__wrapper {
+        padding-top: 0px;
+        height: 48px!important;
+    }
+    .RB >>> .v-tabs__item:hover {
+        color: #3C73E6 !important;
+    }
+
+    .RB >>> .v-tabs__item--active {
+        box-shadow: none !important;
+        color: #3C73E6 !important;
+        background-color: #fff;
+        font-weight: bold;
+        height: 48px !important;
+        border-radius: 0px;
+        border-bottom: 2px solid #3C73E6;
+    }
+    .RB >>> .primary--text {
+        color: #3C73E6!important;
+    }
+    .RB >>> .theme--light.v-label {
+        color: #B7B7B7;
+    }
+    .RB >>> .v-card__text {
+        padding: 16px!important;
+        background: #F4F5F8;
+        border: 1px solid #DCE1E7;
+        border-bottom: none;
+    }
+    .RB >>> .v-card {
+        box-shadow: none!important;
+    }
+    .RB >>>.primary.lighten-2 {
+        background-color: #F4F5F8!important;
+        border-bottom:1px solid #DCE1E7!important;
+        box-shadow: none!important;
+
+    }
+    .RB >>> .primary.lighten-2 .white--text {
+        color: #2C2F43!important;
+    }
+    .RB >>> .success {
+        background-color: #D9DEE5!important;
+        color: #4b4c55!important;
+    }
+    .RB >>> .success > .v-ripple__container {
+        background-color: rgba(60,115,230,.5) !important;
+    }
+    .RB >>> .text-xs-center {
+        margin-top: 10px;
+    }
+
 </style>
