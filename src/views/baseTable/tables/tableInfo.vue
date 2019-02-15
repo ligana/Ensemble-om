@@ -1,14 +1,14 @@
 <template>
     <v-layout justify-center pt-4 class="ml-4 mr-4">
         <v-flex xs12 sm12>
-            <v-card class="radiusDc">
-                <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
-                    <v-icon>widgets</v-icon>
-                    <v-toolbar-title>{{tableName}}-[{{tableDesc}}]</v-toolbar-title>
-                    <v-spacer></v-spacer>
-                </v-toolbar>
+           
+            <v-card class="MB_box">
+                <v-toolbar color="" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
+                    <!--<v-icon>widgets</v-icon>-->
+
 
                 <!--<v-toolbar card dense color="transparent">-->
+              
                 <!--<v-layout justify-center>-->
                 <!--<v-flex xs6 sm6>-->
                 <!--<dc-text-field label="产品类型" labelDesc="产品类型" v-model='prodTypeSearch'/>-->
@@ -36,6 +36,7 @@
                         persistent
                         z-index="100"
                 >
+            
                     <edit-table-info v-if="dialog" :selected="selected" :columns="columns" :tableName="tableName" :childPd="childPd"
                                      v-on:editAction="editAction" v-on:changeNum="changeNum"></edit-table-info>
 
@@ -62,10 +63,12 @@
         components: {
             DcMultiselect,
             EditTableInfo,
+      
             DcTextField,
         },
         data() {
             return {
+        
                 childPd: true,
                 childEditSelected: {},
                 num: "",
@@ -96,6 +99,7 @@
                 selectedRowKeys: [],
                 selected: {},
                 columns: [],
+             
                 backValue: {},
                 key: [],
                 isNull: [],
@@ -205,16 +209,12 @@
             onSave() {
                 this.backValue.data = filterTableChangeData(this.columns, this.dataInfo, this.sourceDataInfo)
                 this.backValue.tableName = this.tableName
-                this.backValue.tableDesc= this.$route.params.tableDesc
+                
+                this.backValue.tableDesc = this.$route.params.tableDesc
                 this.backValue.option = "save"
                 this.backValue.userName = sessionStorage.getItem("userId")
-                if(this.backValue.data.length==0){
-                    this.$swal({
-                        allowOutsideClick: false,
-                        type: 'info',
-                        title: "未做任何修改,提交失败！",
-                    })
-                }else{
+              
+                if (this.backValue.data.length == 0) {
                     saveTable(this.backValue).then(response => {
                         if (response.status === 200) {
                             this.$swal({
@@ -222,15 +222,17 @@
                                 type: 'success',
                                 title: "提交成功！",
                             })
-                            this.$router.push({ name: "paramManage", params: { tableName: this.tableName} });
+                         
+                            this.$router.push({name: "paramManage", params: {tableName: this.tableName}});
                             let setTaskEvent= new Event("taskList");
                             window.dispatchEvent(setTaskEvent);
                         }
                     });
                 }
             },
-            close (){
-                this.dialog=false
+            
+            close() {
+                this.dialog = false
             },
             childLimit(editSelected){
                 this.childPd = true
@@ -333,8 +335,6 @@
                 }
             },
             editAction(option, editSelected) {
-
-                if(option == 'close'){
                     this.close()
                 }
                 if (option == 'submit') {
@@ -345,7 +345,6 @@
                                 selected[key] = editSelected[key].value
                             }
                         }
-                        if(this.limit(editSelected)){
                             this.dataInfo.splice(0, 0, selected)
                             this.close()
                         }
@@ -353,6 +352,7 @@
                     else {
                         let dataCon = this.limit(editSelected)
                         for (const keys in selected) {
+                          
                             if(dataCon == false){
                                 break;
                             }else{
@@ -360,11 +360,28 @@
                                     selected[keys] = editSelected[keys].value
                                     this.close()
                                 }
+                               
                             }
+                            
                         }
+                
                     }
                 }
             }
         }
     };
 </script>
+<style scoped>
+    .MB_box {
+        box-shadow: none!important;
+        border: 1px solid #D6D6D6;
+    }
+    .MB_box .v-toolbar {
+        background-color: #f5f5f5;
+        color: rgba(0,0,0,.87);
+        border-bottom:1px solid #D6D6D6;
+    }
+    .ant-table-pagination.ant-pagination {
+        margin: 16px 16px 16px 0!important;
+    }
+</style>

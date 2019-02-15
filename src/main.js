@@ -14,20 +14,16 @@ import Truncate from 'lodash.truncate';
 import store from './store';
 import qs from 'qs';
 import globalConfig from "./config.js";
-/*import './mock';*/
+import './mock';
 import 'ant-design-vue/dist/antd.css';
 import 'vuetify/dist/vuetify.min.css'
 
-// ���� table �� ��ҳ���
 import { Spin, Table,Divider,Tag ,Button ,Upload, Icon} from 'ant-design-vue'
 Vue.component(Table.name, Table)
 Vue.component(Divider.name, Divider)
 Vue.component(Tag.name, Tag)
 Vue.component(Button.name, Button)
 Vue.component(Spin.name, Spin)
-Vue.component(Upload.name, Upload)
-Vue.component(Icon.name, Icon)
-// ע�ᵽȫ��
 Vue.prototype.$qs = qs
 //Global Config
 Vue.prototype.globalConfig = globalConfig

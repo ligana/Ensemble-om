@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
     <v-data-table :headers="headers" :items="desserts" :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" class="elevation-1 px-0 elevation-2" item-key="flowManage" light>
+=======
+    <v-data-table :headers="headers" :items="desserts" :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" class="px-0 " item-key="flowManage" light v-model="selected">
+>>>>>>> styleUi2.0
         <template slot="items" slot-scope="props">
             <tr @click="getDataInfo(props.item.flowManage.mainSeqNo)">
                 <td class="text-xs-left">{{ props.item.flowManage.mainSeqNo }}</td>
@@ -101,6 +105,7 @@ export default {
       },
       getDataInfo(code) {
           //获取当前处理数据
+          console.log(code);
           let tagInfo = []
           for (let i = 0; i < this.desserts.length; i++) {
               if (code === this.desserts[i].flowManage.mainSeqNo) {

@@ -183,11 +183,17 @@
     };
 </script>
 <style scoped>
-
+   .layout.wrap {
+       padding: 0 20px;
+   }
   .diffList{
     width:20%;
-    border-right-style: solid;border-right-width: 1px;border-color: rgba(40, 24, 31, 0.21);
-    text-align:center;
+    /*text-align:center;*/
+    border-top: 1px solid  rgba(40, 24, 31, 0.21);
+    border-right: 1px solid  rgba(40, 24, 31, 0.21);
+  }
+  .diffList[data-v-4e9f81d9]:nth-child(1){
+      border-left: 1px solid #ccc;
   }
 .tbColor{
   background-color: #E3F2FD;
@@ -198,6 +204,7 @@
   }
   .prodDiffSwitch {
     display:inline-block;
+    margin-left: 40px;
   }
   .prodDiffButton {
     float: right;

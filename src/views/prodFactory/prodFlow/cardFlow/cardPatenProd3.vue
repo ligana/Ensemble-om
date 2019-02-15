@@ -3,11 +3,11 @@
     <v-layout row wrap>
     <v-flex lg4 sm12 class="prodCol">
         <v-card>
-          <v-card-media src="/static/bg/18.jpg" height="80px">
+          <div class="v-card-media" height="64px">
           <v-card-title class="pb-0">
             <h4>存款产品</h4>
           </v-card-title>
-          </v-card-media>
+          </div>
           <v-card-text>
             <prod-collapse3></prod-collapse3>
           </v-card-text>
@@ -15,11 +15,11 @@
     </v-flex>
     <v-flex lg4 sm12 class="prodCol">
         <v-card>
-          <v-card-media src="/static/bg/33.jpg" height="80px">
+          <div class="v-card-media" height="64px">
           <v-card-title class="pb-0">
             <h4> 贷款产品</h4>
           </v-card-title>
-          </v-card-media>
+          </div>
           <v-card-text>
             <prod-collapse2></prod-collapse2>
           </v-card-text>
@@ -27,11 +27,11 @@
       </v-flex>
     <v-flex lg4 sm12 class="prodCol">
         <v-card>
-          <v-card-media src="/static/bg/20.jpg" height="80px">
+          <div class="v-card-media" height="64px">
           <v-card-title class="pb-0">
             <h4>内部帐产品</h4>
           </v-card-title>
-          </v-card-media>
+          </div>
           <v-card-text>
           <prod-collapse1></prod-collapse1>
           </v-card-text>
@@ -47,8 +47,7 @@
   export default {
     components: {
       prodCollapse3,
-      prodCollapse2,
-        prodCollapse1
+      prodCollapse2, prodCollapse1
     }
   }
 </script>
@@ -59,9 +58,25 @@
   .prod2-app-container{
     height: 700px;
     background-color: #eeeeee;
-    /*background-color: rgb(238, 238, 238);*/
+
   }
   .prodCol {
      padding: 20px;
   }
+  .prodCol > .v-card {
+      box-shadow: none;
+      border: 1px solid #ccc;
+  }
+  .prodCol > .v-card .v-card__title {
+      height: 64px!important;
+      padding:0 0 0 16px!important;
+  }
+  .prodCol > .v-card .v-card__title h4 {
+      margin-bottom: 0!important;
+  }
+  .v-card-media {
+      background-color: rgb(244, 245, 249);
+      border-bottom: 1px solid #ccc;
+  }
+
 </style>

@@ -3,7 +3,7 @@
         <v-layout>
             <v-flex md3 lg3 class="pl-5">
                 <v-flex xs12 class="pt-3">
-                    <v-card class="elevation-4 radiusDc">
+                    <v-card class="">
                         <v-card-media src="/static/avatar/per1.jpg" class="class1">
                         </v-card-media>
                         <v-list style="margin-right: 10%;margin-left: 10%">
@@ -16,7 +16,7 @@
                     </v-card>
                 </v-flex>
                 <v-flex xs12 class="mt-2 pb-2">
-                    <v-card style="height: 200%" class="elevation-4 radiusDc">
+                    <v-card style="height: 200%" class="">
                         <v-list>
                             <v-list-tile v-for="item in items" :key="item.title" @click="actionTag(item)" :class="item.class">
                                 <v-list-tile-action>
@@ -96,7 +96,7 @@
         }
     }
 </script>
-<style>
+<style scoped>
     .selected {
         background-color: #e8e8e8;
     }
@@ -108,5 +108,22 @@
     }
     .class3 {
         font-size: large; color: deepskyblue; margin-left: 5px
+    }
+    .pt-4 .v-card {
+        box-shadow: none;
+        border: 1px solid #E0E4EA;
+    }
+    .pt-4 .layout .elevation-4{
+        box-shadow: none!important;
+        border: 1px solid #E0E4EA;
+    }
+    .pt-4 .layout .v-toolbar {
+        box-shadow: none;
+        background-color: #F4F5F8!important;
+        border-bottom: 1px solid #E0E4EA!important;
+        color: #383B4D;
+    }
+    .pt-4 .v-toolbar__content .theme--dark{
+        color: #383B4D;;
     }
 </style>
