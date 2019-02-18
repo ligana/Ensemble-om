@@ -1,9 +1,9 @@
 <template>
-  <v-card class="elevation-4 mt-4 ml-4 radiusDc">
+  <v-card class="elevation-4 mt-4 radiusDc">
     <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
       <v-toolbar-title>任务列表</v-toolbar-title>
     </v-toolbar>
-    <v-divider></v-divider>
+    <!--<v-divider></v-divider>-->
     <v-card-text class="pa-0">
       <v-list two-line class="pa-0 taskListHeight" >
         <template v-for="(item, index) in items" >
@@ -21,8 +21,9 @@
       </v-list>
       <v-divider>
       </v-divider>
-      <v-btn class="btnClass" color="primary lighten-2" @click="submitTask" dark large>确 认</v-btn>
-      <v-btn class="btnClass" color="primary lighten-2" @click="returnTask" dark large>驳 回</v-btn>
+        <v-btn class="btnClass reject" color=" " @click="returnTask" dark large>驳 回</v-btn>
+        <v-btn class="btnClass" color=" " @click="submitTask" dark large>确 认</v-btn>
+        <div class="clear"></div>
     </v-card-text>
   </v-card>
 </template>
@@ -115,4 +116,14 @@
   .changeColor{
     background-color:gainsboro!important;
   }
-  </style>
+  .btnClass {
+    float: right;
+    box-shadow:none!important;
+    background-color: #3C73E6!important;
+    }
+  .reject {
+      background-color: #D9DEE5!important;
+      color: #909193;
+  }
+  .clear{ clear:both}
+</style>

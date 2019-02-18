@@ -1,11 +1,11 @@
 <template>
-  <div class="ml-4">
+  <div class="mr-4">
         <!--<tran-check-flow-info v-if="optKey==3"></tran-check-flow-info>-->
         <!--<tran-release-flow-info v-if="optKey==4"></tran-release-flow-info>-->
         <!--复核流程信息-->
         <v-card class="mt-4 elevation-4 radiusDc">
           <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
-            <v-icon>call_split</v-icon>
+            <!--<v-icon>call_split</v-icon>-->
             <v-toolbar-title>{{title}}</v-toolbar-title>
           </v-toolbar>
           <v-stepper v-model="e11" v-if="optKey == 3" style="height: 330px;">
@@ -371,7 +371,7 @@
     margin-top: 4%;
   }
   .descClass {
-    color: #64b5f6;
+    color: #939597;
     font-size: large;
     font-style: inherit;
     margin-right: 0px;
@@ -380,6 +380,7 @@
   }
   .textBox {
     margin-top: 5px;
+      border-bottom: 1px solid #D6D7DB!important;
   }
   .btnClass {
     margin-top: 5%;

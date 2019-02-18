@@ -1,7 +1,7 @@
 <template>
 <!--<<<<<<< HEAD-->
   <a-spin tip="Loading..." size="large" :spinning="spinning">
-    <div class="ml-4 tranDataIndex">
+    <div class=" tranDataIndex" >
       <v-layout row wrap>
         <v-flex md8 lg8>
           <!--<tran-check-flow-info v-if="optKey==3"></tran-check-flow-info>-->
@@ -100,20 +100,20 @@
                   </v-card>-->
         </v-flex>
       </v-layout>
-      <v-card class="elevation-2 radiusDc">
-        <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" class="elevation-4 mt-4" flat>
-          <v-toolbar-side-icon @click="showClick"></v-toolbar-side-icon>
-          <v-toolbar-title class="white--text">修改差异展示</v-toolbar-title>
+      <v-card class="radiusDc">
+        <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" class="elevation-4" flat>
+          <!--<v-toolbar-side-icon @click="showClick" ></v-toolbar-side-icon>-->
+          <v-toolbar-title class="white--text" @click="showClick">修改差异展示</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-tooltip bottom color="blue">
             <v-btn flat icon="print" slot="activator">
-              <v-icon class="mr-2" @click="printDown()" style="color: white">print</v-icon>
+              <v-icon class="mr-2" @click="printDown()" style="color: rgba(0,0,0,.54)">print</v-icon>
             </v-btn>
             <span>打      印</span>
           </v-tooltip>
           <v-tooltip bottom color="blue">
             <v-btn flat icon="widgets" slot="activator">
-              <v-icon @click="downLoad()" style="color: white">widgets</v-icon>
+              <v-icon @click="downLoad()" style="color: rgba(0,0,0,.54)">widgets</v-icon>
             </v-btn>
             <span>导      出</span>
           </v-tooltip>
@@ -554,16 +554,18 @@
     width: 50%;
     font-size: large;
   }
-  .primary.lighten-2  {
+  .tranDataIndex >>> .primary.lighten-2  {
       background-color: #F4F5F8 !important;
       color: #58595E!important;
       border-bottom: 1px solid #D6D7DB!important;
+      box-shadow: none!important;
   }
     .tranDataIndex >>> .theme--light.v-card {
         background-color: #F4F5F8 !important;
         color: #58595E!important;
         border: 1px solid #D6D7DB!important;
         box-shadow: none!important;
+        margin-top: 24px;
     }
   .tranDataIndex >>> .radiusDc {
       border-radius:0px!important;
@@ -594,9 +596,9 @@
   .white--text {
       color: #46485B!important;
   }
-  .tranDataIndex >>> .v-btn:not(.v-btn--outline).primary {
-      background-color: #3C73E6!important;
-  }
+  /*.tranDataIndex >>> .v-btn:not(.v-btn--outline).primary {*/
+      /*background-color: #3C73E6!important;*/
+  /*}*/
   .tranDataIndex >>>  .v-stepper__header {
       box-shadow:none!important;
       border-bottom: 1px solid #D0D1D5!important;

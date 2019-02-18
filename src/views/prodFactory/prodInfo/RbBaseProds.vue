@@ -24,7 +24,7 @@
                     <v-tab v-for="n in prodInfoT" :key="n.pageCode">
                         {{ n.text}}
                     </v-tab>
-                    <v-tabs-items v-model="activeName" class="white elevation-2 textProd">
+                    <v-tabs-items v-model="activeName" class="white textProd">
                         <v-tab-item v-for="i in prodInfoT" :key="i.pageCode">
                             <base-desc :showEdit="showEdit" v-if="i.pageCode=='DESC'" :prodType="prodData.prodType" tags="DESC"></base-desc>
                             <base-prod :showEdit="showEdit" v-if="i.pageCode=='BASE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodMapping="prodMapping" :prodDefines="prodData.prodDefines" :disablePower="disablePower" tags="BASE"></base-prod>
@@ -46,7 +46,7 @@
                     <v-tab v-for="n in prodInfo" :key="n.pageCode">
                         {{ n.text}}
                     </v-tab>
-                    <v-tabs-items v-model="activeName" class="white elevation-2 textProd">
+                    <v-tabs-items v-model="activeName" class="white  textProd">
                         <v-tab-item v-for="i in prodInfo" :key="i.pageCode">
                             <base-desc :showEdit="showEdit" v-if="i.pageCode=='DESC'" :prodType="prodData.prodType" tags="DESC"></base-desc>
                             <base-prod :showEdit="showEdit" v-if="i.pageCode=='BASE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodMapping="prodMapping" :prodDefines="prodData.prodDefines" :disablePower="disablePower" tags="BASE"></base-prod>

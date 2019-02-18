@@ -3,8 +3,9 @@
   <div class="input">
     <v-layout row wrap>
       <v-flex md12 lg12>
-      <v-toolbar dense class="chat-history-toolbar prodLists">
-        <v-text-field flat solo full-width clearable prepend-icon="search" class="top" label="请输入产品代码或描述" v-model="searchValue"></v-text-field>
+      <v-toolbar dense class="chat-history-toolbar prodLists" >
+        <v-text-field flat solo full-width clearable class="top" label="请输入产品代码或描述" v-model="searchValue"></v-text-field>
+          <v-btn class="search">搜索</v-btn>
       </v-toolbar>
       <v-list two-line subheader :class="depositTree" v-show="searchValue">
         <v-list-tile class="chat-list prodList" avatar v-for="item of list" :key="item.title" @click="handleClick(item)">
