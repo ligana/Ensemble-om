@@ -103,6 +103,16 @@ export default {
             "status": "A",
             "sourceModule": "RB"
         }, {
+            "prodType": "111011",
+            "prodDesc": "个人协议存款",
+            "prodAbbr": "个人协议存款",
+            "prodClass": "RB400",
+            "prodGroup": "N",
+            "prodRange": "S",
+            "baseProdType": "RB201",
+            "status": "A",
+            "sourceModule": "RB"
+        }, {
             "prodType": "111012",
             "prodDesc": "个人委托存款",
             "prodAbbr": "个人委托存款",
@@ -270,6 +280,46 @@ export default {
             "prodGroup": "N",
             "prodRange": "S",
             "baseProdType": "RB202",
+            "status": "A",
+            "sourceModule": "RB"
+        }, {
+            "prodType": "121010",
+            "prodDesc": "单位委托存款",
+            "prodAbbr": "单位委托存款",
+            "prodClass": "RB200",
+            "prodGroup": "N",
+            "prodRange": "S",
+            "baseProdType": "RB106",
+            "status": "A",
+            "sourceModule": "RB"
+        }, {
+            "prodType": "122001",
+            "prodDesc": "单位定期存本取息",
+            "prodAbbr": "单位存本取息",
+            "prodClass": "RB200",
+            "prodGroup": "N",
+            "prodRange": "S",
+            "baseProdType": "RB210",
+            "status": "A",
+            "sourceModule": "RB"
+        }, {
+            "prodType": "122002",
+            "prodDesc": "单位七天智能通知存款",
+            "prodAbbr": "单位七天智能通知存款",
+            "prodClass": "RB200",
+            "prodGroup": "N",
+            "prodRange": "S",
+            "baseProdType": "RB205",
+            "status": "A",
+            "sourceModule": "RB"
+        }, {
+            "prodType": "122003",
+            "prodDesc": "单位外币七天智能通知存款(汇)",
+            "prodAbbr": "单位外币七天智能通知(汇)",
+            "prodClass": "RB200",
+            "prodGroup": "N",
+            "prodRange": "S",
+            "baseProdType": "RB205",
             "status": "A",
             "sourceModule": "RB"
         }, {
@@ -616,6 +666,16 @@ export default {
             "prodType": "RB209",
             "prodDesc": "个人存本取息基础产品",
             "prodAbbr": "个人存本取息",
+            "prodClass": "RBBASE",
+            "prodGroup": "N",
+            "prodRange": "B",
+            "baseProdType": null,
+            "status": "A",
+            "sourceModule": "RB"
+        }, {
+            "prodType": "RB210",
+            "prodDesc": "单位存本取息基础产品",
+            "prodAbbr": "单位存本取息",
             "prodClass": "RBBASE",
             "prodGroup": "N",
             "prodRange": "B",
