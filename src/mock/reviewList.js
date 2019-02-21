@@ -4,8 +4,8 @@ export default {
         "msg": "请求成功",
         "data": [{
             "flowManage": {
-                "mainSeqNo": "20190115164342540",
-                "tranId": "CIF_CLIENT_TYPE",
+                "mainSeqNo": "20190219154907735",
+                "tranId": "MB_PROD_TYPE",
                 "tranDesc": "产品定义",
                 "status": "2",
                 "isTranGroup": "Y",
@@ -15,14 +15,14 @@ export default {
                 "dispose": "N"
             },
             "flowCommitInfo": {
-                "mainSeqNo": "20190115164342540",
+                "mainSeqNo": "20190219154907735",
                 "dtlSeqNo": 1,
                 "status": "2",
                 "remark": null,
                 "isApproved": null,
                 "userId": "admin",
                 "clientIp": null,
-                "tranTime": "2019/01/17"
+                "tranTime": "2019/02/19"
             }
         }]
     })

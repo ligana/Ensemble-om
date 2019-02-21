@@ -421,7 +421,7 @@
     }
     .baseIcon {
         padding-top: 15px;
-        color: #ff110e;
+        color:#3C73E6;
     }
     .jump{
         height: 40px; /* 高度 */

@@ -1,7 +1,7 @@
 <template>
     <v-layout class="pt-1" v-show="prodAccounting.length">
         <v-flex md3 lg3 class="ml-3">
-            <v-card class="pt-1 elevation-1">
+            <v-card class="pt-1 elevation-1 sort">
                 <v-list>
                     <v-list-tile v-for="item in titleList" :key="item.key" @click="chipClick(item)">
                         <v-list-tile-content>
@@ -10,7 +10,7 @@
                     </v-list-tile>
                 </v-list>
             </v-card>
-            <v-card class="mt-1">
+            <v-card class="mt-1 sort">
                 <v-list>
                     <v-list-tile v-for="item in titleListCheck" :key="item.key" @click="chipClickCheck(key)">
                         <v-list-tile-content>
@@ -20,7 +20,7 @@
                 </v-list>
             </v-card>
         </v-flex>
-        <v-flex md9 lg9 v-show="fixed == false">
+        <v-flex md9 lg9 v-show="fixed == false" class="sort_rightAll">
             <v-card class="ml-2">
                 <v-layout row wrap>
                     <v-flex md6 lg6>
@@ -47,7 +47,7 @@
                 </v-layout>
             </v-card>
         </v-flex>
-        <v-flex md9 lg9 v-show="fixed == true" class="ml-2">
+        <v-flex md9 lg9 v-show="fixed == true" class="ml-2 sort_rightOthrt">
             <a-table :columns="columnsFixed" :dataSource="accountingFixed" bordered>
             </a-table>
         </v-flex>
@@ -182,6 +182,9 @@
     }
 </script>
 <style scoped>
+    .sort .v-list > div{
+        border: 1px solid #DCE1E7;
+    }
     .prodList {
         color: #00b0ff;
         margin-left: -10px;
@@ -191,5 +194,16 @@
     }
     .dcMulti {
         margin-top: 10px;
+    }
+    .sort_rightAll {
+        margin:12px 6px;
+        border: 1px solid #DCE1E7;
+        padding-bottom: 10px;
+    }
+    .sort_rightOthrt {
+        margin:12px 6px;
+    }
+    .sort_rightOthrt >>>.ant-table-pagination.ant-pagination {
+        margin:16px 10px;
     }
 </style>

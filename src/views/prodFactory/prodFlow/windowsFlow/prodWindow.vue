@@ -150,11 +150,11 @@
                 <a-spin tip="请稍等..." size="medium" :spinning="spinning">
                     <v-list three-line class="listClass">
                         <template v-for="(item, index) in searchTagProdList">
-                            <v-layout style="margin-top: 10px">
+                            <v-layout style="margin-top: 14px">
                                 <v-flex md2 lg2>
                                     <v-layout>
                                         <v-card class="radiusDc headClass">
-                                            <v-toolbar color="green" flat class="toolbarClass">
+                                            <v-toolbar color="#7B82EE" flat class="toolbarClass">
                                                 <td style="margin-top: -25%; color: white">{{item.prodType}}</td>
                                             </v-toolbar>
                                             <v-card-text>
@@ -198,11 +198,11 @@
                                     </v-layout>
                                 </v-flex>
                                 <v-flex md1 lg1>
-                                    <v-btn color="success" round class="editClass" @click="editClick(item)">编辑查看>>
+                                    <v-btn color="#7B82EE" round class="editClass" @click="editClick(item)">编辑查看>>
                                     </v-btn>
                                 </v-flex>
                             </v-layout>
-                            <v-divider class="elevation-2" style="margin-top: 10px"></v-divider>
+                            <v-divider class="" style="margin-top: 0px"></v-divider>
                         </template>
                     </v-list>
                 </a-spin>
@@ -508,7 +508,8 @@
     .editClass {
         height: 25px;
         margin-left: -42%;
-        margin-top: 43%;
+        margin-top: 54%;
+        color: #fff;
     }
 
     .headClass {
@@ -526,7 +527,7 @@
         overflow-y: scroll;
         max-height: 620px;
         width: 103%;
-        padding-right: 1%;
+        padding-right: 2%;
     }
 
     .showClass {

@@ -366,9 +366,15 @@
     .PM .v-list {
         background-color: rgba(244, 245, 249, 0);
     }
-
+    .PM >>> .v-list__tile {
+        transition:none;
+    }
+    .PM >>> .v-list__tile__title {
+        transition:none;
+    }
     .PM >>> .v-list .v-list__tile--link:hover {
-        color: black;
+        background-color: rgba(0, 0, 0, 0) !important;
+        color: rgba(85, 198, 255, 0.85) !important;
     }
 
     .PM_right {

@@ -13,7 +13,8 @@ import prodTypeAPI from './prodType'
 import userCollectAPI from './userCollect'
 import rbtableAPI from './rbTable'
 
-import {getMenu} from './menu'
+// import {getMenu} from './menu'
+import getMenuListAPI from './getMenuList'
 import rbBaseProdsAPI from './rbBaseProds'
 import getAllDefineAPI from './getAllDefineList'
 import getAllProdAPI from './getAllProdList'
@@ -27,6 +28,10 @@ import getTableInfoAPI from './getTableInfo'
 import getProdListByClassAPI from './getProdListByClass'
 import getSysInfoByUseAPI from './getSysInfoByUser'
 import getSysTableeAPI from './getSysTable'
+import getProdInfoAPI from './getProdInfo'
+import getPkListColumnRfAPI from './getPkListColumnRf'
+import getAttrInfoAPI from './getAttrInfo'
+import getDiffListAPI from './getProdDiff'
 
 
 // Mock.setup({
@@ -74,7 +79,8 @@ Mock.mock(/user\/login\.*/, 'post', loginAPI.login)
 Mock.mock(/\/login\/logout/, 'post', loginAPI.logout)
 Mock.mock(/\/user\/info\.*/, 'get', loginAPI.getUserInfo)
 // 新增挡板
-Mock.mock(/\/getMenuList\.*/, 'get', getMenu)
+// Mock.mock(/\/getMenuList\.*/, 'get', getMenu)
+Mock.mock(/\/getMenuList\.*/, 'post',getMenuListAPI.getMenuList)
 Mock.mock(/\/getProdInfo\.*/, 'post', rbBaseProdsAPI.getRbBaseInfo);
 Mock.mock(/\/getAllDefineList\.*/, 'post', getAllDefineAPI.prodwindow);
 Mock.mock(/\/getAllProdList\.*/, 'post', getAllProdAPI.prodwindowlist);
@@ -87,5 +93,9 @@ Mock.mock(/\/getTableList\.*/, 'post', getTableListAPI.getTableList);
 Mock.mock(/\/getParamTable\.*/, 'post', getTableInfoAPI.getTableInfo);
 Mock.mock(/\/getSysInfoByUser\.*/, 'post', getSysInfoByUseAPI.getSysInfoByUser);
 Mock.mock(/\/getSysTable\.*/, 'post', getSysTableeAPI.getSysTable);
+Mock.mock(/\/getProdInfo\.*/, 'post', getProdInfoAPI.getDepositProdInfo);
+Mock.mock(/\/getPkListColumnRf\.*/, 'post', getPkListColumnRfAPI.getPkListColumnRf);
+Mock.mock(/\/getAttrInfo\.*/, 'post', getAttrInfoAPI.getAttrInfo);
+Mock.mock(/\/getProdDiff\.*/, 'post', getDiffListAPI.getDiffList);
 
 export default Mock;

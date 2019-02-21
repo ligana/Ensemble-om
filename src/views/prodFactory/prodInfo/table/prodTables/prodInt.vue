@@ -1,7 +1,7 @@
 <template>
     <v-layout class="pt-1" v-show="prodInt.length">
         <v-flex md3 lg3 class="ml-3">
-            <v-card style="margin-top: -5%">
+            <v-card style="margin-top: 2%" class="card_header">
                 <v-flex md12 lg12 class="switchClass">
                     <v-switch v-model="switchValue" :label="switchValue == true?'使用固定利率值':'不使用固定利率值'"></v-switch>
                 </v-flex>
@@ -28,11 +28,11 @@
             </v-card>
         </v-flex>
         <!-- 不使用固定利率展示-->
-        <v-flex md9 lg9 v-show="!switchValue">
+        <v-flex md9 lg9 v-show="!switchValue" class="switchValuR">
             <base-table :tableData="selectInfo" :keySet="keySet" :tag="tag" v-on:showClick="showClick"></base-table>
         </v-flex>
         <!-- 使用固定利率界面-->
-        <v-flex md9 lg9 v-show="switchValue">
+        <v-flex md9 lg9 v-show="switchValue" class="switchValuR">
             <prod-fixed :fiexInfo="fixedInfo" :fixedIndex="fixedIndex"></prod-fixed>
         </v-flex>
         <!--利率代码详情弹出框-->
@@ -437,8 +437,31 @@
     }
 </script>
 <style scoped>
+    .card_header {
+        border: 1px solid #DCE1E7;
+    }
     .switchClass{
         margin-left: 15%;
+        height: 45px;
+    }
+    .switchClass >>> .v-input--selection-controls {
+        margin-top: 0px;
+         padding-top: 0px;
+    }
+    .switchClass >>> .v-input__slot {
+        height: 45px;
+    }
+    .mt-1 {
+        border: 1px solid #DCE1E7;
+    }
+    .mt-1 .v-list {
+        padding: 0;
+    }
+    .switchValuR >>> .ml-2{
+        border: 1px solid #DCE1E7;
+        margin: 5px 8px;
+        padding-bottom: 10px;
+        padding-left: 8px;
     }
     .closeClass{
         color: white;

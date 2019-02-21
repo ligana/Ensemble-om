@@ -503,6 +503,16 @@ export default {
             "status": "A",
             "sourceModule": "GL"
         }, {
+            "prodType": "GL101",
+            "prodDesc": "内部账活期基础产品",
+            "prodAbbr": "内部账活期基础产品",
+            "prodClass": "GLBASE",
+            "prodGroup": "N",
+            "prodRange": "B",
+            "baseProdType": null,
+            "status": "A",
+            "sourceModule": "GL"
+        }, {
             "prodType": "LG001",
             "prodDesc": "保函基础产品",
             "prodAbbr": null,

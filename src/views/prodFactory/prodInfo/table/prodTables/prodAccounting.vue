@@ -1,7 +1,7 @@
 <template>
     <v-layout class="pt-1" v-show="prodAccounting.length">
         <v-flex md3 lg3 class="ml-3">
-            <v-card class="pt-1 elevation-1">
+            <v-card class="pt-1 elevation-1 sort">
                 <v-list>
                     <v-list-tile v-for="item in titleList" :key="item.key" @click="chipClick(item)">
                         <v-list-tile-content>
@@ -11,7 +11,7 @@
                 </v-list>
             </v-card>
         </v-flex>
-        <v-flex md9 lg9>
+        <v-flex md9 lg9 class="sort_rightAll">
             <base-table :tableData="selectInfo" :keySet="keySet"></base-table>
         </v-flex>
     </v-layout>
@@ -99,3 +99,14 @@
         }
     }
 </script>
+<style scoped>
+    .sort .v-list > div{
+        border: 1px solid #DCE1E7;
+    }
+    .sort_rightAll {
+        margin:12px 6px;
+        border: 1px solid #DCE1E7;
+        padding-bottom: 10px;
+    }
+
+</style>

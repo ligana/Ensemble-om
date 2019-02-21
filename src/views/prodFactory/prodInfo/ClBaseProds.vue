@@ -722,4 +722,8 @@
     .RB >>> .text-xs-center {
         margin-top: 10px;
     }
+    .RB >>> .warning {
+        background-color: #3C73E6 !important;
+        box-shadow: none;
+    }
 </style>

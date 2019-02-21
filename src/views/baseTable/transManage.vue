@@ -21,9 +21,6 @@
                         <v-list>
                             <v-list-tile v-for="item in items" :key="item.title" @click="actionTag(item)"
                                          :class="item.class">
-                                <!--<v-list-tile-action>-->
-                                    <!--<v-icon :color="item.color">{{ item.icon }}</v-icon>-->
-                                <!--</v-list-tile-action>-->
                                 <v-list-tile-content>
                                     <v-list-tile-title style="padding-left: 20px;">{{ item.title }}</v-list-tile-title>
                                 </v-list-tile-content>
@@ -226,8 +223,15 @@
         box-shadow: none;
         border: 1px solid #D6D6D6;
     }
+    .PM >>> .v-list__tile {
+        transition:none;
+    }
+    .PM >>> .v-list__tile__title {
+        transition:none;
+    }
     .PM >>> .v-list .v-list__tile--link:hover {
-        color: black;
+        background-color: rgba(0, 0, 0, 0) !important;
+        color: rgba(85, 198, 255, 0.85) !important;
     }
     .PM .v-list {
         background-color: rgba(244, 245, 249, 0);

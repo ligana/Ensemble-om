@@ -1,9 +1,9 @@
-depositTree<template>
-    <v-card>
-        <v-toolbar card color="blue-grey lighten-5">
+<template>
+    <v-card class="edit">
+        <v-toolbar card color="blue-grey lighten-5" >
             <v-toolbar-title style="font-size: large; color: slategrey">{{labelText}}</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-tooltip bottom color="orange">
+            <v-tooltip bottom color="#3C73E6">
                 <v-btn flat icon="edit" slot="activator" color="blue" @click="saveClick">
                     <v-icon>save</v-icon>
                 </v-btn>
@@ -290,5 +290,18 @@ depositTree<template>
 <style scoped>
     .btn {
         width: 200px;
+    }
+    .edit {
+        border: 1px solid #DCE1E7;
+    }
+    .edit >>> .v-toolbar {
+        box-shadow: none;
+    }
+    .edit >>> .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) .v-input__slot{
+        box-shadow: none;
+    }
+    .edit >>> .green--text {
+        color: #3C73E6!important;
+        caret-color: #3C73E6!important;
     }
 </style>

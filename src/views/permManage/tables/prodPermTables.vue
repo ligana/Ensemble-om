@@ -8,11 +8,11 @@
                 <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
                     <td style="color: white;margin-left: 100px">添加</td>
                 </v-btn>
-                <v-card>
+                <v-card style="padding-bottom: 20px;">
                     <v-card-title>
                         <span style="color: #00b0ff;font-size: x-large;margin-left: 5%">{{ formTitle }}</span>
                     </v-card-title>
-                    <v-card-text style="margin-top: -10%">
+                    <v-card-text style="margin-top: -10%;">
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm12 md12 v-if="disabled=='true'">

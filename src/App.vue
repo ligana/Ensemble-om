@@ -20,7 +20,7 @@
         <app-fab></app-fab>
         <!-- theme setting -->
 <!--            <session-list></session-list>-->
-        <v-btn small fab dark falt fixed top="top" right="right" class="setting-fab" color="red" @click="openThemeSettings">
+        <v-btn small fab dark falt fixed top="top" right="right" class="setting-fab" color="#82B1FF" @click="openThemeSettings">
           <v-icon>settings</v-icon>
         </v-btn>
         <v-navigation-drawer
@@ -126,6 +126,9 @@ export default {
 
 .page-wrapper {
   min-height: calc(100vh - 64px - 50px - 81px);
+}
+.ant-table-pagination.ant-pagination {
+    padding: 16px!important;
 }
 
 </style>

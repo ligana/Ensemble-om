@@ -437,4 +437,7 @@
         transform: translateX(10px);
         opacity: 0;
     }
+    .multiselect__option--highlight {
+        background-color: #3C73E6!important;
+    }
 </style>

@@ -19,7 +19,7 @@
                     <v-subheader class="primary--text subheading" style="margin-left: 15%">首个分段ID:</v-subheader>
                 </v-flex>
                 <v-flex md2 lg2>
-                    <v-tooltip bottom color="orange">
+                    <v-tooltip bottom color="#3C73E6">
                         <v-btn @click="showClick" slot="activator" color="blue" style="width: 120px; height: 30px; margin-top: 25%; margin-left: auto;margin-right: 0%">
                              {{tag}}
                         </v-btn>

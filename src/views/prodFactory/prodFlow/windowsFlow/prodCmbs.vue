@@ -3,16 +3,7 @@
         <v-flex md3 lg3 class="ml-4">
             <v-flex xs12>
                 <v-card class="top">
-                    <!--<v-card-media src="/static/bg/18.jpg" style="height: 150px">-->
-                    <!--<v-card-title class="pb-0" style="font-size: xx-large">-->
-                    <!--<h2 class="title">{{title}}</h2>-->
-                    <!--<h2 class="title" style="color: white">{{titleSum}}</h2>-->
-                    <!--</v-card-title>-->
-                    <!--</v-card-media>-->
                     <v-layout style="height: 64px;background-color: #F4F5F9!important;">
-                        <!--<v-flex md1 lg1>-->
-                        <!--<v-icon style="margin-top: 20px;color: blue;">call_split</v-icon>-->
-                        <!--</v-flex>-->
                         <v-flex md11 lg11>
                             <v-select :items="typeClass" hide-details v-model="selectValue" label="请选择分类"
                                       item-text="value" color="write" item-value="key" single-line>
@@ -26,7 +17,6 @@
                     <v-list class="hidden_scroll">
                         <v-list-tile v-for="(item,index) in checkedClass" :key="index"
                                      @click="chipClick(item,index)" :class="activeClass == index ? 'active':''">
-
                             <v-list-tile-content>
                                 <v-list-tile-title style="font-size: medium">{{ item.lable }}</v-list-tile-title>
                             </v-list-tile-content>
@@ -386,7 +376,12 @@
         overflow-x: hidden;
         overflow-y: scroll;
     }
-
+    .father .hidden_scroll >>> .v-list__tile {
+        transition:none;
+    }
+    .father .hidden_scroll >>> .v-list__tile__title {
+        transition:none;
+    }
     .active {
         background-color: #3C73E6 !important;
         color: #fff;
@@ -394,7 +389,9 @@
 
     .father >>> .v-list .v-list__tile--link:hover {
         background-color: rgba(0, 0, 0, 0) !important;
-        color: rgba(0, 0, 0, 0.85) !important;;
+        color: rgba(85, 198, 255, 0.85) !important;
+        /*background-color:#eceff1 !important;*/
+
     }
 
     .father >>> .v-list__tile__content {

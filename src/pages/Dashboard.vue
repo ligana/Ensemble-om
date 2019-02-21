@@ -51,7 +51,7 @@
         <v-flex lg8 sm12 xs12>
           <v-widget title="系统发布统计" content-bg="white" class="v-widget">
             <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary">refresh</v-icon>
+              <v-icon class="text--secondary" style='color:#7B82EE!important;'>refresh</v-icon>
             </v-btn>
             <div slot="widget-content">
               <e-chart

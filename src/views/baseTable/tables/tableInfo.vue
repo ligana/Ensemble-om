@@ -7,17 +7,6 @@
                     <v-toolbar-title>{{title}}</v-toolbar-title>
                     <v-spacer></v-spacer>
                 </v-toolbar>
-
-                <!--<v-toolbar card dense color="transparent">-->
-                <!--<v-layout justify-center>-->
-                <!--<v-flex xs6 sm6>-->
-                <!--<dc-text-field label="产品类型" labelDesc="产品类型" v-model='prodTypeSearch'/>-->
-                <!--</v-flex>-->
-                <!--<v-flex xs6 sm6>-->
-                <!--<dc-multiselect label="产品分类" labelDesc="产品分类" v-model='prodClassSearch' :options="prodClassOption"></dc-multiselect>-->
-                <!--</v-flex>-->
-                <!--</v-layout>-->
-                <!--</v-toolbar>-->
                 <v-toolbar card dense color="transparent">
                     <a-button type="primary" @click="onAdd">新增</a-button>
                     <a-button type="primary" @click="onEdit" class="ml-2">修改</a-button>
@@ -405,7 +394,7 @@
         color: rgba(0,0,0,.87);
         border-bottom:1px solid #D6D6D6;
     }
-    .ant-table-pagination.ant-pagination {
+    .MB_box >>> .ant-table-pagination.ant-pagination {
         margin: 16px 16px 16px 0!important;
     }
 </style>

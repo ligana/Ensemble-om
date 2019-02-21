@@ -50,16 +50,16 @@
                 </v-layout>
             </v-form>
             <v-spacer></v-spacer>
-            <v-flex mx-5>
+            <v-flex class="btn_box">
                 <v-btn
-                        color="green darken-1"
+                        class="btn"
                         flat="flat"
                         @click="submit"
                 >
                     确认
                 </v-btn>
                 <v-btn
-                        color="green darken-1"
+                        class="btn"
                         flat="flat"
                         @click="close"
                 >
@@ -153,7 +153,19 @@
     }
 </script>
 <style scoped>
-.green--text.text--darken-1 {
-   border: 1px solid;
-}
+    .btn_box {
+        display: flex;
+        justify-content: space-around;
+    }
+    .btn {
+        background-color: #3C73E6;
+        color: #fff;
+        margin-top: 20px;
+        border: 1px solid #CCC;
+        border-radius: 2px;
+    }
+    .dcMulti >>> .multiselect__option--highlight {
+        background:#3C73E6!important;
+     }
+
 </style>

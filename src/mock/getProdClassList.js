@@ -1,6 +1,5 @@
 export default {
     ClassList: (param) => ({
-        // data: getProdClassList,
         "code": "000000",
         "msg": "请求成功",
         "data": [{

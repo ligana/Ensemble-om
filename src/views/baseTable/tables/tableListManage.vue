@@ -8,7 +8,7 @@
                 <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
                     <td style="color: white;margin-left: 100px">添加</td>
                 </v-btn>
-                <v-card>
+                <v-card style="padding-bottom: 20px;">
                     <v-card-title>
                         <span style="color: #00b0ff;font-size: x-large;margin-left: 5%">{{ formTitle }}</span>
                     </v-card-title>
@@ -39,7 +39,7 @@
                             </v-layout>
                         </v-container>
                     </v-card-text>
-                    <v-card-actions style="margin-top: -7%">
+                    <v-card-actions style="margin: -7% 0 0% 0">
                         <v-btn color="info" @click="close" class="bthStyle" style="margin-left: 6%">取消</v-btn>
                         <v-spacer></v-spacer>
                         <v-btn color="info" @click="save" class="bthStyle" style="margin-right: 6%">保存</v-btn>

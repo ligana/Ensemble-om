@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="difference">
     <v-card md20 lg20 ref="print">
       <v-card-text v-show="RB">
         <v-tabs fixed-tabs v-if="isTable == false">
@@ -550,6 +550,16 @@ export default {
 };
 </script>
 <style scoped>
+    .difference >>> .v-tabs__item--active{
+        color: #4B7EE8 !important;
+        background-color: #F4F4F4;
+        font-weight: bold;
+        height: 48px !important;
+        border-radius: 0px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        border-bottom: 2px solid #4B7EE8;
+    }
   .diffTitle {
     font-size: large;
   }

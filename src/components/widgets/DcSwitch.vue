@@ -193,7 +193,7 @@
  }
  .baseIcon {
   padding-top: 15px;
-  color: #ff110e;
+  color:  #3C73E6;
  }
  .lock {
   color: #ff8511;

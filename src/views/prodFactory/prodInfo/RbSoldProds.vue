@@ -7,13 +7,13 @@
                     <!--<v-toolbar-side-icon></v-toolbar-side-icon>-->
                     <v-toolbar-title class="white--text">{{prodCode}}-{{prodDesc}}</v-toolbar-title>
                     <v-spacer></v-spacer>
-                    <v-tooltip bottom color="orange">
+                    <v-tooltip bottom color="#3C73E6">
                         <v-btn flat icon="edit" slot="activator" @click="editClick" :color="editColor" style=" color: #3C73E6">
                             <v-icon>edit</v-icon>
                         </v-btn>
                         <span>{{editDesc}}</span>
                     </v-tooltip>
-                    <v-tooltip bottom color="orange">
+                    <v-tooltip bottom color="#3C73E6">
                         <v-btn flat icon="refresh" slot="activator" @click="refreshClick" style=" color: #3C73E6">
                             <v-icon>refresh</v-icon>
                         </v-btn>
@@ -524,7 +524,7 @@
                 }else{
                     this.showAdd = true
                     this.editDesc = "退出编辑"
-                    this.editColor = "orange"
+                    this.editColor = "#3C73E6"
                 }
             },
             //增加参数处理事件
@@ -767,5 +767,22 @@
     .RB >>> .text-xs-center {
         margin-top: 10px;
     }
-
+    .RB >>> .warning {
+        background-color: #3C73E6 !important;
+        box-shadow: none;
+    }
+    .RB >>> .multiselect__option--highlight {
+        background-color: #3C73E6 !important;
+    }
+    .RB >>> .success--text {
+        color: #82b1ff !important;
+        caret-color: #82b1ff !important;
+    }
+    .RB >>> .multiselect__tag {
+        background: #82b1ff !important;
+    }
+    .RB >>> .cyan {
+        background-color: #3f51b5!important;
+        border-color: #3f51b5!important;
+    }
 </style>
