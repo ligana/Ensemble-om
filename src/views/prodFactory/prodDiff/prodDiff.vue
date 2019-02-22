@@ -26,12 +26,12 @@
                                     <v-list-tile-content>
                                         <v-list-tile-title v-html="item.title"></v-list-tile-title>
                                     </v-list-tile-content>
-                                    <v-tooltip bottom color="orange lighten-1" v-if="prodRange == 'B' && item.isBase == true">
-                                        <v-btn round color="blue" dark style="height: 100%;font-size: small" slot="activator">
+                                    <v-tooltip bottom color="lighten-1" v-if="prodRange == 'B' && item.isBase == true">
+                                        <v-btn round color="blue" dark style="height: 100%;font-size: small;" slot="activator">
                                             影响范围
                                         </v-btn>
-                                        <span>
-                                            <v-list style="background-color: orange">
+                                        <span >
+                                            <v-list style="background-color: #3C73E6!important;padding: 5px; margin: -5px -8px" >
                                               <template v-for="(item, index) in baseEffectProd">
                                                     <v-list-tile-title v-html="item.prodType+'--  '+item.prodDesc" style="color: white; font-size: small"></v-list-tile-title>
                                               </template>
@@ -293,6 +293,10 @@
 <style scoped>
     .PD >>> .v-toolbar__content {
         padding: 0;
+    }
+    .PD >>> .success--text {
+        color: #3C73E6 !important;
+        caret-color: #3C73E6 !important;
     }
     .deepskyblue {
         display: flex;

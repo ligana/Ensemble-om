@@ -775,8 +775,8 @@
         background-color: #3C73E6 !important;
     }
     .RB >>> .success--text {
-        color: #82b1ff !important;
-        caret-color: #82b1ff !important;
+        color: #3C73E6 !important;
+        caret-color: #3C73E6 !important;
     }
     .RB >>> .multiselect__tag {
         background: #82b1ff !important;

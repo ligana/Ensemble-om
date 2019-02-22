@@ -1,6 +1,7 @@
 import Mock from 'mockjs';
+
 const Menu = [
-    { header: 'Apps',menuId: '1' },
+    {header: 'Apps', menuId: '1'},
     {
         title: '首页',
         icon: 'home',
@@ -44,7 +45,7 @@ const Menu = [
     //         // { name: 'RB300', title: '合作方信息维护', component: 'prod/rbHorizontalrod', menuId: '203'},
     //     ]
     // },
-    { header: '产品工厂', menuId: '3'},
+    {header: '产品工厂', menuId: '3'},
     {
         title: '存款产品',
 
@@ -54,8 +55,8 @@ const Menu = [
             // { name: 'RB101', title: '活期产品组', component: 'prod/rbPrivateProds', menuId: '301'},
             // { name: 'RB200', title: '对公存款组', component: 'prod/rbPublicProd', menuId: '302'},
             // { name: 'RB300', title: '同业存款组', component: 'prod/rbHorizontalProd', menuId: '303'},
-            { name: '111001', title: '存款可售产品', component: 'RbSoldProds', menuId: '301'},
-            { name: '10001', title: '存款基础产品', component: 'RbBaseProds', menuId: '302'},
+            {name: '111001', title: '存款可售产品', component: 'RbSoldProds', menuId: '301'},
+            {name: '10001', title: '存款基础产品', component: 'RbBaseProds', menuId: '302'},
         ]
     },
     {
@@ -70,8 +71,8 @@ const Menu = [
             // { name: 'CL400', title: '垫款组', component: 'prod/clAdvancesProd', menuId: '314'},
             // { name: 'CL500', title: '委托贷款组', component: 'prod/clEntrustedProd', menuId: '315'},
             // { name: 'CL600', title: '银团贷款组', component: 'prod/clSyndicatedProd', menuId: '316'},
-            { name: 'CL001', title: '贷款基础产品', component: 'ClBaseProds', menuId: '311'},
-            { name: 'CL9901', title: '贷款可售产品', component: 'ClSoldProds', menuId: '312'},
+            {name: 'CL001', title: '贷款基础产品', component: 'ClBaseProds', menuId: '311'},
+            {name: 'CL9901', title: '贷款可售产品', component: 'ClSoldProds', menuId: '312'},
 
         ]
     },
@@ -87,15 +88,15 @@ const Menu = [
     //         { name: 'GLBASE', title: '内部账基础产品组', component: 'prod/glBaseProd', menuId: '324'},
     //     ]
     // },
-    { header: '参数工厂', menuId: '4' },
+    {header: '参数工厂', menuId: '4'},
     {
         title: '参数管理',
 
         icon: 'domain',
         menuId: '40',
         items: [
-            { name: '参数管理入口',title: '参数管理入口', component: 'paramManage',menuId: '401'},
-            { name: '交易管理入口',title: '交易管理入口', component: 'transManage',menuId: '402'},
+            {name: '参数管理入口', title: '参数管理入口', component: 'paramManage', menuId: '401'},
+            {name: '交易管理入口', title: '交易管理入口', component: 'transManage', menuId: '402'},
         ]
     },
     // {
@@ -194,6 +195,7 @@ Menu.forEach((item) => {
         });
     }
 });
+
 export function getMenu() {
     return Menu.splice(5, 10)
 }

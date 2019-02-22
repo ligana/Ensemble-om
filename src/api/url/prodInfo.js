@@ -158,7 +158,7 @@ export function getDiffTable (params) {
 }
 
 
-export function getCheckFlowList () {
+    export function getCheckFlowList () {
     return request({
         url: '/reviewCheckList',
         method: 'post'

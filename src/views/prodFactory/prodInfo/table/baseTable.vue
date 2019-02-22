@@ -49,10 +49,12 @@
     }
 </script>
 <style scoped>
-    .elevat >>> .v-table__overflow{
-        overflow-y:inherit;
-    }
     .elevat >>> table td{
         border:1px solid #D6D7DB;
     }
+    .elevat >>> table th {
+        border:1px solid #D6D7DB;
+        border-bottom:0px ;
+    }
+
 </style>

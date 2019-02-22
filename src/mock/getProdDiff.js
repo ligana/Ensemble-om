@@ -3,156 +3,697 @@ export default {
         "code": "000000",
         "msg": "请求成功",
         "data": {
-            "diff": {
-                "prodDefine": {
-                    "BRANCH_REGION_FLAG": {
+            "baseEffectProd": {
+                "10001": {
+                    "prodType": "10001",
+                    "prodDesc": "个人活期基础产品",
+                    "prodAbbr": "qweetefs",
+                    "prodClass": "GL100",
+                    "prodGroup": "N",
+                    "prodRange": "B",
+                    "baseProdType": "",
+                    "status": "A",
+                    "sourceModule": "RB"
+                }
+            },
+            "prodEvent": {
+                "CLOSE_10001": {
+                    "ACCT_STATUS": {
+                        "optionPermissions": "N",
+                        "attrValue": null
+                    },
+                    "ACCT_CLASS": {
+                        "optionPermissions": "N",
+                        "attrValue": ""
+                    }
+                },
+                "OPEN_10001": {},
+                "DEBT_10001": {
+                    "CHECK_SG_AMT": {
                         "optionPermissions": "E",
                         "attrValue": "Y"
                     },
-                    "DEP_RANGE": {
-                        "optionPermissions": "E",
-                        "attrValue": "ALL"
-                    },
-                    "ACCT_NATURE": {
-                        "optionPermissions": "E",
-                        "attrValue": "1,2"
-                    },
-                    "PROD_START_DATE": {
-                        "optionPermissions": "E",
-                        "attrValue": "20000101"
-                    },
-                    "STATUS_TRAN_FLAG": {
+                    "CHECK_WDRAWN_TYPE": {
                         "optionPermissions": "E",
                         "attrValue": "Y"
                     },
-                    "DRA_RANGE": {
-                        "optionPermissions": "E",
-                        "attrValue": "ALL"
+                    "SG_DEP_MIN_AMT": {
+                        "optionPermissions": "V",
+                        "attrValue": "1000"
                     },
-                    "CLIENT_TYPE": {
+                    "SG_DEP_MAX_AMT": {
+                        "optionPermissions": "V",
+                        "attrValue": "100000"
+                    }
+                },
+                "CRET_10001": {
+                    "KEEP_MIN_BAL": {
                         "optionPermissions": "E",
                         "attrValue": "10"
                     },
-                    "DOC_TYPE": {
-                        "optionPermissions": null,
-                        "attrValue": "001"
+                    "SG_MIN_AMT": {
+                        "optionPermissions": "V",
+                        "attrValue": "1000"
                     },
-                    "PROD_BRANCH": {
+                    "CHECK_WDRAWN_TYPE": {
                         "optionPermissions": "E",
-                        "attrValue": "ALL"
+                        "attrValue": "Y"
                     },
-                    "PROD_END_DATE": {
+                    "AUTO_RENEW_ROLLOVER": {
                         "optionPermissions": "E",
-                        "attrValue": "29991231"
-                    },
-                    "ACCT_CLASS": {
-                        "optionPermissions": "E",
-                        "attrValue": "1,2,3"
-                    },
-                    "FEE_CTRL_FLAG": {
-                        "optionPermissions": "E",
-                        "attrValue": "N"
-                    },
-                    "REGION_RANGE": {
-                        "optionPermissions": null,
                         "attrValue": ""
                     },
-                    "TRAN_DRA_FLAG": {
+                    "CHECK_KEEP_BAL": {
                         "optionPermissions": "E",
                         "attrValue": "Y"
                     },
-                    "DORMANT_MONTH": {
+                    "SG_MAX_AMT": {
                         "optionPermissions": "E",
-                        "attrValue": "36"
+                        "attrValue": "100000"
                     },
-                    "DORMANT_INT_FLAG": {
-                        "optionPermissions": "E",
-                        "attrValue": "Y"
-                    },
-                    "CASH_DRA_FLAG": {
+                    "AGENT_FLAG": {
                         "optionPermissions": "E",
                         "attrValue": "Y"
                     },
-                    "NEXT_CYCLE_DATE": {
-                        "optionPermissions": "E",
-                        "attrValue": "20190321"
-                    },
-                    "PROD_REGION": {
-                        "optionPermissions": null,
-                        "attrValue": ""
-                    },
-                    "CHANNEL_CTRL_FLAG": {
-                        "optionPermissions": "E",
+                    "CHECK_RESTRAINT": {
+                        "optionPermissions": "V",
                         "attrValue": "Y"
                     },
-                    "AUTO_DORM_FLAG": {
-                        "optionPermissions": "E",
-                        "attrValue": "Y"
-                    },
-                    "CLIENT_CTRL_FLAG": {
-                        "optionPermissions": "E",
-                        "attrValue": "Y"
-                    },
-                    "BRANCH_REGION_SELECT": {
-                        "optionPermissions": "E",
-                        "attrValue": "B"
-                    },
-                    "CLIENT_IND": {
-                        "optionPermissions": "E",
-                        "attrValue": "N,S,V"
-                    },
-                    "PROD_CHANNEL": {
-                        "optionPermissions": "E",
-                        "attrValue": "ALL"
-                    },
-                    "CCY": {
-                        "optionPermissions": null,
-                        "attrValue": "CNY"
-                    },
-                    "BRANCH_RANGE": {
-                        "optionPermissions": "E",
-                        "attrValue": "ALL"
-                    },
-                    "WITHDRAWAL_TYPE": {
-                        "optionPermissions": "E",
-                        "attrValue": "P,O"
-                    },
-                    "HANG_INT_FLAG": {
-                        "optionPermissions": "E",
-                        "attrValue": "Y"
-                    },
-                    "INLAND_OFFSHORE": {
-                        "optionPermissions": "E",
-                        "attrValue": "I"
-                    }
-                },
-                "mbProdCharge": {},
-                "prodType": "10001",
-                "mbProdEvent": {
-                    "OPEN_10001.NUM_OF_CLIENT": {
-                        "optionPermissions": "E",
-                        "attrValue": "1"
-                    },
-                    "DEBT_10001.CHECK_RESTRAINT": {
-                        "optionPermissions": "E",
-                        "attrValue": "Y"
-                    },
-                    "OPEN_10001.CHECK_WDRAWN_TYPE": {
-                        "optionPermissions": "E",
-                        "attrValue": "Y"
-                    },
-                    "OPEN_10001.DOC_FLAG": {
-                        "optionPermissions": "E",
-                        "attrValue": "Y"
-                    },
-                    "OPEN_10001.ACCT_PREFIX": {
+                    "AGREEMENT_TYPE": {
                         "optionPermissions": "E",
                         "attrValue": ""
                     }
                 }
             },
+            "prodDefine": {
+                "OPEN_10001": {
+                    "prodType": "10001",
+                    "seqNo": "101",
+                    "assembleType": "EVENT",
+                    "assembleId": "OPEN_10001",
+                    "eventDefault": "OPEN",
+                    "attrKey": null,
+                    "attrValue": null,
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": null,
+                    "pageSeqNo": null,
+                    "optionPermissions": null,
+                    "group": null
+                },
+                "DEBT_10001": {
+                    "prodType": "10001",
+                    "seqNo": "102",
+                    "assembleType": "EVENT",
+                    "assembleId": "DEBT_10001",
+                    "eventDefault": "DEBT",
+                    "attrKey": null,
+                    "attrValue": null,
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": null,
+                    "pageSeqNo": null,
+                    "optionPermissions": null,
+                    "group": null
+                },
+                "CRET_10001": {
+                    "prodType": "10001",
+                    "seqNo": "103",
+                    "assembleType": "EVENT",
+                    "assembleId": "CRET_10001",
+                    "eventDefault": "CRET",
+                    "attrKey": null,
+                    "attrValue": null,
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": null,
+                    "pageSeqNo": null,
+                    "optionPermissions": null,
+                    "group": null
+                },
+                "CLOSE_10001": {
+                    "prodType": "10001",
+                    "seqNo": "104",
+                    "assembleType": "EVENT",
+                    "assembleId": "CLOSE_10001",
+                    "eventDefault": "CLOSE",
+                    "attrKey": null,
+                    "attrValue": null,
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": null,
+                    "pageSeqNo": null,
+                    "optionPermissions": null,
+                    "group": null
+                },
+                "PROD_CHANNEL": {
+                    "prodType": "10001",
+                    "seqNo": "151",
+                    "assembleType": "ATTR",
+                    "assembleId": "PROD_CHANNEL",
+                    "eventDefault": null,
+                    "attrKey": "PROD_CHANNEL",
+                    "attrValue": "MT",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 1,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "INLAND_OFFSHORE": {
+                    "prodType": "10001",
+                    "seqNo": "115",
+                    "assembleType": "ATTR",
+                    "assembleId": "INLAND_OFFSHORE",
+                    "eventDefault": null,
+                    "attrKey": "INLAND_OFFSHORE",
+                    "attrValue": "I,O",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 2,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "AMT_CALC_TYPE": {
+                    "prodType": "10001",
+                    "seqNo": "156",
+                    "assembleType": "ATTR",
+                    "assembleId": "AMT_CALC_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "AMT_CALC_TYPE",
+                    "attrValue": "",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 3,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "PROD_REGION": {
+                    "prodType": "10001",
+                    "seqNo": "152",
+                    "assembleType": "ATTR",
+                    "assembleId": "PROD_REGION",
+                    "eventDefault": null,
+                    "attrKey": "PROD_REGION",
+                    "attrValue": "ALL",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 4,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "ACTUAL_OR_LEDGER_BAL": {
+                    "prodType": "10001",
+                    "seqNo": "155",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACTUAL_OR_LEDGER_BAL",
+                    "eventDefault": null,
+                    "attrKey": "ACTUAL_OR_LEDGER_BAL",
+                    "attrValue": "",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 5,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "PROD_BRANCH": {
+                    "prodType": "10001",
+                    "seqNo": "154",
+                    "assembleType": "ATTR",
+                    "assembleId": "PROD_BRANCH",
+                    "eventDefault": null,
+                    "attrKey": "PROD_BRANCH",
+                    "attrValue": "9999",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 6,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "CLIENT_TYPE": {
+                    "prodType": "10001",
+                    "seqNo": "116",
+                    "assembleType": "ATTR",
+                    "assembleId": "CLIENT_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "CLIENT_TYPE",
+                    "attrValue": "01",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 7,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "CD_BRAND": {
+                    "prodType": "10001",
+                    "seqNo": "157",
+                    "assembleType": "ATTR",
+                    "assembleId": "CD_BRAND",
+                    "eventDefault": null,
+                    "attrKey": "CD_BRAND",
+                    "attrValue": "",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 8,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "CD_APP_NUM": {
+                    "prodType": "10001",
+                    "seqNo": "158",
+                    "assembleType": "ATTR",
+                    "assembleId": "CD_APP_NUM",
+                    "eventDefault": null,
+                    "attrKey": "CD_APP_NUM",
+                    "attrValue": "",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "APPLY",
+                    "pageSeqNo": 9,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "OWNERSHIP_TYPE": {
+                    "prodType": "10001",
+                    "seqNo": "119",
+                    "assembleType": "ATTR",
+                    "assembleId": "OWNERSHIP_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "OWNERSHIP_TYPE",
+                    "attrValue": "SG",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 1,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "ACCT_INT_FLAG": {
+                    "prodType": "10001",
+                    "seqNo": "112",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_INT_FLAG",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_INT_FLAG",
+                    "attrValue": "10",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 2,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "PROD_END_DATE": {
+                    "prodType": "10001",
+                    "seqNo": "107",
+                    "assembleType": "ATTR",
+                    "assembleId": "PROD_END_DATE",
+                    "eventDefault": null,
+                    "attrKey": "PROD_END_DATE",
+                    "attrValue": "29991231",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 3,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "ACCT_NATURE": {
+                    "prodType": "10001",
+                    "seqNo": "114",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_NATURE",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_NATURE",
+                    "attrValue": "1,2",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 4,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "PROD_START_DATE": {
+                    "prodType": "10001",
+                    "seqNo": "106",
+                    "assembleType": "ATTR",
+                    "assembleId": "PROD_START_DATE",
+                    "eventDefault": null,
+                    "attrKey": "PROD_START_DATE",
+                    "attrValue": "20170923",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 5,
+                    "optionPermissions": "V",
+                    "group": null
+                },
+                "PROFIT_CENTRE": {
+                    "prodType": "10001",
+                    "seqNo": "111",
+                    "assembleType": "ATTR",
+                    "assembleId": "PROFIT_CENTRE",
+                    "eventDefault": null,
+                    "attrKey": "PROFIT_CENTRE",
+                    "attrValue": "99",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 6,
+                    "optionPermissions": "V",
+                    "group": null
+                },
+                "CONVERTED_CCY": {
+                    "prodType": "10001",
+                    "seqNo": "150",
+                    "assembleType": "ATTR",
+                    "assembleId": "CONVERTED_CCY",
+                    "eventDefault": null,
+                    "attrKey": "CONVERTED_CCY",
+                    "attrValue": "CNY,CHF",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 7,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "ACCT_TYPE": {
+                    "prodType": "10001",
+                    "seqNo": "113",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_TYPE",
+                    "attrValue": "C",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 8,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "WITHDRAWAL_TYPE": {
+                    "prodType": "10001",
+                    "seqNo": "149",
+                    "assembleType": "ATTR",
+                    "assembleId": "WITHDRAWAL_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "WITHDRAWAL_TYPE",
+                    "attrValue": "O",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 9,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "FIXED_CALL": {
+                    "prodType": "10001",
+                    "seqNo": "148",
+                    "assembleType": "ATTR",
+                    "assembleId": "FIXED_CALL",
+                    "eventDefault": null,
+                    "attrKey": "FIXED_CALL",
+                    "attrValue": "C",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 10,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "CCY": {
+                    "prodType": "10001",
+                    "seqNo": "162",
+                    "assembleType": "ATTR",
+                    "assembleId": "CCY",
+                    "eventDefault": null,
+                    "attrKey": "CCY",
+                    "attrValue": "CNY",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 11,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "DOC_TYPE": {
+                    "prodType": "10001",
+                    "seqNo": "128",
+                    "assembleType": "ATTR",
+                    "assembleId": "DOC_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "DOC_TYPE",
+                    "attrValue": "002,001",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 12,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "ACCT_CLASS": {
+                    "prodType": "10001",
+                    "seqNo": "137",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_CLASS",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_CLASS",
+                    "attrValue": "1",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 13,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "CHECK_COMMISSION": {
+                    "prodType": "10001",
+                    "seqNo": "165",
+                    "assembleType": "ATTR",
+                    "assembleId": "CHECK_COMMISSION",
+                    "eventDefault": null,
+                    "attrKey": "CHECK_COMMISSION",
+                    "attrValue": "N",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 14,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "LEGAL_PERSON": {
+                    "prodType": "10001",
+                    "seqNo": "163",
+                    "assembleType": "ATTR",
+                    "assembleId": "LEGAL_PERSON",
+                    "eventDefault": null,
+                    "attrKey": "LEGAL_PERSON",
+                    "attrValue": "DCITS",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 15,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "CD_TYPE": {
+                    "prodType": "10001",
+                    "seqNo": "164",
+                    "assembleType": "ATTR",
+                    "assembleId": "CD_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "CD_TYPE",
+                    "attrValue": "",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 16,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "ALL_DRA_FLAG": {
+                    "prodType": "10001",
+                    "seqNo": "123",
+                    "assembleType": "ATTR",
+                    "assembleId": "ALL_DRA_FLAG",
+                    "eventDefault": null,
+                    "attrKey": "ALL_DRA_FLAG",
+                    "attrValue": "Y",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "CONTROL",
+                    "pageSeqNo": 1,
+                    "optionPermissions": "V",
+                    "group": null
+                },
+                "INT_CAP": {
+                    "prodType": "10001",
+                    "seqNo": "161",
+                    "assembleType": "ATTR",
+                    "assembleId": "INT_CAP",
+                    "eventDefault": null,
+                    "attrKey": "INT_CAP",
+                    "attrValue": "Y",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "INT",
+                    "pageSeqNo": 1,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "CYCLE_FREQ": {
+                    "prodType": "10001",
+                    "seqNo": "159",
+                    "assembleType": "ATTR",
+                    "assembleId": "CYCLE_FREQ",
+                    "eventDefault": null,
+                    "attrKey": "CYCLE_FREQ",
+                    "attrValue": "M3",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "INT",
+                    "pageSeqNo": 2,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "INT_DAY": {
+                    "prodType": "10001",
+                    "seqNo": "160",
+                    "assembleType": "ATTR",
+                    "assembleId": "INT_DAY",
+                    "eventDefault": null,
+                    "attrKey": "INT_DAY",
+                    "attrValue": "2133",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "INT",
+                    "pageSeqNo": 3,
+                    "optionPermissions": "E",
+                    "group": null
+                }
+            },
+            "mbProdType": {
+                "prodType": "10001",
+                "prodDesc": "个人活期基础产品",
+                "prodAbbr": "qweetefs",
+                "prodClass": "GL100",
+                "prodGroup": "N",
+                "prodRange": "B",
+                "baseProdType": "",
+                "status": "A",
+                "sourceModule": "RB"
+            },
+            "mbProdCharge": [{
+                "prodType": "10001",
+                "feeType": "C001",
+                "chargePeriodFreq": "M1",
+                "chargeDay": "22",
+                "nextChargeDate": "20180731",
+                "tranTimestamp": "20180522170620",
+                "tranTime": "1526979980",
+                "chargeDealMethod": "10",
+                "conDeductFlag": "N",
+                "conDeductTimes": " 4"
+            }, {
+                "prodType": "10001",
+                "feeType": "C003",
+                "chargePeriodFreq": "Y1",
+                "chargeDay": "31",
+                "nextChargeDate": "20181231",
+                "tranTimestamp": "20170712143738",
+                "tranTime": "1499841458",
+                "chargeDealMethod": "11",
+                "conDeductFlag": "N",
+                "conDeductTimes": "4"
+            }, {
+                "prodType": "10001",
+                "feeType": "C004",
+                "chargePeriodFreq": "2D",
+                "chargeDay": "11",
+                "nextChargeDate": "20181210",
+                "tranTimestamp": null,
+                "tranTime": null,
+                "chargeDealMethod": "11",
+                "conDeductFlag": "Y",
+                "conDeductTimes": "2"
+            }, {
+                "prodType": "10001",
+                "feeType": "C005",
+                "chargePeriodFreq": "M1",
+                "chargeDay": "20",
+                "nextChargeDate": "20180720",
+                "tranTimestamp": "20180522170620",
+                "tranTime": "1526979980",
+                "chargeDealMethod": "11",
+                "conDeductFlag": "N",
+                "conDeductTimes": " 4"
+            }, {
+                "prodType": "10001",
+                "feeType": "C006",
+                "chargePeriodFreq": "Y1",
+                "chargeDay": "31",
+                "nextChargeDate": "20181231",
+                "tranTimestamp": "20170712143738",
+                "tranTime": "1499841458",
+                "chargeDealMethod": "11",
+                "conDeductFlag": "N",
+                "conDeductTimes": "4"
+            }, {
+                "prodType": "10001",
+                "feeType": "C007",
+                "chargePeriodFreq": "1D",
+                "chargeDay": "1",
+                "nextChargeDate": "20180624",
+                "tranTimestamp": "20180523172558",
+                "tranTime": "1527067558",
+                "chargeDealMethod": null,
+                "conDeductFlag": null,
+                "conDeductTimes": null
+            }, {
+                "prodType": "10001",
+                "feeType": "C009",
+                "chargePeriodFreq": "Y1",
+                "chargeDay": "31",
+                "nextChargeDate": "20181231",
+                "tranTimestamp": "20170712143738",
+                "tranTime": "1499841458",
+                "chargeDealMethod": "11",
+                "conDeductFlag": "N",
+                "conDeductTimes": "4"
+            }, {
+                "prodType": "10001",
+                "feeType": "C010",
+                "chargePeriodFreq": "2D",
+                "chargeDay": "11",
+                "nextChargeDate": "20181210",
+                "tranTimestamp": null,
+                "tranTime": null,
+                "chargeDealMethod": "11",
+                "conDeductFlag": "Y",
+                "conDeductTimes": "2"
+            }],
+            "diff": {
+                "prodDefine": {
+                    "AMT_CALC_TYPE": {
+                        "optionPermissions": "E",
+                        "attrValue": "2,1,4,3"
+                    }
+                },
+                "mbProdCharge": {},
+                "prodType": "10001",
+                "mbProdEvent": {}
+            },
             "prodType": "10001"
         }
-
     })
 }

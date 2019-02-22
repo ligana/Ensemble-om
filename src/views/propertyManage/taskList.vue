@@ -3,7 +3,7 @@
         <v-layout row wrap>
             <v-dialog v-model="diff" fullscreen hide-overlay transition="dialog-bottom-transition">
                 <v-card ref="print">
-                    <v-toolbar dark color="primary">
+                    <v-toolbar dark color="#3C73E6!important">
                         <v-btn icon dark @click="closeDialog">
                             <v-icon>close</v-icon>
                         </v-btn>
@@ -16,7 +16,7 @@
         </v-layout>
         <v-card flat tile>
             <div class="vToolbar">
-                <v-toolbar flat dense color="primary lighten-2" dark class="pa-0">
+                <v-toolbar flat dense color="#3C73E6!important" dark class="pa-0">
                     <v-toolbar-title>操作列表</v-toolbar-title>
                 </v-toolbar>
             </div>
@@ -56,11 +56,11 @@
             <div class="button">
                 <div style="width: 10%;height: 100%;float: left"></div>
                 <div class="clear">
-                    <v-btn block color="primary lighten-2" dark @click="clean()">清空</v-btn>
+                    <v-btn block color="#3C73E6!important" style="margin-top: 10px;" dark @click="clean()">清空</v-btn>
                 </div>
                 <div style="width: 20%;height: 100%;float: left"></div>
                 <div class="submit">
-                    <v-btn block color="primary lighten-2" dark @click="submit()">提交</v-btn>
+                    <v-btn block color="#3C73E6!important" style="margin-top: 10px;" dark @click="submit()">提交</v-btn>
                 </div>
             </div>
         </v-card>
@@ -235,7 +235,8 @@
     .button {
         background-color white
         width 100%
-        height 48px
+        height 58px
+
     }
 
     .clear {
