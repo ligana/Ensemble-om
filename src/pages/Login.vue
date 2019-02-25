@@ -1,16 +1,12 @@
 <template>
     <v-app id="login" class="primary">
         <v-content>
-            <!--<v-container fluid fill-height>-->
-            <!--<v-layout align-center justify-center>-->
-            <!--<v-flex xs12 sm8 md4 lg4>-->
             <div class="login_flex">
                 <div class="img_box"> </div>
                 <v-card class="elevation-1 pa-3">
                     <v-card-text>
                         <div class="logo_box">
                             <img src="/static/avatar/logo.png" alt="SmartEnsemble-om<" width="54" height="41">
-                            <!--<h1 class="flex my-4 primary&#45;&#45;text">神州数码-产品工厂</h1>-->
                             <h2 class="_text">SmartEnsemble-om</h2>
                         </div>
                         <v-form ref="model">
@@ -39,9 +35,6 @@
                     <h1 class="h1_b">神州数码产品工厂</h1>
                 </v-card>
             </div>
-            <!--</v-flex>-->
-            <!--</v-layout>-->
-            <!--</v-container>-->
         </v-content>
     </v-app>
 </template>
