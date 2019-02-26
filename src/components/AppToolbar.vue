@@ -1,36 +1,23 @@
 <template>
-
     <v-toolbar class="styleOmUi_Color1" fixed dark app>
         <img v-bind:src="computeLogo" height="36" alt="产品工厂">
         <v-toolbar-title class="ml-0 pl-1">
             <span class="hidden-sm-and-down pr-3">{{titleName}}</span>
             <v-toolbar-side-icon v-if="dcSwitch" @click.stop="handleDrawerToggle" class="ml-3"></v-toolbar-side-icon>
         </v-toolbar-title>
-        <!--<v-text-field-->
-        <!--flat-->
-        <!--solo-inverted-->
-        <!--prepend-icon="search"-->
-        <!--label="Search"-->
-        <!--class="hidden-sm-and-down"-->
-        <!--:items="prodList"-->
-        <!--v-model="country"-->
-        <!--&gt;-->
-        <!--</v-text-field>-->
-
         <v-spacer></v-spacer>
         <v-switch v-model="dcSwitch" @change="switchChange" class="pt-4 pr-2" style="flex:none"></v-switch>
-
-
         <v-icon @click="showSearchAction" class="material-icons">search</v-icon>
 
         <v-card :class="searchDc">
-                <v-autocomplete :rules=null :items="prodList" placeholder="请输入要查询的产品类型或描述" class="primary--text px-5 pt-2"
-                                @change="prodListClick" clearable flat solo-inverted></v-autocomplete>
-              </v-card>
+            <v-autocomplete :rules=null :items="prodList" placeholder="请输入要查询的产品类型或描述" class="primary--text px-5 pt-2"
+                            @change="prodListClick" clearable flat solo-inverted></v-autocomplete>
+        </v-card>
         <v-btn icon @click="handleFullScreen()">
             <v-icon>fullscreen</v-icon>
         </v-btn>
-        <v-menu v-model="taskMenu" :close-on-content-click="false" offset-y origin="center center" class="elelvation-1" :nudge-bottom="14" transition="scale-transition">
+        <v-menu v-model="taskMenu" :close-on-content-click="false" offset-y origin="center center" class="elelvation-1"
+                :nudge-bottom="14" transition="scale-transition">
             <v-btn icon flat slot="activator">
                 <v-badge color="red" overlap>
                     <span slot="badge">{{taskSize}}</span>
@@ -70,6 +57,7 @@
     } from '@/api/url/prodInfo'
     import config from '@/config'
     import Layout from "./media/Layout";
+
     export default {
         name: "app-toolbar",
         components: {
@@ -124,23 +112,25 @@
         }),
 
         computed: {
-            toolbarColor() {
-                return this.$vuetify.options.extra.mainNav;
-            },
+            // toolbarColor() {
+            //     return this.$vuetify.options.extra.mainNav;
+            // },
             computeLogo() {
                 return "/static/prod/dcLog1.png";
             },
         },
-        mounted() {
+        beforeMount() {
             if (getToken()) {
                 this.getInitProdList();
             }
+
         },
         methods: {
             handleDrawerToggle() {
                 window.getApp.$emit("APP_DRAWER_TOGGLED");
             },
             prodListClick(val) {
+                console.log(val,"log1111111111");
                 this.prodListSplit = val.split("-");
                 this.prodCode = this.prodListSplit[0];
                 for (let i = 0; i < this.sourceProdList.length; i++) {
@@ -151,16 +141,16 @@
                         break
                     }
                 }
-               if(this.sourceModule == "RB" && this.prodRange == "S"){
-                   this.$router.push({
-                       name: "RbSoldProds",
-                       params: {
-                           prodClassCmp: this.prodClass,
-                           prodType: this.prodCode
-                       }
-                   });
-               }
-               if(this.sourceModule == "RB" && this.prodRange == "B"){
+                if (this.sourceModule == "RB" && this.prodRange == "S") {
+                    this.$router.push({
+                        name: "RbSoldProds",
+                        params: {
+                            prodClassCmp: this.prodClass,
+                            prodType: this.prodCode
+                        }
+                    });
+                }
+                if (this.sourceModule == "RB" && this.prodRange == "B") {
                     this.$router.push({
                         name: "RbBaseProds",
                         params: {
@@ -168,8 +158,8 @@
                             prodType: this.prodCode
                         }
                     });
-               }
-               if(this.sourceModule == "CL" && this.prodRange == "S"){
+                }
+                if (this.sourceModule == "CL" && this.prodRange == "S") {
                     this.$router.push({
                         name: "ClSoldProds",
                         params: {
@@ -177,8 +167,8 @@
                             prodType: this.prodCode
                         }
                     });
-               }
-               if(this.sourceModule == "CL" && this.prodRange == "B"){
+                }
+                if (this.sourceModule == "CL" && this.prodRange == "B") {
                     this.$router.push({
                         name: "ClBaseProds",
                         params: {
@@ -186,27 +176,27 @@
                             prodType: this.prodCode
                         }
                     });
-               }
+                }
 
             },
             handleFullScreen() {
                 Util.toggleFullScreen();
             },
-            switchChange(){
+            switchChange() {
                 this.$emit("menuSwitch");
                 window.getApp.$emit('APP_DRAWER_TOGGLED');
             },
-            showSearchAction(){
-                this.searchDc='searchDc';
-                document.getElementsByTagName("main")[0].addEventListener("click",this.showSearchNon);
+            showSearchAction() {
+                this.searchDc = 'searchDc';
+                document.getElementsByTagName("main")[0].addEventListener("click", this.showSearchNon);
 
             },
-            getTaskList(size){
-                this.taskSize=size;
+            getTaskList(size) {
+                this.taskSize = size;
             },
-            showSearchNon(){
-              this.searchDc='searchDcNone';
-                document.getElementsByTagName("main")[0].removeEventListener("click",this.showSearchNon);
+            showSearchNon() {
+                this.searchDc = 'searchDcNone';
+                document.getElementsByTagName("main")[0].removeEventListener("click", this.showSearchNon);
             },
             getInitProdList() {
                 getAllProdList().then(response => {
@@ -221,13 +211,13 @@
                 });
             },
             closeMenu() {
-                this.taskMenu=false;
+                this.taskMenu = false;
             }
         }
     };
 </script>
 <style lang="stylus" scoped>
-    .searchDc{
+    .searchDc {
         width 100%
         position fixed
         transition: all 0.7s
@@ -236,7 +226,8 @@
         left 0
         z-index 8
     }
-    .searchDcNone{
+
+    .searchDcNone {
         position absolute
         top -65px
         transition: all 0.7s
@@ -244,13 +235,15 @@
         left 0
         z-index 1
     }
-    .v-menu{
+
+    .v-menu {
         width 50px
     }
-    .tList{
+
+    .tList {
         margin auto
         width 450px
         max-height 500px
     }
 
-    </style>
+</style>

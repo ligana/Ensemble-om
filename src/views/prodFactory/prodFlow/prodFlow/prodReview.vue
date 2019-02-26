@@ -1,177 +1,195 @@
 <template>
-  <div class="mr-4">
+    <div class="mr-4">
         <!--<tran-check-flow-info v-if="optKey==3"></tran-check-flow-info>-->
         <!--<tran-release-flow-info v-if="optKey==4"></tran-release-flow-info>-->
         <!--复核流程信息-->
         <v-card class="mt-4 elevation-4 radiusDc">
-          <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
-            <!--<v-icon>call_split</v-icon>-->
-            <v-toolbar-title>{{title}}</v-toolbar-title>
-          </v-toolbar>
-          <v-stepper v-model="e11" v-if="optKey == 3" style="height: 330px;">
-            <v-stepper-header style="font-size: large">
-              <v-divider></v-divider>
-              <v-stepper-step editable :complete="e11 > 1" step="1">提交信息</v-stepper-step>
-              <v-divider></v-divider>
-              <v-stepper-step editable :complete="e11 > 2" step="2">复核信息</v-stepper-step>
-              <v-divider></v-divider>
-            </v-stepper-header>
-            <v-stepper-items>
-              <v-stepper-content step="1">
-                <v-layout wrap>
-                  <v-flex xs12 md2 lg2>
-                    <v-subheader class="descClass">提交人:</v-subheader>
-                  </v-flex>
-                  <v-flex md10 lg10>
-                    <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="checkFlowInfo.flowCommitInfo.userId" single-line hide-details>
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs12 md2 lg2>
-                    <v-subheader class="descClass">提交时间:</v-subheader>
-                  </v-flex>
-                  <v-flex md10 lg10>
-                    <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="checkFlowInfo.flowCommitInfo.tranTime" single-line hide-details>
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs12 md2 lg2>
-                    <v-subheader class="descClass">提交原因:</v-subheader>
-                  </v-flex>
-                  <v-flex md10 lg10>
-                    <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="checkFlowInfo.flowCommitInfo.remark" single-line hide-details>
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs12 md2 lg2>
-                    <v-subheader class="descClass">备注信息:</v-subheader>
-                  </v-flex>
-                  <v-flex md10 lg10>
-                    <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" single-line hide-details>
-                    </v-text-field>
-                  </v-flex>
-                </v-layout>
-              </v-stepper-content>
-              <v-stepper-content step="2">
-                <v-layout wrap>
-                  <v-flex xs12 md2 lg2>
-                    <v-subheader class="descClass">复核人:</v-subheader>
-                  </v-flex>
-                  <v-flex md10 lg10>
-                    <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="checkInfo.userId" single-line hide-details>
-                    </v-text-field>
-                  </v-flex>
-                  <v-flex xs12 md2 lg2>
-                    <v-subheader class="descClass">复核日期:</v-subheader>
-                  </v-flex>
-                  <v-flex md10 lg10>
-                    <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="checkInfo.date" value="2018/09/07" single-line hide-details>
-                    </v-text-field>
-                  </v-flex>
+            <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
+                <!--<v-icon>call_split</v-icon>-->
+                <v-toolbar-title>{{title}}</v-toolbar-title>
+            </v-toolbar>
+            <v-stepper v-model="e11" v-if="optKey == 3" style="height: 330px;">
+                <v-stepper-header style="font-size: large">
+                    <v-divider></v-divider>
+                    <v-stepper-step editable :complete="e11 > 1" step="1">提交信息</v-stepper-step>
+                    <v-divider></v-divider>
+                    <v-stepper-step editable :complete="e11 > 2" step="2">复核信息</v-stepper-step>
+                    <v-divider></v-divider>
+                </v-stepper-header>
+                <v-stepper-items>
+                    <v-stepper-content step="1">
+                        <v-layout wrap>
+                            <v-flex xs12 md2 lg2>
+                                <v-subheader class="descClass">提交人:</v-subheader>
+                            </v-flex>
+                            <v-flex md10 lg10>
+                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                              v-model="checkFlowInfo.flowCommitInfo.userId" single-line hide-details>
+                                </v-text-field>
+                            </v-flex>
+                            <v-flex xs12 md2 lg2>
+                                <v-subheader class="descClass">提交时间:</v-subheader>
+                            </v-flex>
+                            <v-flex md10 lg10>
+                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                              v-model="checkFlowInfo.flowCommitInfo.tranTime" single-line hide-details>
+                                </v-text-field>
+                            </v-flex>
+                            <v-flex xs12 md2 lg2>
+                                <v-subheader class="descClass">提交原因:</v-subheader>
+                            </v-flex>
+                            <v-flex md10 lg10>
+                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                              v-model="checkFlowInfo.flowCommitInfo.remark" single-line hide-details>
+                                </v-text-field>
+                            </v-flex>
+                            <v-flex xs12 md2 lg2>
+                                <v-subheader class="descClass">备注信息:</v-subheader>
+                            </v-flex>
+                            <v-flex md10 lg10>
+                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                              single-line hide-details>
+                                </v-text-field>
+                            </v-flex>
+                        </v-layout>
+                    </v-stepper-content>
+                    <v-stepper-content step="2">
+                        <v-layout wrap>
+                            <v-flex xs12 md2 lg2>
+                                <v-subheader class="descClass">复核人:</v-subheader>
+                            </v-flex>
+                            <v-flex md10 lg10>
+                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                              v-model="checkInfo.userId" single-line hide-details>
+                                </v-text-field>
+                            </v-flex>
+                            <v-flex xs12 md2 lg2>
+                                <v-subheader class="descClass">复核日期:</v-subheader>
+                            </v-flex>
+                            <v-flex md10 lg10>
+                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                              v-model="checkInfo.date" value="2018/09/07" single-line hide-details>
+                                </v-text-field>
+                            </v-flex>
+                            <v-flex xs12 md2 lg2>
+                                <v-subheader class="descClass">复核意见:</v-subheader>
+                            </v-flex>
+                            <v-flex md10 lg10>
+                                <v-text-field class="primary--text mx-1 textBox" label="" name="title"
+                                              v-model="checkInfo.remark" single-line hide-details>
+                                </v-text-field>
+                            </v-flex>
+                        </v-layout>
+                    </v-stepper-content>
+                </v-stepper-items>
+            </v-stepper>
 
-                  <v-flex xs12 md2 lg2>
-                    <v-subheader class="descClass">复核意见:</v-subheader>
-                  </v-flex>
-                  <v-flex md10 lg10>
-                    <v-text-field class="primary--text mx-1 textBox" label="" name="title" v-model="checkInfo.remark" single-line hide-details>
-                    </v-text-field>
-                  </v-flex>
-                </v-layout>
-              </v-stepper-content>
-            </v-stepper-items>
-          </v-stepper>
-
-          <!--发布流程信息-->
-          <v-stepper v-model="e1" style="color: white;height: 330px;" v-if="optKey == 4" >
-            <v-stepper-header style="font-size: large">
-              <v-stepper-step editable :complete="e1 > 1" step="1">提交信息</v-stepper-step>
-              <v-divider></v-divider>
-              <v-stepper-step editable :complete="e1 > 2" step="2">复核信息</v-stepper-step>
-              <v-divider></v-divider>
-              <v-stepper-step editable step="3">发布信息</v-stepper-step>
-            </v-stepper-header>
-            <v-stepper-content step="1">
-              <v-layout wrap>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">提交人:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="releaseFlowInfo.flowCommitInfo.userId" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">提交时间:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="releaseFlowInfo.flowCommitInfo.tranTime" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">提交原因:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="releaseFlowInfo.flowCommitInfo.remark" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">备注信息:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-stepper-content>
-            <v-stepper-content step="2">
-              <v-layout wrap>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">复核人:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" v-model="releaseFlowInfo.flowCheckInfo.userId" name="title" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">复核时间:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" v-model="releaseFlowInfo.flowCheckInfo.tranTime" name="title" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">复核意见:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" disabled="false" label="" name="title" v-model="releaseFlowInfo.flowCheckInfo.remark" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-stepper-content>
-            <v-stepper-content step="3">
-              <v-layout wrap>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">发布人:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="releaseInfo.userId" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">发布时间:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title" v-model="releaseInfo.date" value="2018/09/07" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">发布意见:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-text-field class="primary--text mx-1 textBox" label="" name="title" v-model="releaseInfo.remark" single-line hide-details>
-                  </v-text-field>
-                </v-flex>
-              </v-layout>
-            </v-stepper-content>
-          </v-stepper>
+            <!--发布流程信息-->
+            <v-stepper v-model="e1" style="color: white;height: 330px;" v-if="optKey == 4">
+                <v-stepper-header style="font-size: large">
+                    <v-stepper-step editable :complete="e1 > 1" step="1">提交信息</v-stepper-step>
+                    <v-divider></v-divider>
+                    <v-stepper-step editable :complete="e1 > 2" step="2">复核信息</v-stepper-step>
+                    <v-divider></v-divider>
+                    <v-stepper-step editable step="3">发布信息</v-stepper-step>
+                </v-stepper-header>
+                <v-stepper-content step="1">
+                    <v-layout wrap>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">提交人:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                          v-model="releaseFlowInfo.flowCommitInfo.userId" single-line hide-details>
+                            </v-text-field>
+                        </v-flex>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">提交时间:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                          v-model="releaseFlowInfo.flowCommitInfo.tranTime" single-line hide-details>
+                            </v-text-field>
+                        </v-flex>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">提交原因:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                          v-model="releaseFlowInfo.flowCommitInfo.remark" single-line hide-details>
+                            </v-text-field>
+                        </v-flex>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">备注信息:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                          single-line hide-details>
+                            </v-text-field>
+                        </v-flex>
+                    </v-layout>
+                </v-stepper-content>
+                <v-stepper-content step="2">
+                    <v-layout wrap>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">复核人:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false"
+                                          v-model="releaseFlowInfo.flowCheckInfo.userId" name="title" single-line
+                                          hide-details>
+                            </v-text-field>
+                        </v-flex>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">复核时间:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false"
+                                          v-model="releaseFlowInfo.flowCheckInfo.tranTime" name="title" single-line
+                                          hide-details>
+                            </v-text-field>
+                        </v-flex>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">复核意见:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" disabled="false" label="" name="title"
+                                          v-model="releaseFlowInfo.flowCheckInfo.remark" single-line hide-details>
+                            </v-text-field>
+                        </v-flex>
+                    </v-layout>
+                </v-stepper-content>
+                <v-stepper-content step="3">
+                    <v-layout wrap>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">发布人:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                          v-model="releaseInfo.userId" single-line hide-details>
+                            </v-text-field>
+                        </v-flex>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">发布时间:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                          v-model="releaseInfo.date" value="2018/09/07" single-line hide-details>
+                            </v-text-field>
+                        </v-flex>
+                        <v-flex xs12 md2 lg2>
+                            <v-subheader class="descClass">发布意见:</v-subheader>
+                        </v-flex>
+                        <v-flex md10 lg10>
+                            <v-text-field class="primary--text mx-1 textBox" label="" name="title"
+                                          v-model="releaseInfo.remark" single-line hide-details>
+                            </v-text-field>
+                        </v-flex>
+                    </v-layout>
+                </v-stepper-content>
+            </v-stepper>
         </v-card>
-  </div>
+    </div>
 </template>
 <script>
     import prodDiffTable from '@/views/prodFactory/prodDiff/prodDiffTable'
@@ -188,6 +206,7 @@
     import {
         tranFlowRelease
     } from '@/api/url/prodInfo';
+
     export default {
         components: {
             baseTable,
@@ -196,7 +215,7 @@
             prodDiffTable
         },
         props: ["prodData"],
-        data (){
+        data() {
             return {
                 sourceModule: [],
                 spinning: false,
@@ -231,7 +250,7 @@
                 showFlag: 0,
                 optValue: '',
                 optDesc: '',
-                prodData: {},
+                // prodData: {},
                 isTable: false,
                 prodGroup: [{
                     key: 'Y',
@@ -263,21 +282,19 @@
         },
         watch: {
             'checkInfo.remark': {
-                handler(val,oldval)
-                {
-                    if(val!=oldval){
+                handler(val, oldval) {
+                    if (val != oldval) {
                         this.$nextTick(() => {
-                            this.$emit('setCheckInfo',this.checkInfo);
+                            this.$emit('setCheckInfo', this.checkInfo);
                         })
                     }
                 },
             },
             'releaseInfo.remark': {
-                handler(val,oldval)
-                {
-                    if(val!=oldval){
+                handler(val, oldval) {
+                    if (val != oldval) {
                         this.$nextTick(() => {
-                            this.$emit('setReleaseInfo',this.releaseInfo);
+                            this.$emit('setReleaseInfo', this.releaseInfo);
                         })
                     }
                 },
@@ -296,57 +313,57 @@
         },
         methods: {
             initFlowInfo(val) {
-                if(this.optKey === 3){
+                if (this.optKey === 3) {
                     this.checkInfo.mainSeqNo = val.code
                     this.checkInfo.userId = sessionStorage.getItem("userId")
-                    for(let i=0; i<val.flowInfo.length; i++) {
+                    for (let i = 0; i < val.flowInfo.length; i++) {
                         this.tranId = val.flowInfo[i].flowManage.tranId;
 
-                        if(val.flowInfo[i].flowManage.tranId === "MB_PROD_TYPE"){
+                        if (val.flowInfo[i].flowManage.tranId === "MB_PROD_TYPE") {
                             this.isTable = false
-                        }else{
+                        } else {
                             this.isTable = true
                         }
-                        if(val.flowInfo[i].flowManage.mainSeqNo === this.checkInfo.mainSeqNo){
+                        if (val.flowInfo[i].flowManage.mainSeqNo === this.checkInfo.mainSeqNo) {
                             this.checkFlowInfo = val.flowInfo[i]
                         }
                     }
-                    this.$emit('setCheckInfo',this.checkInfo);
+                    this.$emit('setCheckInfo', this.checkInfo);
                 }
-                if(this.optKey === 4){
+                if (this.optKey === 4) {
                     this.releaseInfo.mainSeqNo = val.code;
                     this.releaseInfo.userId = sessionStorage.getItem("userId")
-                    for(let i=0; i<val.flowInfo.length; i++) {
+                    for (let i = 0; i < val.flowInfo.length; i++) {
                         this.tranId = val.flowInfo[i].flowManage.tranId;
 
-                        if(val.flowInfo[i].flowManage.tranId === "MB_PROD_TYPE"){
+                        if (val.flowInfo[i].flowManage.tranId === "MB_PROD_TYPE") {
                             this.isTable = false
-                        }else{
+                        } else {
                             this.isTable = true
                         }
                         if (val.flowInfo[i].flowManage.mainSeqNo === this.releaseInfo.mainSeqNo) {
                             this.releaseFlowInfo = val.flowInfo[i]
                         }
                     }
-                    this.$emit('setReleaseInfo',this.releaseInfo);
+                    this.$emit('setReleaseInfo', this.releaseInfo);
                 }
-                this.$emit('setReleaseFlowInfo',this.releaseFlowInfo)
+                this.$emit('setReleaseFlowInfo', this.releaseFlowInfo)
             },
             getDate() {
                 var date = new Date();
                 var year = date.getFullYear();
-                var month = date.getMonth()+1;//js中是从0开始所以要加1
+                var month = date.getMonth() + 1;//js中是从0开始所以要加1
                 var day = date.getDate();
-                this.releaseInfo.date = year+'/'+month+'/'+day;
-                this.checkInfo.date = year+'/'+month+'/'+day;
+                this.releaseInfo.date = year + '/' + month + '/' + day;
+                this.checkInfo.date = year + '/' + month + '/' + day;
             },
             setOptKey(val) {
-                if(val === "复核") {
+                if (val === "复核") {
                     this.optKey = 3
                     this.optDesc = "复核"
                     this.title = "交易复核流程"
                 }
-                if(val === "发布") {
+                if (val === "发布") {
                     this.optKey = 4
                     this.optDesc = "发布"
                     this.title = "交易发布流程"
@@ -356,37 +373,42 @@
     }
 </script>
 <style scoped>
-  .diffTitle {
-    font-size: large;
-  }
-  .imgUserIndexFlow {
-    width: 100px;
-    display: inline-block;
-    margin-left: 40%
-  }
-  .showMsg {
-    font-size: x-large;
-    font-style: inherit;
-    margin-left: 5%;
-    margin-top: 4%;
-  }
-  .descClass {
-    color: #939597;
-    font-size: large;
-    font-style: inherit;
-    margin-right: 0px;
-    margin-top: 10px;
-    margin-left: 10%
-  }
-  .textBox {
-    margin-top: 5px;
-      border-bottom: 1px solid #D6D7DB!important;
-  }
-  .btnClass {
-    margin-top: 5%;
-    margin-left: 28%;
-    margin-bottom: 3%;
-    width: 50%;
-    font-size: large;
-  }
+    .diffTitle {
+        font-size: large;
+    }
+
+    .imgUserIndexFlow {
+        width: 100px;
+        display: inline-block;
+        margin-left: 40%
+    }
+
+    .showMsg {
+        font-size: x-large;
+        font-style: inherit;
+        margin-left: 5%;
+        margin-top: 4%;
+    }
+
+    .descClass {
+        color: #939597;
+        font-size: large;
+        font-style: inherit;
+        margin-right: 0px;
+        margin-top: 10px;
+        margin-left: 10%
+    }
+
+    .textBox {
+        margin-top: 5px;
+        border-bottom: 1px solid #D6D7DB !important;
+    }
+
+    .btnClass {
+        margin-top: 5%;
+        margin-left: 28%;
+        margin-bottom: 3%;
+        width: 50%;
+        font-size: large;
+    }
 </style>

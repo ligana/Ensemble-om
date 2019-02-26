@@ -10,7 +10,7 @@
     >
         <div class="admin-box">
             <div class="imgbox">
-                <v-card-media src="/static/avatar/per1.jpg"></v-card-media>
+                <v-img src="/static/avatar/per1.jpg"></v-img>
             </div>
             <v-list>
                 <v-list-tile>
@@ -144,7 +144,6 @@
             });
             getMenuList({userId: sessionStorage.getItem("userId")}).then(response => {
                 this.menus = response.data.data;
-                console.log(response, "tyuiofghjkxcvbnm,xcvbnm,");
             })
         },
         methods: {

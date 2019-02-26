@@ -11,7 +11,7 @@ export default [
       this.snackbar = {
         show: true,
         color: 'green',
-        text: 'Logout successfully.'
+        text: '注销成功'
       };
       this.$router.replace({ path: '/login' });
     }

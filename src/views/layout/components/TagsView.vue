@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-view-container "><!--elevation-2-->
+  <div class="tags-view-container ">
     <scroll-pane class= 'tags-view-wrapper' ref= 'scrollPane'>
       <router-link ref= 'tag' class= 'tags-view-item' :class= "isActive(tag)?'active styleOmUi_Color3':''" v-for= 'tag in Array.from(visitedViews)'
                    :to= 'tag' :key= 'tag.path' @contextmenu.prevent.native= 'openMenu(tag,$event)'>

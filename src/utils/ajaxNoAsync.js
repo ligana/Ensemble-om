@@ -2,11 +2,11 @@ import $ from 'jquery'
 export function asyncPost(url, data) {
     let reData='';
     $.ajax({
-        url: process.env.BASE_API+url,//url路径
+        url: process.env.BASE_API+url,//url璺緞
         type: 'POST', //GET
-        async: false, //或false,是否异步
+        async: false, //鎴杅alse,鏄惁寮傛
         data: data,
-        timeout: 15000, //超时时间
+        timeout: 15000, //瓒呮椂鏃堕棿
         dataType: 'json',
         success: function(data,textStatus,jqXHR){
             reData= data;

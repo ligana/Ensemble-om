@@ -97,7 +97,7 @@
                 showFlag: 0,
                 optValue: '',
                 optDesc: '',
-                prodData: {},
+                // prodData: {},
                 isTable: false,
                 prodGroup: [{
                     key: 'Y',

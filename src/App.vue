@@ -6,7 +6,7 @@
         <app-toolbar class="app--toolbar elevation-2 pl-0" v-on:menuSwitch="menuSwitch" ></app-toolbar>
         <v-content>
           <!-- Page Header -->
-       <!--   <page-header v-if="$route.meta.breadcrumb"></page-header>-->
+       <!--<page-header v-if="$route.meta.breadcrumb"></page-header>-->
           <tags-view></tags-view>
           <div class="px-4">
             <keep-alive :include='cachedViews'>

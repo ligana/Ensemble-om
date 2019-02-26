@@ -4,7 +4,7 @@
       <v-card-text v-show="RB">
         <v-tabs fixed-tabs v-if="isTable == false">
           <v-tab v-for="n in diffList" :key="n" class="diffTitle">{{n}}</v-tab>
-          <v-tabs-items v-model="model">
+          <v-tabs-items >
             <v-tab-item v-for="i in diffList" :key="i">
               <prod-diff v-if="i=='产品属性'" :prodData="prodDefineData"></prod-diff>
               <prod-diff v-if="i=='开户定义'" :prodData="prodEventOpen"></prod-diff>
@@ -20,7 +20,7 @@
       <v-card-text v-show="CL">
         <v-tabs fixed-tabs v-if="isTable == false">
           <v-tab v-for="n in diffList2" :key="n" class="diffTitle">{{n}}</v-tab>
-          <v-tabs-items v-model="model">
+          <v-tabs-items >
             <v-tab-item v-for="i in diffList2" :key="i">
               <prod-diff v-if="i=='产品属性'" :prodData="prodDefineData"></prod-diff>
               <!--<prod-diff v-if="i=='利息信息'" :prodData="prodEventCycle"></prod-diff>-->
@@ -77,8 +77,7 @@ export default {
         getColumnDesc_,
         DcTextField
     },
-    props: ['prodData','sendTranId','sendTranType','seqNo'],
-
+    props: ['sendTranId','sendTranType','seqNo'],//'prodData',
     data (){
         return {
             sourceModule: [],
@@ -96,7 +95,8 @@ export default {
             showFlag: 0,
             optValue: '',
             optDesc: '',
-            prodData: {},
+            prodEventDue: '',
+            prodData: {},//在props中重复定义
             isTable: false,
             prodCharge: {},
             prodDefineData: {},
