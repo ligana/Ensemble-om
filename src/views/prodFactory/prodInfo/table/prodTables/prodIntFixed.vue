@@ -69,10 +69,11 @@
                 this.fixedData = val;
                 this.index = this._props.fixedIndex;
                 let indexs = this._props.fixedIndex;
+                if(val!== undefined&&val.length>0){
                 this.selectedProdInt = val[indexs][0];
                 this.selectedProdMartix = val[indexs][1];
                 this.selectedProdBase = val[indexs][2];
-
+                }
             },
             indexChange(index){
                 this.index = index

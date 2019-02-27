@@ -16,22 +16,22 @@
                                     hide-details
                             ></v-checkbox>
                         </td>
-                      <td>{{ props.item.prodType }}</td>
-                      <td>{{ props.item.prodDesc }}</td>
-                      <td>{{ props.item.sourceModule }}</td>
-                      <td>{{ props.item.prodRange === "B"?"基础产品":"可售产品" }}</td>
-                      <td>{{ props.item.baseProdType }}</td>
-                      <td>{{ props.item.status === "A"?"有效":"封存"}}</td>
-                      <td>
-                        <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
-                          <v-icon>edit</v-icon>
-                        </v-btn>
-                      </td>
+                        <td>{{ props.item.prodType }}</td>
+                        <td>{{ props.item.prodDesc }}</td>
+                        <td>{{ props.item.sourceModule }}</td>
+                        <td>{{ props.item.prodRange === "B"?"基础产品":"可售产品" }}</td>
+                        <td>{{ props.item.baseProdType }}</td>
+                        <td>{{ props.item.status === "A"?"有效":"封存"}}</td>
+                        <td>
+                            <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
+                                <v-icon>edit</v-icon>
+                            </v-btn>
+                        </td>
                     </tr>
                 </template>
-      </v-data-table>
-    </v-card-text>
-  </v-card>
+            </v-data-table>
+        </v-card-text>
+    </v-card>
 </template>
 
 <script>
@@ -57,10 +57,6 @@
                     selected: [],
                     items: [],
                     headers: [
-                        // {
-                        //     text: 'Avatar',
-                        //     value: 'avatar'
-                        // },
                         {
                             text: '产品代码',
                             value: 'prodType'
@@ -96,35 +92,58 @@
         methods: {
             addCompare() {
                 let selected = [];
+                let sourceModule = "";
                 for (const item in this.complex.selected) {
-                    selected.push(this.complex.selected[item].value)
+                    selected.push(this.complex.selected[item].prodType)
                 }
-                this.$router.push({
-                    name: 'diffList',
-                    params: {
-                        'prodCodeList': selected
-                    }
-                })
+                if(this.complex.selected.length){
+                    sourceModule = this.complex.selected[0].sourceModule;
+                }
+                if(!selected.length){
+                    this.$swal({
+                        allowOutsideClick: false,
+                        type: 'info',
+                        title: "请选择需要进行对比的产品！",
+                    })
+                }
+                if(selected.length > 5 || selected.length == 1){
+                    this.$swal({
+                        allowOutsideClick: false,
+                        type: 'info',
+                        title: "对比产品总数介于[2-5]之间！",
+                    })
+                }
+                if(selected.length && selected.length<=5 && selected.length != 1) {
+                    this.$router.push({
+                        name: 'prodCompareTitle',
+                        params: {
+                            'prodTypeList': selected,
+                            'sourceModule': sourceModule
+                        }
+                    })
+                }
             },
             handleClick(val) {
-                let prodType = val.prodType
-                let prodRange = val.prodRange
-                let sourceModule = val.sourceModule
-                if(prodRange == 'B' && sourceModule == "RB"){
-                    //跳转到存款基础产品界面
-                    this.$router.push({ name: "RbBaseProds", hash: prodType});
+                let prodType = val.prodType;
+                let prodRange = val.prodRange;
+                let sourceModule = val.sourceModule;
+                if(prodRange == "B" && sourceModule == "RB") {
+                    this.$router.push({name: "BaseProdForm", hash: prodType});
                 }
-                if(prodRange == 'S' && sourceModule == "RB"){
-                    //跳转到存款可售产品界面
-                    this.$router.push({ name: "RbSoldProds", hash: prodType});
+                if(prodRange == "B" && sourceModule == "CL") {
+                    this.$router.push({name: "BaseProdFormCl", hash: prodType});
                 }
-                if(prodRange == 'B' && sourceModule == "CL"){
-                    //跳转到贷款基础产品界面
-                    this.$router.push({ name: "ClBaseProds", hash: prodType});
+                if(prodRange == "B" && sourceModule == "GL") {
+                    this.$router.push({name: "BaseProdFormGl", hash: prodType});
                 }
-                if(prodRange == 'S' && sourceModule == "CL"){
-                    //跳转到贷款可售产品界面
-                    this.$router.push({ name: "ClSoldProds", hash: prodType});
+                if(prodRange == "S" && sourceModule == "RB"){
+                    this.$router.push({name: "SoldProdForm", hash: prodType});
+                }
+                if(prodRange == "S" && sourceModule == "CL"){
+                    this.$router.push({name: "SoldProdFormCl", hash: prodType});
+                }
+                if(prodRange == "S" && sourceModule == "GL"){
+                    this.$router.push({name: "SoldProdFormGl", hash: prodType});
                 }
             }
         }

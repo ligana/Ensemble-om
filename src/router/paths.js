@@ -710,84 +710,7 @@ export default [
         require(['@/views/prodFactory/prodFlow/cardFlow/cardPatenProd3.vue'],resolve
       )
   },
-  {
-    path: '/prod/cardPatenProd3',
-    meta: {
-      breadcrumb: true,
-      title: '产品流程2'
-    },
-    name: 'prod/cardPatenProd3',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodFlow/cardFlow/cardPatenProd3.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/deposit2',
-    meta: {
-      breadcrumb: true,
-      title: '产品展现2'
-    },
-    name: 'prod/deposit2',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/deposit2.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/rbPrivateProd',
-    meta: {
-      breadcrumb: true,
-      title: '个人存款组'
-    },
-    name: 'prod/rbPrivateProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require([`@/views/prodFactory/prodInfo/tags/rbPrivateProd.vue`],resolve
-      )
-  },
-{
-    path: '/prod/rbPrivateProds',
-        meta: {
-    breadcrumb: true,
-        title: '活期产品组'
-},
-    name: 'prod/rbPrivateProds',
-        component: (resolve) =>
-            /* webpackChunkName: "routes" */
-            /* webpackMode: "lazy-once" */
-            require([`@/views/prodFactory/prodInfo/tags/rbPrivateProds.vue`],resolve
-)
-},
-  {
-    path: '/prod/rbPublicProd',
-    meta: {
-      breadcrumb: true,
-      title: '对公存款组'
-    },
-    name: 'prod/rbPublicProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/rbPublicProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/rbHorizontalProd',
-    meta: {
-      breadcrumb: true,
-      title: '同业存款组'
-    },
-    name: 'prod/rbHorizontalProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/rbHorizontalProd.vue'],resolve
-      )
-  },
+
   {
     path: '/propertyManage/muneManage',
     meta: {
@@ -799,162 +722,6 @@ export default [
         /* webpackChunkName: "routes" */
         /* webpackMode: "lazy-once" */
         require(['@/views/propertyManage/muneManage.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/rbBaseProd',
-    meta: {
-      breadcrumb: true,
-      title: '存款基础产品组'
-    },
-    name: 'rbBaseProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/rbBaseProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/clPrivateProd',
-    meta: {
-      breadcrumb: true,
-      title: '对私贷款组'
-    },
-    name: 'prod/clPrivateProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/clPrivateProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/clPublicProd',
-    meta: {
-      breadcrumb: true,
-      title: '对公贷款组'
-    },
-    name: 'prod/clPublicProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/clPublicProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/clDiscountProd',
-    meta: {
-      breadcrumb: true,
-      title: '贴现组'
-    },
-    name: 'prod/clDiscountProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/clDiscountProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/clAdvancesProd',
-    meta: {
-      breadcrumb: true,
-      title: '垫款组'
-    },
-    name: 'prod/clAdvancesProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/clAdvancesProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/clEntrustedProd',
-    meta: {
-      breadcrumb: true,
-      title: '委托贷款组'
-    },
-    name: 'prod/clEntrustedProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/clEntrustedProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/clSyndicatedProd',
-    meta: {
-      breadcrumb: true,
-      title: '银团贷款组'
-    },
-    name: 'prod/clSyndicatedProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/clSyndicatedProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/clBaseProd',
-    meta: {
-      breadcrumb: true,
-      title: '贷款基础产品组'
-    },
-    name: 'prod/clBaseProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/clBaseProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/glInternalProd',
-    meta: {
-      breadcrumb: true,
-      title: '内部账组'
-    },
-    name: 'prod/glInternalProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/glInternalProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/glToHorizontalProd',
-    meta: {
-      breadcrumb: true,
-      title: '存放同业组'
-    },
-    name: 'prod/glToHorizontalProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/glToHorizontalProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/glPromHorizontalProd',
-    meta: {
-      breadcrumb: true,
-      title: '同业存放组'
-    },
-    name: 'prod/glPromHorizontalProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/glPromHorizontalProd.vue'],resolve
-      )
-  },
-  {
-    path: '/prod/glBaseProd',
-    meta: {
-      breadcrumb: true,
-      title: '内部账基础产品组'
-    },
-    name: 'prod/glBaseProd',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/glBaseProd.vue'],resolve
       )
   },
   {
@@ -971,19 +738,6 @@ export default [
       )
   },
   {
-    path: '/diff/prodDiff',
-    meta: {
-      breadcrumb: true,
-      title: '差异对比2'
-    },
-    name: 'diffList',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodDiff/diffList/diffList.vue'],resolve
-      )
-  },
-  {
     path: '/cmbchina/prodCmb',
     meta: {
       breadcrumb: true,
@@ -994,20 +748,6 @@ export default [
         /* webpackChunkName: "routes" */
         /* webpackMode: "lazy-once" */
         require(['@/views/prodFactory/prodFlow/tableFlow/prodCmb.vue'],resolve
-      )
-  },
-
-  {
-    path: '/prod/deposit',
-    meta: {
-      breadcrumb: true,
-      title: '产品信息'
-    },
-    name: 'prod/deposit',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/tags/deposit.vue'],resolve
       )
   },
   {
@@ -1061,82 +801,77 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/userFlow/transactionInfo/tranDataClIndex.vue'],resolve)
     },
-
-  {
-    path: '/publish/publishForm',
-    meta: {
-      breadcrumb: true,
-      title: '参数变动记录'
-    },
-    name: 'publishForm',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/userFlow/publish/publishDate.vue'],resolve
-      )
-  },
-  {
-    path: '/partner/partnerMain',
-    meta: {
-      breadcrumb: true,
-      title: '合作方签约'
-    },
-    name: 'partner/partnerMain',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/nlManage/partnerManage/partnerMain.vue'],resolve
-        )
-  },
-  {
-    path: '/RbBaseProds',
-    meta: {
-      breadcrumb: true,
-      title: '存款基础产品'
-    },
-    name: 'RbBaseProds',
-    component: (resolve) =>
-        /* webpackChunkName: "routes" */
-        /* webpackMode: "lazy-once" */
-        require(['@/views/prodFactory/prodInfo/RbBaseProds.vue'],resolve
-      )
-  },
-{
-    path: '/RbSoldProds',
+    {
+        path: '/BaseProdForm',
         meta: {
-    breadcrumb: true,
-        title: '存款可售产品'
-},
-    name: 'RbSoldProds',
+            breadcrumb: true,
+            title: '存款基础产品'
+        },
+        name: 'BaseProdForm',
         component: (resolve) =>
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
-            require(['@/views/prodFactory/prodInfo/RbSoldProds.vue'],resolve)
-},
+            require(['@/views/prodFactory/prodInfo/BaseProdForm.vue'],resolve)
+    },
     {
-        path: '/ClBaseProds',
+        path: '/BaseProdFormCl',
         meta: {
             breadcrumb: true,
             title: '贷款基础产品'
         },
-        name: 'ClBaseProds',
+        name: 'BaseProdFormCl',
         component: (resolve) =>
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
-            require(['@/views/prodFactory/prodInfo/ClBaseProds.vue'],resolve
-            )
+            require(['@/views/prodFactory/prodInfo/BaseProdForm.vue'],resolve)
     },
     {
-        path: '/ClSoldProds',
+        path: '/BaseProdFormGl',
+        meta: {
+            breadcrumb: true,
+            title: '内部账基础产品'
+        },
+        name: 'BaseProdFormGl',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/prodFactory/prodInfo/BaseProdForm.vue'],resolve)
+    },
+    {
+        path: '/SoldProdForm',
+        meta: {
+            breadcrumb: true,
+            title: '存款可售产品'
+        },
+        name: 'SoldProdForm',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/prodFactory/prodInfo/SoldProdForm.vue'],resolve)
+    },
+    {
+        path: '/SoldProdFormCl',
         meta: {
             breadcrumb: true,
             title: '贷款可售产品'
         },
-        name: 'ClSoldProds',
+        name: 'SoldProdFormCl',
         component: (resolve) =>
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
-            require(['@/views/prodFactory/prodInfo/ClSoldProds.vue'],resolve)
+            require(['@/views/prodFactory/prodInfo/SoldProdForm.vue'],resolve)
+    },
+    {
+        path: '/SoldProdFormGl',
+        meta: {
+            breadcrumb: true,
+            title: '内部账可售产品'
+        },
+        name: 'SoldProdFormGl',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/prodFactory/prodInfo/SoldProdForm.vue'],resolve)
     },
   {
     path: '/paramManage',
@@ -1176,6 +911,16 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/prodFactory/prodFlow/windowsFlow/prodCmbs.vue'],resolve)
 },
+    {
+        path: '/prodCompareTitle',
+        meta: {
+            breadcrumb: true,
+            title: '产品对比'
+        },
+        name: 'prodCompareTitle',
+        component: (resolve) =>
+            require(['@/views/prodFactory/prodDiff/prodCompareTitle.vue'],resolve)
+    },
 
     {
         path: '/prodWindow',
@@ -1203,7 +948,21 @@ export default [
     /* webpackMode: "lazy-once" */
     require(['@/views/baseTable/tables/tableInfo.vue'],resolve)
 },
-{
+    {
+        path: '/roleMenuAuthorzation',
+        meta: {
+            breadcrumb: true,
+            title: '授权信息'
+        },
+        name: 'roleMenuAuthorzation',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/systemManage/tables/roleMenuAuthorzation.vue'],resolve)
+    },
+
+
+    {
     path: '/systemManageIndex',
         meta: {
     breadcrumb: true,

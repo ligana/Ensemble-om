@@ -53,8 +53,6 @@ const Menu = [
       { name: 'RB101', title: '活期产品组', component: 'prod/rbPrivateProds', menuId: '301'},
       { name: 'RB200', title: '对公存款组', component: 'prod/rbPublicProd', menuId: '302'},
       { name: 'RB300', title: '同业存款组', component: 'prod/rbHorizontalProd', menuId: '303'},
-        { name: '10001001', title: '存款可售产品', component: 'RbSoldProds', menuId: '304'},
-      { name: '10001', title: '存款基础产品', component: 'RbBaseProds', menuId: '305'},
     ]
   },
   {
@@ -120,9 +118,9 @@ const Menu = [
       { name: 'diffList', title: '差异对比2', component: 'diffList' },
       { name: 'deposit', title: '产品展现', component: 'prod/deposit' },
       { name: 'publishForm', title: '参数变动记录', component: 'publishForm' },
-      { name: 'RB100', title: '连通后台测试', component: 'RbBaseProds' },
       { name: 'RB100', title: '连通后台测试2', component: 'tableParentView' },
         { name: 'prodCmbs', title: '产品目录展示', component: 'prodCmbs' },
+        { name: 'prodCompareTitle', title: '产品对比', component: 'prodCompareTitle' },
 
         { name: 'publishDate2', title: '参数变动记录2', component: 'publishDate2' },
     ]
