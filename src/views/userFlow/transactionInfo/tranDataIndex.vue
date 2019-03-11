@@ -20,13 +20,13 @@
           <v-toolbar-title class="white--text" @click="showClick">修改差异展示</v-toolbar-title>
           <v-spacer></v-spacer>
           <v-tooltip bottom color="blue">
-            <v-btn flat icon="print" slot="activator">
+            <v-btn flat icon slot="activator">
               <v-icon class="mr-2" @click="printDown()" style="color: rgba(0,0,0,.54)">print</v-icon>
             </v-btn>
             <span>打      印</span>
           </v-tooltip>
           <v-tooltip bottom color="blue">
-            <v-btn flat icon="widgets" slot="activator">
+            <v-btn flat icon slot="activator">
               <v-icon @click="downLoad()" style="color: rgba(0,0,0,.54)">widgets</v-icon>
             </v-btn>
             <span>导      出</span>

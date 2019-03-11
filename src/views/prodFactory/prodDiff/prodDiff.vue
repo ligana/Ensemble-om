@@ -12,7 +12,6 @@
                     <div class="header">
                         <v-toolbar-title>OLD</v-toolbar-title>
                     </div>
-
                 </v-layout>
             </v-toolbar>
 
@@ -302,6 +301,7 @@
         display: flex;
         justify-content: flex-start;
         height: 64px;
+        line-height: 64px;
     }
     .header {
         width: 33.333333333%;

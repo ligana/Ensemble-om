@@ -4,9 +4,9 @@ export default {
         "msg": "请求成功",
         "data": [{
             "flowManage": {
-                "mainSeqNo": "20190131111845587",
+                "mainSeqNo": "20190130093441530",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
+                "tranDesc": "产品定义",
                 "status": "4",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
@@ -15,62 +15,542 @@ export default {
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190131111845587",
+                "mainSeqNo": "20190130093441530",
                 "dtlSeqNo": 1,
                 "status": "4",
                 "remark": "",
                 "isApproved": "Y",
                 "userId": "admin",
                 "clientIp": null,
-                "tranTime": "2019/01/31"
+                "tranTime": "2019/01/30"
             },
             "flowCommitInfo": {
-                "mainSeqNo": "20190131111845587",
+                "mainSeqNo": "20190130093441530",
                 "dtlSeqNo": 1,
                 "status": "2",
                 "remark": null,
                 "isApproved": null,
                 "userId": "admin",
                 "clientIp": null,
-                "tranTime": "2019/01/31"
+                "tranTime": "2019/01/30"
             }
         }, {
             "flowManage": {
-                "mainSeqNo": "20190131111945484",
+                "mainSeqNo": "20190130100712227",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
+                "tranDesc": "产品定义",
                 "status": "4",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
                 "recSeqNo": null,
-                "userId": "admin",
+                "userId": "tongyang",
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190131111945484",
+                "mainSeqNo": "20190130100712227",
                 "dtlSeqNo": 1,
                 "status": "4",
                 "remark": "",
                 "isApproved": "Y",
-                "userId": "admin",
+                "userId": "tongyang",
                 "clientIp": null,
-                "tranTime": "2019/01/31"
+                "tranTime": "2019/01/30"
             },
             "flowCommitInfo": {
-                "mainSeqNo": "20190131111945484",
+                "mainSeqNo": "20190130100712227",
                 "dtlSeqNo": 1,
                 "status": "2",
                 "remark": null,
                 "isApproved": null,
-                "userId": "admin",
+                "userId": "tongyang",
                 "clientIp": null,
-                "tranTime": "2019/01/31"
+                "tranTime": "2019/01/30"
             }
         }, {
             "flowManage": {
-                "mainSeqNo": "20190213111406905",
+                "mainSeqNo": "20190130101321755",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130101321755",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130101321755",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130101613878",
+                "tranId": "MB_ATTR_VALUE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130101613878",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130101613878",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130101741492",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130101741492",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130101741492",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130101906010",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130101906010",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130101906010",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130102213817",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130102213817",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130102213817",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130103215186",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130103215186",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130103215186",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130103836056",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130103836056",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130103836056",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130104813265",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130104813265",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130104813265",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130134118692",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130134118692",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130134118692",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130150018389",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130150018389",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130150018389",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130150739736",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130150739736",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130150739736",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130150923043",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130150923043",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130150923043",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130151450525",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130151450525",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130151450525",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130152421612",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130152421612",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130152421612",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130152914708",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130152914708",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130152914708",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130170404208",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
                 "status": "1",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
@@ -79,7 +559,1525 @@ export default {
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190213111406905",
+                "mainSeqNo": "20190130170404208",
+                "dtlSeqNo": 1,
+                "status": "1",
+                "remark": null,
+                "isApproved": null,
+                "userId": "admin",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": null
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130172021027",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "1",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "admin",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130172021027",
+                "dtlSeqNo": 1,
+                "status": "1",
+                "remark": null,
+                "isApproved": null,
+                "userId": "admin",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": null
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130173614864",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130173614864",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130173614864",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130174756013",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130174756013",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130174756013",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130175817097",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130175817097",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130175817097",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130175851439",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130175851439",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130175851439",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130175929452",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130175929452",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130175929452",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130180638492",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130180638492",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130180638492",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190130183649049",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190130183649049",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190130183649049",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/30"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131110840181",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131110840181",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131110840181",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131111106332",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131111106332",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131111106332",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131112122554",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131112122554",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131112122554",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131112346977",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131112346977",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131112346977",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131112430635",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131112430635",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131112430635",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131112514423",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131112514423",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131112514423",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131112736168",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131112736168",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131112736168",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131133447594",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131133447594",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131133447594",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131133858337",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131133858337",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131133858337",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131135427067",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131135427067",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131135427067",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131140136296",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131140136296",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131140136296",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131141450942",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131141450942",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131141450942",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131141656091",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131141656091",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131141656091",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131150254791",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131150254791",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131150254791",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131152435269",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131152435269",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131152435269",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131152651871",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131152651871",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131152651871",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131154408367",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131154408367",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131154408367",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131155220074",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131155220074",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131155220074",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131155400905",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131155400905",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131155400905",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131155545838",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131155545838",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131155545838",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131155945452",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131155945452",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131155945452",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131163220625",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131163220625",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131163220625",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131163501515",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131163501515",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131163501515",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131163551751",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131163551751",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131163551751",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131163954230",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131163954230",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131163954230",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131164101495",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131164101495",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131164101495",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131164205230",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131164205230",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131164205230",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131164426867",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131164426867",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131164426867",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131170221039",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131170221039",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131170221039",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131170938632",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131170938632",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131170938632",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131171304536",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131171304536",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131171304536",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131171441316",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131171441316",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131171441316",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131172308322",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131172308322",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131172308322",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131173424214",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131173424214",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131173424214",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131175809991",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131175809991",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131175809991",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131180150551",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131180150551",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131180150551",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131180916744",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131180916744",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131180916744",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131181716860",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131181716860",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131181716860",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190131181923785",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190131181923785",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190131181923785",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/01/31"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190213093256318",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "1",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "admin",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190213093256318",
                 "dtlSeqNo": 1,
                 "status": "1",
                 "remark": null,
@@ -91,9 +2089,41 @@ export default {
             "flowCommitInfo": null
         }, {
             "flowManage": {
-                "mainSeqNo": "20190213111441476",
+                "mainSeqNo": "20190213101259447",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190213101259447",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190213101259447",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190213103820032",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
                 "status": "1",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
@@ -102,7 +2132,7 @@ export default {
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190213111441476",
+                "mainSeqNo": "20190213103820032",
                 "dtlSeqNo": 1,
                 "status": "1",
                 "remark": null,
@@ -114,41 +2144,9 @@ export default {
             "flowCommitInfo": null
         }, {
             "flowManage": {
-                "mainSeqNo": "20190214091427808",
+                "mainSeqNo": "20190214095007772",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190214091427808",
-                "dtlSeqNo": 1,
-                "status": "6",
-                "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/14"
-            },
-            "flowCommitInfo": {
-                "mainSeqNo": "20190214091427808",
-                "dtlSeqNo": 1,
-                "status": "2",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/14"
-            }
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190214094734709",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
+                "tranDesc": "产品定义",
                 "status": "1",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
@@ -157,7 +2155,7 @@ export default {
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190214094734709",
+                "mainSeqNo": "20190214095007772",
                 "dtlSeqNo": 1,
                 "status": "1",
                 "remark": null,
@@ -169,106 +2167,970 @@ export default {
             "flowCommitInfo": null
         }, {
             "flowManage": {
-                "mainSeqNo": "20190214102446768",
+                "mainSeqNo": "20190214100318118",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
+                "tranDesc": "产品定义",
                 "status": "4",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
                 "recSeqNo": null,
-                "userId": "admin",
+                "userId": "tongyang",
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190214102446768",
+                "mainSeqNo": "20190214100318118",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214100318118",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214100434642",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214100434642",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214100434642",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214104231306",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214104231306",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214104231306",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214105213116",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214105213116",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214105213116",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214110015551",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214110015551",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214110015551",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214160455006",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214160455006",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214160455006",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214160844430",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214160844430",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214160844430",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214160938737",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214160938737",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214160938737",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214161050196",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214161050196",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214161050196",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214163009328",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214163009328",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214163009328",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214164132272",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214164132272",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214164132272",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214164624652",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214164624652",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214164624652",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214165007275",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214165007275",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214165007275",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214172155819",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214172155819",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214172155819",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214172651351",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214172651351",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214172651351",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214173414543",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214173414543",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214173414543",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214174325827",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214174325827",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214174325827",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214181653085",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214181653085",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214181653085",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214182649395",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214182649395",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214182649395",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190214182932029",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190214182932029",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190214182932029",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/14"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190215111942855",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190215111942855",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/15"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190215111942855",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/15"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190215112824472",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190215112824472",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/15"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190215112824472",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/15"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190215135309147",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190215135309147",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/15"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190215135309147",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/15"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190215141018868",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190215141018868",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/15"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190215141018868",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/15"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190219104752379",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190219104752379",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/19"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190219104752379",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/19"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190219141303569",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190219141303569",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/19"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190219141303569",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/19"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190219141735469",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190219141735469",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/19"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190219141735469",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/19"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190219141955742",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190219141955742",
                 "dtlSeqNo": 1,
                 "status": "4",
                 "remark": "",
                 "isApproved": "Y",
                 "userId": "admin",
                 "clientIp": null,
-                "tranTime": "2019/02/18"
+                "tranTime": "2019/02/21"
             },
             "flowCommitInfo": {
-                "mainSeqNo": "20190214102446768",
+                "mainSeqNo": "20190219141955742",
                 "dtlSeqNo": 1,
                 "status": "2",
                 "remark": null,
                 "isApproved": null,
-                "userId": "admin",
+                "userId": "tongyang",
                 "clientIp": null,
-                "tranTime": "2019/02/18"
+                "tranTime": "2019/02/19"
             }
         }, {
             "flowManage": {
-                "mainSeqNo": "20190218134038273",
+                "mainSeqNo": "20190219172746888",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
+                "tranDesc": "产品定义",
                 "status": "4",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
                 "recSeqNo": null,
-                "userId": "admin",
+                "userId": "tongyang",
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190218134038273",
+                "mainSeqNo": "20190219172746888",
                 "dtlSeqNo": 1,
                 "status": "4",
                 "remark": "",
                 "isApproved": "Y",
-                "userId": "admin",
+                "userId": "tongyang",
                 "clientIp": null,
-                "tranTime": "2019/02/18"
+                "tranTime": "2019/02/19"
             },
             "flowCommitInfo": {
-                "mainSeqNo": "20190218134038273",
+                "mainSeqNo": "20190219172746888",
                 "dtlSeqNo": 1,
                 "status": "2",
                 "remark": null,
                 "isApproved": null,
-                "userId": "admin",
+                "userId": "tongyang",
                 "clientIp": null,
-                "tranTime": "2019/02/18"
+                "tranTime": "2019/02/19"
             }
         }, {
             "flowManage": {
-                "mainSeqNo": "20190218141331152",
+                "mainSeqNo": "20190219173503364",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
+                "tranDesc": "产品定义",
+                "status": "4",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
                 "recSeqNo": null,
-                "userId": "admin",
+                "userId": "tongyang",
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190218141331152",
+                "mainSeqNo": "20190219173503364",
                 "dtlSeqNo": 1,
-                "status": "6",
+                "status": "4",
                 "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
+                "isApproved": "Y",
+                "userId": "tongyang",
                 "clientIp": null,
-                "tranTime": "2019/02/18"
+                "tranTime": "2019/02/19"
             },
             "flowCommitInfo": {
-                "mainSeqNo": "20190218141331152",
+                "mainSeqNo": "20190219173503364",
                 "dtlSeqNo": 1,
                 "status": "2",
                 "remark": null,
                 "isApproved": null,
-                "userId": "admin",
+                "userId": "tongyang",
                 "clientIp": null,
-                "tranTime": "2019/02/18"
+                "tranTime": "2019/02/19"
             }
         }, {
             "flowManage": {
-                "mainSeqNo": "20190218141544094",
+                "mainSeqNo": "20190220162525921",
                 "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
+                "tranDesc": "产品定义",
+                "status": "4",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
                 "recSeqNo": null,
@@ -276,294 +3138,184 @@ export default {
                 "dispose": "Y"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190218141544094",
+                "mainSeqNo": "20190220162525921",
                 "dtlSeqNo": 1,
-                "status": "6",
+                "status": "4",
                 "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
+                "isApproved": "Y",
+                "userId": "tongyang",
                 "clientIp": null,
-                "tranTime": "2019/02/18"
+                "tranTime": "2019/02/22"
             },
             "flowCommitInfo": {
-                "mainSeqNo": "20190218141544094",
+                "mainSeqNo": "20190220162525921",
                 "dtlSeqNo": 1,
                 "status": "2",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/18"
-            }
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190218141738632",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190218141738632",
-                "dtlSeqNo": 1,
-                "status": "6",
-                "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            },
-            "flowCommitInfo": {
-                "mainSeqNo": "20190218141738632",
-                "dtlSeqNo": 1,
-                "status": "2",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/18"
-            }
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190219141710074",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "1",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190219141710074",
-                "dtlSeqNo": 1,
-                "status": "1",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            },
-            "flowCommitInfo": null
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190219143459279",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190219143459279",
-                "dtlSeqNo": 1,
-                "status": "6",
-                "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            },
-            "flowCommitInfo": {
-                "mainSeqNo": "20190219143459279",
-                "dtlSeqNo": 1,
-                "status": "2",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            }
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190219145037525",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190219145037525",
-                "dtlSeqNo": 1,
-                "status": "6",
-                "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            },
-            "flowCommitInfo": {
-                "mainSeqNo": "20190219145037525",
-                "dtlSeqNo": 1,
-                "status": "2",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            }
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190219150304847",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190219150304847",
-                "dtlSeqNo": 1,
-                "status": "6",
-                "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            },
-            "flowCommitInfo": {
-                "mainSeqNo": "20190219150304847",
-                "dtlSeqNo": 1,
-                "status": "2",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            }
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190219164526375",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190219164526375",
-                "dtlSeqNo": 1,
-                "status": "6",
-                "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/20"
-            },
-            "flowCommitInfo": {
-                "mainSeqNo": "20190219164526375",
-                "dtlSeqNo": 1,
-                "status": "2",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/19"
-            }
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190220165734116",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "6",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190220165734116",
-                "dtlSeqNo": 1,
-                "status": "6",
-                "remark": "",
-                "isApproved": "N",
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/20"
-            },
-            "flowCommitInfo": {
-                "mainSeqNo": "20190220165734116",
-                "dtlSeqNo": 1,
-                "status": "2",
-                "remark": null,
-                "isApproved": null,
-                "userId": "admin",
-                "clientIp": null,
-                "tranTime": "2019/02/20"
-            }
-        }, {
-            "flowManage": {
-                "mainSeqNo": "20190221102909943",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
-                "status": "1",
-                "isTranGroup": "Y",
-                "dtlSeqNo": 1,
-                "recSeqNo": null,
-                "userId": "admin",
-                "dispose": "Y"
-            },
-            "flowCheckInfo": {
-                "mainSeqNo": "20190221102909943",
-                "dtlSeqNo": 1,
-                "status": "1",
                 "remark": null,
                 "isApproved": null,
                 "userId": "admin",
                 "clientIp": null,
                 "tranTime": "2019/02/21"
-            },
-            "flowCommitInfo": null
+            }
         }, {
             "flowManage": {
-                "mainSeqNo": "20190221103050609",
-                "tranId": "MB_PROD_TYPE",
-                "tranDesc": "????",
+                "mainSeqNo": "20190222185138553",
+                "tranId": "CIF_CLIENT_TYPE",
+                "tranDesc": "产品定义",
+                "status": "6",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190222185138553",
+                "dtlSeqNo": 1,
+                "status": "6",
+                "remark": "",
+                "isApproved": "N",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/22"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190222185138553",
+                "dtlSeqNo": 1,
                 "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/22"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190222192930198",
+                "tranId": "MB_ATTR_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190222192930198",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/22"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190222192930198",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/22"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190222193345569",
+                "tranId": "MB_ATTR_TYPE",
+                "tranDesc": "产品定义",
+                "status": "4",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "tongyang",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190222193345569",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/25"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190222193345569",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "tongyang",
+                "clientIp": null,
+                "tranTime": "2019/02/25"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190226192336634",
+                "tranId": "MB_STAGE_DEFINE",
+                "tranDesc": "产品定义",
+                "status": "4",
                 "isTranGroup": "Y",
                 "dtlSeqNo": 1,
                 "recSeqNo": null,
                 "userId": "admin",
+                "dispose": "Y"
+            },
+            "flowCheckInfo": {
+                "mainSeqNo": "20190226192336634",
+                "dtlSeqNo": 1,
+                "status": "4",
+                "remark": "",
+                "isApproved": "Y",
+                "userId": "admin",
+                "clientIp": null,
+                "tranTime": "2019/02/26"
+            },
+            "flowCommitInfo": {
+                "mainSeqNo": "20190226192336634",
+                "dtlSeqNo": 1,
+                "status": "2",
+                "remark": null,
+                "isApproved": null,
+                "userId": "admin",
+                "clientIp": null,
+                "tranTime": "2019/02/26"
+            }
+        }, {
+            "flowManage": {
+                "mainSeqNo": "20190228104450842",
+                "tranId": "MB_PROD_TYPE",
+                "tranDesc": "产品定义",
+                "status": "2",
+                "isTranGroup": "Y",
+                "dtlSeqNo": 1,
+                "recSeqNo": null,
+                "userId": "lihj",
                 "dispose": "N"
             },
             "flowCheckInfo": {
-                "mainSeqNo": "20190221103050609",
+                "mainSeqNo": "20190228104450842",
                 "dtlSeqNo": 1,
                 "status": "2",
                 "remark": null,
                 "isApproved": null,
-                "userId": "admin",
+                "userId": "lihj",
                 "clientIp": null,
-                "tranTime": "2019/02/21"
+                "tranTime": "2019/02/28"
             },
             "flowCommitInfo": {
-                "mainSeqNo": "20190221103050609",
+                "mainSeqNo": "20190228104450842",
                 "dtlSeqNo": 1,
                 "status": "2",
                 "remark": null,
                 "isApproved": null,
-                "userId": "admin",
+                "userId": "lihj",
                 "clientIp": null,
-                "tranTime": "2019/02/21"
+                "tranTime": "2019/02/28"
             }
         }]
     })

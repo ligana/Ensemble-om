@@ -13,87 +13,12 @@ export default {
                 "parentUserId": null,
                 "email": "ww",
                 "phone": "11111111111"
-            }, {
-                "userId": "app",
-                "userName": "参数管理员",
-                "password": "123456",
-                "branch": null,
-                "company": null,
-                "userLevel": "2",
-                "parentUserId": "admin",
-                "email": null,
-                "phone": null
-            }, {
-                "userId": "handx",
-                "userName": "管理员",
-                "password": "123456",
-                "branch": null,
-                "company": null,
-                "userLevel": "1",
-                "parentUserId": null,
-                "email": null,
-                "phone": null
-            }, {
-                "userId": "lihj",
-                "userName": "管理员",
-                "password": "123456",
-                "branch": null,
-                "company": null,
-                "userLevel": "1",
-                "parentUserId": null,
-                "email": null,
-                "phone": null
-            }, {
-                "userId": "para",
-                "userName": "参数管理员",
-                "password": "123456",
-                "branch": null,
-                "company": null,
-                "userLevel": "2",
-                "parentUserId": "admin",
-                "email": null,
-                "phone": null
-            }, {
-                "userId": "tongyang",
-                "userName": "参数管理员",
-                "password": "123456",
-                "branch": null,
-                "company": null,
-                "userLevel": "1",
-                "parentUserId": null,
-                "email": null,
-                "phone": null
             }],
             "roleInfo": [{
                 "roleId": "1",
                 "roleName": "1",
                 "roleDesc": "系统管理员",
                 "roleLevel": "1"
-            }, {
-                "roleId": "2",
-                "roleName": "2",
-                "roleDesc": "参数管理员",
-                "roleLevel": "2"
-            }, {
-                "roleId": "3",
-                "roleName": "3",
-                "roleDesc": "产品工厂管理员",
-                "roleLevel": "2"
-            }, {
-                "roleId": "4",
-                "roleName": "4",
-                "roleDesc": "角色1",
-                "roleLevel": "3"
-            }, {
-                "roleId": "5",
-                "roleName": "5",
-                "roleDesc": "角色2",
-                "roleLevel": "3"
-            }, {
-                "roleId": "6",
-                "roleName": "6",
-                "roleDesc": "角色3",
-                "roleLevel": "3"
             }],
             "menuRoleInfo": [{
                 "roleId": "1",
@@ -113,6 +38,9 @@ export default {
             }, {
                 "roleId": "1",
                 "menuId": "14"
+            }, {
+                "roleId": "1",
+                "menuId": "15"
             }, {
                 "roleId": "1",
                 "menuId": "2"
@@ -139,6 +67,24 @@ export default {
                 "menuId": "302"
             }, {
                 "roleId": "1",
+                "menuId": "303"
+            }, {
+                "roleId": "1",
+                "menuId": "304"
+            }, {
+                "roleId": "1",
+                "menuId": "305"
+            }, {
+                "roleId": "1",
+                "menuId": "306"
+            }, {
+                "roleId": "1",
+                "menuId": "307"
+            }, {
+                "roleId": "1",
+                "menuId": "308"
+            }, {
+                "roleId": "1",
                 "menuId": "31"
             }, {
                 "roleId": "1",
@@ -146,6 +92,45 @@ export default {
             }, {
                 "roleId": "1",
                 "menuId": "312"
+            }, {
+                "roleId": "1",
+                "menuId": "313"
+            }, {
+                "roleId": "1",
+                "menuId": "314"
+            }, {
+                "roleId": "1",
+                "menuId": "32"
+            }, {
+                "roleId": "1",
+                "menuId": "321"
+            }, {
+                "roleId": "1",
+                "menuId": "322"
+            }, {
+                "roleId": "1",
+                "menuId": "323"
+            }, {
+                "roleId": "1",
+                "menuId": "324"
+            }, {
+                "roleId": "1",
+                "menuId": "33"
+            }, {
+                "roleId": "1",
+                "menuId": "331"
+            }, {
+                "roleId": "1",
+                "menuId": "34"
+            }, {
+                "roleId": "1",
+                "menuId": "341"
+            }, {
+                "roleId": "1",
+                "menuId": "342"
+            }, {
+                "roleId": "1",
+                "menuId": "343"
             }, {
                 "roleId": "1",
                 "menuId": "4"
@@ -158,33 +143,8 @@ export default {
             }, {
                 "roleId": "1",
                 "menuId": "402"
-            }, {
-                "roleId": "4",
-                "menuId": "10"
-            }, {
-                "roleId": "4",
-                "menuId": "11"
-            }, {
-                "roleId": "5",
-                "menuId": "12"
-            }, {
-                "roleId": "5",
-                "menuId": "13"
-            }, {
-                "roleId": "7",
-                "menuId": "7"
             }],
             "columnInfo": [{
-                "menuSeqNo": "1",
-                "menuId": "1",
-                "menuParams": "",
-                "menuTitle": "Apps",
-                "menuParentId": null,
-                "menuLevel": "1",
-                "menuStatus": "A",
-                "menuIcon": "",
-                "menuComponent": null
-            }, {
                 "menuSeqNo": "2",
                 "menuId": "10",
                 "menuParams": "",
@@ -208,6 +168,16 @@ export default {
                 "menuSeqNo": "4",
                 "menuId": "12",
                 "menuParams": "",
+                "menuTitle": "产品展示",
+                "menuParentId": "1",
+                "menuLevel": "2",
+                "menuStatus": "A",
+                "menuIcon": "widgets",
+                "menuComponent": "prodWindow"
+            }, {
+                "menuSeqNo": "5",
+                "menuId": "13",
+                "menuParams": "",
                 "menuTitle": "产品目录",
                 "menuParentId": "1",
                 "menuLevel": "2",
@@ -215,8 +185,8 @@ export default {
                 "menuIcon": "widgets",
                 "menuComponent": "prodCmbs"
             }, {
-                "menuSeqNo": "5",
-                "menuId": "13",
+                "menuSeqNo": "6",
+                "menuId": "14",
                 "menuParams": "",
                 "menuTitle": "我收藏的产品",
                 "menuParentId": "1",
@@ -225,57 +195,7 @@ export default {
                 "menuIcon": "favorite_border",
                 "menuComponent": "MyProd"
             }, {
-                "menuSeqNo": "6",
-                "menuId": "2",
-                "menuParams": "",
-                "menuTitle": "网贷管理端",
-                "menuParentId": null,
-                "menuLevel": "1",
-                "menuStatus": "A",
-                "menuIcon": "",
-                "menuComponent": null
-            }, {
                 "menuSeqNo": "7",
-                "menuId": "20",
-                "menuParams": "",
-                "menuTitle": "合作方信息管理",
-                "menuParentId": "2",
-                "menuLevel": "2",
-                "menuStatus": "A",
-                "menuIcon": "account_balance",
-                "menuComponent": null
-            }, {
-                "menuSeqNo": "8",
-                "menuId": "201",
-                "menuParams": "",
-                "menuTitle": "合作方签约",
-                "menuParentId": "20",
-                "menuLevel": "3",
-                "menuStatus": "A",
-                "menuIcon": null,
-                "menuComponent": "partner/partnerMain"
-            }, {
-                "menuSeqNo": "9",
-                "menuId": "202",
-                "menuParams": "",
-                "menuTitle": "合作方解约",
-                "menuParentId": "20",
-                "menuLevel": "3",
-                "menuStatus": "A",
-                "menuIcon": null,
-                "menuComponent": "prod/rbPublicProd"
-            }, {
-                "menuSeqNo": "10",
-                "menuId": "203",
-                "menuParams": "",
-                "menuTitle": "合作方信息维护",
-                "menuParentId": "20",
-                "menuLevel": "3",
-                "menuStatus": "A",
-                "menuIcon": null,
-                "menuComponent": "prod/rbHorizontalrod"
-            }, {
-                "menuSeqNo": "11",
                 "menuId": "3",
                 "menuParams": "",
                 "menuTitle": "产品工厂",
@@ -285,7 +205,7 @@ export default {
                 "menuIcon": "",
                 "menuComponent": null
             }, {
-                "menuSeqNo": "12",
+                "menuSeqNo": "8",
                 "menuId": "30",
                 "menuParams": "",
                 "menuTitle": "存款产品",
@@ -295,27 +215,87 @@ export default {
                 "menuIcon": "account_balance",
                 "menuComponent": null
             }, {
-                "menuSeqNo": "13",
+                "menuSeqNo": "9",
                 "menuId": "301",
-                "menuParams": "10001001",
-                "menuTitle": "存款可售产品",
+                "menuParams": "RB101",
+                "menuTitle": "个人人民币活期基础产品",
                 "menuParentId": "30",
                 "menuLevel": "3",
                 "menuStatus": "A",
                 "menuIcon": null,
-                "menuComponent": "RbSoldProds"
+                "menuComponent": "BaseProdForm"
+            }, {
+                "menuSeqNo": "10",
+                "menuId": "302",
+                "menuParams": "RB102",
+                "menuTitle": "个人外币活期单币种基础产品",
+                "menuParentId": "30",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdForm"
+            }, {
+                "menuSeqNo": "11",
+                "menuId": "303",
+                "menuParams": "RB201",
+                "menuTitle": "个人整存整取定期基础产品",
+                "menuParentId": "30",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdForm"
+            }, {
+                "menuSeqNo": "12",
+                "menuId": "304",
+                "menuParams": "RB202",
+                "menuTitle": "单位整存整取定期基础产品",
+                "menuParentId": "30",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": "",
+                "menuComponent": "BaseProdForm"
+            }, {
+                "menuSeqNo": "13",
+                "menuId": "305",
+                "menuParams": "111001",
+                "menuTitle": "个人人民币活期存款",
+                "menuParentId": "30",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": "",
+                "menuComponent": "SoldProdForm"
             }, {
                 "menuSeqNo": "14",
-                "menuId": "302",
-                "menuParams": "10001",
-                "menuTitle": "存款基础产品",
+                "menuId": "306",
+                "menuParams": "111002",
+                "menuTitle": "个人活期存款-多币种(钞)",
                 "menuParentId": "30",
                 "menuLevel": "3",
                 "menuStatus": "A",
                 "menuIcon": null,
-                "menuComponent": "RbBaseProds"
+                "menuComponent": "SoldProdForm"
             }, {
                 "menuSeqNo": "15",
+                "menuId": "307",
+                "menuParams": "111013",
+                "menuTitle": "个人外币整存整取存款(钞)",
+                "menuParentId": "30",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": "",
+                "menuComponent": "SoldProdForm"
+            }, {
+                "menuSeqNo": "16",
+                "menuId": "308",
+                "menuParams": "111009",
+                "menuTitle": "个人零存整取储蓄存款",
+                "menuParentId": "30",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": "",
+                "menuComponent": "SoldProdForm"
+            }, {
+                "menuSeqNo": "17",
                 "menuId": "31",
                 "menuParams": "",
                 "menuTitle": "贷款产品",
@@ -325,37 +305,167 @@ export default {
                 "menuIcon": "account_balance",
                 "menuComponent": ""
             }, {
-                "menuSeqNo": "16",
-                "menuId": "311",
-                "menuParams": "CL999",
-                "menuTitle": "贷款基础产品",
-                "menuParentId": "31",
-                "menuLevel": "3",
-                "menuStatus": "A",
-                "menuIcon": null,
-                "menuComponent": "ClBaseProds"
-            }, {
-                "menuSeqNo": "17",
-                "menuId": "312",
-                "menuParams": "CL9901",
-                "menuTitle": "贷款可售产品",
-                "menuParentId": "31",
-                "menuLevel": "3",
-                "menuStatus": "A",
-                "menuIcon": null,
-                "menuComponent": "ClSoldProds"
-            }, {
                 "menuSeqNo": "18",
+                "menuId": "311",
+                "menuParams": "CL001",
+                "menuTitle": "个人贷款基础产品",
+                "menuParentId": "31",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdFormCl"
+            }, {
+                "menuSeqNo": "19",
+                "menuId": "312",
+                "menuParams": "CL002",
+                "menuTitle": "公司贷款基础产品",
+                "menuParentId": "31",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdFormCl"
+            }, {
+                "menuSeqNo": "20",
+                "menuId": "313",
+                "menuParams": "CL003",
+                "menuTitle": "委托贷款基础产品",
+                "menuParentId": "31",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdFormCl"
+            }, {
+                "menuSeqNo": "21",
+                "menuId": "314",
+                "menuParams": "CL004",
+                "menuTitle": "贴现贷款基础产品",
+                "menuParentId": "31",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdFormCl"
+            }, {
+                "menuSeqNo": "22",
+                "menuId": "32",
+                "menuParams": " ",
+                "menuTitle": "内部账产品",
+                "menuParentId": "3",
+                "menuLevel": "2",
+                "menuStatus": "A",
+                "menuIcon": "account_balance",
+                "menuComponent": ""
+            }, {
+                "menuSeqNo": "23",
+                "menuId": "321",
+                "menuParams": "GL001",
+                "menuTitle": "往账活期基础产品",
+                "menuParentId": "32",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdFormGl"
+            }, {
+                "menuSeqNo": "24",
+                "menuId": "322",
+                "menuParams": "GL002",
+                "menuTitle": "往账定期基础产品",
+                "menuParentId": "32",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdFormGl"
+            }, {
+                "menuSeqNo": "25",
+                "menuId": "323",
+                "menuParams": "GL003",
+                "menuTitle": "来账活期基础产品",
+                "menuParentId": "32",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": "",
+                "menuComponent": "BaseProdFormGl"
+            }, {
+                "menuSeqNo": "26",
+                "menuId": "324",
+                "menuParams": "GL004",
+                "menuTitle": "来账定期基础产品",
+                "menuParentId": "32",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdFormGl"
+            }, {
+                "menuSeqNo": "27",
+                "menuId": "33",
+                "menuParams": " ",
+                "menuTitle": "协议产品",
+                "menuParentId": "3",
+                "menuLevel": "2",
+                "menuStatus": "A",
+                "menuIcon": " account_balance",
+                "menuComponent": null
+            }, {
+                "menuSeqNo": "28",
+                "menuId": "331",
+                "menuParams": "RB601",
+                "menuTitle": "集团现金池基础产品",
+                "menuParentId": "33",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdForm"
+            }, {
+                "menuSeqNo": "29",
+                "menuId": "34",
+                "menuParams": " ",
+                "menuTitle": "期次产品",
+                "menuParentId": "3",
+                "menuLevel": "2",
+                "menuStatus": "A",
+                "menuIcon": "account_balance",
+                "menuComponent": null
+            }, {
+                "menuSeqNo": "30",
+                "menuId": "341",
+                "menuParams": "RB301",
+                "menuTitle": "个人大额存单基础产品",
+                "menuParentId": "34",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdForm"
+            }, {
+                "menuSeqNo": "31",
+                "menuId": "342",
+                "menuParams": "RB302",
+                "menuTitle": "单位大额存单基础产品",
+                "menuParentId": "34",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "BaseProdForm"
+            }, {
+                "menuSeqNo": "32",
+                "menuId": "343",
+                "menuParams": "112003",
+                "menuTitle": "个人大额存单",
+                "menuParentId": "34",
+                "menuLevel": "3",
+                "menuStatus": "A",
+                "menuIcon": null,
+                "menuComponent": "SoldProdForm"
+            }, {
+                "menuSeqNo": "33",
                 "menuId": "4",
                 "menuParams": "",
-                "menuTitle": null,
+                "menuTitle": "参数工厂",
                 "menuParentId": "",
                 "menuLevel": "1",
                 "menuStatus": "A",
                 "menuIcon": "account_balance",
                 "menuComponent": null
             }, {
-                "menuSeqNo": "19",
+                "menuSeqNo": "34",
                 "menuId": "40",
                 "menuParams": "",
                 "menuTitle": "参数管理",
@@ -365,7 +475,7 @@ export default {
                 "menuIcon": "view_list",
                 "menuComponent": null
             }, {
-                "menuSeqNo": "20",
+                "menuSeqNo": "35",
                 "menuId": "401",
                 "menuParams": "",
                 "menuTitle": "参数管理入口",
@@ -375,7 +485,7 @@ export default {
                 "menuIcon": null,
                 "menuComponent": "paramManage"
             }, {
-                "menuSeqNo": "21",
+                "menuSeqNo": "36",
                 "menuId": "402",
                 "menuParams": "",
                 "menuTitle": "交易管理入口",
@@ -384,34 +494,9 @@ export default {
                 "menuStatus": "A",
                 "menuIcon": null,
                 "menuComponent": "transManage"
-            }, {
-                "menuSeqNo": "22",
-                "menuId": "14",
-                "menuParams": "",
-                "menuTitle": "产品展示",
-                "menuParentId": "3",
-                "menuLevel": "2",
-                "menuStatus": "A",
-                "menuIcon": "widgets",
-                "menuComponent": "prodWindow"
             }],
             "userRoleInfo": [{
                 "userId": "admin",
-                "roleId": "1"
-            }, {
-                "userId": "app",
-                "roleId": "1"
-            }, {
-                "userId": "handx",
-                "roleId": "1"
-            }, {
-                "userId": "lihj",
-                "roleId": "1"
-            }, {
-                "userId": "para",
-                "roleId": "1"
-            }, {
-                "userId": "tongyang",
                 "roleId": "1"
             }]
         }

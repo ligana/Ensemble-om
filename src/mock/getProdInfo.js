@@ -4,157 +4,22 @@ export default {
         "msg": "请求成功",
         "data": {
             "prodType": {
-                "prodType": "111001",
-                "prodDesc": "个人人民币活期存款",
-                "prodAbbr": null,
-                "prodClass": "RB100",
+                "prodType": "RB101",
+                "prodDesc": "个人人民币活期基础产品",
+                "prodAbbr": "个人人民币活期",
+                "prodClass": "RBBASE",
                 "prodGroup": "N",
-                "prodRange": "S",
-                "baseProdType": "RB101",
+                "prodRange": "B",
+                "baseProdType": null,
                 "status": "A",
                 "sourceModule": "RB"
             },
             "prodDefines": {
-                "MULTI_CCY": {
-                    "prodType": "111001",
-                    "seqNo": "125",
-                    "assembleType": "ATTR",
-                    "assembleId": "MULTI_CCY",
-                    "eventDefault": null,
-                    "attrKey": "MULTI_CCY",
-                    "attrValue": "N",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "BASE",
-                    "pageSeqNo": 3,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "ACCT_TYPE": {
-                    "prodType": "111001",
-                    "seqNo": "113",
-                    "assembleType": "ATTR",
-                    "assembleId": "ACCT_TYPE",
-                    "eventDefault": null,
-                    "attrKey": "ACCT_TYPE",
-                    "attrValue": "C",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "BASE",
-                    "pageSeqNo": 5,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "ACCT_INT_FLAG": {
-                    "prodType": "111001",
-                    "seqNo": "112",
-                    "assembleType": "ATTR",
-                    "assembleId": "ACCT_INT_FLAG",
-                    "eventDefault": null,
-                    "attrKey": "ACCT_INT_FLAG",
-                    "attrValue": "10",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "BASE",
-                    "pageSeqNo": 8,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "OWNERSHIP_TYPE": {
-                    "prodType": "111001",
-                    "seqNo": "119",
-                    "assembleType": "ATTR",
-                    "assembleId": "OWNERSHIP_TYPE",
-                    "eventDefault": null,
-                    "attrKey": "OWNERSHIP_TYPE",
-                    "attrValue": "SG",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "BASE",
-                    "pageSeqNo": 10,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "PROFIT_CENTRE": {
-                    "prodType": "111001",
-                    "seqNo": "111",
-                    "assembleType": "ATTR",
-                    "assembleId": "PROFIT_CENTRE",
-                    "eventDefault": null,
-                    "attrKey": "PROFIT_CENTRE",
-                    "attrValue": "99",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "BASE",
-                    "pageSeqNo": 18,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "LEGAL_PERSON": {
-                    "prodType": "111001",
-                    "seqNo": "108",
-                    "assembleType": "ATTR",
-                    "assembleId": "LEGAL_PERSON",
-                    "eventDefault": null,
-                    "attrKey": "LEGAL_PERSON",
-                    "attrValue": "DCITS",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "BASE",
-                    "pageSeqNo": 19,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "CYCLE_FREQ": {
-                    "prodType": "111001",
-                    "seqNo": "129",
-                    "assembleType": "ATTR",
-                    "assembleId": "CYCLE_FREQ",
-                    "eventDefault": null,
-                    "attrKey": "CYCLE_FREQ",
-                    "attrValue": "M3",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "INT",
-                    "pageSeqNo": 1,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "INT_DAY": {
-                    "prodType": "111001",
-                    "seqNo": "130",
-                    "assembleType": "ATTR",
-                    "assembleId": "INT_DAY",
-                    "eventDefault": null,
-                    "attrKey": "INT_DAY",
-                    "attrValue": "21",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "INT",
-                    "pageSeqNo": 2,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "INT_CAP": {
-                    "prodType": "111001",
-                    "seqNo": "140",
-                    "assembleType": "ATTR",
-                    "assembleId": "INT_CAP",
-                    "eventDefault": null,
-                    "attrKey": "INT_CAP",
-                    "attrValue": "Y",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "INT",
-                    "pageSeqNo": 3,
-                    "optionPermissions": "N",
-                    "group": "BASE"
-                },
-                "OPEN_111001": {
-                    "prodType": "111001",
+                "OPEN_RB101": {
+                    "prodType": "RB101",
                     "seqNo": "101",
                     "assembleType": "EVENT",
-                    "assembleId": "OPEN_111001",
+                    "assembleId": "OPEN_RB101",
                     "eventDefault": "OPEN",
                     "attrKey": null,
                     "attrValue": null,
@@ -163,13 +28,13 @@ export default {
                     "pageCode": null,
                     "pageSeqNo": null,
                     "optionPermissions": null,
-                    "group": "SOLD"
+                    "group": null
                 },
-                "CRET_111001": {
-                    "prodType": "111001",
+                "CRET_RB101": {
+                    "prodType": "RB101",
                     "seqNo": "102",
                     "assembleType": "EVENT",
-                    "assembleId": "CRET_111001",
+                    "assembleId": "CRET_RB101",
                     "eventDefault": "CRET",
                     "attrKey": null,
                     "attrValue": null,
@@ -178,13 +43,13 @@ export default {
                     "pageCode": null,
                     "pageSeqNo": null,
                     "optionPermissions": null,
-                    "group": "SOLD"
+                    "group": null
                 },
-                "DEBT_111001": {
-                    "prodType": "111001",
+                "DEBT_RB101": {
+                    "prodType": "RB101",
                     "seqNo": "103",
                     "assembleType": "EVENT",
-                    "assembleId": "DEBT_111001",
+                    "assembleId": "DEBT_RB101",
                     "eventDefault": "DEBT",
                     "attrKey": null,
                     "attrValue": null,
@@ -193,13 +58,13 @@ export default {
                     "pageCode": null,
                     "pageSeqNo": null,
                     "optionPermissions": null,
-                    "group": "SOLD"
+                    "group": null
                 },
-                "CLOSE_111001": {
-                    "prodType": "111001",
+                "CLOSE_RB101": {
+                    "prodType": "RB101",
                     "seqNo": "104",
                     "assembleType": "EVENT",
-                    "assembleId": "CLOSE_111001",
+                    "assembleId": "CLOSE_RB101",
                     "eventDefault": "CLOSE",
                     "attrKey": null,
                     "attrValue": null,
@@ -208,13 +73,13 @@ export default {
                     "pageCode": null,
                     "pageSeqNo": null,
                     "optionPermissions": null,
-                    "group": "SOLD"
+                    "group": null
                 },
-                "CYCLE_111001": {
-                    "prodType": "111001",
+                "CYCLE_RB101": {
+                    "prodType": "RB101",
                     "seqNo": "105",
                     "assembleType": "EVENT",
-                    "assembleId": "CYCLE_111001",
+                    "assembleId": "CYCLE_RB101",
                     "eventDefault": "CYCLE",
                     "attrKey": null,
                     "attrValue": null,
@@ -223,10 +88,10 @@ export default {
                     "pageCode": null,
                     "pageSeqNo": null,
                     "optionPermissions": null,
-                    "group": "SOLD"
+                    "group": null
                 },
                 "CLIENT_TYPE": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "116",
                     "assembleType": "ATTR",
                     "assembleId": "CLIENT_TYPE",
@@ -238,25 +103,25 @@ export default {
                     "pageCode": "APPLY",
                     "pageSeqNo": 1,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "INLAND_OFFSHORE": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "115",
                     "assembleType": "ATTR",
                     "assembleId": "INLAND_OFFSHORE",
                     "eventDefault": null,
                     "attrKey": "INLAND_OFFSHORE",
-                    "attrValue": "I",
+                    "attrValue": "I,O",
                     "status": "A",
                     "perEffect": null,
                     "pageCode": "APPLY",
                     "pageSeqNo": 2,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "CLIENT_IND": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "138",
                     "assembleType": "ATTR",
                     "assembleId": "CLIENT_IND",
@@ -268,10 +133,10 @@ export default {
                     "pageCode": "APPLY",
                     "pageSeqNo": 3,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "PROD_CHANNEL": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "146",
                     "assembleType": "ATTR",
                     "assembleId": "PROD_CHANNEL",
@@ -283,10 +148,10 @@ export default {
                     "pageCode": "APPLY",
                     "pageSeqNo": 4,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "BRANCH_REGION_SELECT": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "160",
                     "assembleType": "ATTR",
                     "assembleId": "BRANCH_REGION_SELECT",
@@ -298,11 +163,11 @@ export default {
                     "pageCode": "APPLY",
                     "pageSeqNo": 5,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "REGION_RANGE": {
-                    "prodType": "111001",
-                    "seqNo": "161",
+                    "prodType": "RB101",
+                    "seqNo": "157",
                     "assembleType": "ATTR",
                     "assembleId": "REGION_RANGE",
                     "eventDefault": null,
@@ -312,12 +177,12 @@ export default {
                     "perEffect": null,
                     "pageCode": "APPLY",
                     "pageSeqNo": 6,
-                    "optionPermissions": null,
-                    "group": "SOLD"
+                    "optionPermissions": "E",
+                    "group": null
                 },
                 "PROD_REGION": {
-                    "prodType": "111001",
-                    "seqNo": "162",
+                    "prodType": "RB101",
+                    "seqNo": "109",
                     "assembleType": "ATTR",
                     "assembleId": "PROD_REGION",
                     "eventDefault": null,
@@ -327,11 +192,11 @@ export default {
                     "perEffect": null,
                     "pageCode": "APPLY",
                     "pageSeqNo": 7,
-                    "optionPermissions": null,
-                    "group": "SOLD"
+                    "optionPermissions": "E",
+                    "group": null
                 },
                 "BRANCH_RANGE": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "156",
                     "assembleType": "ATTR",
                     "assembleId": "BRANCH_RANGE",
@@ -343,10 +208,10 @@ export default {
                     "pageCode": "APPLY",
                     "pageSeqNo": 8,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "PROD_BRANCH": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "110",
                     "assembleType": "ATTR",
                     "assembleId": "PROD_BRANCH",
@@ -358,25 +223,25 @@ export default {
                     "pageCode": "APPLY",
                     "pageSeqNo": 9,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
-                "ACCT_NATURE": {
-                    "prodType": "111001",
-                    "seqNo": "114",
+                "PROD_START_DATE": {
+                    "prodType": "RB101",
+                    "seqNo": "106",
                     "assembleType": "ATTR",
-                    "assembleId": "ACCT_NATURE",
+                    "assembleId": "PROD_START_DATE",
                     "eventDefault": null,
-                    "attrKey": "ACCT_NATURE",
-                    "attrValue": "1,2",
+                    "attrKey": "PROD_START_DATE",
+                    "attrValue": "20000101",
                     "status": "A",
                     "perEffect": null,
                     "pageCode": "BASE",
                     "pageSeqNo": 1,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "PROD_END_DATE": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "107",
                     "assembleType": "ATTR",
                     "assembleId": "PROD_END_DATE",
@@ -388,10 +253,70 @@ export default {
                     "pageCode": "BASE",
                     "pageSeqNo": 2,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
+                },
+                "MULTI_CCY": {
+                    "prodType": "RB101",
+                    "seqNo": "125",
+                    "assembleType": "ATTR",
+                    "assembleId": "MULTI_CCY",
+                    "eventDefault": null,
+                    "attrKey": "MULTI_CCY",
+                    "attrValue": "N",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 3,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "CCY": {
+                    "prodType": "RB101",
+                    "seqNo": "126",
+                    "assembleType": "ATTR",
+                    "assembleId": "CCY",
+                    "eventDefault": null,
+                    "attrKey": "CCY",
+                    "attrValue": "CNY",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 4,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "ACCT_TYPE": {
+                    "prodType": "RB101",
+                    "seqNo": "113",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_TYPE",
+                    "attrValue": "C",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 5,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "ACCT_NATURE": {
+                    "prodType": "RB101",
+                    "seqNo": "114",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_NATURE",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_NATURE",
+                    "attrValue": "1,2",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 6,
+                    "optionPermissions": "E",
+                    "group": null
                 },
                 "ACCT_CLASS": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "143",
                     "assembleType": "ATTR",
                     "assembleId": "ACCT_CLASS",
@@ -401,27 +326,102 @@ export default {
                     "status": "A",
                     "perEffect": null,
                     "pageCode": "BASE",
-                    "pageSeqNo": 4,
+                    "pageSeqNo": 7,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
-                "PROD_START_DATE": {
-                    "prodType": "111001",
-                    "seqNo": "106",
+                "ACCT_INT_FLAG": {
+                    "prodType": "RB101",
+                    "seqNo": "112",
                     "assembleType": "ATTR",
-                    "assembleId": "PROD_START_DATE",
+                    "assembleId": "ACCT_INT_FLAG",
                     "eventDefault": null,
-                    "attrKey": "PROD_START_DATE",
-                    "attrValue": "20000101",
+                    "attrKey": "ACCT_INT_FLAG",
+                    "attrValue": "10",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 8,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "ACCT_STRUCT_FLAG": {
+                    "prodType": "RB101",
+                    "seqNo": "134",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_STRUCT_FLAG",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_STRUCT_FLAG",
+                    "attrValue": "1",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 9,
+                    "optionPermissions": "V",
+                    "group": null
+                },
+                "OWNERSHIP_TYPE": {
+                    "prodType": "RB101",
+                    "seqNo": "119",
+                    "assembleType": "ATTR",
+                    "assembleId": "OWNERSHIP_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "OWNERSHIP_TYPE",
+                    "attrValue": "SG",
                     "status": "A",
                     "perEffect": null,
                     "pageCode": "BASE",
                     "pageSeqNo": 10,
-                    "optionPermissions": "E",
-                    "group": "SOLD"
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "ACCT_REAL_FLAG": {
+                    "prodType": "RB101",
+                    "seqNo": "136",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_REAL_FLAG",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_REAL_FLAG",
+                    "attrValue": "10",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 11,
+                    "optionPermissions": "V",
+                    "group": null
+                },
+                "ACCT_BAL_FLAG": {
+                    "prodType": "RB101",
+                    "seqNo": "133",
+                    "assembleType": "ATTR",
+                    "assembleId": "ACCT_BAL_FLAG",
+                    "eventDefault": null,
+                    "attrKey": "ACCT_BAL_FLAG",
+                    "attrValue": "10",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 12,
+                    "optionPermissions": "V",
+                    "group": null
+                },
+                "AMT_TYPE": {
+                    "prodType": "RB101",
+                    "seqNo": "135",
+                    "assembleType": "ATTR",
+                    "assembleId": "AMT_TYPE",
+                    "eventDefault": null,
+                    "attrKey": "AMT_TYPE",
+                    "attrValue": "BAL",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 15,
+                    "optionPermissions": "V",
+                    "group": null
                 },
                 "WITHDRAWAL_TYPE": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "120",
                     "assembleType": "ATTR",
                     "assembleId": "WITHDRAWAL_TYPE",
@@ -431,28 +431,13 @@ export default {
                     "status": "A",
                     "perEffect": null,
                     "pageCode": "BASE",
-                    "pageSeqNo": 13,
+                    "pageSeqNo": 16,
                     "optionPermissions": "E",
-                    "group": "SOLD"
-                },
-                "CCY": {
-                    "prodType": "111001",
-                    "seqNo": "163",
-                    "assembleType": "ATTR",
-                    "assembleId": "CCY",
-                    "eventDefault": null,
-                    "attrKey": "CCY",
-                    "attrValue": "CNY",
-                    "status": "A",
-                    "perEffect": null,
-                    "pageCode": "BASE",
-                    "pageSeqNo": 14,
-                    "optionPermissions": null,
-                    "group": "SOLD"
+                    "group": null
                 },
                 "DOC_TYPE": {
-                    "prodType": "111001",
-                    "seqNo": "165",
+                    "prodType": "RB101",
+                    "seqNo": "141",
                     "assembleType": "ATTR",
                     "assembleId": "DOC_TYPE",
                     "eventDefault": null,
@@ -461,12 +446,42 @@ export default {
                     "status": "A",
                     "perEffect": null,
                     "pageCode": "BASE",
-                    "pageSeqNo": 16,
-                    "optionPermissions": null,
-                    "group": "SOLD"
+                    "pageSeqNo": 17,
+                    "optionPermissions": "E",
+                    "group": null
+                },
+                "PROFIT_CENTRE": {
+                    "prodType": "RB101",
+                    "seqNo": "111",
+                    "assembleType": "ATTR",
+                    "assembleId": "PROFIT_CENTRE",
+                    "eventDefault": null,
+                    "attrKey": "PROFIT_CENTRE",
+                    "attrValue": "99",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 18,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "LEGAL_PERSON": {
+                    "prodType": "RB101",
+                    "seqNo": "108",
+                    "assembleType": "ATTR",
+                    "assembleId": "LEGAL_PERSON",
+                    "eventDefault": null,
+                    "attrKey": "LEGAL_PERSON",
+                    "attrValue": "DCITS",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "BASE",
+                    "pageSeqNo": 19,
+                    "optionPermissions": "N",
+                    "group": null
                 },
                 "DEP_RANGE": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "148",
                     "assembleType": "ATTR",
                     "assembleId": "DEP_RANGE",
@@ -478,10 +493,10 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 1,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "DRA_RANGE": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "149",
                     "assembleType": "ATTR",
                     "assembleId": "DRA_RANGE",
@@ -493,10 +508,10 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 2,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "CASH_DRA_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "147",
                     "assembleType": "ATTR",
                     "assembleId": "CASH_DRA_FLAG",
@@ -508,10 +523,10 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 3,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "TRAN_DRA_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "150",
                     "assembleType": "ATTR",
                     "assembleId": "TRAN_DRA_FLAG",
@@ -523,10 +538,10 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 4,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "CLIENT_CTRL_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "152",
                     "assembleType": "ATTR",
                     "assembleId": "CLIENT_CTRL_FLAG",
@@ -538,10 +553,10 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 5,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "CHANNEL_CTRL_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "153",
                     "assembleType": "ATTR",
                     "assembleId": "CHANNEL_CTRL_FLAG",
@@ -553,10 +568,10 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 6,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "BRANCH_REGION_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "154",
                     "assembleType": "ATTR",
                     "assembleId": "BRANCH_REGION_FLAG",
@@ -568,10 +583,10 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 7,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "STATUS_TRAN_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "151",
                     "assembleType": "ATTR",
                     "assembleId": "STATUS_TRAN_FLAG",
@@ -583,10 +598,10 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 8,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "FEE_CTRL_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "155",
                     "assembleType": "ATTR",
                     "assembleId": "FEE_CTRL_FLAG",
@@ -598,10 +613,55 @@ export default {
                     "pageCode": "CONTROL",
                     "pageSeqNo": 9,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
+                },
+                "CYCLE_FREQ": {
+                    "prodType": "RB101",
+                    "seqNo": "129",
+                    "assembleType": "ATTR",
+                    "assembleId": "CYCLE_FREQ",
+                    "eventDefault": null,
+                    "attrKey": "CYCLE_FREQ",
+                    "attrValue": "M3",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "INT",
+                    "pageSeqNo": 1,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "INT_DAY": {
+                    "prodType": "RB101",
+                    "seqNo": "130",
+                    "assembleType": "ATTR",
+                    "assembleId": "INT_DAY",
+                    "eventDefault": null,
+                    "attrKey": "INT_DAY",
+                    "attrValue": "21",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "INT",
+                    "pageSeqNo": 2,
+                    "optionPermissions": "N",
+                    "group": null
+                },
+                "INT_CAP": {
+                    "prodType": "RB101",
+                    "seqNo": "140",
+                    "assembleType": "ATTR",
+                    "assembleId": "INT_CAP",
+                    "eventDefault": null,
+                    "attrKey": "INT_CAP",
+                    "attrValue": "Y",
+                    "status": "A",
+                    "perEffect": null,
+                    "pageCode": "INT",
+                    "pageSeqNo": 3,
+                    "optionPermissions": "N",
+                    "group": null
                 },
                 "NEXT_CYCLE_DATE": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "139",
                     "assembleType": "ATTR",
                     "assembleId": "NEXT_CYCLE_DATE",
@@ -613,10 +673,10 @@ export default {
                     "pageCode": "INT",
                     "pageSeqNo": 4,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "AUTO_DORM_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "121",
                     "assembleType": "ATTR",
                     "assembleId": "AUTO_DORM_FLAG",
@@ -628,10 +688,10 @@ export default {
                     "pageCode": "SHIFT",
                     "pageSeqNo": 1,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "DORMANT_MONTH": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "122",
                     "assembleType": "ATTR",
                     "assembleId": "DORMANT_MONTH",
@@ -643,10 +703,10 @@ export default {
                     "pageCode": "SHIFT",
                     "pageSeqNo": 2,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "DORMANT_INT_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "159",
                     "assembleType": "ATTR",
                     "assembleId": "DORMANT_INT_FLAG",
@@ -658,10 +718,10 @@ export default {
                     "pageCode": "SHIFT",
                     "pageSeqNo": 3,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 },
                 "HANG_INT_FLAG": {
-                    "prodType": "111001",
+                    "prodType": "RB101",
                     "seqNo": "158",
                     "assembleType": "ATTR",
                     "assembleId": "HANG_INT_FLAG",
@@ -673,80 +733,85 @@ export default {
                     "pageCode": "SHIFT",
                     "pageSeqNo": 4,
                     "optionPermissions": "E",
-                    "group": "SOLD"
+                    "group": null
                 }
             },
             "mbEventInfos": {
-                "CLOSE_111001": {
+                "CYCLE_RB101": {
                     "mbEventType": {
-                        "eventType": "CLOSE_111001",
-                        "eventDesc": "个人人民币活期存款销户事件",
-                        "eventClass": "CLOSE",
+                        "eventType": "CYCLE_RB101",
+                        "eventDesc": "个人人民币活期基础产品结息事件",
+                        "eventClass": "CYCLE",
                         "processMethod": "C",
                         "status": "A",
                         "isStandard": "N",
                         "company": "DCITS"
                     },
                     "mbEventAttrs": {
-                        "CHECK_SIGN": {
-                            "eventType": "CLOSE_111001",
-                            "seqNo": "4",
+                        "AMT_CALC_TYPE": {
+                            "eventType": "CYCLE_RB101",
+                            "seqNo": "2",
                             "assembleType": "ATTR",
-                            "assembleId": "CHECK_SIGN",
-                            "attrValue": "Y",
+                            "assembleId": "AMT_CALC_TYPE",
+                            "attrValue": "0,o",
                             "assembleRule": "A",
                             "perEffect": null,
-                            "pageCode": "CLOSE",
+                            "pageCode": "CYCLE",
                             "pageSeqNo": 1,
-                            "optionPermissions": "N",
-                            "group": "BASE"
+                            "optionPermissions": "V",
+                            "group": null
                         },
-                        "CHECK_CLOSE_FEE": {
-                            "eventType": "CLOSE_111001",
-                            "seqNo": "3",
-                            "assembleType": "ATTR",
-                            "assembleId": "CHECK_CLOSE_FEE",
-                            "attrValue": "Y",
+                        "CHECK_ACCT_STATUS_PA": {
+                            "eventType": "CYCLE_RB101",
+                            "seqNo": "1",
+                            "assembleType": "PART",
+                            "assembleId": "CHECK_ACCT_STATUS_PA",
+                            "attrValue": null,
                             "assembleRule": "A",
                             "perEffect": null,
-                            "pageCode": "CLOSE",
+                            "pageCode": "CYCLE",
                             "pageSeqNo": 2,
-                            "optionPermissions": "N",
-                            "group": "BASE"
+                            "optionPermissions": "V",
+                            "group": null
                         },
                         "CHECK_ACCT_STATUS": {
-                            "eventType": "CLOSE_111001",
-                            "seqNo": "12",
+                            "eventType": "CYCLE_RB101",
+                            "seqNo": "11",
                             "assembleType": "ATTR",
                             "assembleId": "CHECK_ACCT_STATUS",
                             "attrValue": "Y",
                             "assembleRule": "A",
                             "perEffect": null,
-                            "pageCode": "CLOSE",
-                            "pageSeqNo": 3,
-                            "optionPermissions": "N",
-                            "group": "BASE"
+                            "pageCode": "CYCLE",
+                            "pageSeqNo": 6,
+                            "optionPermissions": "V",
+                            "group": null
                         },
                         "ACCT_STATUS": {
-                            "eventType": "CLOSE_111001",
-                            "seqNo": "11",
+                            "eventType": "CYCLE_RB101",
+                            "seqNo": "12",
                             "assembleType": "ATTR",
                             "assembleId": "ACCT_STATUS",
-                            "attrValue": "A,D,S,O,N",
+                            "attrValue": "A,H,D,N,S",
                             "assembleRule": "A",
                             "perEffect": null,
-                            "pageCode": "CLOSE",
-                            "pageSeqNo": 4,
-                            "optionPermissions": "N",
-                            "group": "BASE"
+                            "pageCode": "CYCLE",
+                            "pageSeqNo": 7,
+                            "optionPermissions": "V",
+                            "group": null
                         }
                     },
-                    "mbEventParts": {}
+                    "mbEventParts": {
+                        "CHECK_ACCT_STATUS_PA": {},
+                        "CHECK_ACCT_STATUS": {},
+                        "AMT_CALC_TYPE": {},
+                        "ACCT_STATUS": {}
+                    }
                 },
-                "DEBT_111001": {
+                "DEBT_RB101": {
                     "mbEventType": {
-                        "eventType": "DEBT_111001",
-                        "eventDesc": "个人人民币活期存款支取事件",
+                        "eventType": "DEBT_RB101",
+                        "eventDesc": "个人人民币活期基础产品支取事件",
                         "eventClass": "DEBT",
                         "processMethod": "C",
                         "status": "A",
@@ -754,8 +819,34 @@ export default {
                         "company": "DCITS"
                     },
                     "mbEventAttrs": {
+                        "AMT_CALC_TYPE": {
+                            "eventType": "DEBT_RB101",
+                            "seqNo": "5",
+                            "assembleType": "ATTR",
+                            "assembleId": "AMT_CALC_TYPE",
+                            "attrValue": "1",
+                            "assembleRule": "F",
+                            "perEffect": null,
+                            "pageCode": "DEBT",
+                            "pageSeqNo": 1,
+                            "optionPermissions": "V",
+                            "group": null
+                        },
+                        "DRA_DEP_PA": {
+                            "eventType": "DEBT_RB101",
+                            "seqNo": "3",
+                            "assembleType": "PART",
+                            "assembleId": "DRA_DEP_PA",
+                            "attrValue": null,
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "DEBT",
+                            "pageSeqNo": 2,
+                            "optionPermissions": "E",
+                            "group": null
+                        },
                         "CHECK_ACCT_STATUS_PA": {
-                            "eventType": "DEBT_111001",
+                            "eventType": "DEBT_RB101",
                             "seqNo": "1",
                             "assembleType": "PART",
                             "assembleId": "CHECK_ACCT_STATUS_PA",
@@ -765,10 +856,10 @@ export default {
                             "pageCode": "DEBT",
                             "pageSeqNo": 3,
                             "optionPermissions": "N",
-                            "group": "BASE"
+                            "group": null
                         },
                         "CHECK_RESTRAINT": {
-                            "eventType": "DEBT_111001",
+                            "eventType": "DEBT_RB101",
                             "seqNo": "2",
                             "assembleType": "ATTR",
                             "assembleId": "CHECK_RESTRAINT",
@@ -777,11 +868,11 @@ export default {
                             "perEffect": null,
                             "pageCode": "DEBT",
                             "pageSeqNo": 4,
-                            "optionPermissions": "E",
-                            "group": "SOLD"
+                            "optionPermissions": "N",
+                            "group": null
                         },
                         "CHECK_WDRAWN_TYPE": {
-                            "eventType": "DEBT_111001",
+                            "eventType": "DEBT_RB101",
                             "seqNo": "4",
                             "assembleType": "ATTR",
                             "assembleId": "CHECK_WDRAWN_TYPE",
@@ -791,10 +882,10 @@ export default {
                             "pageCode": "DEBT",
                             "pageSeqNo": 5,
                             "optionPermissions": "N",
-                            "group": "BASE"
+                            "group": null
                         },
                         "CHECK_ACCT_STATUS": {
-                            "eventType": "DEBT_111001",
+                            "eventType": "DEBT_RB101",
                             "seqNo": "11",
                             "assembleType": "ATTR",
                             "assembleId": "CHECK_ACCT_STATUS",
@@ -804,10 +895,10 @@ export default {
                             "pageCode": "DEBT",
                             "pageSeqNo": 6,
                             "optionPermissions": "N",
-                            "group": "BASE"
+                            "group": null
                         },
                         "ACCT_STATUS": {
-                            "eventType": "DEBT_111001",
+                            "eventType": "DEBT_RB101",
                             "seqNo": "12",
                             "assembleType": "ATTR",
                             "assembleId": "ACCT_STATUS",
@@ -817,44 +908,23 @@ export default {
                             "pageCode": "DEBT",
                             "pageSeqNo": 7,
                             "optionPermissions": "N",
-                            "group": "BASE"
-                        },
-                        "DRA_DEP_PA": {
-                            "eventType": "DEBT_111001",
-                            "seqNo": "3",
-                            "assembleType": "PART",
-                            "assembleId": "DRA_DEP_PA",
-                            "attrValue": null,
-                            "assembleRule": "A",
-                            "perEffect": null,
-                            "pageCode": "DEBT",
-                            "pageSeqNo": 2,
-                            "optionPermissions": "E",
-                            "group": "SOLD"
+                            "group": null
                         }
                     },
                     "mbEventParts": {
+                        "CHECK_ACCT_STATUS_PA": {},
+                        "CHECK_ACCT_STATUS": {},
+                        "AMT_CALC_TYPE": {},
                         "DRA_DEP_PA": {},
+                        "CHECK_WDRAWN_TYPE": {},
+                        "ACCT_STATUS": {},
                         "CHECK_RESTRAINT": {}
                     }
                 },
-                "CYCLE_111001": {
+                "CRET_RB101": {
                     "mbEventType": {
-                        "eventType": "CYCLE_111001",
-                        "eventDesc": "个人人民币活期存款结息事件",
-                        "eventClass": "CYCLE",
-                        "processMethod": "C",
-                        "status": "A",
-                        "isStandard": "N",
-                        "company": "DCITS"
-                    },
-                    "mbEventAttrs": {},
-                    "mbEventParts": {}
-                },
-                "CRET_111001": {
-                    "mbEventType": {
-                        "eventType": "CRET_111001",
-                        "eventDesc": "个人人民币活期存款存入事件",
+                        "eventType": "CRET_RB101",
+                        "eventDesc": "个人人民币活期基础产品存入事件",
                         "eventClass": "CRET",
                         "processMethod": "C",
                         "status": "A",
@@ -862,60 +932,21 @@ export default {
                         "company": "DCITS"
                     },
                     "mbEventAttrs": {
-                        "CHECK_ACCT_STATUS_PA": {
-                            "eventType": "CRET_111001",
-                            "seqNo": "1",
-                            "assembleType": "PART",
-                            "assembleId": "CHECK_ACCT_STATUS_PA",
-                            "attrValue": null,
-                            "assembleRule": "A",
-                            "perEffect": null,
-                            "pageCode": "CRET",
-                            "pageSeqNo": 3,
-                            "optionPermissions": "N",
-                            "group": "BASE"
-                        },
-                        "CHECK_RESTRAINT": {
-                            "eventType": "CRET_111001",
-                            "seqNo": "2",
+                        "AMT_CALC_TYPE": {
+                            "eventType": "CRET_RB101",
+                            "seqNo": "5",
                             "assembleType": "ATTR",
-                            "assembleId": "CHECK_RESTRAINT",
-                            "attrValue": "Y",
-                            "assembleRule": "A",
+                            "assembleId": "AMT_CALC_TYPE",
+                            "attrValue": "0",
+                            "assembleRule": "F",
                             "perEffect": null,
                             "pageCode": "CRET",
-                            "pageSeqNo": 4,
-                            "optionPermissions": "N",
-                            "group": "BASE"
-                        },
-                        "CHECK_ACCT_STATUS": {
-                            "eventType": "CRET_111001",
-                            "seqNo": "11",
-                            "assembleType": "ATTR",
-                            "assembleId": "CHECK_ACCT_STATUS",
-                            "attrValue": "Y",
-                            "assembleRule": "A",
-                            "perEffect": null,
-                            "pageCode": "CRET",
-                            "pageSeqNo": 6,
-                            "optionPermissions": "N",
-                            "group": "BASE"
-                        },
-                        "ACCT_STATUS": {
-                            "eventType": "CRET_111001",
-                            "seqNo": "12",
-                            "assembleType": "ATTR",
-                            "assembleId": "ACCT_STATUS",
-                            "attrValue": "A,H,D,N,S",
-                            "assembleRule": "A",
-                            "perEffect": null,
-                            "pageCode": "CRET",
-                            "pageSeqNo": 7,
-                            "optionPermissions": "N",
-                            "group": "BASE"
+                            "pageSeqNo": 1,
+                            "optionPermissions": "V",
+                            "group": null
                         },
                         "DRA_DEP_PA": {
-                            "eventType": "CRET_111001",
+                            "eventType": "CRET_RB101",
                             "seqNo": "4",
                             "assembleType": "PART",
                             "assembleId": "DRA_DEP_PA",
@@ -925,17 +956,74 @@ export default {
                             "pageCode": "CRET",
                             "pageSeqNo": 2,
                             "optionPermissions": "E",
-                            "group": "SOLD"
+                            "group": null
+                        },
+                        "CHECK_ACCT_STATUS_PA": {
+                            "eventType": "CRET_RB101",
+                            "seqNo": "1",
+                            "assembleType": "PART",
+                            "assembleId": "CHECK_ACCT_STATUS_PA",
+                            "attrValue": null,
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CRET",
+                            "pageSeqNo": 3,
+                            "optionPermissions": "N",
+                            "group": null
+                        },
+                        "CHECK_RESTRAINT": {
+                            "eventType": "CRET_RB101",
+                            "seqNo": "2",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_RESTRAINT",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CRET",
+                            "pageSeqNo": 4,
+                            "optionPermissions": "N",
+                            "group": null
+                        },
+                        "CHECK_ACCT_STATUS": {
+                            "eventType": "CRET_RB101",
+                            "seqNo": "11",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_ACCT_STATUS",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CRET",
+                            "pageSeqNo": 6,
+                            "optionPermissions": "N",
+                            "group": null
+                        },
+                        "ACCT_STATUS": {
+                            "eventType": "CRET_RB101",
+                            "seqNo": "12",
+                            "assembleType": "ATTR",
+                            "assembleId": "ACCT_STATUS",
+                            "attrValue": "A,H,D,N,S",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CRET",
+                            "pageSeqNo": 7,
+                            "optionPermissions": "N",
+                            "group": null
                         }
                     },
                     "mbEventParts": {
-                        "DRA_DEP_PA": {}
+                        "CHECK_ACCT_STATUS_PA": {},
+                        "CHECK_ACCT_STATUS": {},
+                        "AMT_CALC_TYPE": {},
+                        "DRA_DEP_PA": {},
+                        "ACCT_STATUS": {},
+                        "CHECK_RESTRAINT": {}
                     }
                 },
-                "OPEN_111001": {
+                "OPEN_RB101": {
                     "mbEventType": {
-                        "eventType": "OPEN_111001",
-                        "eventDesc": "个人人民币活期存款开户事件",
+                        "eventType": "OPEN_RB101",
+                        "eventDesc": "个人人民币活期基础产品开户事件",
                         "eventClass": "OPEN",
                         "processMethod": "C",
                         "status": "A",
@@ -944,7 +1032,7 @@ export default {
                     },
                     "mbEventAttrs": {
                         "STRUCTURE_TYPE": {
-                            "eventType": "OPEN_111001",
+                            "eventType": "OPEN_RB101",
                             "seqNo": "2",
                             "assembleType": "ATTR",
                             "assembleId": "STRUCTURE_TYPE",
@@ -954,23 +1042,23 @@ export default {
                             "pageCode": "OPEN",
                             "pageSeqNo": 1,
                             "optionPermissions": "N",
-                            "group": "BASE"
+                            "group": null
                         },
-                        "DOC_PA": {
-                            "eventType": "OPEN_111001",
-                            "seqNo": "8",
+                        "CHECK_COMM_PA": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "10",
                             "assembleType": "PART",
-                            "assembleId": "DOC_PA",
+                            "assembleId": "CHECK_COMM_PA",
                             "attrValue": null,
-                            "assembleRule": "C",
+                            "assembleRule": "A",
                             "perEffect": null,
                             "pageCode": "OPEN",
-                            "pageSeqNo": 8,
-                            "optionPermissions": "N",
-                            "group": "BASE"
+                            "pageSeqNo": 2,
+                            "optionPermissions": "V",
+                            "group": null
                         },
                         "ACCT_PREFIX": {
-                            "eventType": "OPEN_111001",
+                            "eventType": "OPEN_RB101",
                             "seqNo": "11",
                             "assembleType": "ATTR",
                             "assembleId": "ACCT_PREFIX",
@@ -980,10 +1068,23 @@ export default {
                             "pageCode": "OPEN",
                             "pageSeqNo": 2,
                             "optionPermissions": "E",
-                            "group": "SOLD"
+                            "group": null
+                        },
+                        "CLIENT_PA": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "4",
+                            "assembleType": "PART",
+                            "assembleId": "CLIENT_PA",
+                            "attrValue": null,
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 3,
+                            "optionPermissions": "V",
+                            "group": null
                         },
                         "NUM_OF_CLIENT": {
-                            "eventType": "OPEN_111001",
+                            "eventType": "OPEN_RB101",
                             "seqNo": "9",
                             "assembleType": "ATTR",
                             "assembleId": "NUM_OF_CLIENT",
@@ -993,10 +1094,49 @@ export default {
                             "pageCode": "OPEN",
                             "pageSeqNo": 3,
                             "optionPermissions": "E",
-                            "group": "SOLD"
+                            "group": null
+                        },
+                        "PROD_DATE_PA": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "1",
+                            "assembleType": "PART",
+                            "assembleId": "PROD_DATE_PA",
+                            "attrValue": null,
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 4,
+                            "optionPermissions": "V",
+                            "group": null
+                        },
+                        "CHECK_ACCT_NATURE": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "3",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_ACCT_NATURE",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 4,
+                            "optionPermissions": "V",
+                            "group": null
+                        },
+                        "CHECK_ACCT_CLASS": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "101",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_ACCT_CLASS",
+                            "attrValue": "N",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 5,
+                            "optionPermissions": "V",
+                            "group": null
                         },
                         "DOC_FLAG": {
-                            "eventType": "OPEN_111001",
+                            "eventType": "OPEN_RB101",
                             "seqNo": "81",
                             "assembleType": "ATTR",
                             "assembleId": "DOC_FLAG",
@@ -1006,10 +1146,75 @@ export default {
                             "pageCode": "OPEN",
                             "pageSeqNo": 6,
                             "optionPermissions": "E",
-                            "group": "SOLD"
+                            "group": null
+                        },
+                        "BAL_PA": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "7",
+                            "assembleType": "PART",
+                            "assembleId": "BAL_PA",
+                            "attrValue": null,
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 7,
+                            "optionPermissions": "V",
+                            "group": null
+                        },
+                        "CHECK_CCY": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "102",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_CCY",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 7,
+                            "optionPermissions": "V",
+                            "group": null
+                        },
+                        "DOC_PA": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "8",
+                            "assembleType": "PART",
+                            "assembleId": "DOC_PA",
+                            "attrValue": null,
+                            "assembleRule": "C",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 8,
+                            "optionPermissions": "N",
+                            "group": null
+                        },
+                        "CHECK_PROD_DATE": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "103",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_PROD_DATE",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 8,
+                            "optionPermissions": "V",
+                            "group": null
+                        },
+                        "CHECK_PROD_STATUS": {
+                            "eventType": "OPEN_RB101",
+                            "seqNo": "104",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_PROD_STATUS",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "OPEN",
+                            "pageSeqNo": 9,
+                            "optionPermissions": "V",
+                            "group": null
                         },
                         "CHECK_WDRAWN_TYPE": {
-                            "eventType": "OPEN_111001",
+                            "eventType": "OPEN_RB101",
                             "seqNo": "105",
                             "assembleType": "ATTR",
                             "assembleId": "CHECK_WDRAWN_TYPE",
@@ -1019,24 +1224,132 @@ export default {
                             "pageCode": "OPEN",
                             "pageSeqNo": 10,
                             "optionPermissions": "E",
-                            "group": "SOLD"
+                            "group": null
                         }
                     },
                     "mbEventParts": {
-                        "ACCT_PREFIX": {},
+                        "CHECK_COMM_PA": {},
                         "NUM_OF_CLIENT": {},
+                        "PROD_DATE_PA": {},
                         "CHECK_WDRAWN_TYPE": {},
+                        "CHECK_ACCT_NATURE": {},
+                        "STRUCTURE_TYPE": {},
+                        "CHECK_PROD_DATE": {},
+                        "CHECK_CCY": {},
+                        "ACCT_PREFIX": {},
+                        "CHECK_ACCT_CLASS": {},
+                        "BAL_PA": {},
+                        "CHECK_PROD_STATUS": {},
+                        "DOC_PA": {},
+                        "CLIENT_PA": {},
                         "DOC_FLAG": {}
+                    }
+                },
+                "CLOSE_RB101": {
+                    "mbEventType": {
+                        "eventType": "CLOSE_RB101",
+                        "eventDesc": "个人人民币活期基础产品销户事件",
+                        "eventClass": "CLOSE",
+                        "processMethod": "C",
+                        "status": "A",
+                        "isStandard": "N",
+                        "company": "DCITS"
+                    },
+                    "mbEventAttrs": {
+                        "CHECK_ACCT_STATUS_PA": {
+                            "eventType": "CLOSE_RB101",
+                            "seqNo": "1",
+                            "assembleType": "PART",
+                            "assembleId": "CHECK_ACCT_STATUS_PA",
+                            "attrValue": null,
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CLOSE",
+                            "pageSeqNo": 1,
+                            "optionPermissions": "V",
+                            "group": null
+                        },
+                        "CHECK_SIGN": {
+                            "eventType": "CLOSE_RB101",
+                            "seqNo": "4",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_SIGN",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CLOSE",
+                            "pageSeqNo": 1,
+                            "optionPermissions": "N",
+                            "group": null
+                        },
+                        "CHECK_CLOSE_FEE": {
+                            "eventType": "CLOSE_RB101",
+                            "seqNo": "3",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_CLOSE_FEE",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CLOSE",
+                            "pageSeqNo": 2,
+                            "optionPermissions": "N",
+                            "group": null
+                        },
+                        "CHECK_ACCT_STATUS": {
+                            "eventType": "CLOSE_RB101",
+                            "seqNo": "12",
+                            "assembleType": "ATTR",
+                            "assembleId": "CHECK_ACCT_STATUS",
+                            "attrValue": "Y",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CLOSE",
+                            "pageSeqNo": 3,
+                            "optionPermissions": "N",
+                            "group": null
+                        },
+                        "ACCT_STATUS": {
+                            "eventType": "CLOSE_RB101",
+                            "seqNo": "11",
+                            "assembleType": "ATTR",
+                            "assembleId": "ACCT_STATUS",
+                            "attrValue": "A,D,S,O,N",
+                            "assembleRule": "A",
+                            "perEffect": null,
+                            "pageCode": "CLOSE",
+                            "pageSeqNo": 4,
+                            "optionPermissions": "N",
+                            "group": null
+                        }
+                    },
+                    "mbEventParts": {
+                        "CHECK_SIGN": {},
+                        "CHECK_ACCT_STATUS_PA": {},
+                        "CHECK_ACCT_STATUS": {},
+                        "ACCT_STATUS": {},
+                        "CHECK_CLOSE_FEE": {}
                     }
                 }
             },
             "mbColumnInfo": {
-                "INT_DAY": {
-                    "valueMethod": "FD",
-                    "columnDesc": "结息日",
-                    "columnType": "input",
+                "ACCT_BAL_FLAG": {
+                    "valueMethod": "VL",
+                    "columnDesc": "金额标志",
+                    "columnType": "select",
                     "isMultiSelect": null,
-                    "valueScoreVl": null,
+                    "valueScoreVl": [{
+                        "value": "00-不记录余额",
+                        "key": "00"
+                    }, {
+                        "value": "01-子账户记录余额",
+                        "key": "01"
+                    }, {
+                        "value": "10-主账户记录余额",
+                        "key": "10"
+                    }, {
+                        "value": "11-主子都记录余额",
+                        "key": "11"
+                    }],
                     "valueScoreRf": null
                 },
                 "BRANCH_REGION_FLAG": {
@@ -1047,10 +1360,10 @@ export default {
                     "valueScoreVl": null,
                     "valueScoreRf": null
                 },
-                "CLOSE_111001": {
-                    "valueMethod": null,
-                    "columnDesc": null,
-                    "columnType": null,
+                "INT_DAY": {
+                    "valueMethod": "FD",
+                    "columnDesc": "结息日",
+                    "columnType": "input",
                     "isMultiSelect": null,
                     "valueScoreVl": null,
                     "valueScoreRf": null
@@ -1075,12 +1388,24 @@ export default {
                     }],
                     "valueScoreRf": null
                 },
-                "DEBT_111001": {
-                    "valueMethod": null,
-                    "columnDesc": null,
-                    "columnType": null,
+                "ACCT_REAL_FLAG": {
+                    "valueMethod": "VL",
+                    "columnDesc": "虚实标志",
+                    "columnType": "select",
                     "isMultiSelect": null,
-                    "valueScoreVl": null,
+                    "valueScoreVl": [{
+                        "value": "00-虚账户",
+                        "key": "00"
+                    }, {
+                        "value": "01-子实账户",
+                        "key": "01"
+                    }, {
+                        "value": "10-主实账户",
+                        "key": "10"
+                    }, {
+                        "value": "11-主子全部实账户",
+                        "key": "11"
+                    }],
                     "valueScoreRf": null
                 },
                 "ACCT_NATURE": {
@@ -1111,27 +1436,19 @@ export default {
                     "valueScoreVl": null,
                     "valueScoreRf": null
                 },
-                "CYCLE_111001": {
-                    "valueMethod": null,
-                    "columnDesc": null,
-                    "columnType": null,
-                    "isMultiSelect": null,
-                    "valueScoreVl": null,
-                    "valueScoreRf": null
-                },
-                "CRET_111001": {
-                    "valueMethod": null,
-                    "columnDesc": null,
-                    "columnType": null,
-                    "isMultiSelect": null,
-                    "valueScoreVl": null,
-                    "valueScoreRf": null
-                },
                 "INT_CAP": {
                     "valueMethod": "YN",
                     "columnDesc": "是否结息到本账户",
                     "columnType": "switch",
                     "isMultiSelect": "",
+                    "valueScoreVl": null,
+                    "valueScoreRf": null
+                },
+                "CLOSE_RB101": {
+                    "valueMethod": null,
+                    "columnDesc": null,
+                    "columnType": null,
+                    "isMultiSelect": null,
                     "valueScoreVl": null,
                     "valueScoreRf": null
                 },
@@ -1198,6 +1515,44 @@ export default {
                     "valueScoreVl": null,
                     "valueScoreRf": null
                 },
+                "AMT_TYPE": {
+                    "valueMethod": "VL",
+                    "columnDesc": "金额类型",
+                    "columnType": "select",
+                    "isMultiSelect": "M",
+                    "valueScoreVl": [{
+                        "value": "BAL-余额",
+                        "key": "BAL"
+                    }, {
+                        "value": "DDA-发放金额",
+                        "key": "DDA"
+                    }, {
+                        "value": "INTP-逾期利息",
+                        "key": "INTP"
+                    }, {
+                        "value": "LIM-额度金额",
+                        "key": "LIM"
+                    }, {
+                        "value": "OD-透支金额",
+                        "key": "OD"
+                    }, {
+                        "value": "ODIP-逾期复利",
+                        "key": "ODIP"
+                    }, {
+                        "value": "ODPP-逾期罚息",
+                        "key": "ODPP"
+                    }, {
+                        "value": "OSL-未到期本金",
+                        "key": "OSL"
+                    }, {
+                        "value": "PRD-逾期本金",
+                        "key": "PRD"
+                    }, {
+                        "value": "PRI-本金",
+                        "key": "PRI"
+                    }],
+                    "valueScoreRf": null
+                },
                 "ACCT_CLASS": {
                     "valueMethod": "VL",
                     "columnDesc": "账户类别",
@@ -1235,6 +1590,14 @@ export default {
                         "value": "S-单个区域",
                         "key": "S"
                     }],
+                    "valueScoreRf": null
+                },
+                "DEBT_RB101": {
+                    "valueMethod": null,
+                    "columnDesc": null,
+                    "columnType": null,
+                    "isMultiSelect": null,
+                    "valueScoreVl": null,
                     "valueScoreRf": null
                 },
                 "TRAN_DRA_FLAG": {
@@ -1304,6 +1667,20 @@ export default {
                     "valueScoreVl": null,
                     "valueScoreRf": null
                 },
+                "ACCT_STRUCT_FLAG": {
+                    "valueMethod": "VL",
+                    "columnDesc": "账户结构",
+                    "columnType": "select",
+                    "isMultiSelect": null,
+                    "valueScoreVl": [{
+                        "value": "1-一层账户",
+                        "key": "1"
+                    }, {
+                        "value": "2-二层账户",
+                        "key": "2"
+                    }],
+                    "valueScoreRf": null
+                },
                 "MULTI_CCY": {
                     "valueMethod": "YN",
                     "columnDesc": "是否多币种",
@@ -1334,6 +1711,17 @@ export default {
                     "valueScoreVl": null,
                     "valueScoreRf": null
                 },
+                "PROD_REGION": {
+                    "valueMethod": "VL",
+                    "columnDesc": "区域范围",
+                    "columnType": "select",
+                    "isMultiSelect": "",
+                    "valueScoreVl": [{
+                        "value": "ALL-所有区域",
+                        "key": "ALL"
+                    }],
+                    "valueScoreRf": null
+                },
                 "PROFIT_CENTRE": {
                     "valueMethod": "RF",
                     "columnDesc": "利润中心",
@@ -1345,17 +1733,6 @@ export default {
                         "columnDesc": "PROFIT_CENTRE_DESC",
                         "tableName": "FM_PROFIT_CENTRE"
                     }
-                },
-                "PROD_REGION": {
-                    "valueMethod": "VL",
-                    "columnDesc": "区域范围",
-                    "columnType": "select",
-                    "isMultiSelect": "",
-                    "valueScoreVl": [{
-                        "value": "ALL-所有区域",
-                        "key": "ALL"
-                    }],
-                    "valueScoreRf": null
                 },
                 "CHANNEL_CTRL_FLAG": {
                     "valueMethod": "YN",
@@ -1378,6 +1755,14 @@ export default {
                     "columnDesc": "客户控制标识",
                     "columnType": "switch",
                     "isMultiSelect": "",
+                    "valueScoreVl": null,
+                    "valueScoreRf": null
+                },
+                "OPEN_RB101": {
+                    "valueMethod": null,
+                    "columnDesc": null,
+                    "columnType": null,
+                    "isMultiSelect": null,
                     "valueScoreVl": null,
                     "valueScoreRf": null
                 },
@@ -1500,6 +1885,14 @@ export default {
                         "tableName": "FM_CURRENCY"
                     }
                 },
+                "CYCLE_RB101": {
+                    "valueMethod": null,
+                    "columnDesc": null,
+                    "columnType": null,
+                    "isMultiSelect": null,
+                    "valueScoreVl": null,
+                    "valueScoreRf": null
+                },
                 "BRANCH_RANGE": {
                     "valueMethod": "VL",
                     "columnDesc": "适用机构类型",
@@ -1551,24 +1944,7 @@ export default {
                     "valueScoreVl": null,
                     "valueScoreRf": null
                 },
-                "OWNERSHIP_TYPE": {
-                    "valueMethod": "VL",
-                    "columnDesc": "账户关系类型",
-                    "columnType": "select",
-                    "isMultiSelect": null,
-                    "valueScoreVl": [{
-                        "value": "AS-多客户联名",
-                        "key": "AS"
-                    }, {
-                        "value": "SG-独立账户",
-                        "key": "SG"
-                    }, {
-                        "value": "SU-继承账户",
-                        "key": "SU"
-                    }],
-                    "valueScoreRf": null
-                },
-                "OPEN_111001": {
+                "CRET_RB101": {
                     "valueMethod": null,
                     "columnDesc": null,
                     "columnType": null,
@@ -1589,10 +1965,27 @@ export default {
                         "key": "O"
                     }],
                     "valueScoreRf": null
+                },
+                "OWNERSHIP_TYPE": {
+                    "valueMethod": "VL",
+                    "columnDesc": "账户关系类型",
+                    "columnType": "select",
+                    "isMultiSelect": null,
+                    "valueScoreVl": [{
+                        "value": "AS-多客户联名",
+                        "key": "AS"
+                    }, {
+                        "value": "SG-独立账户",
+                        "key": "SG"
+                    }, {
+                        "value": "SU-继承账户",
+                        "key": "SU"
+                    }],
+                    "valueScoreRf": null
                 }
             },
             "glProdAccounting": [{
-                "prodType": "111001",
+                "prodType": "RB101",
                 "accountingStatus": "ALL",
                 "profitCentre": "99",
                 "businessUnit": null,
@@ -1615,7 +2008,7 @@ export default {
                 "tranTime": null
             }],
             "glProdCodeMappings": [{
-                "prodType": "111001",
+                "prodType": "RB101",
                 "status": "ZHC",
                 "amtType": "INT",
                 "glCodeCol": "GL_CODE_INT_PAY",
@@ -1624,7 +2017,7 @@ export default {
                 "tranTimestamp": null,
                 "tranTime": null
             }, {
-                "prodType": "111001",
+                "prodType": "RB101",
                 "status": "ZHC",
                 "amtType": "PRI",
                 "glCodeCol": "GL_CODE_L",
@@ -5944,7 +6337,7 @@ export default {
                 }]
             },
             "irlProdInt": [{
-                "prodType": "111001",
+                "prodType": "RB101",
                 "eventType": "ACR",
                 "intType": "HQI",
                 "intTypeDesc": null,
@@ -5973,7 +6366,7 @@ export default {
                 "acctRateEffect": "N",
                 "roundDown": null
             }, {
-                "prodType": "111001",
+                "prodType": "RB101",
                 "eventType": "CLOSE",
                 "intType": "HQI",
                 "intTypeDesc": null,
@@ -6002,7 +6395,7 @@ export default {
                 "acctRateEffect": "N",
                 "roundDown": null
             }, {
-                "prodType": "111001",
+                "prodType": "RB101",
                 "eventType": "OPEN",
                 "intType": "HQI",
                 "intTypeDesc": null,
@@ -14041,16 +14434,16 @@ export default {
             }],
             "mbProdCharge": [],
             "glProdMappings": [{
-                "mappingType": "111001",
-                "prodType": "111001",
-                "mappingDesc": "个人人民币活期存款",
+                "mappingType": "RB101",
+                "prodType": "RB101",
+                "mappingDesc": "个人人民币活期基础产品",
                 "company": null,
                 "tranTimestamp": null,
                 "tranTime": null
             }],
             "irlProdTypes": [{
-                "prodType": "111001",
-                "prodTypeDesc": "个人人民币活期存款",
+                "prodType": "RB101",
+                "prodTypeDesc": "个人人民币活期基础产品",
                 "prodGrp": "RB",
                 "intDateType": null,
                 "glMergeType": "N",
@@ -20397,7 +20790,8 @@ export default {
                 "tranTimestamp": null,
                 "tranTime": null
             }],
-            "mbProdAmendMaping": []
+            "mbProdAmendMaping": [],
+            "mbProdGroup": []
         }
     })
 }

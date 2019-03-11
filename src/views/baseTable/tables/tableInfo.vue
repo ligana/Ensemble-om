@@ -55,6 +55,7 @@
         },
         data() {
             return {
+                title: '',
                 childPd: true,
                 childEditSelected: {},
                 num: "",
@@ -338,30 +339,7 @@
                                 selected[key] = editSelected[key].value
                             }
                         }
-// <<<<<<< HEAD
                         if(this.limit(editSelected)){
-// =======
-//                         let equals = false;
-//                         for (let i = 0; i < this.dataInfo.length; i++) {
-//                             if (selected.CLIENT_TYPE == this.dataInfo[i].CLIENT_TYPE) {
-//                                 equals = true;
-//                             }
-//                         }
-//                         if (selected.CLIENT_TYPE == []) {
-//                             alert("客户类型代码不能为空")
-//                         } else if (selected.CLIENT_TYPE_DESC == []) {
-//                             alert("客户类型描述不能为空")
-//                             this.dialog = true
-//                         } else if (selected.IS_INDIVIDUAL == []) {
-//                             alert("是否是个体客户不能为空")
-//                             this.dialog = true
-//                         } else if (selected.COMPANY == []) {
-//                             alert("法人代码不能为空")
-//                             this.dialog = true
-//                         } else if (equals == true) {
-//                             alert("客户类型不能与已存在的客户类型相同")
-//                         } else {
-// >>>>>>> styleUi2.0
                             this.dataInfo.splice(0, 0, selected)
                             this.close()
                         }

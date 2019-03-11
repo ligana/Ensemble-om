@@ -2185,6 +2185,9 @@ export default {
                 }, {
                     "value": "约定转账",
                     "key": "YD"
+                }, {
+                    "value": "一户通",
+                    "key": "YHT"
                 }],
                 "attrType": "STRING",
                 "columnDesc": "协议类型"

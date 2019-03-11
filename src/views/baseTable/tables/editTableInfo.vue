@@ -80,9 +80,9 @@
     export default {
         components: {DcDanMultiselect, DcSwitch, DcTreeSelect,DcDate,DcDanTextField},
         props: {
-            childPd: String,
+            childPd: Boolean,
             selected: Object,
-            columns: Object,
+            columns: Array,
             tableName: String
         },
         data() {
@@ -91,7 +91,7 @@
                 inputIsNull: false,
                 inputNotNull: false,
                 editSelected: {},
-                tableName: ""
+                // tableName: ""
             }
         },
         watch: {

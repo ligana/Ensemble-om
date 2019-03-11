@@ -47,7 +47,7 @@
                 default: "SOLD"
             },
             showEdit: {
-                type: String,
+                type: Boolean,
                 default: false
             }
         },

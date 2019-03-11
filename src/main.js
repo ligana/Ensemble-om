@@ -70,9 +70,7 @@ Vue.use(Vuetify, {
     }
   }
 });
-// Bootstrap application components
-
-
+// Bootstrap application component
 
 /* eslint-disable no-new */
 new Vue({

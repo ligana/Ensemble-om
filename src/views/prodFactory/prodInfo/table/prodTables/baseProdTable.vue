@@ -51,12 +51,12 @@
         components: {DcMultiselect, DcSwitch, DcTreeSelect,DcDate,DcTextField},
         props: {
             showEdit: {
-                type: String,
+                type: Boolean,
                 default: false
             },
-            tableData: String,
+            tableData: Object,
             tag: String,
-            keySet: String,
+            keySet: Object,
             disablePower: {
                 type: Boolean,
                 default: false

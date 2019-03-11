@@ -1,153 +1,125 @@
 <template>
     <div>
-        <v-card class="card radiusDc fathercard" >
-            <v-toolbar color="#F4F5F9" dark scroll-off-screen style="height: 64px; color: #58595E; border-bottom: 1px solid rgba(0,0,0,.12)"
+        <v-card class="card radiusDc fathercard">
+            <v-toolbar color="#F4F5F9" dark scroll-off-screen
+                       style="height: 64px; color: #58595E; border-bottom: 1px solid rgba(0,0,0,.12)"
                        scroll-target="#scrolling-techniques" flat>
                 <!--<v-icon style="color: #01579B">call_split</v-icon>-->
                 <v-toolbar-title>筛选</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tooltip bottom color="primary lighten-2">
-                    <v-btn flat icon="refresh" slot="activator" @click="resetClick">
+                    <v-btn flat slot="activator" @click="resetClick">
                         <v-icon color="primary lighten-2">refresh</v-icon>
                     </v-btn>
                     <span>重置</span>
                 </v-tooltip>
             </v-toolbar>
             <!--<v-divider class="elevation-2" style="margin-top: 0px"></v-divider>-->
-
             <v-card-text>
                 <v-layout class="layoutTitle">
                     <v-subheader class="primary--text subheading">所属模块：</v-subheader>
                     <!--<v-container>-->
-                        <v-layout row wrap>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="sourceModelArr" label="存款产品" value="RB"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="sourceModelArr" label="贷款产品" value="CL"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="sourceModelArr" label="内部账产品" value="GL"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="sourceModelArr" label="货币市场类" value="MM"></v-checkbox>
-                            </v-flex>
-                        </v-layout>
+                    <v-layout row wrap>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="sourceModelArr" label="存款产品" value="RB"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="sourceModelArr" label="贷款产品" value="CL"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="sourceModelArr" label="内部账产品" value="GL"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="sourceModelArr" label="货币市场类" value="MM"></v-checkbox>
+                        </v-flex>
+                    </v-layout>
                     <!--</v-container>-->
                 </v-layout>
                 <!--<v-divider class="elevation-0" style=""></v-divider>-->
                 <v-layout class="layoutTitle">
                     <v-subheader class="primary--text subheading">适用币种：</v-subheader>
 
-                        <v-layout row wrap>
-                            <v-flex xs12 sm6 md2 style="height: 30px; line-height: 30px;">
-                                <v-checkbox v-model="ccyTypeArr" label="人民币" value="CNY"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="港币" value="HKD"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="美元" value="USD"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="澳大利亚元" value="AUD"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="加拿大元" value="CAD"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="瑞士法郎" value="CHF"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="欧元" value="EUR"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="英镑" value="GBP"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="日元" value="JPY"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="ccyTypeArr" label="新加坡元" value="SGD"></v-checkbox>
-                            </v-flex>
-                        </v-layout>
-
+                    <v-layout row wrap>
+                        <v-flex xs12 sm6 md2 style="height: 30px; line-height: 30px;">
+                            <v-checkbox v-model="ccyTypeArr" label="人民币" value="CNY"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="港币" value="HKD"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="美元" value="USD"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="澳大利亚元" value="AUD"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="加拿大元" value="CAD"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="瑞士法郎" value="CHF"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="欧元" value="EUR"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="英镑" value="GBP"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="日元" value="JPY"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="ccyTypeArr" label="新加坡元" value="SGD"></v-checkbox>
+                        </v-flex>
+                    </v-layout>
                 </v-layout>
-                <!--<v-divider class="elevation-0" style="margin-top: -20px;margin-bottom: 15px"></v-divider>-->
-
-                <!--<v-layout class="layoutTitle">-->
-                <!--<v-subheader class="primary&#45;&#45;text subheading">产品期限：</v-subheader>-->
-                <!--<v-checkbox v-model="freqArr" label="7天(含)以下" value="1"></v-checkbox>-->
-                <!--<v-checkbox v-model="freqArr" label="7天-14天(含)" value="2"></v-checkbox>-->
-                <!--<v-checkbox v-model="freqArr" label="15天-30天(含)" value="3"></v-checkbox>-->
-                <!--<v-checkbox v-model="freqArr" label="31天-90天(含)" value="4"></v-checkbox>-->
-                <!--<v-checkbox v-model="freqArr" label="91天-180天(含)" value="5"></v-checkbox>-->
-                <!--<v-checkbox v-model="freqArr" label="181天-365天(含)" value="6"></v-checkbox>-->
-                <!--<v-checkbox v-model="freqArr" label="1年以上" value="7"></v-checkbox>-->
-                <!--</v-layout>-->
-                <!--<v-divider v-if="showFlag" class="elevation-0" style="margin-top: -20px;margin-bottom: 15px"></v-divider>-->
-
                 <v-layout class="layoutTitle">
                     <v-subheader class="primary--text subheading">所属机构：</v-subheader>
-
-                        <v-layout row wrap>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="branchArr" label="全行" value="ALL"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="branchArr" label="西安分行" value="1000"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="branchArr" label="北京分行" value="2000"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="branchArr" label="兰州分行" value="3000"></v-checkbox>
-                            </v-flex>
-                        </v-layout>
-
+                    <v-layout row wrap>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="branchArr" label="全行" value="ALL"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="branchArr" label="西安分行" value="1000"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="branchArr" label="北京分行" value="2000"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="branchArr" label="兰州分行" value="3000"></v-checkbox>
+                        </v-flex>
+                    </v-layout>
                 </v-layout>
-                <!--<v-divider v-if="showFlag" class="elevation-0"-->
-                           <!--style="margin-top: -20px;margin-bottom: 15px"></v-divider>-->
-
                 <v-layout class="layoutTitle" v-if="showFlag">
                     <v-subheader class="primary--text subheading">产品状态：</v-subheader>
-
-                        <v-layout row wrap>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="statusArr" label="可售" value="A"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="statusArr" label="停售" value="C"></v-checkbox>
-                            </v-flex>
-                        </v-layout>
-
+                    <v-layout row wrap>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="statusArr" label="可售" value="A"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="statusArr" label="停售" value="C"></v-checkbox>
+                        </v-flex>
+                    </v-layout>
                 </v-layout>
-                <!--<v-divider v-if="showFlag" class="elevation-0"-->
-                           <!--style="margin-top: -20px;margin-bottom: 15px"></v-divider>-->
-
                 <v-layout class="layoutTitle" v-if="showFlag">
                     <v-subheader class="primary--text subheading">产品属性：</v-subheader>
-
-                        <v-layout row wrap>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="perArr" label="基础产品" value="B"></v-checkbox>
-                            </v-flex>
-                            <v-flex xs12 sm6 md2>
-                                <v-checkbox v-model="perArr" label="可售产品" value="S"></v-checkbox>
-                            </v-flex>
-                        </v-layout>
-
+                    <v-layout row wrap>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="perArr" label="基础产品" value="B"></v-checkbox>
+                        </v-flex>
+                        <v-flex xs12 sm6 md2>
+                            <v-checkbox v-model="perArr" label="可售产品" value="S"></v-checkbox>
+                        </v-flex>
+                    </v-layout>
                 </v-layout>
             </v-card-text>
         </v-card>
         <v-btn class="showClass" style="background-color: white" @click="showCilck">{{showDesc}}</v-btn>
         <v-card class="card1 radiusDc">
             <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
-                <!--<v-icon>menu</v-icon>-->
                 <v-toolbar-title>产品列表</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
-                <a-spin tip="请稍等..." size="medium" :spinning="spinning">
+                <a-spin tip="请稍等..." :spinning="spinning">
                     <v-list three-line class="listClass">
                         <template v-for="(item, index) in searchTagProdList">
                             <v-layout style="margin-top: 14px">
@@ -422,24 +394,23 @@
                 let prodClass = val.prodClass
                 let prodRange = val.prodRange
                 let sourceModule = val.sourceModel
-                if (prodRange == '基础产品' && sourceModule == "存款") {
-                    //跳转到存款基础产品界面
-                    this.$router.push({ name: "RbBaseProds", hash: prodType});
+                if (prodRange == "基础产品" && sourceModule == "存款") {
+                    this.$router.push({name: "BaseProdForm", hash: prodType});
                 }
-                if (prodRange == '可售产品' && sourceModule == "存款") {
-                    //跳转到存款可售产品界面
-                    this.$router.push({ name: "RbSoldProds", hash: prodType});
-
+                if (prodRange == "基础产品" && sourceModule == "贷款") {
+                    this.$router.push({name: "BaseProdFormCl", hash: prodType});
                 }
-                if (prodRange == '基础产品' && sourceModule == "贷款") {
-                    //跳转到贷款基础产品界面
-                    this.$router.push({ name: "ClBaseProds",hash: prodType});
-
+                if (prodRange == "基础产品" && sourceModule == "内部账") {
+                    this.$router.push({name: "BaseProdFormGl", hash: prodType});
                 }
-                if (prodRange == '可售产品' && sourceModule == "贷款") {
-                    //跳转到贷款可售产品界面
-                    this.$router.push({ name: "ClSoldProds",hash: prodType});
-
+                if (prodRange == "可售产品" && sourceModule == "存款") {
+                    this.$router.push({name: "SoldProdForm", hash: prodType});
+                }
+                if (prodRange == "可售产品" && sourceModule == "贷款") {
+                    this.$router.push({name: "SoldProdFormCl", hash: prodType});
+                }
+                if (prodRange == "可售产品" && sourceModule == "内部账") {
+                    this.$router.push({name: "SoldProdFormGl", hash: prodType});
                 }
             },
             getValue(val) {
@@ -477,23 +448,23 @@
     .card {
         margin: 40px 100px 0;
         height: auto;
-        border-radius: 0px!important;
-        box-shadow: none!important;
-        border: 1px solid #D6D7DB!important;
+        border-radius: 0px !important;
+        box-shadow: none !important;
+        border: 1px solid #D6D7DB !important;
     }
 
     .card1 {
         margin: 0 100px;
         height: auto;
-        border-radius: 0px!important;
-        box-shadow: none!important;
-        border: 1px solid rgba(0,0,0,.12)!important;
+        border-radius: 0px !important;
+        box-shadow: none !important;
+        border: 1px solid rgba(0, 0, 0, .12) !important;
         overflow: hidden;
     }
 
     .layoutTitle {
         /*margin-top: -2%;*/
-        border-bottom: 1px solid rgba(0,0,0,.12);
+        border-bottom: 1px solid rgba(0, 0, 0, .12);
     }
 
     .btnClass {
@@ -539,29 +510,35 @@
     }
 
     .fathercard >>> .v-card__text {
-       padding: 0 16px;
+        padding: 0 16px;
     }
+
     .fathercard >>> .v-input--selection-controls {
-         margin-top: 0px;
-         padding-top: 0px;
+        margin-top: 0px;
+        padding-top: 0px;
 
     }
+
     .fathercard >>> .v-subheader.primary--text.subheading {
         padding: 0;
     }
+
     .fathercard >>> .v-input--selection-controls .v-input__slot {
         margin-bottom: 0;
     }
+
     .fathercard >>> .flex {
         margin-top: 12px;
     }
+
     #fathercard >>> .theme--light.v-subheader {
-        color: rgba(0,0,0,.54)!important;
+        color: rgba(0, 0, 0, .54) !important;
     }
+
     .primary.lighten-2 {
-        background-color: #F4F5F9!important;
-        color: #58595E!important;
-        border-bottom: 1px solid #D6D7DB!important;
+        background-color: #F4F5F9 !important;
+        color: #58595E !important;
+        border-bottom: 1px solid #D6D7DB !important;
     }
 
 </style>

@@ -10,7 +10,7 @@
         <v-icon @click="showSearchAction" class="material-icons">search</v-icon>
 
         <v-card :class="searchDc">
-            <v-autocomplete :rules=null :items="prodList" placeholder="请输入要查询的产品类型或描述" class="primary--text px-5 pt-2"
+            <v-autocomplete :items="prodList" placeholder="请输入要查询的产品类型或描述" class="primary--text px-5 pt-2"
                             @change="prodListClick" clearable flat solo-inverted></v-autocomplete>
         </v-card>
         <v-btn icon @click="handleFullScreen()">
@@ -112,14 +112,14 @@
         }),
 
         computed: {
-            // toolbarColor() {
-            //     return this.$vuetify.options.extra.mainNav;
-            // },
+            toolbarColor() {
+                return this.$vuetify.options.extra.mainNav;
+            },
             computeLogo() {
                 return "/static/prod/dcLog1.png";
             },
         },
-        beforeMount() {
+        mounted() {
             if (getToken()) {
                 this.getInitProdList();
             }
@@ -130,7 +130,6 @@
                 window.getApp.$emit("APP_DRAWER_TOGGLED");
             },
             prodListClick(val) {
-                console.log(val,"log1111111111");
                 this.prodListSplit = val.split("-");
                 this.prodCode = this.prodListSplit[0];
                 for (let i = 0; i < this.sourceProdList.length; i++) {
@@ -141,43 +140,60 @@
                         break
                     }
                 }
-                if (this.sourceModule == "RB" && this.prodRange == "S") {
+                if(this.prodRange == "S" && this.sourceModule == "RB"){
                     this.$router.push({
-                        name: "RbSoldProds",
+                        name: "SoldProdForm",
                         params: {
                             prodClassCmp: this.prodClass,
                             prodType: this.prodCode
                         }
                     });
                 }
-                if (this.sourceModule == "RB" && this.prodRange == "B") {
+                if(this.prodRange == "B" && this.sourceModule == "RB"){
                     this.$router.push({
-                        name: "RbBaseProds",
+                        name: "BaseProdForm",
                         params: {
                             prodClassCmp: this.prodClass,
                             prodType: this.prodCode
                         }
                     });
                 }
-                if (this.sourceModule == "CL" && this.prodRange == "S") {
+                if(this.prodRange == "S" && this.sourceModule == "CL"){
                     this.$router.push({
-                        name: "ClSoldProds",
+                        name: "SoldProdFormCl",
                         params: {
                             prodClassCmp: this.prodClass,
                             prodType: this.prodCode
                         }
                     });
                 }
-                if (this.sourceModule == "CL" && this.prodRange == "B") {
+                if(this.prodRange == "B" && this.sourceModule == "CL"){
                     this.$router.push({
-                        name: "ClBaseProds",
+                        name: "BaseProdFormCl",
                         params: {
                             prodClassCmp: this.prodClass,
                             prodType: this.prodCode
                         }
                     });
                 }
-
+                if(this.prodRange == "S" && this.sourceModule == "GL"){
+                    this.$router.push({
+                        name: "SoldProdFormGl",
+                        params: {
+                            prodClassCmp: this.prodClass,
+                            prodType: this.prodCode
+                        }
+                    });
+                }
+                if(this.prodRange == "B" && this.sourceModule == "GL"){
+                    this.$router.push({
+                        name: "BaseProdFormGl",
+                        params: {
+                            prodClassCmp: this.prodClass,
+                            prodType: this.prodCode
+                        }
+                    });
+                }
             },
             handleFullScreen() {
                 Util.toggleFullScreen();
@@ -226,7 +242,6 @@
         left 0
         z-index 8
     }
-
     .searchDcNone {
         position absolute
         top -65px
@@ -235,11 +250,9 @@
         left 0
         z-index 1
     }
-
     .v-menu {
         width 50px
     }
-
     .tList {
         margin auto
         width 450px

@@ -23,7 +23,7 @@
                                 <v-subheader class="descClass">提交人:</v-subheader>
                             </v-flex>
                             <v-flex md10 lg10>
-                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                               v-model="checkFlowInfo.flowCommitInfo.userId" single-line hide-details>
                                 </v-text-field>
                             </v-flex>
@@ -31,7 +31,7 @@
                                 <v-subheader class="descClass">提交时间:</v-subheader>
                             </v-flex>
                             <v-flex md10 lg10>
-                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                               v-model="checkFlowInfo.flowCommitInfo.tranTime" single-line hide-details>
                                 </v-text-field>
                             </v-flex>
@@ -39,7 +39,7 @@
                                 <v-subheader class="descClass">提交原因:</v-subheader>
                             </v-flex>
                             <v-flex md10 lg10>
-                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                               v-model="checkFlowInfo.flowCommitInfo.remark" single-line hide-details>
                                 </v-text-field>
                             </v-flex>
@@ -47,7 +47,7 @@
                                 <v-subheader class="descClass">备注信息:</v-subheader>
                             </v-flex>
                             <v-flex md10 lg10>
-                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                               single-line hide-details>
                                 </v-text-field>
                             </v-flex>
@@ -59,7 +59,7 @@
                                 <v-subheader class="descClass">复核人:</v-subheader>
                             </v-flex>
                             <v-flex md10 lg10>
-                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                               v-model="checkInfo.userId" single-line hide-details>
                                 </v-text-field>
                             </v-flex>
@@ -67,7 +67,7 @@
                                 <v-subheader class="descClass">复核日期:</v-subheader>
                             </v-flex>
                             <v-flex md10 lg10>
-                                <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                                <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                               v-model="checkInfo.date" value="2018/09/07" single-line hide-details>
                                 </v-text-field>
                             </v-flex>
@@ -99,7 +99,7 @@
                             <v-subheader class="descClass">提交人:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                            <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                           v-model="releaseFlowInfo.flowCommitInfo.userId" single-line hide-details>
                             </v-text-field>
                         </v-flex>
@@ -107,7 +107,7 @@
                             <v-subheader class="descClass">提交时间:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                            <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                           v-model="releaseFlowInfo.flowCommitInfo.tranTime" single-line hide-details>
                             </v-text-field>
                         </v-flex>
@@ -115,7 +115,7 @@
                             <v-subheader class="descClass">提交原因:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                            <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                           v-model="releaseFlowInfo.flowCommitInfo.remark" single-line hide-details>
                             </v-text-field>
                         </v-flex>
@@ -123,7 +123,7 @@
                             <v-subheader class="descClass">备注信息:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                            <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                           single-line hide-details>
                             </v-text-field>
                         </v-flex>
@@ -135,7 +135,7 @@
                             <v-subheader class="descClass">复核人:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false"
+                            <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false"
                                           v-model="releaseFlowInfo.flowCheckInfo.userId" name="title" single-line
                                           hide-details>
                             </v-text-field>
@@ -144,7 +144,7 @@
                             <v-subheader class="descClass">复核时间:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false"
+                            <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false"
                                           v-model="releaseFlowInfo.flowCheckInfo.tranTime" name="title" single-line
                                           hide-details>
                             </v-text-field>
@@ -153,7 +153,7 @@
                             <v-subheader class="descClass">复核意见:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" disabled="false" label="" name="title"
+                            <v-text-field class="primary--text mx-1 textBox" :disabled="false" label="" name="title"
                                           v-model="releaseFlowInfo.flowCheckInfo.remark" single-line hide-details>
                             </v-text-field>
                         </v-flex>
@@ -165,7 +165,7 @@
                             <v-subheader class="descClass">发布人:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                            <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                           v-model="releaseInfo.userId" single-line hide-details>
                             </v-text-field>
                         </v-flex>
@@ -173,7 +173,7 @@
                             <v-subheader class="descClass">发布时间:</v-subheader>
                         </v-flex>
                         <v-flex md10 lg10>
-                            <v-text-field class="primary--text mx-1 textBox" label="" disabled="false" name="title"
+                            <v-text-field class="primary--text mx-1 textBox" label="" :disabled="false" name="title"
                                           v-model="releaseInfo.date" value="2018/09/07" single-line hide-details>
                             </v-text-field>
                         </v-flex>
@@ -318,7 +318,6 @@
                     this.checkInfo.userId = sessionStorage.getItem("userId")
                     for (let i = 0; i < val.flowInfo.length; i++) {
                         this.tranId = val.flowInfo[i].flowManage.tranId;
-
                         if (val.flowInfo[i].flowManage.tranId === "MB_PROD_TYPE") {
                             this.isTable = false
                         } else {
@@ -326,6 +325,7 @@
                         }
                         if (val.flowInfo[i].flowManage.mainSeqNo === this.checkInfo.mainSeqNo) {
                             this.checkFlowInfo = val.flowInfo[i]
+                            console.log(this.checkFlowInfo,'88888888888888888888888888888888888888');
                         }
                     }
                     this.$emit('setCheckInfo', this.checkInfo);

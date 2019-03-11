@@ -68,7 +68,7 @@
     export default {
         components: {DcTextField,BaseTable,DcMultiselect},
         props: {
-          prodData: String,
+          prodData: Object,
           disablePower: {
               type: Boolean,
               default: true
@@ -190,7 +190,11 @@
         margin-left: -10px;
     }
     .title {
-        color: white;margin-left: auto;margin-right: auto;margin-top: 1px;margin-bottom: auto
+        color: white;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 1px;
+        margin-bottom: auto;
     }
     .dcMulti {
         margin-top: 10px;

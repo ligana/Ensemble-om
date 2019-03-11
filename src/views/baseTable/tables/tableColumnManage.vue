@@ -32,7 +32,6 @@
                                 <!--</v-flex>-->
                                 <v-flex xs6 sm6 md6>
                                     <v-select v-model="editedItem.columnType" label="字段属性" :items="columnTypeRf" item-text="value" item-value="key"></v-select>
-
                                 </v-flex>
                                 <v-flex xs6 sm6 md6>
                                     <v-select v-model="editedItem.valueMethod" label="数据模型" :items="valueMethodRf" item-text="value" item-value="key"></v-select>
@@ -67,13 +66,13 @@
 
                 <td>
                     <v-tooltip bottom color="blue" style="margin-left: -20px">
-                        <v-btn flat icon="edit" slot="activator">
+                        <v-btn flat icon slot="activator">
                             <v-icon small class="mr-2" @click="editItem(props.item)" style="color: #0d47a1">edit</v-icon>
                         </v-btn>
                         <span>修改</span>
                     </v-tooltip>
                     <v-tooltip bottom color="red" style="margin-left: -20px">
-                        <v-btn flat icon="delete" slot="activator">
+                        <v-btn flat icon slot="activator">
                             <v-icon small @click="deleteItem(props.item)" style="color: red">delete</v-icon>
                         </v-btn>
                         <span>删除</span>
@@ -158,7 +157,7 @@
                 }
             ],
             editedIndex: -1,
-            title: "",
+            // title: "",
             editedItem: {
                 columnId: '',
                 columnDesc: '',

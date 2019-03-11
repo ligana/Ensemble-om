@@ -3,7 +3,7 @@ export default {
         "code": "000000",
         "msg": "请求成功",
         "data": {
-            "column": [{
+            "columnTwo": [{
                 "dataIndex": "PROD_CLASS",
                 "title": "产品类型",
                 "key": "true",
@@ -23,6 +23,48 @@ export default {
                 "title": null,
                 "key": "false",
                 "isNull": "false"
+            }],
+            "columnHeard": [{
+                "code": "PROD_CLASS",
+                "title": "产品类型"
+            }, {
+                "code": "PROD_CLASS_DESC",
+                "title": "产品类型描述"
+            }, {
+                "code": "PROD_CLASS_LEVEL",
+                "title": null
+            }, {
+                "code": "PARENT_PROD_CLASS",
+                "title": null
+            }],
+            "column": [{
+                "code": "PROD_CLASS",
+                "dataIndex": "Varchar",
+                "title": "产品类型",
+                "key": "true",
+                "isNull": "true",
+                "lengths": "50"
+            }, {
+                "code": "PROD_CLASS_DESC",
+                "dataIndex": "Varchar",
+                "title": "产品类型描述",
+                "key": "false",
+                "isNull": "true",
+                "lengths": "100"
+            }, {
+                "code": "PROD_CLASS_LEVEL",
+                "dataIndex": "Varchar",
+                "title": null,
+                "key": "false",
+                "isNull": "true",
+                "lengths": "20"
+            }, {
+                "code": "PARENT_PROD_CLASS",
+                "dataIndex": "Varchar",
+                "title": null,
+                "key": "false",
+                "isNull": "false",
+                "lengths": "1"
             }],
             "columnInfo": [{
                 "PROD_CLASS_DESC": "贷款类",

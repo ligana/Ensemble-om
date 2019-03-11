@@ -1,9 +1,8 @@
 <template>
-<!--<<<<<<< HEAD-->
   <div class="input">
     <v-layout row wrap>
       <v-flex md12 lg12>
-      <v-toolbar dense class="chat-history-toolbar prodLists" >
+      <v-toolbar dense class="chat-history-toolbar prodLists" style="background-color: #fff;">
         <v-text-field flat solo full-width clearable class="top" label="请输入产品代码或描述" v-model="searchValue"></v-text-field>
           <v-btn class="search">搜索</v-btn>
       </v-toolbar>
@@ -87,9 +86,11 @@
     import {
         getProdType
     } from '@/api/url/prodInfo'
-
+    import VuePerfectScrollbar from 'vue-perfect-scrollbar';
     export default {
-
+        components: {
+            VuePerfectScrollbar,
+        },
         props: ["prodClass","prodRange"],
         data: () => ({
             isRB: false,
@@ -178,14 +179,19 @@
     .input {
         border-top: none;
         border: 1px solid #DCE1E7;
+
     }
 
     .input >>> .v-input__slot {
         border: 1px solid #ccc;
         border-right: none;
         border-radius: 2px 0 0 2px !important;
+        min-height: 48px;
+        margin-top: 2px;
     }
-
+    .input >>> .v-text-field--full-width.v-text-field--single-line input {
+        margin-top: 0!important;
+    }
     .input .search {
         box-shadow: none;
         margin: 0;
@@ -196,4 +202,5 @@
         color: #fff;
         border-radius: 0 2px 2px 0;
     }
+
 </style>

@@ -72,7 +72,7 @@ export default {
     AppFab,
     PageHeader,
     ThemeSettings,
-      SessionList,
+    SessionList,
     TagsView
   },
   data: () => ({
@@ -115,7 +115,8 @@ export default {
 
 <style lang="stylus" scoped>
   .dcMenu {
-    margin-top 66px!important
+    margin-top 66px!important;
+
   }
 .setting-fab {
   top: 50% !important;

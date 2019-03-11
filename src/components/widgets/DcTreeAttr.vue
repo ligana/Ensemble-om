@@ -1,7 +1,7 @@
 <template>
     <v-card class="edit">
         <v-toolbar card color="blue-grey lighten-5" >
-            <v-toolbar-title style="font-size: large; color: slategrey">{{labelText}}</v-toolbar-title>
+            <v-toolbar-title style="font-size: large; color: slategrey;">{{labelText}}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-tooltip bottom color="#3C73E6">
                 <v-btn flat icon="edit" slot="activator" color="blue" @click="saveClick">
@@ -11,7 +11,7 @@
             </v-tooltip>
         </v-toolbar>
         <v-toolbar dense class="chat-history-toolbar prodLists">
-            <v-text-field style="padding-top: 2%" solo full-width clearable prepend-icon="search" class="top" label="请输入产品参数" v-model="searchValue"></v-text-field>
+            <v-text-field style="padding-top: 5%" solo full-width clearable prepend-icon="search" class="top" label="请输入产品参数" v-model="searchValue"></v-text-field>
         </v-toolbar>
         <v-layout v-show="!searchValue">
             <v-flex xs6 md12>
@@ -23,7 +23,7 @@
         </v-layout>
         <v-layout v-show="searchValue">
             <v-flex xs6 md12>
-                <v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll">
+                <v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll; ">
                     <v-treeview slot="header" v-model="tree2" activatable :items="lists" selected-color="green" open-on-click selectable :options="options" expand-icon="mdi-assignment_turned_in-down" labelDesc="labelDesc">
                     </v-treeview>
                 </v-card-text>
@@ -35,7 +35,7 @@
                 <v-card-text style="max-height: 400px; height: 300px; overflow-y: scroll">
                     <div v-if="selections.length === 0" key="title" class="title font-weight-light grey--text pa-3 text-xs-center">请选择...</div>
                     <v-scroll-x-transition group hide-on-leave>
-                        <v-chip v-for="(selection, i) in selections" :key="i" color="green" dark smaller close @input="remove(selection)">
+                        <v-chip v-for="(selection, i) in selections" :key="i" color="#3C73E6" dark smaller close @input="remove(selection)">
                             <v-icon left small>mdi-beer</v-icon>
                             {{ selection.name }}
                         </v-chip>
@@ -303,5 +303,11 @@
     .edit >>> .green--text {
         color: #3C73E6!important;
         caret-color: #3C73E6!important;
+    }
+    .edit >>> .theme--light.v-text-field--solo>.v-input__control>.v-input__slot {
+        min-height: 48px;
+    }
+    .edit >>> .v-text-field--full-width.v-text-field--single-line input {
+        margin-top: 0;
     }
 </style>

@@ -29,7 +29,7 @@
                             <template slot="limit" slot-scope="props">
                                 <th>
                                 <span>还有{{limitIndex}}个为展示选项</span>
-                                <v-btn flat small icon="people" slot="activator" style="pointer-events:visible" @click="changeLimitNum">
+                                <v-btn flat small icon slot="activator" style="pointer-events:visible" @click="changeLimitNum">
                                     <v-icon>reply_all</v-icon>
                                 </v-btn>
                                 </th>
@@ -70,27 +70,32 @@
             event: "getVue"
         },
         props: {
-            options: String,
-            msg: String,
-            isMultiSelect: String,
+            options: {
+                type: Object,
+                default: []
+            },
+            msg: '',
+            isMultiSelect: Boolean,
             perShow: String,
             labelDesc: String,
-            limitIndex: 0,
+
             baseAttr: {
                 type: String,
                 default: "SOLD"
             },
             showEdit: {
-                type: String,
+                type: Boolean,
                 default: false
             },
             disablePower: {
                 type: Boolean,
                 default: false
-            }
+            },
+
         },
         data() {
             return {
+                limitIndex: 0,
                 jumpWidth: '',
                 value: [],
                 fab: false,
@@ -98,7 +103,7 @@
                 isMulti: true,
                 limitNum: 2,
                 show: false,
-                baseAttr: "",
+                // baseAttr: "",
                 isOpen: 'fas fa-eye',
                 optionPermissions: '',
                 isToMoreTable: false,
@@ -119,6 +124,7 @@
         watch: {
             msg: {
                 handler(msg) {
+                    console.log(msg,"msgmsgmsg");
                     if(typeof msg !== "undefined") {
                         let val = msg
                         if(typeof msg === "object" && msg !== null){
@@ -130,6 +136,8 @@
             },
             options: {
                 handler(newValue,oldValue){
+                    console.log(newValue,'newValue');
+                    console.log(oldValue,'oldValue');
                     if(this._props.msg !== "undefined"&&this._props.msg !== undefined){
                         if(typeof this._props.msg === "object" && this._props.msg !== null){
                             this.init(this._props.msg.attrValue)
@@ -217,8 +225,8 @@
         mounted: function() {
             const that = this
             that.initProperty();
-            window.onresize = () => {
-                return (() => {
+            window.onresize = function () {
+                return (function () {
                     window.screenWidth = document.body.clientWidth
                     that.screenWidth = window.screenWidth
                 })()
@@ -294,7 +302,6 @@
                     this.disabled= this._props.disablePower;
                 }
                 if(msg !== null && msg !== undefined) {
-
                     let data = msg.split(",");
                     let options = this._props.options;
                     let values = [];
@@ -400,18 +407,18 @@
 
             },
             addTag(newTag) {
+                const that = this;
                 const tag = {
                     name: newTag,
                     code: newTag.substring(0, 2) + Math.floor(Math.random() * 10000000)
                 };
-                this.options.push(tag);
-                this.value.push(tag);
+                that.options.push(tag);
+                that.value.push(tag);
             }
         }
     };
 </script>
-<style src="vue-multiselect/dist/vue-multiselect.min.css">
-</style>
+<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style scoped>
     .dcMulti {
         margin-top: 10px;

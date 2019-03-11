@@ -22,7 +22,7 @@ import getAllProdAPI from './getAllProdList'
 import getProdClassListAPI from './getProdClassList'
 import reviewListAPI from './reviewList'
 import getmoduleByFlowCodeAPI from './getmoduleByFlowCode'
-// import reviewCheckListAPI from './reviewCheckList'
+import reviewCheckListAPI from './reviewCheckList'
 import getTableListAPI from './getTableList'
 import getTableInfoAPI from './getTableInfo'
 import getProdListByClassAPI from './getProdListByClass'
@@ -33,9 +33,10 @@ import getPkListColumnRfAPI from './getPkListColumnRf'
 import getAttrInfoAPI from './getAttrInfo'
 import getDiffListAPI from './getProdDiff'
 import saveProdInfoAPI from './saveProdInfo'
-import getCommonListAPI from './getCommonList'
-import reviewCheckListAPI from './reviewCheckList'
-import getTaskListBySeqNoAPI from './getTaskListBySeqNo'
+// import getCommonListAPI from './getCommonList'
+// import reviewCheckListAPI from './reviewCheckList'
+// import getTaskListBySeqNoAPI from './getTaskListBySeqNo'
+import getProdCompareDiffAPI from './getProdCompareDiff'
 
 
 // Mock.setup({
@@ -92,7 +93,7 @@ Mock.mock(/\/getAllProdList\.*/, 'post', getAllProdAPI.prodwindowlist);
 Mock.mock(/\/getProdClassList\.*/, 'post', getProdClassListAPI.ClassList);
 Mock.mock(/\/reviewList\.*/, 'post', reviewListAPI.reviewList);
 Mock.mock(/\/getModuleByFlowCode\.*/, 'post', getmoduleByFlowCodeAPI.getmoduleByFlowCode);
-// Mock.mock(/\/reviewCheckList\.*/, 'post', reviewCheckListAPI.CheckList);
+Mock.mock(/\/reviewCheckList\.*/, 'post', reviewCheckListAPI.CheckList);
 Mock.mock(/\/getTableList\.*/, 'post', getTableListAPI.getTableList);
 Mock.mock(/\/getParamTable\.*/, 'post', getTableInfoAPI.getTableInfo);
 Mock.mock(/\/getSysInfoByUser\.*/, 'post', getSysInfoByUseAPI.getSysInfoByUser);
@@ -102,9 +103,8 @@ Mock.mock(/\/getPkListColumnRf\.*/, 'post', getPkListColumnRfAPI.getPkListColumn
 Mock.mock(/\/getAttrInfo\.*/, 'post', getAttrInfoAPI.getAttrInfo);
 Mock.mock(/\/getProdDiff\.*/, 'post', getDiffListAPI.getDiffList);
 Mock.mock(/\/saveProdInfo\.*/, 'post', saveProdInfoAPI.saveProdInfo);
-Mock.mock(/\/getCommonList\.*/, 'post', getCommonListAPI.getCommonList);
-Mock.mock(/\/reviewCheckList\.*/, 'post', reviewCheckListAPI.getCheckFlowList);
-Mock.mock(/\/getTaskListBySeqNo\.*/, 'post', getTaskListBySeqNoAPI.getTaskListBySeqNo);
-
-
+// Mock.mock(/\/getCommonList\.*/, 'post', getCommonListAPI.getCommonList);
+// Mock.mock(/\/reviewCheckList\.*/, 'post', reviewCheckListAPI.getCheckFlowList);
+// Mock.mock(/\/getTaskListBySeqNo\.*/, 'post', getTaskListBySeqNoAPI.getTaskListBySeqNo);
+Mock.mock(/\/getProdCompareDiff\.*/, 'post', getProdCompareDiffAPI.getProdCompareDiff);
 export default Mock;

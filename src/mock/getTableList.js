@@ -24,6 +24,13 @@ export default {
                 "parameter": "init",
                 "modelId": "PROD",
                 "searchColumn": null
+            }, {
+                "tableName": "MB_STAGE_DEFINE",
+                "tableDesc": "期次定义",
+                "system": "ensemble",
+                "parameter": "init",
+                "modelId": "MB",
+                "searchColumn": ""
             }]
         }
     })

@@ -3,7 +3,7 @@
         <v-card>
             <v-card-title class="headline">影响可售产品列表</v-card-title>
             <v-card-text>
-            <diff-prod-table :diffProdList="diffProdList"></diff-prod-table>
+                <diff-prod-table :diffProdList="diffProdList"></diff-prod-table>
             </v-card-text>
             <v-card-actions>
                 <v-spacer></v-spacer>
@@ -23,17 +23,19 @@
         },
         props: {
             dialog: {
-                type: String,
+                type: Boolean,
                 define: false,
             },
             oldOptionPermissions: String,
-            diffProdList: Object
+            diffProdList: Array,
+            pagination: [Array,Function,Object],
         },
         data() {
             return {
                 dialogFlag: false,
                 selected: [],
-                pagination: 'prodType',
+                // pagination: 'prodType',
+
                 headers: [
                     { text: '产品名称', value: 'prodType' }, { text: '基础产品值', value: 'baseValue' }, { text: '可售产品值', value: 'soldValue' }]
             }

@@ -9,7 +9,7 @@
           <v-subheader class="primary--text subheading">交易单号:</v-subheader>
         </v-flex>
         <v-flex md8 lg8>
-          <v-text-field class="primary--text mx-1" disabled="false" label="" name="title" v-model="pandingInfo.mainSeqNo" single-line hide-details>
+          <v-text-field class="primary--text mx-1" :disabled="false" label="" name="title" v-model="pandingInfo.mainSeqNo" single-line hide-details>
           </v-text-field>
         </v-flex>
       </v-layout>
@@ -18,7 +18,7 @@
           <v-subheader class="primary--text subheading">交易名称:</v-subheader>
         </v-flex>
         <v-flex md8 lg8>
-          <v-text-field class="primary--text mx-1" label="" disabled="false" name="title" v-model="pandingInfo.tranDesc" single-line hide-details>
+          <v-text-field class="primary--text mx-1" label="" :disabled="false" name="title" v-model="pandingInfo.tranDesc" single-line hide-details>
           </v-text-field>
         </v-flex>
       </v-layout>
@@ -27,7 +27,7 @@
           <v-subheader class="primary--text subheading">当前状态:</v-subheader>
         </v-flex>
         <v-flex md8 lg8>
-          <v-text-field class="primary--text mx-1" label="" disabled="false" name="title" v-model="pandingInfo.status" single-line hide-details>
+          <v-text-field class="primary--text mx-1" label="" :disabled="false" name="title" v-model="pandingInfo.status" single-line hide-details>
           </v-text-field>
         </v-flex>
       </v-layout>
@@ -36,7 +36,7 @@
         <v-subheader class="primary--text subheading">提交人:</v-subheader>
       </v-flex>
       <v-flex md8 lg8>
-        <v-text-field class="primary--text mx-1" label="" disabled="false" name="title" v-model="pandingInfo.userId" single-line hide-details>
+        <v-text-field class="primary--text mx-1" label="" :disabled="false" name="title" v-model="pandingInfo.userId" single-line hide-details>
         </v-text-field>
       </v-flex>
     </v-layout>
@@ -45,7 +45,7 @@
         <v-subheader class="primary--text subheading">提交时间:</v-subheader>
       </v-flex>
       <v-flex md8 lg8>
-        <v-text-field class="primary--text mx-1" label="" disabled="false" name="title" v-model="pandingInfo.tranTime" single-line hide-details>
+        <v-text-field class="primary--text mx-1" label="" :disabled="false" name="title" v-model="pandingInfo.tranTime" single-line hide-details>
         </v-text-field>
       </v-flex>
     </v-layout>
@@ -59,6 +59,7 @@
     </div>
   </div>
 </template>
+
 <style>
 .el-dropdown + .el-dropdown {
   margin-left: 15px;

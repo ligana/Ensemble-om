@@ -49,17 +49,22 @@
     <script>
         export default {
             props: {
-                diffProdList: Object
+                diffProdList: Array,
+
             },
             data() {
                 return {
                     selected: [],
-                    pagination: 'prodType',
+                    // pagination: 'prodType',
+                    // pagination: String,
+                    // pagination: Function,
+                    pagination: {},
+                    // pagination: [Object,Function,Array],
                     headers: [
-                        {text: '产品名称', value: 'prodType'}, {text: '基础产品值', value: 'baseValue'}, {
-                            text: '可售产品值',
-                            value: 'soldValue'
-                        }]
+                        {text: '产品名称', value: 'prodType'},
+                        {text: '基础产品值', value: 'baseValue'},
+                        {text: '可售产品值', value: 'soldValue'}
+                        ]
                 }
             }
         }

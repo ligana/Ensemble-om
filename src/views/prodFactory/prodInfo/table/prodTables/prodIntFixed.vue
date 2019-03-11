@@ -30,8 +30,8 @@
     export default {
         components: {DcSelect,DcText},
         props: {
-            fiexInfo: String,
-            fixedIndex: String,
+            fiexInfo: Array,
+            fixedIndex: Number,
             prodDatas: String
         },
         data: () => ({

@@ -312,3 +312,10 @@ export function upload (params) {
         data: params
     })
 }
+export function getProdCompareDiff (params) {
+    return request({
+        url: '/getProdCompareDiff',
+        method: 'post',
+        data: {prodType: params}
+    })
+}

@@ -35,10 +35,10 @@
     export default {
         components: {DcMultiselect,DcSwitch,DcTextField},
         props: {
-            prodType: String,
+            prodType: {},
             tags: String,
             showEdit: {
-                type: String,
+                type: Boolean,
                 default: false
             },
             disablePower: {
@@ -46,32 +46,33 @@
                 default: false
             }
         },
-        data: () => ({
-
-            prodRangeOption: [
-                {
-                    "key": "S",
-                    "value": "可售产品"
-                },
-                {
-                    "key": "B",
-                    "value": "基础产品"
-                }
-            ],
-            statusOption: [
-                {
-                    "key": "A",
-                    "value": "启用"
-                },
-                {
-                    "key": "C",
-                    "value": "废弃"
-                }
-            ],
-            sourceModuleOption: [],
-            prodClassOption: [],
-            baseProdTypeOption: []
-        }),
+        data: function () {
+            return {
+                prodRangeOption: [
+                    {
+                        "key": "S",
+                        "value": "可售产品"
+                    },
+                    {
+                        "key": "B",
+                        "value": "基础产品"
+                    }
+                ],
+                statusOption: [
+                    {
+                        "key": "A",
+                        "value": "启用"
+                    },
+                    {
+                        "key": "C",
+                        "value": "废弃"
+                    }
+                ],
+                sourceModuleOption: [],
+                prodClassOption: [],
+                baseProdTypeOption: [],
+            };
+        },
         mounted() {
             this.initRefData();
         },
@@ -92,6 +93,7 @@
                             temps["key"] = prodClass[i].PROD_CLASS;
                             temps["value"] = prodClass[i].PROD_CLASS_DESC;
                             that.sourceModuleOption.push(temps)
+
                         }
                     }
                 });

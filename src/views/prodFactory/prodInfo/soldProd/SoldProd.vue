@@ -58,13 +58,13 @@
         components: {columnInfo, DcMultiselect, DcSwitch, DcTreeSelect,DcDate,DcTextField,draggable,DcTreeview},
         props: {
             prodType: String,
-            prodDefines: String,
+            prodDefines: Object,
             tags: String,
             prodTypeCode: String,
-            prodMapping: String,
+            prodMapping: Object,
             attrColumnInfo: Object,
             baseAttr: {
-                type: String,
+                type: Boolean,
                 default: false
             },
             disablePower: {

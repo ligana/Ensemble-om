@@ -16,7 +16,7 @@
                                     </v-flex>
                                     <v-flex md12 lg12 v-else>
                                         <dc-text-field :showEdit="showEdit" v-if="keyData.columnType == 'input'"
-                                                       class="primary&#45;&#45;text mx-1 dcText" :label="keyData.columnDesc"
+                                                       class="primary--text mx-1 dcText" :label="keyData.columnDesc"
                                                        name="title" :labelDesc="keyData.columnDesc" :isNumber="keyData.attrType" :disablePower="disablePower" v-model="prodDefines[keyData.key]" single-line
                                                        hide-details></dc-text-field>
                                         <dc-multiselect :showEdit="showEdit" v-if="keyData.columnType == 'select'" :disablePower="disablePower" :labelDesc="keyData.columnDesc" v-model="prodDefines[keyData.key]"
@@ -58,14 +58,15 @@
     export default {
         components: {columnInfo, DcMultiselect, DcSwitch, DcTreeSelect,DcDate,DcTextField,draggable,DcTreeview},
         props: {
+            // value: {},
             prodType: String,
-            prodDefines: String,
-            prodMapping: String,
+            prodDefines: {},
+            prodMapping: {},
             tags: String,
             prodTypeCode: String,
-            attrColumnInfo: Object,
+            attrColumnInfo: {},
             showEdit: {
-                type: String,
+                type: Boolean,
                 default: false
             },
             disablePower: {
@@ -74,6 +75,7 @@
             }
         },
         data: () => ({
+
             dataSource: {},
             valueData: [],
             sourceModuleOption: [

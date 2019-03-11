@@ -21,7 +21,7 @@ export default {
             "menuId": "12",
             "title": "产品展示"
         }, {
-            "icon": "notes",
+            "icon": "widgets",
             "name": "prodCmbs",
             "menuId": "13",
             "title": "产品目录"
@@ -39,53 +39,53 @@ export default {
             "menuId": "30",
             "title": "存款产品",
             "items": [{
-                "component": "RbSoldProds",
+                "component": "BaseProdForm",
                 "icon": null,
                 "menuId": "301",
-                "title": "个人人民币活期存款",
-                "params": "111001"
-            }, {
-                "component": "RbSoldProds",
-                "icon": null,
-                "menuId": "302",
                 "title": "个人人民币活期基础产品",
                 "params": "RB101"
             }, {
-                "component": "RbSoldProds",
+                "component": "BaseProdForm",
+                "icon": null,
+                "menuId": "302",
+                "title": "个人外币活期单币种基础产品",
+                "params": "RB102"
+            }, {
+                "component": "BaseProdForm",
                 "icon": null,
                 "menuId": "303",
+                "title": "个人整存整取定期基础产品",
+                "params": "RB201"
+            }, {
+                "component": "BaseProdForm",
+                "icon": "",
+                "menuId": "304",
+                "title": "单位整存整取定期基础产品",
+                "params": "RB202"
+            }, {
+                "component": "SoldProdForm",
+                "icon": "",
+                "menuId": "305",
+                "title": "个人人民币活期存款",
+                "params": "111001"
+            }, {
+                "component": "SoldProdForm",
+                "icon": null,
+                "menuId": "306",
                 "title": "个人活期存款-多币种(钞)",
                 "params": "111002"
             }, {
-                "component": "RbSoldProds",
-                "icon": "",
-                "menuId": "304",
-                "title": "个人活期存款-多币种(汇)",
-                "params": "111003"
-            }, {
-                "component": "RbSoldProds",
-                "icon": "",
-                "menuId": "305",
-                "title": "个人整存整取储蓄存款",
-                "params": "111004"
-            }, {
-                "component": "RbSoldProds",
-                "icon": null,
-                "menuId": "306",
-                "title": "个人一天通知存款",
-                "params": "111005"
-            }, {
-                "component": "RbSoldProds",
+                "component": "SoldProdForm",
                 "icon": "",
                 "menuId": "307",
-                "title": "个人七天通知存款",
-                "params": "111006"
+                "title": "个人外币整存整取存款(钞)",
+                "params": "111013"
             }, {
-                "component": "RbSoldProds",
+                "component": "SoldProdForm",
                 "icon": "",
                 "menuId": "308",
-                "title": "个人存本取息存款",
-                "params": "111007"
+                "title": "个人零存整取储蓄存款",
+                "params": "111009"
             }]
         }, {
             "icon": "how_to_vote",
@@ -93,52 +93,96 @@ export default {
             "menuId": "31",
             "title": "贷款产品",
             "items": [{
-                "component": "ClBaseProds",
+                "component": "BaseProdFormCl",
                 "icon": null,
                 "menuId": "311",
                 "title": "个人贷款基础产品",
                 "params": "CL001"
             }, {
-                "component": "ClBaseProds",
+                "component": "BaseProdFormCl",
                 "icon": null,
                 "menuId": "312",
                 "title": "公司贷款基础产品",
                 "params": "CL002"
             }, {
-                "component": "ClBaseProds",
+                "component": "BaseProdFormCl",
                 "icon": null,
                 "menuId": "313",
                 "title": "委托贷款基础产品",
                 "params": "CL003"
+            }, {
+                "component": "BaseProdFormCl",
+                "icon": null,
+                "menuId": "314",
+                "title": "贴现贷款基础产品",
+                "params": "CL004"
             }]
         }, {
             "icon": "local_atm",
-            "name": null,
+            "name": "",
             "menuId": "32",
-            "title": "内部帐产品",
+            "title": "内部账产品",
             "items": [{
-                "component": "GlBaseProds",
+                "component": "BaseProdFormGl",
                 "icon": null,
                 "menuId": "321",
                 "title": "往账活期基础产品",
                 "params": "GL001"
             }, {
-                "component": "GlBaseProds",
+                "component": "BaseProdFormGl",
                 "icon": null,
                 "menuId": "322",
                 "title": "往账定期基础产品",
                 "params": "GL002"
+            }, {
+                "component": "BaseProdFormGl",
+                "icon": "",
+                "menuId": "323",
+                "title": "来账活期基础产品",
+                "params": "GL003"
+            }, {
+                "component": "BaseProdFormGl",
+                "icon": null,
+                "menuId": "324",
+                "title": "来账定期基础产品",
+                "params": "GL004"
             }]
         }, {
-            "icon": "low_priority",
-            "name": null,
-            "menuId": "34",
-            "title": "协议产品"
-        }, {
-            "icon": "dashboard",
+            "icon": " low_priority",
             "name": null,
             "menuId": "33",
-            "title": "组合产品"
+            "title": "协议产品",
+            "items": [{
+                "component": "BaseProdForm",
+                "icon": null,
+                "menuId": "331",
+                "title": "集团现金池基础产品",
+                "params": "RB601"
+            }]
+        }, {
+            "icon": "view_carousel",
+            "name": null,
+            "menuId": "34",
+            "title": "期次产品",
+            "items": [{
+                "component": "BaseProdForm",
+                "icon": null,
+                "menuId": "341",
+                "title": "个人大额存单基础产品",
+                "params": "RB301"
+            }, {
+                "component": "BaseProdForm",
+                "icon": null,
+                "menuId": "342",
+                "title": "单位大额存单基础产品",
+                "params": "RB302"
+            }, {
+                "component": "SoldProdForm",
+                "icon": null,
+                "menuId": "343",
+                "title": "个人大额存单",
+                "params": "112003"
+            }]
         }, {
             "header": "参数工厂",
             "menuId": "4"
@@ -161,6 +205,5 @@ export default {
                 "params": ""
             }]
         }]
-
     })
 }

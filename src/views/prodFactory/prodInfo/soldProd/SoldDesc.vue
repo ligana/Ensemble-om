@@ -38,10 +38,10 @@
     export default {
         components: {DcMultiselect,DcSwitch,DcTextField},
         props: {
-            prodType: String,
+            prodType: Object,
             tags: String,
             showEdit: {
-                type: String,
+                type: Boolean,
                 default: false
             },
             disablePower: {

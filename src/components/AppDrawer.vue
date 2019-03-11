@@ -23,13 +23,11 @@
                 </v-list-tile>
             </v-list>
         </div>
-
         <vue-perfect-scrollbar class="drawer-menu--scroll" :settings="scrollSettings">
             <v-list dense expand>
                 <template v-for="(item, i) in menus">
                     <!--group with subitems组条目-->
-                    <v-list-group v-if="item.items" :key="item.name" :group="item.group" :prepend-icon="item.icon"
-                                  no-action="no-action">
+                    <v-list-group v-if="item.items" :key="i" :group="item.group" :prepend-icon="item.icon" no-action="no-action">
                         <v-list-tile slot="activator" ripple="ripple">
                             <v-list-tile-content>
                                 <v-list-tile-title>{{ item.title }}</v-list-tile-title>
@@ -44,12 +42,12 @@
                                         <v-list-tile-title>{{ subItem.title }}</v-list-tile-title>
                                     </v-list-tile-content>
                                 </v-list-tile>
-                                <!--<v-list-tile v-for="(grand, i) in subItem.children" :key="i"-->
-                                <!--:to="genChildTarget(item, grand)" :href="grand.href" ripple="ripple">-->
-                                <!--<v-list-tile-content>-->
-                                <!--<v-list-tile-title>{{ grand.title }}</v-list-tile-title>-->
-                                <!--</v-list-tile-content>-->
-                                <!--</v-list-tile>-->
+                                <v-list-tile v-for="(grand, i) in subItem.children" :key="i"
+                                             :to="genChildTarget(item, grand)" :href="grand.href" ripple="ripple">
+                                    <v-list-tile-content>
+                                        <v-list-tile-title>{{ grand.title }}</v-list-tile-title>
+                                    </v-list-tile-content>
+                                </v-list-tile>
                             </v-list-group>
                             <!--child item-->
                             <v-list-tile v-else :key="i" :to="genChildTarget(item, subItem)" :href="subItem.href"
@@ -66,21 +64,21 @@
                         </template>
                     </v-list-group>
                     <v-subheader v-else-if="item.header" :key="i">{{ item.header }}</v-subheader>
-                    <!--<v-divider v-else-if="item.divider" :key="i"></v-divider>-->
+                    <v-divider v-else-if="item.divider" :key="i"></v-divider>
                     <!--top-level link-->
                     <v-list-tile v-else :to="!item.href ? { name: item.name } : null" :href="item.href" ripple="ripple"
-                                 :disabled="item.disabled" :target="item.target" rel="noopener" :key="item.name">
+                                 :disabled="item.disabled" :target="item.target" rel="noopener" :key="i">
                         <v-list-tile-action v-if="item.icon">
                             <v-icon outline>{{ item.icon }}</v-icon>
                         </v-list-tile-action>
                         <v-list-tile-content>
                             <v-list-tile-title>{{ item.title }}</v-list-tile-title>
                         </v-list-tile-content>
-                        <!-- <v-circle class="white--text pa-0 chip--x-small" v-if="item.badge" :color="item.color || 'primary'" disabled="disabled">{{ item.badge }}</v-circle> -->
-                        <!--<v-list-tile-action v-if="item.subAction">-->
-                            <!--<v-icon class="success&#45;&#45;text">{{ item.subAction }}</v-icon>-->
-                        <!--</v-list-tile-action>-->
-                        <!-- <v-circle class="caption blue lighten-2 white--text mx-0" v-else-if="item.chip" label="label" small="small">{{ item.chip }}</v-circle> -->
+                        <!--&lt;!&ndash; <v-circle class="white--text pa-0 chip--x-small" v-if="item.badge" :color="item.color || 'primary'" disabled="disabled">{{ item.badge }}</v-circle> &ndash;&gt;-->
+                        <v-list-tile-action v-if="item.subAction">
+                            <v-icon class="success--text">{{ item.subAction }}</v-icon>
+                        </v-list-tile-action>
+                        <!--&lt;!&ndash; <v-circle class="caption blue lighten-2 white--text mx-0" v-else-if="item.chip" label="label" small="small">{{ item.chip }}</v-circle> &ndash;&gt;-->
                     </v-list-tile>
                 </template>
             </v-list>
@@ -152,12 +150,12 @@
                 if (subItem.component) {
                     return {
                         name: subItem.component,
-                        hash: subItem.name,
-
+                        // hash: subItem.name,
+                        hash: subItem.params
                     };
 
                 }
-                return {name: `${item.group}/${subItem.name}`};
+                return {name: `${item.group}/${subItem.params}`};
             }
         }
     };
@@ -170,20 +168,24 @@
         background-color: #2C2F43;
 
     }
+
     .drawer-menu--scroll {
         height: calc(78vh - 48px);
         overflow: auto;
     }
+
     .admin-box {
         display: flex;
         justify-content: flex-start;
         background-color: #919191;
         padding: 0 20px;
-        box-shadow :0 1px 8px 2px #a5a5a5;
+        box-shadow: 0 1px 8px 2px #a5a5a5;
     }
+
     .admin-box .imgbox {
         width: 100px;
     }
+
     #appDrawer >>> .v-image__image {
         width: 60px;
         height: 60px;

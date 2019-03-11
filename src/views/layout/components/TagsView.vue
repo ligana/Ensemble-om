@@ -1,5 +1,5 @@
 <template>
-  <div class="tags-view-container ">
+  <div class="tags-view-container">
     <scroll-pane class= 'tags-view-wrapper' ref= 'scrollPane'>
       <router-link ref= 'tag' class= 'tags-view-item' :class= "isActive(tag)?'active styleOmUi_Color3':''" v-for= 'tag in Array.from(visitedViews)'
                    :to= 'tag' :key= 'tag.path' @contextmenu.prevent.native= 'openMenu(tag,$event)'>
@@ -172,7 +172,6 @@
         }
       }
     }
-
     .contextMenu {
       margin: 0;
       background: #B7C1CF;
@@ -189,8 +188,9 @@
         margin: 0;
         padding: 7px 16px;
         cursor: pointer;
+          color: #fff;
         &:hover {
-          background: #eee;
+          background: #00b0ff;
         }
       }
     }

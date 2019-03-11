@@ -77,7 +77,7 @@ export default {
         getColumnDesc_,
         DcTextField
     },
-    props: ['sendTranId','sendTranType','seqNo'],//'prodData',
+    props: ['sendTranId','sendTranType','seqNo'],//,'prodData'
     data (){
         return {
             sourceModule: [],
