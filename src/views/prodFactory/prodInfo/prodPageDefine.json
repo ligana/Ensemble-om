@@ -1,0 +1,109 @@
+{
+  "clProdPublish": [
+    {"icon": "filter_vintage", "text": "基本描述", "pageCode": "DESC"},
+    {"icon": "account_balance", "text": "产品信息", "pageCode": "BASE"},
+    {"icon": "filter_vintage", "text": "账户信息", "pageCode": "ACCT"},
+    {"icon": "filter_vintage", "text": "适用范围", "pageCode": "APPLY"},
+    {"icon": "filter_vintage", "text": "控制信息", "pageCode": "CONTROL"},
+    {"icon": "filter_vintage", "text": "利息信息", "pageCode": "INT"},
+    {"icon": "filter_vintage", "text": "开户定义", "pageCode": "OPEN"},
+    {"icon": "filter_vintage", "text": "放款定义", "pageCode": "DRW"},
+    {"icon": "filter_vintage", "text": "贴息定义", "pageCode": "DISC"},
+    {"icon": "filter_vintage", "text": "还款定义", "pageCode": "REC"},
+    {"icon": "filter_vintage", "text": "到期定义", "pageCode": "DUE"},
+    {"icon": "filter_vintage", "text": "利率信息", "pageCode": "RATEINFO"},
+    {"icon": "filter_vintage", "text": "变更信息", "pageCode": "AMEND"},
+    {"icon": "filter_vintage", "text": "核算信息", "pageCode": "ACCOUNTING"}
+  ],
+  "glProdPublish": [
+    {"icon": "filter_vintage", "text": "基本描述", "pageCode": "DESC"},
+    {"icon": "account_balance", "text": "产品信息", "pageCode": "BASE"},
+    {"icon": "account_balance", "text": "控制信息", "pageCode": "CONTROL"},
+    {"icon": "filter_vintage", "text": "适用范围", "pageCode": "APPLY"},
+    {"icon": "filter_vintage", "text": "利息信息", "pageCode": "INT"},
+    {"icon": "filter_vintage", "text": "开户定义", "pageCode": "OPEN"},
+    {"icon": "filter_vintage", "text": "销户定义", "pageCode": "CLOSE"},
+    {"icon": "filter_vintage", "text": "贷记事件", "pageCode": "CRET"},
+    {"icon": "filter_vintage", "text": "借记事件", "pageCode": "DEBT"},
+    {"icon": "filter_vintage", "text": "利率信息", "pageCode": "RATEINFO"},
+    {"icon": "filter_vintage", "text": "核算信息", "pageCode": "ACCOUNTING"}
+  ],
+  "rbProdT": [
+    {"icon": "account_balance", "text": "基本描述", "pageCode": "DESC"},
+    {"icon": "account_balance", "text": "产品信息", "pageCode": "BASE"},
+    {"icon": "filter_vintage", "text": "控制信息", "pageCode": "CONTROL"},
+    {"icon": "filter_vintage", "text": "适用范围", "pageCode": "APPLY"},
+    {"icon": "filter_vintage", "text": "利息信息", "pageCode": "INT"},
+    {"icon": "filter_vintage", "text": "开户定义", "pageCode": "OPEN"},
+    {"icon": "filter_vintage", "text": "存入定义", "pageCode": "CRET"},
+    {"icon": "filter_vintage", "text": "支取定义", "pageCode": "DEBT"},
+    {"icon": "filter_vintage", "text": "销户定义", "pageCode": "CLOSE"},
+    {"icon": "filter_vintage", "text": "收费定义", "pageCode": "CHARGE"},
+    {"icon": "filter_vintage", "text": "利率信息", "pageCode": "RATEINFO"},
+    {"icon": "filter_vintage", "text": "核算信息", "pageCode": "ACCOUNTING"}
+  ],
+  "rbProdNotT": [
+    {"icon": "account_balance","text": "基本描述", "pageCode": "DESC"},
+    {"icon": "account_balance","text": "产品信息", "pageCode": "BASE"},
+    {"icon": "filter_vintage", "text": "控制信息", "pageCode": "CONTROL"},
+    {"icon": "filter_vintage", "text": "适用范围", "pageCode": "APPLY"},
+    {"icon": "filter_vintage", "text": "利息信息", "pageCode": "INT"},
+    {"icon": "filter_vintage", "text": "形态转移", "pageCode": "SHIFT"},
+    {"icon": "filter_vintage", "text": "开户定义", "pageCode": "OPEN"},
+    {"icon": "filter_vintage", "text": "存入定义", "pageCode": "CRET"},
+    {"icon": "filter_vintage", "text": "支取定义", "pageCode": "DEBT"},
+    {"icon": "filter_vintage", "text": "销户定义", "pageCode": "CLOSE"},
+    {"icon": "filter_vintage", "text": "收费定义", "pageCode": "CHARGE"},
+    {"icon": "filter_vintage", "text": "利率信息", "pageCode": "RATEINFO"},
+    {"icon": "filter_vintage", "text": "核算信息", "pageCode": "ACCOUNTING"}
+  ],
+  "rbProdYHT": [
+        {"icon": "account_balance", "text": "基本描述", "pageCode": "DESC"},
+        {"icon": "account_balance", "text": "产品信息", "pageCode": "BASE"},
+        {"icon": "filter_vintage", "text": "控制信息", "pageCode": "CONTROL"},
+        {"icon": "filter_vintage", "text": "适用范围","pageCode": "APPLY"},
+        {"icon": "filter_vintage", "text": "利息信息", "pageCode": "INT"},
+        {"icon": "filter_vintage", "text": "开户定义", "pageCode": "OPEN"},
+        {"icon": "filter_vintage", "text": "销户定义", "pageCode": "CLOSE"}
+    ],
+    "rbProdPCP": [
+        {"icon": "account_balance", "text": "基本描述", "pageCode": "DESC"},
+        {"icon": "account_balance", "text": "产品信息", "pageCode": "BASE"},
+        {"icon": "filter_vintage", "text": "适用范围","pageCode": "APPLY"},
+        {"icon": "filter_vintage", "text": "产品定义", "pageCode": "PROD"},
+        {"icon": "filter_vintage", "text": "规则定义", "pageCode": "RULE"},
+        {"icon": "filter_vintage", "text": "定价信息", "pageCode": "PRICE"},
+        {"icon": "filter_vintage", "text": "额度/限额", "pageCode": "LIMIT"}
+    ],
+    "rbProdZJZY": [
+        {"icon": "account_balance", "text": "基本描述", "pageCode": "DESC"},
+        {"icon": "account_balance", "text": "产品信息", "pageCode": "BASE"},
+        {"icon": "filter_vintage", "text": "适用范围","pageCode": "APPLY"},
+        {"icon": "filter_vintage", "text": "转出定义", "pageCode": "OUT"},
+        {"icon": "filter_vintage", "text": "转回定义", "pageCode": "IN"}
+    ],
+    "rbProdFixed": [
+        {"icon": "account_balance", "text": "基本描述", "pageCode": "DESC"},
+        {"icon": "account_balance", "text": "产品信息", "pageCode": "BASE"},
+        {"icon": "filter_vintage", "text": "控制信息", "pageCode": "CONTROL"},
+        {"icon": "filter_vintage", "text": "适用范围","pageCode": "APPLY"},
+        {"icon": "filter_vintage", "text": "利息信息", "pageCode": "INT"},
+        {"icon": "filter_vintage", "text": "开户定义", "pageCode": "OPEN"},
+        {"icon": "filter_vintage", "text": "存入定义", "pageCode": "CRET"},
+        {"icon": "filter_vintage", "text": "支取定义", "pageCode": "DEBT"},
+        {"icon": "filter_vintage", "text": "销户定义", "pageCode": "CLOSE"},
+        {"icon": "filter_vintage", "text": "收费定义", "pageCode": "CHARGE"},
+        {"icon": "filter_vintage", "text": "利率信息", "pageCode": "RATEINFO"},
+        {"icon": "filter_vintage", "text": "核算信息", "pageCode": "ACCOUNTING"},
+        {"icon": "filter_vintage", "text": "期次信息", "pageCode": "STAGE"}
+    ],
+    "rbProdGroup": [
+      {"icon": "filter_vintage",  "text": "基本描述", "pageCode": "DESC"},
+      {"icon": "account_balance", "text": "产品信息", "pageCode": "BASE"},
+      {"icon": "account_balance", "text": "控制信息", "pageCode": "CONTROL"},
+      {"icon": "filter_vintage", "text": "适用范围", "pageCode": "APPLY"},
+      {"icon": "filter_vintage", "text": "关联产品", "pageCode": "GROUP"},
+      {"icon": "filter_vintage", "text": "开户定义", "pageCode": "OPEN"},
+      {"icon": "filter_vintage", "text": "销户定义", "pageCode": "CLOSE"}
+    ]
+}
