@@ -446,7 +446,7 @@
         border-bottom: 1px solid rgba(0, 0, 0, .12);
     }
     .subClass {
-        margin-top: -3.5%
+        margin-top: -2.5%
     }
     .editClass {
         height: 25px;
