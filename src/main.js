@@ -22,6 +22,8 @@ import './mock';
 
 import 'ant-design-vue/dist/antd.css';
 import 'vuetify/dist/vuetify.min.css'
+import '../static/common/common.css'
+
 
 // ���� table �� ��ҳ���
 

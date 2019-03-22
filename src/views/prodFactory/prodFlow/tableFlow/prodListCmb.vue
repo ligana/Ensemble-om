@@ -1,12 +1,11 @@
 <template>
-    <v-card class="radiusDc">
-        <v-toolbar card color="white">
+    <v-card>
+        <v-toolbar card color="white" style="height: 64px!important">
             <v-text-field flat solo prepend-icon="search" placeholder="请输入产品名称或描述" v-model="search" clearable hide-details class="hidden-sm-and-down"></v-text-field>
             <v-btn color="info" @click="addCompare">加入对比</v-btn>
         </v-toolbar>
-        <v-divider></v-divider>
         <v-card-text class="pa-0">
-            <v-data-table :headers="complex.headers" :search="search" :items="items" :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" class="elevation-1" item-key="prodType" select-all v-model="complex.selected">
+            <v-data-table :headers="complex.headers" :search="search" :items="items" :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" class="" item-key="prodType" select-all v-model="complex.selected">
                 <template slot="items" slot-scope="props" >
                     <tr :active="props.selected" @click="props.selected = !props.selected">
                         <td>
@@ -35,12 +34,8 @@
 </template>
 
 <script>
-    import {
-        getProdType
-    } from '@/api/prod';
-    import {
-        getDepositDtl
-    } from '@/api/prod';
+    import { getProdType } from '@/api/prod';
+    import { getDepositDtl} from '@/api/prod';
     export default {
         props: {
             items: {
@@ -149,3 +144,11 @@
         }
     };
 </script>
+<style scoped>
+.primary {
+    width: 35px;
+    height: 35px;
+    color: #3C73E6 !important;
+    caret-color: #3C73E6 !important;
+}
+</style>

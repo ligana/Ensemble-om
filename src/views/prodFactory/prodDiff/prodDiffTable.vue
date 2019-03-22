@@ -550,16 +550,19 @@ export default {
 };
 </script>
 <style scoped>
-    .difference >>> .v-tabs__item--active{
-        color: #4B7EE8 !important;
-        background-color: #F4F4F4;
-        font-weight: bold;
-        height: 48px !important;
-        border-radius: 0px;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        border-bottom: 2px solid #4B7EE8;
-    }
+   .difference >>> .v-card__text {
+       padding: 0;
+   }
+    /*.difference >>> .v-tabs__item--active{*/
+        /*color: #4B7EE8 !important;*/
+        /*background-color: #F4F4F4;*/
+        /*font-weight: bold;*/
+        /*height: 48px !important;*/
+        /*border-radius: 0px;*/
+        /*-webkit-box-shadow: none;*/
+        /*box-shadow: none;*/
+        /*border-bottom: 2px solid #4B7EE8;*/
+    /*}*/
   .diffTitle {
     font-size: large;
   }

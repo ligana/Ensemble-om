@@ -1,185 +1,175 @@
 <template>
     <div>
-        <v-card class="card radiusDc fathercard">
-            <v-toolbar color="#F4F5F9" dark scroll-off-screen
-                       style="height: 64px; color: #58595E; border-bottom: 1px solid rgba(0,0,0,.12)"
-                       scroll-target="#scrolling-techniques" flat>
-                <!--<v-icon style="color: #01579B">call_split</v-icon>-->
-                <v-toolbar-title>筛选</v-toolbar-title>
-                <v-spacer></v-spacer>
-                <v-tooltip bottom color="primary lighten-2">
-                    <v-btn flat slot="activator" @click="resetClick">
-                        <v-icon color="primary lighten-2">refresh</v-icon>
-                    </v-btn>
-                    <span>重置</span>
-                </v-tooltip>
-            </v-toolbar>
-            <!--<v-divider class="elevation-2" style="margin-top: 0px"></v-divider>-->
-            <v-card-text>
-                <v-layout class="layoutTitle">
-                    <v-subheader class="primary--text subheading">所属模块：</v-subheader>
-                    <!--<v-container>-->
-                    <v-layout row wrap>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="sourceModelArr" label="存款产品" value="RB"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="sourceModelArr" label="贷款产品" value="CL"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="sourceModelArr" label="内部账产品" value="GL"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="sourceModelArr" label="货币市场类" value="MM"></v-checkbox>
-                        </v-flex>
-                    </v-layout>
-                    <!--</v-container>-->
-                </v-layout>
-                <!--<v-divider class="elevation-0" style=""></v-divider>-->
-                <v-layout class="layoutTitle">
-                    <v-subheader class="primary--text subheading">适用币种：</v-subheader>
-
-                    <v-layout row wrap>
-                        <v-flex xs12 sm6 md2 style="height: 30px; line-height: 30px;">
-                            <v-checkbox v-model="ccyTypeArr" label="人民币" value="CNY"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="港币" value="HKD"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="美元" value="USD"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="澳大利亚元" value="AUD"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="加拿大元" value="CAD"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="瑞士法郎" value="CHF"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="欧元" value="EUR"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="英镑" value="GBP"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="日元" value="JPY"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="ccyTypeArr" label="新加坡元" value="SGD"></v-checkbox>
-                        </v-flex>
-                    </v-layout>
-                </v-layout>
-                <v-layout class="layoutTitle">
-                    <v-subheader class="primary--text subheading">所属机构：</v-subheader>
-                    <v-layout row wrap>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="branchArr" label="全行" value="ALL"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="branchArr" label="西安分行" value="1000"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="branchArr" label="北京分行" value="2000"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="branchArr" label="兰州分行" value="3000"></v-checkbox>
-                        </v-flex>
-                    </v-layout>
-                </v-layout>
-                <v-layout class="layoutTitle" v-if="showFlag">
-                    <v-subheader class="primary--text subheading">产品状态：</v-subheader>
-                    <v-layout row wrap>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="statusArr" label="可售" value="A"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="statusArr" label="停售" value="C"></v-checkbox>
-                        </v-flex>
-                    </v-layout>
-                </v-layout>
-                <v-layout class="layoutTitle" v-if="showFlag">
-                    <v-subheader class="primary--text subheading">产品属性：</v-subheader>
-                    <v-layout row wrap>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="perArr" label="基础产品" value="B"></v-checkbox>
-                        </v-flex>
-                        <v-flex xs12 sm6 md2>
-                            <v-checkbox v-model="perArr" label="可售产品" value="S"></v-checkbox>
-                        </v-flex>
-                    </v-layout>
-                </v-layout>
-            </v-card-text>
-        </v-card>
-        <v-btn class="showClass" style="background-color: white" @click="showCilck">{{showDesc}}</v-btn>
-        <v-card class="card1 radiusDc">
-            <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
-                <v-toolbar-title>产品列表</v-toolbar-title>
-            </v-toolbar>
-            <v-card-text>
-                <a-spin tip="请稍等..." :spinning="spinning">
-                    <v-list three-line class="listClass">
-                        <template v-for="(item, index) in searchTagProdList">
-                            <v-layout style="margin-top: 14px">
-                                <v-flex md2 lg2>
-                                    <v-layout>
-                                        <v-card class="radiusDc headClass">
-                                            <v-toolbar color="#7B82EE" flat class="toolbarClass">
-                                                <td style="margin-top: -25%; color: white">{{item.prodType}}</td>
-                                            </v-toolbar>
-                                            <v-card-text>
-                                                {{item.prodDesc}}
-                                            </v-card-text>
-                                        </v-card>
-                                    </v-layout>
+        <div class="card fathercard">
+            <v-widget title="筛选" class="v-widget">
+                <v-btn icon flat slot="widget-header-action" @click="resetClick">
+                    <v-icon color="primary lighten-2">refresh</v-icon>
+                </v-btn>
+                <span>重置</span>
+                <div slot="widget-content">
+                    <!--<v-card-text>-->
+                        <v-layout class="layoutTitle">
+                            <v-subheader class="primary--text subheading">所属模块：</v-subheader>
+                            <v-layout row wrap>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="sourceModelArr" label="存款产品" value="RB"></v-checkbox>
                                 </v-flex>
-                                <v-flex md9 lg9>
-                                    <v-layout>
-                                        <v-flex md6 lg6>
-                                            <v-subheader class="subClass">产品属性：{{item.prodRange}}</v-subheader>
-                                        </v-flex>
-                                        <v-flex md6 lg6>
-                                            <v-subheader class="subClass">产品状态：{{item.status}}</v-subheader>
-                                        </v-flex>
-                                    </v-layout>
-                                    <v-layout>
-                                        <v-flex md6 lg6>
-                                            <v-subheader class="subClass">基础产品：{{item.baseProdType}}</v-subheader>
-                                        </v-flex>
-                                        <v-flex md6 lg6>
-                                            <v-subheader class="subClass">币种：{{item.ccy}}</v-subheader>
-                                        </v-flex>
-                                    </v-layout>
-                                    <v-layout>
-                                        <v-flex md6 lg6>
-                                            <v-subheader class="subClass">所属模块：{{item.sourceModel}}</v-subheader>
-                                        </v-flex>
-                                        <v-flex md6 lg6>
-                                            <v-subheader class="subClass">所属机构：{{item.prodBranch}}</v-subheader>
-                                        </v-flex>
-                                    </v-layout>
-                                    <v-layout>
-                                        <v-flex md6 lg6>
-                                            <v-subheader class="subClass">生效日期：{{item.prodStartDate}}</v-subheader>
-                                        </v-flex>
-                                        <v-flex md6 lg6>
-                                            <v-subheader class="subClass">失效日期：{{item.prodEndDate}}</v-subheader>
-                                        </v-flex>
-                                    </v-layout>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="sourceModelArr" label="贷款产品" value="CL"></v-checkbox>
                                 </v-flex>
-                                <v-flex md1 lg1>
-                                    <v-btn color="#7B82EE" round class="editClass" @click="editClick(item)">编辑查看>>
-                                    </v-btn>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="sourceModelArr" label="内部账产品" value="GL"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="sourceModelArr" label="货币市场类" value="MM"></v-checkbox>
                                 </v-flex>
                             </v-layout>
-                            <v-divider class="" style="margin-top: 0px"></v-divider>
-                        </template>
-                    </v-list>
-                </a-spin>
-            </v-card-text>
-        </v-card>
+                        </v-layout>
+                        <!--<v-divider class="elevation-0" style=""></v-divider>-->
+                        <v-layout class="layoutTitle">
+                            <v-subheader class="primary--text subheading">适用币种：</v-subheader>
+                            <v-layout row wrap>
+                                <v-flex xs12 sm6 md2 style="height: 30px; line-height: 30px;">
+                                    <v-checkbox v-model="ccyTypeArr" label="人民币" value="CNY"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="港币" value="HKD"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="美元" value="USD"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="澳大利亚元" value="AUD"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="加拿大元" value="CAD"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="瑞士法郎" value="CHF"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="欧元" value="EUR"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="英镑" value="GBP"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="日元" value="JPY"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="ccyTypeArr" label="新加坡元" value="SGD"></v-checkbox>
+                                </v-flex>
+                            </v-layout>
+                        </v-layout>
+                        <v-layout class="layoutTitle">
+                            <v-subheader class="primary--text subheading">所属机构：</v-subheader>
+                            <v-layout row wrap>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="branchArr" label="全行" value="ALL"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="branchArr" label="西安分行" value="1000"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="branchArr" label="北京分行" value="2000"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="branchArr" label="兰州分行" value="3000"></v-checkbox>
+                                </v-flex>
+                            </v-layout>
+                        </v-layout>
+                        <v-layout class="layoutTitle" v-if="showFlag">
+                            <v-subheader class="primary--text subheading">产品状态：</v-subheader>
+                            <v-layout row wrap>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="statusArr" label="可售" value="A"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="statusArr" label="停售" value="C"></v-checkbox>
+                                </v-flex>
+                            </v-layout>
+                        </v-layout>
+                        <v-layout class="layoutTitle" v-if="showFlag">
+                            <v-subheader class="primary--text subheading">产品属性：</v-subheader>
+                            <v-layout row wrap>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="perArr" label="基础产品" value="B"></v-checkbox>
+                                </v-flex>
+                                <v-flex xs12 sm6 md2>
+                                    <v-checkbox v-model="perArr" label="可售产品" value="S"></v-checkbox>
+                                </v-flex>
+                            </v-layout>
+                        </v-layout>
+                    <!--</v-card-text>-->
+                </div>
+            </v-widget>
+        </div>
+        <v-btn class="showClass" @click="showCilck">{{showDesc}}</v-btn>
+        <div class="card">
+            <v-widget title="产品列表" class="v-widget">
+                <div slot="widget-content" style="overflow: hidden">
+                    <a-spin tip="请稍等..." :spinning="spinning">
+                        <v-list three-line class="listClass">
+                            <template v-for="(item, index) in searchTagProdList">
+                                <v-layout class="mt14">
+                                    <v-flex md2 lg2>
+                                        <v-layout>
+                                            <v-card class="radiusDc headClass">
+                                                <v-toolbar class="toolbarClass">
+                                                    {{item.prodType}}
+                                                </v-toolbar>
+                                                <v-card-text>
+                                                    {{item.prodDesc}}
+                                                </v-card-text>
+                                            </v-card>
+                                        </v-layout>
+                                    </v-flex>
+                                    <v-flex md9 lg9>
+                                        <v-layout>
+                                            <v-flex md6 lg6>
+                                                <v-subheader class="subClass">产品属性：{{item.prodRange}}</v-subheader>
+                                            </v-flex>
+                                            <v-flex md6 lg6>
+                                                <v-subheader class="subClass">产品状态：{{item.status}}</v-subheader>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout>
+                                            <v-flex md6 lg6>
+                                                <v-subheader class="subClass">基础产品：{{item.baseProdType}}</v-subheader>
+                                            </v-flex>
+                                            <v-flex md6 lg6>
+                                                <v-subheader class="subClass">币种：{{item.ccy}}</v-subheader>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout>
+                                            <v-flex md6 lg6>
+                                                <v-subheader class="subClass">所属模块：{{item.sourceModel}}</v-subheader>
+                                            </v-flex>
+                                            <v-flex md6 lg6>
+                                                <v-subheader class="subClass">所属机构：{{item.prodBranch}}</v-subheader>
+                                            </v-flex>
+                                        </v-layout>
+                                        <v-layout>
+                                            <v-flex md6 lg6>
+                                                <v-subheader class="subClass">生效日期：{{item.prodStartDate}}</v-subheader>
+                                            </v-flex>
+                                            <v-flex md6 lg6>
+                                                <v-subheader class="subClass">失效日期：{{item.prodEndDate}}</v-subheader>
+                                            </v-flex>
+                                        </v-layout>
+                                    </v-flex>
+                                    <v-flex md1 lg1>
+                                        <v-btn color="#7B82EE" round class="editClass" @click="editClick(item)">编辑查看>>
+                                        </v-btn>
+                                    </v-flex>
+                                </v-layout>
+                                <v-divider></v-divider>
+                            </template>
+                        </v-list>
+                    </a-spin>
+                </div>
+            </v-widget>
+        </div>
     </div>
 </template>
 
@@ -187,12 +177,15 @@
     import {getAllProdList} from '@/api/url/prodInfo';
     import {getAllDefines} from '@/api/url/prodInfo';
     import {getProdClassList} from '@/api/url/prodInfo';
-
+    import VWidget from "@/components/VWidget";
     import {
         getProdType
     } from '@/api/url/prodInfo'
 
     export default {
+        components: {
+            VWidget,
+        },
         data: () => ({
             perArr: [],
             statusArr: [],
@@ -447,98 +440,63 @@
 <style scoped>
     .card {
         margin: 40px 100px 0;
-        height: auto;
-        border-radius: 0px !important;
-        box-shadow: none !important;
-        border: 1px solid #D6D7DB !important;
+        background: #fff;
     }
-
-    .card1 {
-        margin: 0 100px;
-        height: auto;
-        border-radius: 0px !important;
-        box-shadow: none !important;
-        border: 1px solid rgba(0, 0, 0, .12) !important;
-        overflow: hidden;
-    }
-
     .layoutTitle {
-        /*margin-top: -2%;*/
         border-bottom: 1px solid rgba(0, 0, 0, .12);
     }
-
-    .btnClass {
-        height: 30px;
-        width: 110px;
-    }
-
     .subClass {
         margin-top: -3.5%
     }
-
     .editClass {
         height: 25px;
         margin-left: -42%;
         margin-top: 54%;
         color: #fff;
     }
-
     .headClass {
         height: 120px;
         width: 120px;
         margin-left: 15%;
+        text-align: center;
     }
-
     .toolbarClass {
-        height: 40px;
-        width: 100%;
+        height: 40px !important;
+        background-color: rgb(123, 130, 238) !important;
     }
-
+    .toolbarClass >>> .v-toolbar__content {
+        height: 40px !important;
+        line-height: 40px;
+        margin-top: 0px;
+        color: #fff;
+    }
     .listClass {
         overflow-y: scroll;
         max-height: 620px;
         width: 103%;
         padding-right: 2%;
     }
-
+    .listClass .mt14 {
+        margin-top: 14px
+    }
     .showClass {
         margin-left: 45%;
-        background-color: white;
+        background-color: white!important;
         width: 120px;
         margin-top: -1px;
         height: 30px;
     }
-
-    .fathercard >>> .v-card__text {
-        padding: 0 16px;
-    }
-
     .fathercard >>> .v-input--selection-controls {
         margin-top: 0px;
         padding-top: 0px;
-
     }
-
     .fathercard >>> .v-subheader.primary--text.subheading {
         padding: 0;
     }
-
     .fathercard >>> .v-input--selection-controls .v-input__slot {
         margin-bottom: 0;
     }
-
     .fathercard >>> .flex {
         margin-top: 12px;
     }
-
-    #fathercard >>> .theme--light.v-subheader {
-        color: rgba(0, 0, 0, .54) !important;
-    }
-
-    .primary.lighten-2 {
-        background-color: #F4F5F9 !important;
-        color: #58595E !important;
-        border-bottom: 1px solid #D6D7DB !important;
-    }
-
 </style>

@@ -1,19 +1,15 @@
 <template>
     <v-layout class="pt-4 father" >
-        <v-flex md3 lg3 class="ml-4">
+        <v-flex md3 lg3>
             <v-flex xs12>
                 <v-card class="top">
-                    <v-layout style="height: 64px;background-color: #F4F5F9!important;">
-                        <v-flex md11 lg11>
-                            <v-select :items="typeClass" hide-details v-model="selectValue" label="请选择分类"
-                                      item-text="value" color="write" item-value="key" single-line>
-                            </v-select>
-                        </v-flex>
-                    </v-layout>
+                    <v-select :items="typeClass" hide-details v-model="selectValue" label="请选择分类"
+                              item-text="value" color="write" item-value="key" single-line>
+                    </v-select>
                 </v-card>
             </v-flex>
-            <v-flex xs12 class="scroll" style="">
-                <v-card style="height: 400px; max-height: 400px;">
+            <v-flex xs12 class="scroll">
+                <v-card>
                     <v-list class="hidden_scroll">
                         <v-list-tile v-for="(item,index) in checkedClass" :key="index"
                                      @click="chipClick(item,index)" :class="activeClass == index ? 'active':''">
@@ -280,7 +276,6 @@
                         }
                     }
                 }
-
             },
             //判断已存在
             findIn(val, key) {
@@ -295,83 +290,43 @@
     }
 </script>
 <style scoped>
-    .prodList {
-        color: #00b0ff;
-        margin-left: -10px;
-    }
-
-    .title {
-        color: white;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 1px;
-        margin-bottom: auto
-    }
-
-    .father >>> .white {
-        background-color: #F4F5F9 !important;
-        box-shadow: none;
-        border: 1px solid rgba(0, 0, 0, .12) !important;
-        border-bottom: 0px solid rgba(0, 0, 0, .12) !important;
-        border-radius: 0px !important;
-    }
-
-    .father >>> .radiusDc {
-        box-shadow: none !important;
-        border-radius: 0px !important;
-    }
-
     .father >>> .theme--light.v-text-field--solo .v-input__slot {
         border: 1px solid rgba(0, 0, 0, .12);
     }
-
-    .father >>> .v-btn--floating.v-btn--small {
-        height: 35px;
-        width: 35px;
-    }
-
-    .father >>> .v-input--selection-controls .v-input__slot {
-        margin-bottom: 0px;
-    }
-
     .father >>> .v-select {
-        margin-top: 0;
-        padding: 15px 0px 15px 15px;
-        height: 64px;
-        line-height: 64px !important;
+        padding: 14px;
     }
-
-   .father div.v-menu__content {
-        top: 199px !important;
-    }
-
     .father >>> .v-text-field > .v-input__control > .v-input__slot:after {
         border-style: none !important;
+
     }
 
    .father >>> .v-text-field > .v-input__control > .v-input__slot:before {
         border-style: none !important;
     }
+    .father .top {
+        background-color: #dbdbdb !important;
 
-    .father >>> .top {
-        border: 1px solid #D6D6D6;
-        box-shadow: none;
     }
 
     .father .scroll {
-        borde: 1px solid #D3D3D3;
-        border-right: 1px solid #D3D3D3;
-        border-bottom: 1px solid #D3D3D3;
-        border-top: none;
+        border-right: 1px solid #cfcfcf;
+        border-top-width: 0px;
         position: relative;
         overflow: hidden;
+        border-bottom: 1px solid #cfcfcf !important;
     }
+    .father .scroll .theme--light{
+        height: 400px;
+        max-height: 400px;
+        border-top-width: 0px;
 
+    }
     .father .hidden_scroll {
         position: absolute;
         left: 0;
         top: 0;
-        right: -17px;
+        right: -18px;
         bottom: 0;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -386,21 +341,11 @@
         background-color: #3C73E6 !important;
         color: #fff;
     }
-
     .father >>> .v-list .v-list__tile--link:hover {
         background-color: rgba(0, 0, 0, 0) !important;
         color: rgba(85, 198, 255, 0.85) !important;
-        /*background-color:#eceff1 !important;*/
-
     }
-
     .father >>> .v-list__tile__content {
         padding-left: 20px;
-    }
-
-    .father .product >>> .v-card__text > .elevation-1 {
-        box-shadow: none !important;
-        border: 1px solid #ccc !important;
-        border-top: 0px solid #ccc !important;
     }
 </style>

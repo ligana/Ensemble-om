@@ -1,30 +1,12 @@
 <template>
-    <v-card>
-        <v-card-text class="pa-0">
-            <v-container class="pa-0">
-                <div class="layout row ma-0">
-                    <!--<div class="sm6 xs6 flex">-->
-                        <!--<div class="layout column ma-0 justify-center align-center">-->
-                            <!--&lt;!&ndash; <v-icon size="56px" :color="color">{{icon}}</v-icon> &ndash;&gt;-->
-                            <!--<v-avatar size="60" tile="false" color="white">-->
-                                <!--<span :class=classSpan>{{mark}}</span>-->
-                            <!--</v-avatar>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <div class="flex text-sm-center py-3 white--text" :class="color">
-                        <div class="unit-box">
-                            {{ subTitle }}
-                            <span class="unit">单位</span>
-                        </div>
-                    </div>
-                </div>
-                <!--<div class="unit-box">-->
-                <!--{{ subTitle }}-->
-                <!--<span class="unit">单位</span>-->
-                <!--</div>-->
-            </v-container>
-        </v-card-text>
-    </v-card>
+    <v-container class="pa-0">
+        <div class="flex text-sm-center py-3 white--text" :class="color">
+            <div class="unit-box">
+                {{ subTitle }}
+                <span class="unit">单位</span>
+            </div>
+        </div>
+    </v-container>
 </template>
 
 <script>
@@ -64,7 +46,6 @@
         background-size: cover;
         background-position: center center !important;
         height: 160px;
-
         position:relative;
     }
     .subject1 {

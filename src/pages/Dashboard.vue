@@ -1,5 +1,5 @@
 <template>
-  <div class="pageDashboard">
+  <!--<div class="pageDashboard">-->
     <v-container grid-list-xl fluid class="pb-5">
       <v-layout row wrap>
         <!-- mini statistic start -->
@@ -8,7 +8,6 @@
                   icon="fa fa-facebook"
                   mark="RB"
                   title="存款产品"
-                  class="elevation-2 radiusDc "
                   sub-title="210"
                   color="subject1"
           >
@@ -17,7 +16,6 @@
         <v-flex lg3 sm6 xs12 pad>
           <mini-statistic
                   icon="fa fa-google"
-                  class="elevation-2 radiusDc "
                   mark="CL"
                   title="贷款产品"
                   sub-title="187"
@@ -29,10 +27,9 @@
           <mini-statistic
                   icon="fa fa-twitter"
                   mark="GL"
-                  class="elevation-2 radiusDc"
                   title="内部帐"
                   sub-title="120"
-                  color=" subject3"
+                  color="subject3"
           >
           </mini-statistic>
         </v-flex>
@@ -40,7 +37,6 @@
           <mini-statistic
                   icon="fa fa-instagram"
                   mark="SF"
-                  class="elevation-2 radiusDc "
                   title="特色理财"
                   sub-title="20"
                   color="subject4"
@@ -51,7 +47,7 @@
         <v-flex lg8 sm12 xs12>
           <v-widget title="系统发布统计" content-bg="white" class="v-widget">
             <v-btn icon slot="widget-header-action">
-              <v-icon class="text--secondary" style='color:#7B82EE!important;'>refresh</v-icon>
+              <v-icon class="text--secondary">refresh</v-icon>
             </v-btn>
             <div slot="widget-content">
               <e-chart
@@ -99,17 +95,9 @@
             </div>
           </v-widget>
         </v-flex>
-        <!-- social/weather card start -->
-
       </v-layout>
-
     </v-container>
-<!--    <v-footer height="auto" class="white pa-3 app&#45;&#45;footer elevation-2 dcFooter">
-      <span class="caption">SmartEnsemble-om &copy; {{ new Date().getFullYear() }}</span>
-      <v-spacer></v-spacer>
-      <span class="caption mr-1"> ensemble-om </span> <v-icon color="pink" class="mr-2" small>favorite</v-icon>
-    </v-footer>-->
-  </div>
+  <!--</div>-->
 
 </template>
 
@@ -256,27 +244,6 @@ export default {
 };
 </script>
 <style lang="stylus" scoped>
-  .dcFooter{
-    position:absolute
-    bottom 0;
-    width: 100%
-  }
 
-  .radiusDc {
-    /*padding: 0px!important;*/
-      box-shadow: 0px 0px 0px 0px #fff !important;
-      background-color: #ecf0f6;
-  }
-    .pageDashboard >>> .v-toolbar__title h4 {
-        margin-bottom: .0em;
-    }
-    .v-widget >>> .v-card{
-        border-radius:0!important;
-        box-shadow:none!important;
-        border 1px solid #E0E4EA;
-    }
-    #v-widget >>>.v-toolbar{
-        background-color: #F4F5F9 !important;
-    }
 
   </style>

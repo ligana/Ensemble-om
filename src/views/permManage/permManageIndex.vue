@@ -4,8 +4,8 @@
             <v-flex md3 lg3 class="pl-4">
                 <v-flex xs12>
                     <v-card class="pt-4 e">
-                        <v-card-media src="/static/avatar/perm2.jpg" style="margin-top: -10%">
-                        </v-card-media>
+                        <v-img src="/static/avatar/perm2.jpg" style="margin-top: -10%">
+                        </v-img>
                     </v-card>
                 </v-flex>
                 <v-flex xs12 class="mt-2 pb-4">

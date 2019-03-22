@@ -292,51 +292,42 @@
 <style scoped>
     .PD >>> .v-toolbar__content {
         padding: 0;
-    }
-    .PD >>> .success--text {
-        color: #3C73E6 !important;
-        caret-color: #3C73E6 !important;
+        height: 48px!important;
     }
     .deepskyblue {
         display: flex;
         justify-content: flex-start;
-        height: 64px;
-        line-height: 64px;
+        height: 48px;
+        line-height: 48px;
     }
     .header {
         width: 33.333333333%;
-        border: 1px solid  rgba(40, 24, 31, 0.21);
         border-top-width: 0px;
         padding-left: 20px;
-        margin-right:1%;
     }
-    .header:nth-child(1){
-        border-left-width: 0px;
-    }
-    .header:nth-child(3){
-        border-right-width: 0px;
-        margin-right:0%;
+    .header:nth-child(2){
+        border-left: 1px solid  rgba(40, 24, 31, 0.21);
+        border-right: 1px solid  rgba(40, 24, 31, 0.21);
     }
     .diffListF {
         display: flex;
         justify-content: flex-start;
     }
     .diffList {
-        width: 32.66%;
-        border-right: 1px solid rgba(40, 24, 31, 0.21);
-        border-left: 1px solid rgba(40, 24, 31, 0.21);
-        text-align: center;
-        font-size: large;
-        margin-right:1%;
+        width: 33.333333333%;
+        border-top-width: 0px;
     }
-    .diffList:nth-child(1){
-        border-left-width: 0px;
+    .diffList:nth-child(2) {
+    border-left: 1px solid  rgba(40, 24, 31, 0.21);
+    border-right: 1px solid  rgba(40, 24, 31, 0.21);
     }
-
     .tbColor {
         background-color: #e3f2fd;
     }
-
+    .PD >>> .success--text {
+        color: #3C73E6 !important;
+        caret-color: #3C73E6 !important;
+    }
     .diffList .v-divider--inset:not(.v-divider--vertical) {
         margin-left: 0px;
         max-width: 888px;
@@ -344,7 +335,7 @@
 
     .prodDiffSwitch {
         display: inline-block;
-        margin-top: 4%;
+        margin-top: 2%;
     }
 
     .prodDiffButton {

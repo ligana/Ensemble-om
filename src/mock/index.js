@@ -33,9 +33,9 @@ import getPkListColumnRfAPI from './getPkListColumnRf'
 import getAttrInfoAPI from './getAttrInfo'
 import getDiffListAPI from './getProdDiff'
 import saveProdInfoAPI from './saveProdInfo'
-// import getCommonListAPI from './getCommonList'
+import getCommonListAPI from './getCommonList'
 // import reviewCheckListAPI from './reviewCheckList'
-// import getTaskListBySeqNoAPI from './getTaskListBySeqNo'
+import getTaskListBySeqNoAPI from './getTaskListBySeqNo'
 import getProdCompareDiffAPI from './getProdCompareDiff'
 
 
@@ -103,8 +103,8 @@ Mock.mock(/\/getPkListColumnRf\.*/, 'post', getPkListColumnRfAPI.getPkListColumn
 Mock.mock(/\/getAttrInfo\.*/, 'post', getAttrInfoAPI.getAttrInfo);
 Mock.mock(/\/getProdDiff\.*/, 'post', getDiffListAPI.getDiffList);
 Mock.mock(/\/saveProdInfo\.*/, 'post', saveProdInfoAPI.saveProdInfo);
-// Mock.mock(/\/getCommonList\.*/, 'post', getCommonListAPI.getCommonList);
+Mock.mock(/\/getCommonList\.*/, 'post', getCommonListAPI.getCommonList);
 // Mock.mock(/\/reviewCheckList\.*/, 'post', reviewCheckListAPI.getCheckFlowList);
-// Mock.mock(/\/getTaskListBySeqNo\.*/, 'post', getTaskListBySeqNoAPI.getTaskListBySeqNo);
+Mock.mock(/\/getTaskListBySeqNo\.*/, 'post', getTaskListBySeqNoAPI.getTaskListBySeqNo);
 Mock.mock(/\/getProdCompareDiff\.*/, 'post', getProdCompareDiffAPI.getProdCompareDiff);
 export default Mock;

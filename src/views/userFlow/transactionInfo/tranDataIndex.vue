@@ -1,7 +1,6 @@
 <template>
-<!--<<<<<<< HEAD-->
   <a-spin tip="Loading..." size="large" :spinning="spinning">
-    <div class=" tranDataIndex" >
+    <div class="tranDataIndex mt-4">
       <v-layout row wrap>
         <v-flex md8 lg8>
           <!--<tran-check-flow-info v-if="optKey==3"></tran-check-flow-info>-->
@@ -14,20 +13,19 @@
           </task-list-flex>
         </v-flex>
       </v-layout>
-      <v-card class="radiusDc">
-        <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" class="elevation-4" flat>
-          <!--<v-toolbar-side-icon @click="showClick" ></v-toolbar-side-icon>-->
-          <v-toolbar-title class="white--text" @click="showClick">修改差异展示</v-toolbar-title>
+      <v-card class="mt-4 diff">
+        <v-toolbar dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
+          <v-btn class="white--text" @click="showClick">修改差异展示</v-btn>
           <v-spacer></v-spacer>
-          <v-tooltip bottom color="blue">
+          <v-tooltip bottom color="#3C73E6">
             <v-btn flat icon slot="activator">
-              <v-icon class="mr-2" @click="printDown()" style="color: rgba(0,0,0,.54)">print</v-icon>
+              <v-icon class="mr-2" @click="printDown()" color="#3C73E6">print</v-icon>
             </v-btn>
             <span>打      印</span>
           </v-tooltip>
           <v-tooltip bottom color="blue">
             <v-btn flat icon slot="activator">
-              <v-icon @click="downLoad()" style="color: rgba(0,0,0,.54)">widgets</v-icon>
+              <v-icon @click="downLoad()" color="#3C73E6">widgets</v-icon>
             </v-btn>
             <span>导      出</span>
           </v-tooltip>
@@ -242,102 +240,114 @@
     }
 </script>
 <style scoped>
-  .diffTitle {
-    font-size: large;
+  /*.diffTitle {*/
+    /*font-size: large;*/
+  /*}*/
+  /*.imgUserIndexFlow {*/
+    /*width: 100px;*/
+    /*display: inline-block;*/
+    /*margin-left: 40%*/
+  /*}*/
+  /*.showMsg {*/
+    /*font-size: x-large;*/
+    /*font-style: inherit;*/
+    /*margin-left: 5%;*/
+    /*margin-top: 4%;*/
+  /*}*/
+  /*.descClass {*/
+    /*color: #f0ff1a;*/
+    /*font-size: large;*/
+    /*font-style: inherit;*/
+    /*margin-right: 0px;*/
+    /*margin-top: 10px;*/
+    /*margin-left: 10%;*/
+      /*background-color: #f0ff1a;*/
+  /*}*/
+  /*.textBox {*/
+    /*margin-top: 10px;*/
+      /*padding-top: 0px;*/
+      /*border-bottom: 1px solid #f0ff1a !important;*/
+      /*background-color: #f0ff1a;*/
+  /*}*/
+  /*.btnClass {*/
+    /*margin-top: 5%;*/
+    /*margin-left: 28%;*/
+    /*margin-bottom: 3%;*/
+    /*width: 50%;*/
+    /*font-size: large;*/
+      /*background-color: #f0ff1a;*/
+  /*}*/
+  /*.tranDataIndex >>> .primary.lighten-2  {*/
+      /*background-color: #f0ff1a !important;*/
+      /*color: #58595E!important;*/
+      /*border-bottom: 1px solid #D6D7DB!important;*/
+      /*box-shadow: none!important;*/
+  /*}*/
+    /*.tranDataIndex >>> .theme--light.v-card {*/
+        /*background-color: #f0ff1a !important;*/
+        /*color: #58595E!important;*/
+        /*border: 1px solid #D6D7DB!important;*/
+        /*box-shadow: none!important;*/
+        /*margin-top: 24px;*/
+    /*}*/
+  /*.tranDataIndex >>> .radiusDc {*/
+      /*border-radius:0px!important;*/
+      /*box-shadow: none!important;*/
+      /*!*border: 1px solid #D6D7DB!important;*!*/
+      /*!*border-bottom: none;*!*/
+  /*}*/
+
+  /*.tranDataIndex >>> .changeColor {*/
+      /*border-bottom: 1px solid rgba(0,0,0,.12);*/
+      /*background-color: #fff!important;*/
+  /*}*/
+
+  .tranDataIndex >>> .v-toolbar__content {
+      height: 48px!important;
   }
-  .imgUserIndexFlow {
-    width: 100px;
-    display: inline-block;
-    margin-left: 40%
-  }
-  .showMsg {
-    font-size: x-large;
-    font-style: inherit;
-    margin-left: 5%;
-    margin-top: 4%;
-  }
-  .descClass {
-    color: #A1A1A1;
-    font-size: large;
-    font-style: inherit;
-    margin-right: 0px;
-    margin-top: 10px;
-    margin-left: 10%
-  }
-  .textBox {
-    margin-top: 10px;
-      padding-top: 0px;
-      border-bottom: 1px solid #DDE2E8!important;
-  }
-  .btnClass {
-    margin-top: 5%;
-    margin-left: 28%;
-    margin-bottom: 3%;
-    width: 50%;
-    font-size: large;
-  }
-  .tranDataIndex >>> .primary.lighten-2  {
-      background-color: #F4F5F8 !important;
-      color: #58595E!important;
-      border-bottom: 1px solid #D6D7DB!important;
-      box-shadow: none!important;
-  }
-    .tranDataIndex >>> .theme--light.v-card {
-        background-color: #F4F5F8 !important;
-        color: #58595E!important;
-        border: 1px solid #D6D7DB!important;
-        box-shadow: none!important;
-        margin-top: 24px;
-    }
-  .tranDataIndex >>> .radiusDc {
-      border-radius:0px!important;
-      box-shadow: none!important;
-      /*border: 1px solid #D6D7DB!important;*/
-      /*border-bottom: none;*/
-  }
-  .tranDataIndex >>> .theme--light .v-toolbar__content {
-      height: 64px!important;
-      line-height: 64px;
-  }
-  .tranDataIndex >>> .changeColor {
-      border-bottom: 1px solid rgba(0,0,0,.12);
-      background-color: #fff!important;
-  }
-  .tranDataIndex >>> .theme--light .v-toolbar__content h4 {
-      margin-bottom: 0;
-  }
-  .tranDataIndex >>> .theme--light.v-stepper .v-stepper__step__step {
-      background-color: #3399FF!important;
-  }
-  .tranDataIndex >>> .theme--light.v-text-field.v-input--is-disabled .v-input__slot:before {
-      border: none;
-  }
-  .tranDataIndex >>> .v-text-field>.v-input__control>.v-input__slot:before {
-      border: none;
-  }
+  /*.tranDataIndex >>> .theme--light .v-toolbar__content h4 {*/
+      /*margin-bottom: 0;*/
+  /*}*/
+  /*.tranDataIndex >>> .theme--light.v-stepper .v-stepper__step__step {*/
+      /*background-color: #3399FF;*/
+  /*}*/
+  /*.tranDataIndex >>> .theme--light.v-text-field.v-input--is-disabled .v-input__slot:before {*/
+      /*border: none;*/
+  /*}*/
+  /*.tranDataIndex >>> .v-text-field>.v-input__control>.v-input__slot:before {*/
+      /*border: none;*/
+  /*}*/
   .white--text {
-      background: #3C73E6;
-      height: 44px;
-      line-height: 44px;
+      background: #3C73E6!important;
+      height: 36px;
+      line-height: 36px;
       font-size: 16px;
       padding: 0 5px;
       color: #fff!important;
       border-radius: 3px;
       cursor: pointer;
+      font-size: 14px;
   }
-  .tranDataIndex >>>  .v-stepper__header {
-      box-shadow:none!important;
-      border-bottom: 1px solid #D0D1D5!important;
-  }
+  /*.tranDataIndex >>>  .v-stepper__header {*/
+      /*box-shadow:none!important;*/
+      /*border-bottom: 1px solid #D0D1D5!important;*/
+  /*}*/
 
-  .tranDataIndex >>> .theme--light.v-stepper {
-      box-shadow: none;
-  }
-  .tranDataIndex >>> .difference.theme--light.v-card {
-      border: none!important;
-  }
-  .tranDataIndex >>> .difference .primary {
-      box-shadow: none!important;
-      border: 1px solid #D0D1D5!important;
-  }
+  /*.tranDataIndex >>> .theme--light.v-stepper {*/
+      /*box-shadow: none;*/
+  /*}*/
+  /*.tranDataIndex >>> .difference.theme--light.v-card {*/
+      /*border: none!important;*/
+  /*}*/
+  /*.tranDataIndex >>> .difference .primary {*/
+      /*box-shadow: none!important;*/
+      /*border: 1px solid #D0D1D5!important;*/
+  /*}*/
+  /*.v-card .v-toolbar__content {*/
+      /*height: 48px!important;*/
+      /*background-color: #f0ff1a;*/
+  /*}*/
+    .diff .v-toolbar {
+        border: 0px solid #000!important;
+    }
 </style>

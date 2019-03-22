@@ -1,36 +1,22 @@
 <template>
-    <div class="pt-5 pl-4">
+    <div class="pt-4 pl-4">
         <v-layout>
-            <v-flex md3 lg3 class="pl-4">
-                <v-flex xs12>
-                    <v-card class="radiusDc">
-                        <v-card-media class="card-media" height="64px">
-                            <v-card-title class="card_header">
-                                <v-layout>
-                                    <td><h3 class="" style="font-size: 16px;">{{title}}</h3></td>
-                                </v-layout>
-                                <!--<v-layout>-->
-                                    <td><h3 class="" style="">{{titleNum}}</h3></td>
-                                <!--</v-layout>-->
-                            </v-card-title>
-                        </v-card-media>
-                    </v-card>
-                </v-flex>
-                <v-flex xs12 class="PM">
-                    <v-card style="height: 200%" class="PM">
+            <v-flex md3 lg3 class="para">
+                <v-widget :title="title" class="v-widget">
+                    <div slot="widget-content" >
                         <v-list>
                             <v-list-tile v-for="item in items" :key="item.title" @click="actionTag(item)"
                                          :class="item.class">
                                 <v-list-tile-content>
-                                    <v-list-tile-title style="padding-left: 20px;">{{ item.title }}</v-list-tile-title>
+                                    <v-list-tile-title class="pl-4">{{ item.title }}</v-list-tile-title>
                                 </v-list-tile-content>
                                 <v-list-tile-content>
-                                    <v-list-tile-title style="text-align: right">{{ item.number }}</v-list-tile-title>
+                                    <v-list-tile-title class="pl-4 text-right">{{ item.number }}</v-list-tile-title>
                                 </v-list-tile-content>
                             </v-list-tile>
                         </v-list>
-                    </v-card>
-                </v-flex>
+                    </div>
+                </v-widget>
             </v-flex>
             <v-flex md10 lg10 class="pl-4 pb-4 pr-1 TM" >
                 <table-list v-if="action == 'model'"></table-list>
@@ -48,13 +34,14 @@
     import moduleManage from './tables/moduleManage'
     import {getSysTable} from "@/api/url/prodInfo";
     import columnInfo from '@/views/prodFactory/prodInfo/columnInfo';
-
+    import VWidget from "@/components/VWidget";
     export default {
         components: {
             tableColumn,
             tableList,
             moduleManage,
-            systemManage
+            systemManage,
+            VWidget
         },
         data() {
             return {
@@ -158,101 +145,19 @@
     }
 </script>
 <style scoped>
-    .windowTitle {
-        background-color: #9E9E9E;
-        border: 1px solid #a09ba269;
+    .para >>> .v-card__text,
+    .pmr >>> .v-card__text {
+        padding: 0!important;
     }
-
-    .windowItem {
-        border: 1px solid #a09ba269;
-        background-color: white
-    }
-
-    .shrink :hover {
-        background-color: #9E9E9E;
-    }
-
-    .selectedItem {
-        background-color: #9E9E9E;
-        border: 1px solid #a09ba269;
-    }
-
-    .spanItem {
-        height: 30px;
-        display: block;
-        margin-top: 15px;
-        color: #757575;
-    }
-
-    .spanItemSelected {
-        height: 30px;
-        display: block;
-        margin-top: 15px;
-        color: #000000;
+    .para >>> .v-list .v-list__tile--link:hover {
+        background-color: rgba(0, 0, 0, 0) !important;
+        color: rgba(85, 198, 255, 0.85) !important;
     }
     .selected {
         background-color: #3C73E6;
         color: #fff;
     }
-    .radiusDc {
-        box-shadow: none;
-        border-radius: 0 !important;
-    }
-
-    .radiusDc h3 {
-        margin-bottom: 0px;
-    }
-
-    .card_header {
-        background-color: rgb(244, 245, 249);
-        border: 1px solid #D6D6D6;
-        box-shadow: none;
-        height: 64px;
-        border-bottom: none;
-    }
-
-    .card_header .v-card__title {
-        padding: 22px 16px;
-    }
-
-    .PM {
-        margin-top: 0px !important;
-    }
-
-    .PM .v-card {
-        box-shadow: none;
-        border: 1px solid #D6D6D6;
-    }
-    .PM >>> .v-list__tile {
+    .para >>> .v-list__tile__title {
         transition:none;
     }
-    .PM >>> .v-list__tile__title {
-        transition:none;
-    }
-    .PM >>> .v-list .v-list__tile--link:hover {
-        background-color: rgba(0, 0, 0, 0) !important;
-        color: rgba(85, 198, 255, 0.85) !important;
-    }
-    .PM .v-list {
-        background-color: rgba(244, 245, 249, 0);
-    }
-    .TM .elevation-4 {
-        box-shadow:none!important;
-    }
-    .TM >>> .primary.lighten-2 {
-        background-color: rgb(244, 245, 249)!important;
-        border: 1px solid #D6D6D6!important;;
-        box-shadow: none!important;
-        color: rgba(0, 0, 0, 0.85);
-        border-bottom: none!important;
-    }
-    .TM >>> .v-btn__content td {
-        color: #3C73E6!important;
-    }
-    .TM >>> .elevation-4 >.elevation-1 {
-        box-shadow: none!important;
-        border: 1px solid #D6D6D6!important;
-    }
-
-   
 </style>

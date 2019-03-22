@@ -176,11 +176,11 @@
         box-shadow: none;
     }
 
-    .input {
-        border-top: none;
-        border: 1px solid #DCE1E7;
+    /*.input {*/
+        /*border-top: none;*/
+        /*border: 1px solid #DCE1E7;*/
 
-    }
+    /*}*/
 
     .input >>> .v-input__slot {
         border: 1px solid #ccc;
@@ -194,10 +194,8 @@
     }
     .input .search {
         box-shadow: none;
-        margin: 0;
+        margin:2px 0 0;
         height: 48px;
-        border-left: none;
-        border: 1px solid #3C73E6;
         background-color: #3C73E6!important;
         color: #fff;
         border-radius: 0 2px 2px 0;

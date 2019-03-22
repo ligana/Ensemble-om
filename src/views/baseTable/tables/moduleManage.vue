@@ -1,18 +1,15 @@
 <template>
-    <div class="elevation-4">
-        <v-toolbar color="primary lighten-2" dark>
+    <v-card>
+        <v-toolbar dark>
             <v-toolbar-title>交易模块管理</v-toolbar-title>
             <v-spacer></v-spacer>
-
             <v-dialog v-model="dialog" max-width="500px">
-                <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
-                    <td style="color: white;margin-left: 100px">添加</td>
-                </v-btn>
-                <v-card>
+                <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">添加</v-btn>
+                <v-card class="popups">
                     <v-card-title>
-                        <span style="color: #00b0ff;font-size: x-large;margin-left: 5%">{{ formTitle }}</span>
+                        <span>{{ formTitle }}</span>
                     </v-card-title>
-                    <v-card-text style="margin-top: -10%">
+                    <v-card-text>
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm12 md12 v-if="disabled=='true'">
@@ -36,10 +33,9 @@
                             </v-layout>
                         </v-container>
                     </v-card-text>
-                    <v-card-actions style="margin-top: -7%">
-                        <v-btn color="info" @click="close" class="bthStyle" style="margin-left: 6%">取消</v-btn>
-                        <v-spacer></v-spacer>
-                        <v-btn color="info" @click="save" class="bthStyle" style="margin-right: 6%">保存</v-btn>
+                    <v-card-actions>
+                        <v-btn color="info" @click="close" class="bthStyle">取消</v-btn>
+                        <v-btn color="info" @click="save" class="bthStyle">保存</v-btn>
                     </v-card-actions>
                 </v-card>
             </v-dialog>
@@ -50,24 +46,23 @@
                 <td>{{ props.item.systemId }}</td>
                 <td>{{ props.item.moduleName }}</td>
                 <td>{{ props.item.moduleDesc }}</td>
-
                 <td>
-                    <v-tooltip bottom color="blue" style="margin-left: -20px">
+                    <v-tooltip bottom color="#3C73E6" style="margin-left: -20px">
                         <v-btn flat icon slot="activator">
-                            <v-icon small class="mr-2" @click="editItem(props.item)" style="color: #0d47a1">edit</v-icon>
+                            <v-icon small @click="editItem(props.item)" color="#3C73E6">edit</v-icon>
                         </v-btn>
                         <span>修改</span>
                     </v-tooltip>
                     <v-tooltip bottom color="red" style="margin-left: -20px">
                         <v-btn flat icon slot="activator">
-                            <v-icon small @click="deleteItem(props.item)" style="color: red">delete</v-icon>
+                            <v-icon small @click="deleteItem(props.item)" color="red">delete</v-icon>
                         </v-btn>
                         <span>删除</span>
                     </v-tooltip>
                 </td>
             </template>
         </v-data-table>
-    </div>
+    </v-card>
 </template>
 <script>
     import {getSysTable} from "@/api/url/prodInfo";

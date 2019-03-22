@@ -4,8 +4,8 @@
             <v-flex md3 lg3 class="pl-4">
                 <v-flex xs12>
                     <v-card class="pt-4 elevation-4 radiusDc">
-                        <v-card-media src="/static/avatar/sys1.jpg">
-                        </v-card-media>
+                        <v-img src="/static/avatar/sys1.jpg">
+                        </v-img>
                     </v-card>
                 </v-flex>
                 <v-flex xs12 class="mt-2 pb-4">

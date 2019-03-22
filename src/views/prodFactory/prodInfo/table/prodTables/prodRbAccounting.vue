@@ -1,7 +1,7 @@
 <template>
     <v-layout class="pt-1" v-show="prodAccounting.length">
-        <v-flex md3 lg3 class="ml-3">
-            <v-card class="pt-1 elevation-1 sort">
+        <v-flex md3 lg3 class="ml-3 mt-2">
+            <v-card class="pt-1 sort">
                 <v-list>
                     <v-list-tile v-for="item in titleList" :key="item.key" @click="chipClick(item)">
                         <v-list-tile-content>
@@ -182,9 +182,6 @@
     }
 </script>
 <style scoped>
-    .sort .v-list > div{
-        border: 1px solid #DCE1E7;
-    }
     .prodList {
         color: #00b0ff;
         margin-left: -10px;
@@ -197,17 +194,16 @@
         margin-bottom: auto;
     }
     .dcMulti {
-        margin-top: 10px;
+        margin: 5px 0;
     }
     .sort_rightAll {
-        margin:12px 6px;
-        border: 1px solid #DCE1E7;
+        margin:10px 6px;
         padding-bottom: 10px;
     }
     .sort_rightOthrt {
         margin:12px 6px;
     }
-    .sort_rightOthrt >>>.ant-table-pagination.ant-pagination {
-        margin:16px 10px;
-    }
+    /*.sort_rightOthrt >>>.ant-table-pagination.ant-pagination {*/
+        /*margin:16px 10px;*/
+    /*}*/
 </style>

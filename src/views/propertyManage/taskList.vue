@@ -2,12 +2,12 @@
     <div class="vCard" v-show="show">
         <v-layout row wrap>
             <v-dialog v-model="diff" fullscreen hide-overlay transition="dialog-bottom-transition">
-                <v-card ref="print">
-                    <v-toolbar dark color="#3C73E6!important">
+                <v-card ref="print" >
+                    <v-toolbar dark color="#3C73E6!important" style="height: 64px!important">
                         <v-btn icon dark @click="closeDialog">
                             <v-icon>close</v-icon>
                         </v-btn>
-                        <v-toolbar-title>修改差异展示</v-toolbar-title>
+                        <v-toolbar-title style="color: #fff!important">修改差异展示</v-toolbar-title>
                         <v-spacer></v-spacer>
                     </v-toolbar>
                     <prod-diff-table :sendTranId="tranId" :sendTranType="tranType" :seqNo="code" :recSeqNo="recSeqNo"></prod-diff-table>
@@ -211,17 +211,21 @@
     };
 </script>
 <style lang="stylus" scoped>
+    .v-toolbar__content {
+        background-color: #ff1505!important
+    }
     .vCard {
         background-color white
         margin auto
         width 100%
         height 100%
     }
-
     .vToolbar {
         height 10%
     }
-
+    .vCard .v-card {
+        border-width 0px!important
+    }
     .vList {
         width 100%
         height 70%

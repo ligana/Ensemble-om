@@ -124,6 +124,6 @@
         color: #383B4D;
     }
     .pt-4 .v-toolbar__content .theme--dark{
-        color: #383B4D;;
+        color: #383B4D;
     }
 </style>

@@ -11,7 +11,7 @@
             </v-tooltip>
         </v-toolbar>
         <v-toolbar dense class="chat-history-toolbar prodLists">
-            <v-text-field style="padding-top: 5%" solo full-width clearable prepend-icon="search" class="top" label="请输入产品参数" v-model="searchValue"></v-text-field>
+            <v-text-field solo full-width clearable prepend-icon="search" class="top" label="请输入产品参数" v-model="searchValue"></v-text-field>
         </v-toolbar>
         <v-layout v-show="!searchValue">
             <v-flex xs6 md12>
@@ -297,15 +297,15 @@
     .edit >>> .v-toolbar {
         box-shadow: none;
     }
-    .edit >>> .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat) .v-input__slot{
-        box-shadow: none;
-    }
     .edit >>> .green--text {
         color: #3C73E6!important;
         caret-color: #3C73E6!important;
     }
     .edit >>> .theme--light.v-text-field--solo>.v-input__control>.v-input__slot {
-        min-height: 48px;
+        min-height: 32px;
+        box-shadow: none;
+        border: 1px solid #D6D6D6;
+        margin-top: 7px;
     }
     .edit >>> .v-text-field--full-width.v-text-field--single-line input {
         margin-top: 0;

@@ -3,7 +3,7 @@
         <v-content>
             <div class="login_flex">
                 <div class="img_box"> </div>
-                <v-card class="elevation-1 pa-3">
+                <v-card class="eleva pa-3">
                     <v-card-text>
                         <div class="logo_box">
                             <img src="/static/avatar/logo.png" alt="SmartEnsemble-om<" width="54" height="41">
@@ -106,13 +106,13 @@
         -webkit-background-size:100% 100%;
         background-size: 100% 100%;
         background-position: center center;
-
         flex: 7;
     }
-    .elevation-1 {
+    .eleva {
         flex:3;
         padding:0 3%!important;
         position: relative;
+        border: none!important;
     }
     .login_flex .h1_b {
         font:400 20px "Hiragino Sans GB - W6";
