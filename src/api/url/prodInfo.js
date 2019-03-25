@@ -1,5 +1,13 @@
 import request from '@/utils/request';
 import {asyncPost} from '@/utils/ajaxNoAsync';
+const sysHead = {
+    // system: {
+    userId: sessionStorage.getItem("userId"),
+    branch: sessionStorage.getItem("branch"),
+    company: sessionStorage.getItem("company"),
+    tranDate: new Date()
+    // }
+}
 export function getDepositProdInfo (params) {
     return request({
         url: '/getProdInfo',
@@ -13,6 +21,24 @@ export function getDepositProdListTow (params) {
         method: 'get',
         params
     });
+}
+
+export function flowTest (data) {
+    return request({
+        url: '/add',
+        method: 'post',
+        data: {
+            sysHead,
+            data
+        }
+    })
+}
+export function flowList (param) {
+    return request({
+        url: '/processDiagram',
+        method: 'post',
+        params: {processId: param}
+    })
 }
 export function getDepositProdList (params) {
     return request({
@@ -42,7 +68,7 @@ export function getDiffProd (params) {
 export function getProdData (prodType) {
     const data= {prodType: prodType};
     const reData=asyncPost('/getProdInfo',data);
-return reData;
+    return reData;
 }
 export function getProdDataAsync (prodType) {
     // const data={
@@ -158,7 +184,7 @@ export function getDiffTable (params) {
 }
 
 
-    export function getCheckFlowList () {
+export function getCheckFlowList () {
     return request({
         url: '/reviewCheckList',
         method: 'post'
@@ -305,6 +331,7 @@ export function getAttrInfo () {
     const reData=asyncPost('/getAttrInfo');
     return reData;
 }
+
 export function upload (params) {
     return request({
         url: '/upload',
@@ -317,5 +344,35 @@ export function getProdCompareDiff (params) {
         url: '/getProdCompareDiff',
         method: 'post',
         data: {prodType: params}
+    })
+}
+export function findProdHistory (params) {
+    return request({
+        url: '/findProdHistory',
+        method: 'post',
+        params: { tranId: params}
+    })
+}
+
+export function saveCollectProd (params) {
+
+    return request({
+        url: '/saveCollectProd',
+        method: 'post',
+        data: params
+    });
+}
+
+export function getUserCollectByUserId (params) {
+    return request({
+        url: '/getUserCollectByUserId',
+        method: 'post',
+        params: { userId: params}
+    })
+}export function findProdHistoryChange(params) {
+    return request({
+        url: '/findProdHistoryChange',
+        method: 'post',
+        params: { mainSeqNo: params}
     })
 }

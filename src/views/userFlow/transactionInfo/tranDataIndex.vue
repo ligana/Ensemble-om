@@ -157,11 +157,7 @@
                         let fileName = ""
                         fileName = date.getFullYear().toString()+(date.getMonth()+1).toString()+ date.getDate().toString()+"_"+this.releaseFlowInfo.flowManage.tranId.toString();
                         download2.download(response.data.data.sql, fileName, "text/plain");
-                        this.$swal({
-                            allowOutsideClick: false,
-                            type: 'success',
-                            title: "sql导出成功！",
-                        })
+                        this.sweetAlert('success',"sql导出成功!")
                     }
                 })
             },
@@ -175,19 +171,11 @@
                     this.confirmInfo.isApproved = isApproved
                     tranFlowInfo(this.confirmInfo).then(response => {
                         if(response.status === 200 && this.confirmInfo.isApproved === "Y") {
-                            this.$swal({
-                                allowOutsideClick: false,
-                                type: 'success',
-                                title: "复核成功！",
-                            })
+                            this.sweetAlert('success',"复核成功!")
                             this.$router.push({ name: 'userIndexFlow'});
                         }
                         if(response.status === 200 && this.confirmInfo.isApproved === "N") {
-                            this.$swal({
-                                allowOutsideClick: false,
-                                type: 'success',
-                                title: "驳回成功！",
-                            })
+                            this.sweetAlert('success',"驳回成功!")
                             this.$router.push({ name: 'userIndexFlow'});
                             let setTaskEvent= new Event("taskList");
                             window.dispatchEvent(setTaskEvent);
@@ -201,20 +189,12 @@
                     this.confirmInfo.isApproved = isApproved
                     tranFlowRelease(this.confirmInfo).then(response => {
                         if(response.status === 200 && this.confirmInfo.isApproved === "Y") {
-                            this.$swal({
-                                allowOutsideClick: false,
-                                type: 'success',
-                                title: "发布成功！",
-                            })
+                            this.sweetAlert('success',"发布成功!")
                             this.spinning=false
                             this.$router.push({ name: 'userIndexFlow'});
                         }
                         if(response.status === 200 && this.confirmInfo.isApproved === "N") {
-                            this.$swal({
-                                allowOutsideClick: false,
-                                type: 'success',
-                                title: "驳回成功！",
-                            })
+                            this.sweetAlert('success',"驳回成功!")
                             this.$router.push({ name: 'userIndexFlow'});
                             let setTaskEvent= new Event("taskList");
                             window.dispatchEvent(setTaskEvent);

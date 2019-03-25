@@ -72,13 +72,16 @@
 <script>
     import columnInfo from '@/views/prodFactory/prodInfo/columnInfo'
     import {getPkList} from '@/views/prodFactory/prodInfo/pkListColumnInfo'
-    import DcDanMultiselect from '@/components/widgets/DcDanMultiselect'
+    // import DcDanMultiselect from '@/components/widgets/DcDanMultiselect'
+    import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
     import DcSwitch from "@/components/widgets/DcSwitch";
     import DcTreeSelect from "@/components/widgets/DcTreeSelect";
-    import DcDanTextField from "@/components/widgets/DcDanTextField";
+    // import DcDanTextField from "@/components/widgets/DcDanTextField";
+    import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
     import DcDate from '@/components/widgets/DcDate'
     export default {
-        components: {DcDanMultiselect, DcSwitch, DcTreeSelect,DcDate,DcDanTextField},
+        // components: {DcDanMultiselect, DcSwitch, DcTreeSelect,DcDate,DcDanTextField}
+        components: {DcMultiselectTable, DcSwitch, DcTreeSelect,DcDate,DcTextFieldTable},
         props: {
             childPd: Boolean,
             selected: Object,

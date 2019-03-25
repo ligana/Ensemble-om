@@ -1,21 +1,75 @@
 <template>
         <v-layout row wrap>
-            <v-card style="height: 500px;width: 95%" class="_userinfo">
-                <v-toolbar color="primary " dark>
-                        <!--<v-btn icon >-->
-                            <!--<v-icon >person</v-icon>-->
-                        <!--</v-btn>-->
+<!--<<<<<<< HEAD-->
+            <!--<v-card style="height: 500px;width: 95%" class="_userinfo">-->
+                <!--<v-toolbar color="primary " dark>-->
+                        <!--&lt;!&ndash;<v-btn icon >&ndash;&gt;-->
+                            <!--&lt;!&ndash;<v-icon >person</v-icon>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</v-btn>&ndash;&gt;-->
+<!--=======-->
+            <v-card style="width: 95%;" class="elevation-4">
+                <v-toolbar color="primary lighten-2" dark>
+                    <v-btn icon>
+                        <v-icon>person</v-icon>
+                    </v-btn>
+<!--&gt;>>>>>> master-->
                     <v-toolbar-title>个人信息管理</v-toolbar-title>
-
                 </v-toolbar>
-                <form class="class2" ref="Form">
-                    <v-text-field v-model="userId" label="用户ID" required disabled append-icon="person" color="red"></v-text-field>
-                    <v-text-field v-model="name" :rules="nameRules" label="用户名称" required append-icon="edit"></v-text-field>
-                    <v-text-field v-model="email" :rules="emailRules" label="电子邮箱" required append-icon="email"></v-text-field>
-                    <v-text-field v-model="phone" :rules="phoneErrors" label="联系电话" required append-icon="phone"></v-text-field>
-                    <v-btn @click="submit" style="width: 122px;color: white;background-color: #00b0ff" round>确   认</v-btn>
-                    <v-btn @click="clear" style="width: 122px;color: white;background-color: #00b0ff" round>重   置</v-btn>
-                </form>
+                <v-layout row wrap>
+                    <v-flex md8 lg8>
+                        <v-form>
+                            <v-container>
+                                <v-layout row wrap>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-text-field v-model="userId" label="用户ID" append-icon="person" disabled color="red"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-text-field v-model="userRole[0].roleDesc" label="用户角色" append-icon="account_box" disabled color="red"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-text-field v-model="user[0].branch" label="所属部门" append-icon="chrome_reader_mode" disabled color="red"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-text-field v-model="userRole[0].roleLevel" label="用户角色等级" append-icon="star" disabled color="red"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-text-field v-model="user[0].userLevel" label="用户等级" append-icon="star" disabled color="red"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-text-field v-model="name" :rules="nameRules" label="用户名称" append-icon="edit"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-text-field v-model="email" :rules="emailRules" label="电子邮箱" append-icon="email"></v-text-field>
+                                    </v-flex>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-text-field v-model="phone" :rules="phoneErrors" label="联系电话" append-icon="phone"></v-text-field>
+                                    </v-flex>
+
+                                    <v-flex xs12 sm6 md6>
+                                        <v-btn @click="submit" style="width: 122px;color: white;background-color: #00b0ff" round>确   认</v-btn>
+                                    </v-flex>
+                                    <v-flex xs12 sm6 md6>
+                                        <v-btn @click="clear" style="width: 122px;color: white;background-color: #00b0ff" round>重   置</v-btn>
+                                    </v-flex>
+
+                                </v-layout>
+                            </v-container>
+                        </v-form>
+                    </v-flex>
+
+                    <v-flex md4 lg4>
+                        <div style="width: 1px;height: 100%;background: #000;float:left;width:0.5%">
+                        </div>
+                        <div style="float:left;width:99.5%;height:100%;">
+                            <v-card-text style="height: 400px; max-height: 100%;overflow-y: scroll">
+                                <h3>菜单权限</h3>
+                                <v-treeview
+                                        :items="tree"
+                                ></v-treeview>
+                            </v-card-text>
+                        </div>
+                    </v-flex>
+                </v-layout>
             </v-card>
         </v-layout>
 </template>
@@ -27,6 +81,7 @@
 
     export default {
         data: () => ({
+            open: 'Apps',
             valid: true,
             userId: '',
             name: '',
@@ -54,6 +109,11 @@
                     dataIndex: "userId"
                 }
             ],
+            item: [],
+            menuTree: [],
+            tree: [],
+            userRole: [],
+            user: [],
         }),
 
         created () {
@@ -67,6 +127,9 @@
                 //获取角色信息
                 getSysUserInfoByUser(userId).then(function (response) {
                     that.desserts = response.data.data.userInfo
+                    that.item = response.data.data.columnInfo;
+                    that.user = response.data.data.userInfo
+                    that.userRole = response.data.data.roleInfo
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                     for(let i=0; i<that.desserts.length; i++){
                         if(userId==that.desserts[i].userId){
@@ -76,27 +139,17 @@
                             that.phone=that.desserts[i].phone
                         }
                     }
+                    that.getTree(that.item)
+                    that.tree = that.menuTree
                 });
             },
             submit () {
                 if(this.name==''){
-                    this.$swal({
-                        allowOutsideClick: false,
-                        type: 'error',
-                        title: "个人信息修改失败！",
-                    })
+                    this.sweetAlert('error',"个人信息修改失败,提交失败!")
                 }else if(this.email==''){
-                    this.$swal({
-                        allowOutsideClick: false,
-                        type: 'info',
-                        title: "邮箱不能为空！",
-                    })
+                    this.sweetAlert('info',"邮箱不能为空!")
                 }else if(this.phone.length!=11){
-                    this.$swal({
-                        allowOutsideClick: false,
-                        type: 'info',
-                        title: "电话号码必须是11位！",
-                    })
+                    this.sweetAlert('info',"电话号码必须是11位!")
                 }else{
                     let userId = sessionStorage.getItem("userId")
                     for(let i=0; i<this.desserts.length; i++){
@@ -112,13 +165,10 @@
                     this.backValue.userName = sessionStorage.getItem("userId")
                     this.backValue.tableName = "OM_USER"
                     this.backValue.keySet = "USER_ID"
+                    this.$emit('changeName',this.name)
                     saveSysTable(this.backValue).then(response => {
                         if(response.status === 200){
-                            this.$swal({
-                                allowOutsideClick: false,
-                                type: 'success',
-                                title: "个人信息修改成功！",
-                            })
+                            this.sweetAlert('success',"个人信息修改成功!")
                             this.initialize()
                         }
                     })
@@ -137,6 +187,35 @@
                 }
             },
             //对象浅复制
+            getTree(menu) {
+                this.menuTree = []
+                let num = 0
+                for(let i=0; i<menu.length; i++){
+                    if(menu[i].menuParentId == null || menu[i].menuParentId == ""){
+                        let treeParent = {}
+                        treeParent.id=parseInt(menu[i].menuId)
+                        treeParent.code=menu[i].menuId
+                        treeParent.name=menu[i].menuTitle
+                        treeParent.children = []
+                        this.creatTree(treeParent,menu)
+                        this.menuTree[num] = treeParent
+                        num++
+                    }
+                }
+            },
+            creatTree(parent,menu) {
+                for(let i=0; i<menu.length; i++){
+                    if(menu[i].menuParentId == parent.code){
+                        let tree = {}
+                        tree.id=parseInt(menu[i].menuId)
+                        tree.code=menu[i].menuId
+                        tree.name=menu[i].menuTitle
+                        tree.children = []
+                        this.creatTree(tree,menu)
+                        parent.children.push(tree)
+                    }
+                }
+            },
             copy(obj1,obj2) {
                 var obj = obj2||{};
                 for(let name in obj1){

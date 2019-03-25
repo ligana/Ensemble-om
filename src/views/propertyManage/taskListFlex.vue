@@ -93,8 +93,27 @@
             },
             getTaskList() {
                 const parentSeqNo=this._props.seqNo;
+
                 getTaskListBySeqNo({"seqNo": parentSeqNo}).then(response => {
-                    this.items= response.data.data;
+                    let itemCop = response.data.data;
+                    let items = []
+                    for(let n=0; n<itemCop.length; n++){
+                        if(n == 0){
+                            items.push(itemCop[n])
+                        }
+                        if(n!=0){
+                            let num=0
+                            for(let m=0; m<items.length; m++){
+                                if(itemCop[n].tranId != items[m].tranId){
+                                    num++
+                                    if(num == items.length) {
+                                        items.push(itemCop[n])
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    this.items = items
                     for(let i=0; i<this.items.length; i++){
                         this.items[i].className=this.items[i].tranName
                     }
