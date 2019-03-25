@@ -703,11 +703,15 @@ export default [
       breadcrumb: true,
       title: '我收藏的产品'
     },
-    name: 'MyProd',
+    name: 'collectProduct',
     component: (resolve) =>
         /* webpackChunkName: "routes" */
         /* webpackMode: "lazy-once" */
+<<<<<<< HEAD
         require(['@/views/prodFactory/prodFlow/cardFlow/cardPatenProd3.vue'],resolve
+=======
+        require(['@/views/prodFactory/prodInfo/collectProd/collectProd.vue'],resolve
+>>>>>>> master
       )
   },
 
@@ -899,6 +903,20 @@ export default [
 )
 },
 
+    {
+        path: '/paramFlow',
+        meta: {
+            breadcrumb: true,
+            title: '流程引擎管理'
+        },
+        name: 'paramFlow',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramFlow/prodFlowForm.vue'],resolve
+            )
+    },
+
 {
     path: '/prodCmbs',
         meta: {
@@ -921,6 +939,19 @@ export default [
         component: (resolve) =>
             require(['@/views/prodFactory/prodDiff/prodCompareTitle.vue'],resolve)
     },
+<<<<<<< HEAD
+=======
+    {
+        path: '/prodChangeHistory',
+        meta: {
+            breadcrumb: true,
+            title: '产品操作历史'
+        },
+        name: 'prodChangeHistory',
+        component: (resolve) =>
+            require(['@/views/prodFactory/prodFlow/tableFlow/prodChangeHistory.vue'],resolve)
+    },
+>>>>>>> master
 
     {
         path: '/prodWindow',
@@ -948,6 +979,7 @@ export default [
     /* webpackMode: "lazy-once" */
     require(['@/views/baseTable/tables/tableInfo.vue'],resolve)
 },
+<<<<<<< HEAD
     {
         path: '/roleMenuAuthorzation',
         meta: {
@@ -960,6 +992,8 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/systemManage/tables/roleMenuAuthorzation.vue'],resolve)
     },
+=======
+>>>>>>> master
 
 
     {
@@ -998,6 +1032,18 @@ export default [
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
             require(['@/views/userFlow/userManagement/userInfoIndex.vue'],resolve)
+    },
+    {
+        path: '/roleMenuAuthorzation',
+        meta: {
+            breadcrumb: true,
+            title: '授权信息'
+        },
+        name: 'roleMenuAuthorzation',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/systemManage/tables/roleMenuAuthorzation.vue'],resolve)
     },
     {
         path: '/upload',

@@ -4,11 +4,15 @@ import Vue from 'vue';
 import VueSweetalert2 from 'vue-sweetalert2';
 import App from './App';
 import Vuetify from 'vuetify';
+import "babel-polyfill";
 import router from './router';
 import i18n from './lang';
 import 'font-awesome/css/font-awesome.css';
 import './theme/default.styl';
 import VeeValidate from 'vee-validate';
+import VueDragTree from 'vue-drag-tree';
+import dragTreeTable from 'drag-tree-table'
+import 'vue-drag-tree/dist/vue-drag-tree.min.css'
 import VueResource from 'vue-resource'
 import Truncate from 'lodash.truncate';
 import store from './store';
@@ -22,8 +26,12 @@ import './mock';
 
 import 'ant-design-vue/dist/antd.css';
 import 'vuetify/dist/vuetify.min.css'
+<<<<<<< HEAD
 import '../static/common/common.css'
 
+=======
+import alert from './alert.js'
+>>>>>>> master
 
 // ���� table �� ��ҳ���
 
@@ -47,8 +55,10 @@ Vue.config.productionTip = false;
 // Helpers
 // Global filters
 Vue.filter('truncate', Truncate);
-
+Vue.use(alert);
+Vue.use(VueDragTree)
 Vue.use(VueResource)
+Vue.use(dragTreeTable)
 Vue.use(VueSweetalert2)
 Vue.use(VeeValidate, {
   fieldsBagName: 'formFields'

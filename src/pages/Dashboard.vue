@@ -3,6 +3,7 @@
     <v-container grid-list-xl fluid class="pb-5">
       <v-layout row wrap>
         <!-- mini statistic start -->
+<<<<<<< HEAD
         <v-flex lg3 sm6 xs12 pad>
           <mini-statistic
                   icon="fa fa-facebook"
@@ -40,6 +41,16 @@
                   title="特色理财"
                   sub-title="20"
                   color="subject4"
+=======
+        <v-flex lg3 sm6 xs12 v-for="type in prodType" :key="type">
+          <mini-statistic
+                  icon="fa fa-facebook"
+                  :mark="type.prodClass"
+                  :title="type.prodDesc"
+                  class="elevation-2 radiusDc"
+                  :sub-title="type.num"
+                  :color="type.color"
+>>>>>>> master
           >
           </mini-statistic>
         </v-flex>
@@ -52,7 +63,7 @@
             <div slot="widget-content">
               <e-chart
                       :path-option="[
-                  ['dataset.source', siteTrafficData],
+                  ['dataset.source', dataTable],
                   ['color', [color.lightBlue.base, color.green.lighten1]],
                   ['legend.show', true],
                   ['xAxis.axisLabel.show', true],
@@ -79,7 +90,7 @@
             <div slot="widget-content">
               <e-chart
                       :path-option="[
-                  ['dataset.source', locationData],
+                  ['dataset.source', dataCircle],
                   ['legend.bottom', '0'],
                   ['color', [color.lightBlue.base, color.indigo.base, color.pink.base, color.green.base, color.cyan.base, color.teal.base]],
                   ['xAxis.show', false],
@@ -118,6 +129,10 @@ import BoxChart from "@/components/widgets/chart/BoxChart";
 import ChatWindow from "@/components/chat/ChatWindow";
 import CircleStatistic from "@/components/widgets/statistic/CircleStatistic";
 import LinearStatistic from "@/components/widgets/statistic/LinearStatistic";
+import { getAllProdList } from '@/api/url/prodInfo';
+import { getCheckFlowList } from '@/api/url/prodInfo';
+import {getProdClassList} from '@/api/url/prodInfo';
+
 export default {
   components: {
     VWidget,
@@ -136,9 +151,9 @@ export default {
     PlainTableOrder
   },
   data: () => ({
-    color: Material,
-    selectedTab: "tab-1",
-    linearTrending: [
+      color: Material,
+      selectedTab: "tab-1",
+      linearTrending: [
       {
         subheading: "Sales",
         headline: "2,55",
@@ -182,7 +197,7 @@ export default {
         }
       }
     ],
-    trending: [
+      trending: [
       {
         subheading: "Email",
         headline: "15+",
@@ -225,22 +240,142 @@ export default {
           color: "error"
         }
       }
-    ]
+    ],
+      prodType: [],
+      prod: [],
+      dataCircle: [
+      ],
+      dataTable: [
+          {
+              'month': 1,
+              '产品发布': 200,
+              '参数发布': 250,
+          },
+          {
+              'month': 2,
+              '产品发布': 300,
+              '参数发布': 350,
+          }
+      ],
+      colorInfo: [
+          "indigo",
+          "red",
+          "light-blue",
+          "purple"
+      ]
   }),
-  computed: {
-    activity() {
-      return API.getActivity();
+    computed: {
+        activity() {
+            return API.getActivity();
+        },
+        posts() {
+            return API.getPost(3);
+        },
+        siteTrafficData() {
+            return API.getMonthVisit;
+        },
     },
-    posts() {
-      return API.getPost(3);
+    created() {
+        this.getAllData();
     },
-    siteTrafficData() {
-      return API.getMonthVisit;
-    },
-    locationData() {
-      return API.getLocation;
+    methods: {
+        getAllData(){
+            this.getProd()
+            getCheckFlowList().then(response => {
+                let main = response.data.data
+                this.dataTable = []
+                for(let n=1; n<13; n++){
+                    let prodNum = 0
+                    let paramNum = 0
+                    for(let i=0; i<main.length; i++){
+                        let time = main[i].flowCheckInfo.tranTime.split("/")
+                        let equals = false
+                        if(n<10){
+                            let str = "0"+n.toString()
+                            if(str == time[1]){
+                                equals = true
+                            }
+                        }else{
+                            if(n.toString() == time[1]){
+                                equals = true
+                            }
+                        }
+                        if(equals){
+                            if(main[i].flowManage.status == "4"){
+                                if(main[i].flowManage.tranId == "MB_PROD_TYPE"){
+                                    prodNum++
+                                }else{
+                                    paramNum++
+                                }
+                            }
+                        }
+                    }
+                    let table = {}
+                    table['month'] = n
+                    table['产品发布'] = prodNum
+                    table['参数发布'] = paramNum
+                    this.dataTable.push(table)
+                }
+                console.log(this.dataTable)
+            })
+        },
+        //获取产品种类
+        getProd(){
+            getProdClassList().then(response => {
+                let prodClass = response.data.data
+                for(let i=0; i<prodClass.length; i++){
+                    if(prodClass[i].prodClassLevel == "1"){
+                        let prodC = {}
+                        prodC['prodClass'] = prodClass[i].prodClass
+                        prodC['prodDesc'] = prodClass[i].prodClassDesc
+                        this.prod.push(prodC)
+                    }
+                }
+                this.getProdType()
+            })
+        },
+        //获取各种产品的数量
+        getProdType() {
+            getAllProdList().then(response => {
+                let type = response.data.data
+                for(let i=0; i<this.prod.length; i++){
+                    let num = 0
+                    for(let j=0; j<type.length; j++){
+                        if(type[j].sourceModule == this.prod[i].prodClass){
+                            num++
+                        }
+                    }
+                    let data = {}
+                    data['prodClass'] = this.prod[i].prodClass
+                    data['prodDesc'] = this.prod[i].prodDesc
+                    data['num'] = num
+                    data['color'] = this.colorInfo[i%4]
+                    this.prodType.push(data)
+                }
+
+            })
+        },
+        //扇形图
+        locationData() {
+            let data = {}
+            this.dataCircle = []
+            data['value'] = this.RB
+            data['name'] = '存款'
+            this.dataCircle.push(data)
+            data = {}
+            data['value'] = this.GL
+            data['name'] = '内部账'
+            this.dataCircle.push(data)
+            data = {}
+            data['value'] = this.CL
+            data['name'] = '贷款'
+            this.dataCircle.push(data)
+            data = {}
+            data['value'] = this.SF
+            data['name'] = '特色理财产品'
+            this.dataCircle.push(data)
+        },
     }
-  }
 };
 </script>
 <style lang="stylus" scoped>

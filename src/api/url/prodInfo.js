@@ -2,10 +2,17 @@ import request from '@/utils/request';
 import {asyncPost} from '@/utils/ajaxNoAsync';
 const sysHead = {
     // system: {
+<<<<<<< HEAD
     userId: sessionStorage.getItem("userId"),
     branch: sessionStorage.getItem("branch"),
     company: sessionStorage.getItem("company"),
     tranDate: new Date()
+=======
+        userId: sessionStorage.getItem("userId"),
+        branch: sessionStorage.getItem("branch"),
+        company: sessionStorage.getItem("company"),
+        tranDate: new Date()
+>>>>>>> master
     // }
 }
 export function getDepositProdInfo (params) {

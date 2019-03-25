@@ -1,7 +1,13 @@
 <template>
+<<<<<<< HEAD
     <v-card class="edit">
         <v-toolbar card color="blue-grey lighten-5" >
             <v-toolbar-title style="font-size: large; color: slategrey;">{{labelText}}</v-toolbar-title>
+=======
+    <v-card>
+        <v-toolbar card color="blue-grey lighten-5">
+            <v-toolbar-title style="font-size: large; color: slategrey">{{labelText}}</v-toolbar-title>
+>>>>>>> master
             <v-spacer></v-spacer>
             <v-tooltip bottom color="#3C73E6">
                 <v-btn flat icon="edit" slot="activator" color="blue" @click="saveClick">
@@ -10,16 +16,32 @@
                 <span>应用</span>
             </v-tooltip>
         </v-toolbar>
+<<<<<<< HEAD
         <v-toolbar dense class="chat-history-toolbar prodLists">
             <v-text-field solo full-width clearable prepend-icon="search" class="top" label="请输入产品参数" v-model="searchValue"></v-text-field>
+=======
+        <v-toolbar dense>
+            <v-text-field solo clearable style="height: 100%" prepend-icon="search" label="请输入产品参数" v-model="searchValue"></v-text-field>
+>>>>>>> master
         </v-toolbar>
-        <v-layout v-show="!searchValue">
             <v-flex xs6 md12>
                 <v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll">
-                    <v-treeview slot="header" v-model="tree" activatable :items="items" selected-color="green" open-on-click selectable :options="options" expand-icon="mdi-assignment_turned_in-down" labelDesc="labelDesc">
+                    <v-treeview
+                            :search="searchValue"
+                            slot="header"
+                            v-model="tree"
+                            activatable
+                            :items="items"
+                            selected-color="green"
+                            open-on-click
+                            selectable
+                            :options="options"
+                            expand-icon="mdi-assignment_turned_in-down"
+                            labelDesc="labelDesc">
                     </v-treeview>
                 </v-card-text>
             </v-flex>
+<<<<<<< HEAD
         </v-layout>
         <v-layout v-show="searchValue">
             <v-flex xs6 md12>
@@ -29,6 +51,8 @@
                 </v-card-text>
             </v-flex>
         </v-layout>
+=======
+>>>>>>> master
         <v-divider></v-divider>
         <v-layout>
             <v-flex xs6 md12>
@@ -61,14 +85,15 @@
                 brewerie: [],
                 tree: [],
                 tLen: '',
-                tree2: [],
                 copTree: [],
                 diffTree: [],
                 options: [],
                 labelText: "",
                 backValue: [],
-                searchValue: '',
-                same: false
+                searchValue: null,
+                same: false,
+                open: [1, 2],
+                caseSensitive: false
             };
         },
         computed: {
@@ -79,22 +104,6 @@
                     if (!brewery) continue
                     selections.push(brewery)
                 }
-                for (const leaf2 of this.tree2) {
-                    let same = false
-                    if(selections.length != 0){
-                        for(let i=0; i<selections.length; i++){
-                            if(leaf2 == selections[i].id){
-                                same = true
-                            }
-                        }
-                    }
-                    const brewery = this.brewerie.find(brewery => brewery.id + "" === leaf2 + "")
-                    if (!brewery) continue
-                    if(same == false){
-                        selections.push(brewery)
-                    }
-                }
-
                 /*        this.backValue = this.tree*/
                 return selections
             }
@@ -115,50 +124,6 @@
                     console.log(msg)
                 }
             },
-            tree2: {
-                handler(msg){
-                    console.log(msg)
-                }
-            },
-            searchValue() {
-                this.tLen = this.tree.length
-                this.lists = []
-                if(this.tree2.length != 0){
-                    for(let i=0; i<this.tree2.length; i++){
-                        let same=false
-                        for(let j=0; j<this.tree.length; j++){
-                            if(this.tree2[i] == this.tree[j]){
-                                same=true
-                            }
-                        }
-                        if(same == false){
-                            this.tree.push(this.tree2[i])
-                        }
-                    }
-                }
-                this.tree2 = []
-                for(let i=0; i<this.items.length; i++){
-                    for(let j=0; j<this.items[i].children.length; j++){
-                        if(this.items[i].children[j].name.search(this.searchValue)!=-1){
-                            this.lists.push(this.items[i].children[j])
-                        }
-                    }
-                }
-                if(this.tree.length != 0){
-                    for(let i=0; i<this.tree.length; i++){
-                        let same = false
-                        for(let j=0; j<this.lists.length; j++){
-                            if(this.tree[i] == this.lists[j].id){
-                                same = true
-                            }
-                        }
-                        if(same == true){
-                            this.tree2.push(this.tree[i])
-                        }
-                    }
-                }
-            }
-
         },
         mounted() {
             this.init();
@@ -166,11 +131,6 @@
         },
         methods: {
             saveClick() {
-                if(this.tree2.length != 0){
-                    for(let i=0; i<this.tree2.length; i++){
-                        this.tree.push(this.tree2[i])
-                    }
-                }
                 if(!this.tree.length){
                     this.$swal({
                         allowOutsideClick: false,
@@ -203,21 +163,6 @@
                 }
                 if(id>0&&this.tree.indexOf(id)>=0){
                     this.tree.splice(this.tree.indexOf(id),1)
-                }
-                if(this.tree2.indexOf(name.id) != -1){
-                    this.tree2.splice(this.tree2.indexOf(name.id),1)
-                    let id=0;
-                    for(const index in items){
-                        const item= items[index]
-                        for(const cIndex in item.children){
-                            if(item.children[cIndex].id ==name.id){
-                                id=item.id;
-                            }
-                        }
-                    }
-                    if(id>0&&this.tree2.indexOf(id)>=0){
-                        this.tree2.splice(this.tree2.indexOf(id),1)
-                    }
                 }
             },
             init() {
@@ -273,14 +218,11 @@
             initParam(val){
                 //根据v-model绑定数据初始化树形结构
                 this.tree = []
-                this.tree2 = []
                 if(this._props.msg !== undefined){
                     if(this._props.msg instanceof Array){
                         this.tree =this._props.msg
-                        this.tree2 =this._props.msg
                     }else{
                         this.tree = this._props.msg.split(",")
-                        this.tree2 = this._props.msg.split(",")
                     }
                 }
             }

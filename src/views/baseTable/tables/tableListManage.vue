@@ -3,9 +3,25 @@
         <v-toolbar dark>
             <v-toolbar-title>交易属性管理</v-toolbar-title>
             <v-spacer></v-spacer>
+<<<<<<< HEAD
             <v-dialog v-model="dialog" max-width="500px" >
                 <v-btn slot="activator" flat color="#3C73E6" @click="addClick"> 添加 </v-btn>
                 <v-card class="popups">
+=======
+            <v-text-field
+                    clearable
+                    v-model="search"
+                    prepend-icon="search"
+                    label="Search"
+                    single-line
+                    hide-details
+            ></v-text-field>
+            <v-dialog v-model="dialog" max-width="500px" persistent>
+                <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
+                    <td style="color: white;margin-left: 100px">添加</td>
+                </v-btn>
+                <v-card>
+>>>>>>> master
                     <v-card-title>
                         <span>{{ formTitle }}</span>
                     </v-card-title>
@@ -31,7 +47,7 @@
                                     <v-select v-model="editedItem.parameter" label="参数类型" :items="paramType" item-text="value" item-value="key"></v-select>
                                 </v-flex>
                                 <v-flex xs6 sm6 md6>
-                                    <v-text-field v-model="editedItem.searchColumn" label="检索条件"></v-text-field>
+                                    <v-select v-model="editedItem.searchColumn" label="检索条件" :items="searchColumn" item-text="value" item-value="key" multiple></v-select>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -43,7 +59,7 @@
                 </v-card>
             </v-dialog>
         </v-toolbar>
-        <v-data-table :headers="headers" :items="desserts" class="elevation-1">
+        <v-data-table :headers="headers" :items="desserts" :search="search" class="elevation-1">
             <template slot="items" slot-scope="props">
                 <td>{{ props.item.tableName }}</td>
                 <td>{{ props.item.tableDesc }}</td>
@@ -66,6 +82,9 @@
                     </v-tooltip>
                 </td>
             </template>
+            <v-alert slot="no-results" :value="true" color="error" icon="warning">
+                Your search for "{{ search }}" found no results.
+            </v-alert>
         </v-data-table>
     </v-card>
 </template>
@@ -76,6 +95,7 @@
     import {saveSysTable} from "@/api/url/prodInfo";
     import toast from '@/utils/toast';
     import {getSysInfoByUser} from "@/api/url/prodInfo";
+    import {getParamTable} from "@/api/url/prodInfo";
 
     export default {
         props: ["title"],
@@ -84,7 +104,11 @@
             disabled: "false",
             system: [],
             model: [],
+<<<<<<< HEAD
             icon: String,
+=======
+            searchColumn: [],
+>>>>>>> master
             paramType: [
                 {
                     key: "init",
@@ -96,16 +120,17 @@
                 }
             ],
             headers: [
-                { text: '交易ID',sortable: false},
-                { text: '交易名称',sortable: false},
-                { text: '所属系统',sortable: false },
-                { text: '所属模块',sortable: false },
-                { text: '参数类型',sortable: false },
-                { text: '检索条件',sortable: false },
-                { text: 'Action',sortable: false }
+                { text: '交易ID',sortable: false,value: 'tableName'},
+                { text: '交易名称',sortable: false,value: 'tableDesc'},
+                { text: '所属系统',sortable: false,value: 'system' },
+                { text: '所属模块',sortable: false,value: 'modelId' },
+                { text: '参数类型',sortable: false,value: 'parameter' },
+                { text: '检索条件',sortable: false,value: 'searchColumn' },
+                { text: 'Action',sortable: false, }
             ],
             desserts: [],
             sourceData: [],
+            mafanData: [],
             keySet: [
                 {
                     key: "true",
@@ -130,7 +155,8 @@
                 parameter: '',
                 searchColumn: ''
             },
-            backValue: {}
+            backValue: {},
+            search: '',
         }),
 
         computed: {
@@ -186,16 +212,54 @@
                 this.disabled = "false"
             },
             editItem (item) {
-                this.editedIndex = this.desserts.indexOf(item)
-                this.editedItem = Object.assign({}, item)
-                this.dialog = true
-                this.disabled = "true";
+                let that = this
+                that.editedIndex = this.desserts.indexOf(item)
+                let changeItem = Object.assign({}, item)
 
+                that.editedItem['tableName'] = changeItem.tableName
+                that.editedItem['tableDesc'] = changeItem.tableDesc
+                that.editedItem['system'] = changeItem.system
+                that.editedItem['modelId'] = changeItem.modelId
+                that.editedItem['parameter'] = changeItem.parameter
+                if(changeItem.searchColumn != null){
+                    let searchColumns = changeItem.searchColumn.split(",")
+                    that.editedItem['searchColumn'] = searchColumns
+                }else{
+                    that.editedItem['searchColumn'] = []
+                }
+                getParamTable(that.editedItem.tableName).then(function (response) {
+                    let dataInfo = []
+                    that.searchColumn = []
+                    dataInfo = response.data.data.column;
+                    for(let i=0; i< dataInfo.length; i++){
+                        let temp={}
+                        temp["key"] = dataInfo[i].code
+                        temp["value"] = dataInfo[i].title
+                        that.searchColumn.push(temp)
+                    }
+                    that.dialog = true
+                    that.disabled = "true";
+                })
             },
 
             deleteItem (item) {
-                const index = this.desserts.indexOf(item)
-                confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+                const index = this.mafanData.indexOf(item)
+                let confirms = confirm('Are you sure you want to delete this item?')
+                if(confirms == true){
+                    this.desserts.splice(index, 1)
+                    //保存数据落库
+                    this.backValue.data = filterTableChangeData(this.keySet,this.desserts,this.sourceData)
+                    this.backValue.userName = sessionStorage.getItem("userId")
+                    this.backValue.tableName = "OM_TABLE_LIST"
+                    this.backValue.keySet = "TABLE_NAME"
+                    this.sourceData = []
+                    this.sourceData = this.copy(this.desserts,this.sourceData)
+                    saveSysTable(this.backValue).then(response => {
+                        if(response.status === 200){
+                            this.sweetAlert('success',"删除成功!")
+                        }
+                    })
+                }
             },
 
             close () {
@@ -207,19 +271,40 @@
             },
 
             save () {
+                let changeItem = {}
+                if(this.editedItem.searchColumn != null && Array.isArray(this.editedItem.searchColumn)){
+                    let searchColumns = ""
+                    for(let i=0; i<this.editedItem.searchColumn.length; i++){
+                        if(searchColumns == ""){
+                            searchColumns = this.editedItem.searchColumn[i]
+                        }else{
+                            searchColumns = searchColumns +","+ this.editedItem.searchColumn[i]
+                        }
+                    }
+                    changeItem['searchColumn'] = searchColumns
+                }else{
+                    changeItem['searchColumn'] = this.editedItem.searchColumn
+                }
+                changeItem['tableName'] = this.editedItem.tableName
+                changeItem['tableDesc'] = this.editedItem.tableDesc
+                changeItem['system'] = this.editedItem.system
+                changeItem['modelId'] = this.editedItem.modelId
+                changeItem['parameter'] = this.editedItem.parameter
+
                 if (this.editedIndex > -1) {
-                    Object.assign(this.desserts[this.editedIndex], this.editedItem)
+                    Object.assign(this.desserts[this.editedIndex], changeItem)
                 } else {
-                    this.desserts.push(this.editedItem)
+                    this.desserts.push(changeItem)
                 }
                 //保存数据落库
                 this.backValue.data = filterTableChangeData(this.keySet,this.desserts,this.sourceData)
                 this.backValue.userName = sessionStorage.getItem("userId")
                 this.backValue.tableName = "OM_TABLE_LIST"
                 this.backValue.keySet = "TABLE_NAME"
+                this.sourceData = this.copy(this.desserts,this.sourceData)
                 saveSysTable(this.backValue).then(response => {
                     if(response.status === 200){
-                        toast.success("提交成功！");
+                        this.sweetAlert('success',"提交成功!")
                     }
                 })
                 this.close()
@@ -237,18 +322,6 @@
                 }
                 return obj;
             },
-            saveClick() {
-                //保存数据落库
-                this.backValue.data = filterTableChangeData(this.keySet,this.desserts,this.sourceData)
-                this.backValue.userName = sessionStorage.getItem("userId")
-                this.backValue.tableName = "OM_TABLE_LIST"
-                this.backValue.keySet = "TABLE_NAME"
-                saveSysTable(this.backValue).then(response => {
-                    if(response.status === 200){
-                        toast.success("提交成功！");
-                    }
-                })
-            }
         }
     }
 </script>

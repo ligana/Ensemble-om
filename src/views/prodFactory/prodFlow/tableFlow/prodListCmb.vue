@@ -22,9 +22,24 @@
                         <td>{{ props.item.baseProdType }}</td>
                         <td>{{ props.item.status === "A"?"有效":"封存"}}</td>
                         <td>
+<<<<<<< HEAD
                             <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
                                 <v-icon>edit</v-icon>
                             </v-btn>
+=======
+                            <v-layout>
+                                <v-flex md6 lg6>
+                                    <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
+                                        <v-icon>edit</v-icon>
+                                    </v-btn>
+                                </v-flex>
+                                <v-flex md6 lg6>
+                                    <v-btn depressed outline icon fab dark color="primary" small @click="changeHistory(props.item)">
+                                        <v-icon>polymer</v-icon>
+                                    </v-btn>
+                                </v-flex>
+                            </v-layout>
+>>>>>>> master
                         </td>
                     </tr>
                 </template>
@@ -127,6 +142,7 @@
                 }
                 if(prodRange == "B" && sourceModule == "CL") {
                     this.$router.push({name: "BaseProdFormCl", hash: prodType});
+<<<<<<< HEAD
                 }
                 if(prodRange == "B" && sourceModule == "GL") {
                     this.$router.push({name: "BaseProdFormGl", hash: prodType});
@@ -139,7 +155,25 @@
                 }
                 if(prodRange == "S" && sourceModule == "GL"){
                     this.$router.push({name: "SoldProdFormGl", hash: prodType});
+=======
                 }
+                if(prodRange == "B" && sourceModule == "GL") {
+                    this.$router.push({name: "BaseProdFormGl", hash: prodType});
+                }
+                if(prodRange == "S" && sourceModule == "RB"){
+                    this.$router.push({name: "SoldProdForm", hash: prodType});
+                }
+                if(prodRange == "S" && sourceModule == "CL"){
+                    this.$router.push({name: "SoldProdFormCl", hash: prodType});
+>>>>>>> master
+                }
+                if(prodRange == "S" && sourceModule == "GL"){
+                    this.$router.push({name: "SoldProdFormGl", hash: prodType});
+                }
+            },
+            changeHistory(val){
+                let prodType = val.prodType;
+                this.$router.push({name: "prodChangeHistory", hash: prodType});
             }
         }
     };

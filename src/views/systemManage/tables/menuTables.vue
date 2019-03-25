@@ -66,13 +66,21 @@
                 <td>{{ props.item.menuComponent }}</td>
                 <td style="width: 50px">
                     <v-tooltip bottom color="blue" style="margin-left: -40px">
+<<<<<<< HEAD
                         <v-btn flat icon slot="activator" @click="editItem(props.item)">
+=======
+                        <v-btn flat icon="edit" slot="activator" @click="editItem(props.item)">
+>>>>>>> master
                             <v-icon small class="mr-2" style="color: #0d47a1">edit</v-icon>
                         </v-btn>
                         <span>修改</span>
                     </v-tooltip>
                     <v-tooltip bottom color="red" style="margin-left: -33px">
+<<<<<<< HEAD
                         <v-btn flat icon slot="activator" @click="deleteItem(props.item)">
+=======
+                        <v-btn flat icon="delete" slot="activator" @click="deleteItem(props.item)">
+>>>>>>> master
                             <v-icon small style="color: red">delete</v-icon>
                         </v-btn>
                         <span>删除</span>

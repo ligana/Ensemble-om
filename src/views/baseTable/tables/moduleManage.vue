@@ -1,8 +1,23 @@
 <template>
+<<<<<<< HEAD
     <v-card>
         <v-toolbar dark>
             <v-toolbar-title>交易模块管理</v-toolbar-title>
             <v-spacer></v-spacer>
+=======
+    <div class="elevation-4">
+        <v-toolbar color="primary lighten-2" dark>
+            <v-toolbar-title>模块管理</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-text-field
+                    clearable
+                    v-model="search"
+                    prepend-icon="search"
+                    label="Search"
+                    single-line
+                    hide-details
+            ></v-text-field>
+>>>>>>> master
             <v-dialog v-model="dialog" max-width="500px">
                 <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">添加</v-btn>
                 <v-card class="popups">
@@ -40,7 +55,7 @@
                 </v-card>
             </v-dialog>
         </v-toolbar>
-        <v-data-table :headers="headers" :items="desserts" class="elevation-1">
+        <v-data-table :headers="headers" :items="desserts" :search="search" class="elevation-1">
             <template slot="items" slot-scope="props">
                 <td>{{ props.item.moduleId }}</td>
                 <td>{{ props.item.systemId }}</td>
@@ -61,6 +76,9 @@
                     </v-tooltip>
                 </td>
             </template>
+            <v-alert slot="no-results" :value="true" color="error" icon="warning">
+                Your search for "{{ search }}" found no results.
+            </v-alert>
         </v-data-table>
     </v-card>
 </template>
@@ -82,10 +100,10 @@
             system: [],
             module: [],
             headers: [
-                { text: '模块ID',sortable: false},
-                { text: '系统ID',sortable: false},
-                { text: '模块名称',sortable: false },
-                { text: '模块描述',sortable: false },
+                { text: '模块ID',sortable: false,value: 'moduleId'},
+                { text: '系统ID',sortable: false,value: 'systemId'},
+                { text: '模块名称',sortable: false,value: 'moduleName' },
+                { text: '模块描述',sortable: false,value: 'moduleDesc' },
                 { text: 'Action',sortable: false }
             ],
             desserts: [],
@@ -114,7 +132,8 @@
                 moduleName: '',
                 moduleDesc: ''
             },
-            backValue: {}
+            backValue: {},
+            search: ''
         }),
 
         computed: {
@@ -168,7 +187,23 @@
 
             deleteItem (item) {
                 const index = this.desserts.indexOf(item)
-                confirm('Are you sure you want to delete this item?') && this.desserts.splice(index, 1)
+                let confirms = confirm('Are you sure you want to delete this item?')
+                if(confirms == true){
+                    this.desserts.splice(index, 1)
+                    //保存数据落库
+                    this.backValue.data = filterTableChangeData(this.keySet,this.desserts,this.sourceData)
+                    this.backValue.userName = sessionStorage.getItem("userId")
+                    this.backValue.tableName = "OM_MODULE_ORG"
+                    this.backValue.keySet = "MODULE_ID,SYSTEM_ID"
+                    this.sourceData = []
+                    this.sourceData = this.copy(this.desserts,this.sourceData)
+                    saveSysTable(this.backValue).then(response => {
+                        if(response.status === 200){
+                            this.sweetAlert('success',"删除成功!")
+                        }
+                    })
+                }
+
             },
 
             close () {
@@ -190,9 +225,10 @@
                 this.backValue.userName = sessionStorage.getItem("userId")
                 this.backValue.tableName = "OM_MODULE_ORG"
                 this.backValue.keySet = "MODULE_ID,SYSTEM_ID"
+                this.sourceData = this.copy(this.desserts,this.sourceData)
                 saveSysTable(this.backValue).then(response => {
                     if(response.status === 200){
-                        toast.success("提交成功！");
+                        this.sweetAlert('success',"提交成功!")
                     }
                 })
                 this.close()

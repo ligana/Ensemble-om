@@ -2,9 +2,14 @@
   <div class="input">
     <v-layout row wrap>
       <v-flex md12 lg12>
+<<<<<<< HEAD
       <v-toolbar dense class="chat-history-toolbar prodLists" style="background-color: #fff;">
         <v-text-field flat solo full-width clearable class="top" label="请输入产品代码或描述" v-model="searchValue"></v-text-field>
           <v-btn class="search">搜索</v-btn>
+=======
+      <v-toolbar dense class="chat-history-toolbar prodLists">
+        <v-text-field solo clearable prepend-icon="search" style="height: 100%" label="请输入产品代码或描述" v-model="searchValue"></v-text-field>
+>>>>>>> master
       </v-toolbar>
       <v-list two-line subheader :class="depositTree" v-show="searchValue">
         <v-list-tile class="chat-list prodList" avatar v-for="item of list" :key="item.title" @click="handleClick(item)">
@@ -14,7 +19,13 @@
           <div v-show="isCL == true" style="width: 20%;height: 60%;padding-left: -20%">
             <img src="../../../../../static/prod/prodDai.png" height=100% >
           </div>
-          <v-list-tile-avatar v-show="isRB == false && isCL == false">
+          <div v-show="isGL == true" style="width: 20%;height: 60%;padding-left: -20%">
+            <img src="../../../../../static/prod/prodNei.png" height=100% >
+          </div>
+          <!--<div v-show="isMM == true" style="width: 20%;height: 60%;padding-left: -20%">-->
+            <!--<img src="../../../../../static/prod/prodHuo.png" height=100% >-->
+          <!--</div>-->
+          <v-list-tile-avatar v-show="isRB == false && isCL == false && isGL == false && isMM == false">
             <v-icon :class="['amber white--text']">{{ 'call_to_action'}}</v-icon>
           </v-list-tile-avatar>
           <v-list-tile-content>
@@ -32,6 +43,12 @@
             <div v-show="isCL == true" style="width: 20%;height: 60%;padding-left: -20%">
               <img src="../../../../../static/prod/prodDai.png" height=100% >
             </div>
+            <div v-show="isGL == true" style="width: 20%;height: 60%;padding-left: -20%">
+              <img src="../../../../../static/prod/prodNei.png" height=100% >
+            </div>
+            <!--<div v-show="isMM == true" style="width: 20%;height: 60%;padding-left: -20%">-->
+              <!--<img src="../../../../../static/prod/prodHuo.png" height=100% >-->
+            <!--</div>-->
             <v-list-tile-content>
               <v-list-tile-title>{{ item.prodType }}</v-list-tile-title>
               <v-list-tile-sub-title>{{ item.prodDesc }}</v-list-tile-sub-title>
@@ -95,6 +112,8 @@
         data: () => ({
             isRB: false,
             isCL: false,
+            isGL: false,
+            isMM: false,
             folders: [],
             list: [],
             prodType: '',
@@ -143,7 +162,13 @@
 
                             this.isCL = true
                         }
+<<<<<<< HEAD
 
+=======
+                        if(this.folders[0].sourceModule == "GL"){
+                            this.isGL = true
+                        }
+>>>>>>> master
                     }
                 });
                 }

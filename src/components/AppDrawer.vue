@@ -86,6 +86,7 @@
     </v-navigation-drawer>
 </template>
 <script>
+<<<<<<< HEAD
     // import {Menu} from "@/api/menu";
     import {Menu} from "@/mock/menu";
     import VuePerfectScrollbar from "vue-perfect-scrollbar";
@@ -159,6 +160,79 @@
             }
         }
     };
+=======
+import { Menu } from "@/api/menu";
+import VuePerfectScrollbar from "vue-perfect-scrollbar";
+import {getMenuList} from "@/api/url/prodInfo";
+export default {
+  name: "app-drawer",
+  components: {
+    VuePerfectScrollbar
+  },
+  props: {
+    expanded: {
+      type: Boolean,
+      default: true
+    },
+    showMenuLog: {
+        type: Boolean,
+        default: false
+    }
+  },
+  data() {
+    return {
+        titleName: this.globalConfig.name,
+        mini: false,
+        drawer: false,
+        menuSwitch: false,
+        menus: Menu,
+        scrollSettings: {
+          maxScrollbarLength: 160
+        },
+        userId: ""
+    };
+  },
+  computed: {
+    computeGroupActive() {
+      return true;
+    },
+    computeLogo() {
+      return "/static/prod/dcLog1.png";
+    },
+
+    sideToolbarColor() {
+      return this.$vuetify.options.extra.sideNav;
+    }
+  },
+    watch: {
+        showMenuLog (val) {
+            this.menuSwitch=val
+        }
+    },
+  created() {
+      this.userId = sessionStorage.getItem("userId")
+      window.getApp.$on("APP_DRAWER_TOGGLED", () => {
+      this.drawer = !this.drawer;
+        /* this.mini = !this.mini;*/
+      });
+      getMenuList({userId: sessionStorage.getItem("userId")}).then(response => {
+          this.menus=response.data.data;
+      })
+  },
+  methods: {
+    genChildTarget(item, subItem) {
+      if (subItem.href) return;
+      if (subItem.component) {
+        return {
+          name: subItem.component,
+          hash: subItem.params
+        };
+      }
+      return { name: `${item.group}/${subItem.params}` };
+    }
+  }
+};
+>>>>>>> master
 </script>
 
 

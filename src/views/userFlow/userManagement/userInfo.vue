@@ -1,5 +1,6 @@
 <template>
         <v-layout row wrap>
+<<<<<<< HEAD
 <!--<<<<<<< HEAD-->
             <!--<v-card style="height: 500px;width: 95%" class="_userinfo">-->
                 <!--<v-toolbar color="primary " dark>-->
@@ -7,6 +8,8 @@
                             <!--&lt;!&ndash;<v-icon >person</v-icon>&ndash;&gt;-->
                         <!--&lt;!&ndash;</v-btn>&ndash;&gt;-->
 <!--=======-->
+=======
+>>>>>>> master
             <v-card style="width: 95%;" class="elevation-4">
                 <v-toolbar color="primary lighten-2" dark>
                     <v-btn icon>

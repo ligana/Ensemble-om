@@ -301,8 +301,6 @@
             //交易单号
             this.code = this.$route.params.code
             this.setOptKey(this.$route.params.optValue)
-        },
-        mounted() {
             //获取当前操作日期
             this.getDate()
             //初始化流程信息

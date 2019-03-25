@@ -74,8 +74,13 @@
                 type: Object,
                 default: []
             },
+<<<<<<< HEAD
             msg: '',
             isMultiSelect: Boolean,
+=======
+            msg: String,
+            isMultiSelect: String,
+>>>>>>> master
             perShow: String,
             labelDesc: String,
 
@@ -136,15 +141,18 @@
             },
             options: {
                 handler(newValue,oldValue){
+<<<<<<< HEAD
                     console.log(newValue,'newValue');
                     console.log(oldValue,'oldValue');
                     if(this._props.msg !== "undefined"&&this._props.msg !== undefined){
                         if(typeof this._props.msg === "object" && this._props.msg !== null){
+=======
+                        if(this._props.msg !== "undefined"&&this._props.msg !== undefined&&typeof this._props.msg === "object" && this._props.msg !== null){
+>>>>>>> master
                             this.init(this._props.msg.attrValue)
                         }else{
                             this.init(this._props.msg)
                         }
-                    }
                 },
                 deep: true
             },
@@ -203,12 +211,10 @@
             }
         },
         created() {
-            if(typeof this._props.msg !== "undefined") {
-                if(typeof this._props.msg === "object" && this._props.msg !== null){
-                    this.init(this._props.msg.attrValue)
-                }else{
-                    this.init(this._props.msg)
-                }
+            if(typeof this._props.msg === "object" && this._props.msg !== null&&typeof this._props.msg !== "undefined"){
+                this.init(this._props.msg.attrValue)
+            }else{
+                this.init(this._props.msg)
             }
             //初始化描述
             if(typeof this._props.labelDesc !== "undefined") {
@@ -329,6 +335,7 @@
                 if(this._props.options!==undefined&&!(typeof this._props.options === 'object' && !isNaN(this._props.options.length))){
                     this.rfTableInfo=this._props.options
                     this.rfTableInfo['isRf']=true;
+                    this._props.options=[];
                     getPkList(this.rfTableInfo,sessionStorage.getItem("mainSeqNo"),response => {
                         this._props.options=response
                     });

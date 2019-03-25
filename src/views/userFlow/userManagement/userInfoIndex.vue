@@ -32,6 +32,7 @@
             </v-card>
         </v-dialog>
         <v-layout>
+<<<<<<< HEAD
 <!--<<<<<<< HEAD-->
             <!--<v-flex md3 lg3 class="pl-5">-->
                 <!--<v-flex xs12 class="pt-3">-->
@@ -60,6 +61,8 @@
                             <!--</v-list-tile>-->
                         <!--</v-list>-->
 <!--=======-->
+=======
+>>>>>>> master
             <v-flex md4 lg4 class="pl-5">
                     <v-card height="400px" style="top: 10%">
                         <div style="width: 100%;position: relative;top: -20%" align="center">
@@ -73,7 +76,10 @@
                             </v-btn>
                         </div>
 
+<<<<<<< HEAD
 <!--&gt;>>>>>> master-->
+=======
+>>>>>>> master
                     </v-card>
             </v-flex>
             <v-flex md10 lg10 class="pl-4 pb-4">
@@ -210,6 +216,7 @@
         }
     }
 </script>
+<<<<<<< HEAD
 <!--<<<<<<< HEAD-->
 <style scoped>
 /*=======*/
@@ -229,6 +236,23 @@
         /*left: 20%;*/
     /*}*/
 /*>>>>>>> master*/
+=======
+<style>
+    .img{
+        height: 150px;
+        width: 150px;
+        border-radius:50%;
+        -webkit-border-radius:50%;
+        -moz-border-radius:50%;
+        margin-top: 15px;
+    }
+    .message{
+        font-size: x-large;
+        margin-bottom: 5px;
+        position: relative;
+        left: 20%;
+    }
+>>>>>>> master
     .selected {
         background-color: #e8e8e8;
     }

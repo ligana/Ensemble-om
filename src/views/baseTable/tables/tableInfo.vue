@@ -12,9 +12,24 @@
                     <a-button type="primary" @click="onEdit" class="ml-2">修改</a-button>
                     <a-button type="primary" @click="onDelete" class="ml-2">删除</a-button>
                     <a-button type="primary" @click="onSave" class="ml-2">提交</a-button>
+                    <v-spacer></v-spacer>
+                    <div v-for="searchColumn in searchCopy">
+                        <v-select
+                                v-model="searchColumn.model"
+                                :items="searchColumn.value"
+                                :label=searchColumn.searchColumn
+                        ></v-select>
+                    </div>
+                    <a-button type="primary" @click="find" class="ml-2">查找</a-button>
+                    <a-button type="primary" @click="clean" class="ml-2">重置</a-button>
                 </v-toolbar>
-                <v-card-text class="pa-0">
+                <v-card-text class="pa-0" v-if="searchData == false">
                     <a-table :customRow="customRow" :columns="columnsTwo" @change="changeTable" :dataSource="dataInfo">
+                    </a-table>
+                    <v-divider></v-divider>
+                </v-card-text>
+                <v-card-text class="pa-0" v-if="searchData == true">
+                    <a-table :customRow="customRow" :columns="columnsTwo" @change="changeTable" :dataSource="searchInfo">
                     </a-table>
                     <v-divider></v-divider>
                 </v-card-text>
@@ -62,6 +77,7 @@
                 tableDesc: "",
                 tableName: "",
                 dataInfo: [],
+                searchInfo: [],
                 sourceDataInfo: [],
                 disabledFlag: false,
                 prodType: '',
@@ -90,6 +106,10 @@
                 backValue: {},
                 key: [],
                 isNull: [],
+                search: [],
+                searchCopy: [],
+                searchData: false,
+                searchColumn: []
             };
         },
         watch: {
@@ -100,6 +120,12 @@
                     }
                 }
             },
+            dataInfo: {
+                handler(newValue,oldValue) {
+                    this.getSearch(this.searchColumn)
+                },
+                deep: true
+            }
         },
         mounted: function () {
             this.initTableInfo()
@@ -127,8 +153,28 @@
                     that.columns = response.data.data.column;
                     that.columnsTwo = response.data.data.columnTwo
                     that.tableName = tableName
+                    that.searchColumn = response.data.data.search.searchColumn
+                    that.getSearch(that.searchColumn)
                     that.getKey()
                 });
+            },
+            getSearch(val){
+                this.search = []
+                if(val != null){
+                    let searchColumns = val.split(",")
+                    for(let i=0; i<searchColumns.length; i++){
+                        let value = []
+                        let temp = {}
+                        for(let j=0; j<this.dataInfo.length; j++){
+                            value.push(this.dataInfo[j][searchColumns[i]])
+                        }
+                        temp['searchColumn'] = searchColumns[i]
+                        temp['value'] = value
+                        temp['model'] = ""
+                        this.search.push(temp)
+                        this.searchCopy = this.search
+                    }
+                }
             },
             getKey(){
                 for(let n=0; n<this.columns.length; n++) {
@@ -190,6 +236,7 @@
             onDelete() {
                 this.tbd.style = '';
                 remove(this.dataInfo, this.selected)
+                remove(this.searchInfo, this.selected)
             },
             changeTable() {
                 this.tbd.style = '';
@@ -202,19 +249,11 @@
                 this.backValue.userName = sessionStorage.getItem("userId")
 
                 if(this.backValue.data.length==0){
-                    this.$swal({
-                        allowOutsideClick: false,
-                        type: 'info',
-                        title: "未做任何修改,提交失败！",
-                    })
+                    this.sweetAlert('info',"未做任何修改,提交失败!")
                 }else{
                     saveTable(this.backValue).then(response => {
                         if (response.status === 200) {
-                            this.$swal({
-                                allowOutsideClick: false,
-                                type: 'success',
-                                title: "提交成功！",
-                            })
+                            this.sweetAlert('success',"提交成功!")
                             this.$router.push({ name: "paramManage", params: { tableName: this.tableName} });
                             let setTaskEvent= new Event("taskList");
                             window.dispatchEvent(setTaskEvent);
@@ -225,6 +264,48 @@
             },
             close() {
                 this.dialog = false
+            },
+            find (){
+                let num = 0
+                for(let i=0; i<this.search.length; i++){
+                    if(this.search[i].model == ""){
+                        num++
+                    }
+                }
+                if(num == this.search.length){
+                    this.sweetAlert('info',"搜索条件为空!")
+                }else{
+                    this.searchInfo = []
+                    this.searchData = false
+                    for(let i=0; i<this.dataInfo.length; i++){
+                        let num = 0
+                        for(let name in this.dataInfo[i]){
+                            for(let j=0; j<this.search.length; j++){
+                                if(this.search[j].searchColumn == name && this.search[j].model == this.dataInfo[i][name]){
+                                    num++
+                                    break
+                                }else if(this.search[j].searchColumn == name && this.search[j].model == ""){
+                                    num++
+                                    break
+                                }
+                            }
+                        }
+                        if(num == this.search.length){
+                            this.searchInfo.push(this.dataInfo[i])
+                        }
+                    }
+                    if(this.searchInfo.length != 0){
+                        this.searchData = true
+                    }else{
+                        this.sweetAlert('info',"请输入正确搜索条件!")
+                    }
+                }
+            },
+            clean (){
+                for(let i=0; i<this.search.length; i++){
+                    this.search[i].model = ""
+                }
+                this.searchData = false
             },
             childLimit(editSelected){
                 this.childPd = true
@@ -309,18 +390,10 @@
                     }
                 }
                 if(keyIsNull == true){
-                    this.$swal({
-                        allowOutsideClick: false,
-                        type: 'error',
-                        title: '带*号的字段不能为空!',
-                    })
+                    this.sweetAlert('error',"带*号的字段不能为空!")
                     return false
                 }else if(num == this.key.length){
-                    this.$swal({
-                        allowOutsideClick: false,
-                        type: 'error',
-                        title: keyCoName+"不能重复",
-                    })
+                    this.sweetAlert('error',keyCoName+"不能重复!")
                     return false
                 }else{
                     return true

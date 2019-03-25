@@ -2,16 +2,16 @@
     <v-card class="ml-2">
     <v-layout wrap>
         <v-flex xs12 sm6 m6>
-            <dc-select :isMultiSelect="false" v-model="selectedProdInt.eventType" :options="eventOption" labelDesc="事件类型"></dc-select>
+            <dc-select :isMultiSelect="false" v-model="selectedProdInt.eventType" :options="eventOption" labelDesc="事件类型" :disablePower="true"></dc-select>
         </v-flex>
         <v-flex xs12 sm6 m6>
-            <dc-select :isMultiSelect="false" v-model="selectedProdInt.intType" :options="intOption" labelDesc="利率代码"></dc-select>
+            <dc-select :isMultiSelect="false" v-model="selectedProdInt.intType" :options="intOption" labelDesc="利率代码" :disablePower="true"></dc-select>
         </v-flex>
         <v-flex xs12 sm6 m6>
-            <dc-select :isMultiSelect="false" v-model="selectedProdMartix.periodFreq" :options="freqOption" labelDesc="周期"></dc-select>
+            <dc-select :isMultiSelect="false" v-model="selectedProdMartix.periodFreq" :options="freqOption" labelDesc="周期" :disablePower="true"></dc-select>
         </v-flex>
         <v-flex xs12 sm6 m6>
-            <dc-text labelDesc="固定利率" v-model="selectedProdBase.intBasisRate"></dc-text>
+            <dc-text labelDesc="固定利率" v-model="selectedProdBase.intBasisRate" :disabled="textDiasbled"></dc-text>
         </v-flex>
     </v-layout>
     </v-card>
@@ -35,6 +35,7 @@
             prodDatas: String
         },
         data: () => ({
+            textDiasbled: true,
             fixedData: [],
             index: 0,
             selectedProdInt: {},

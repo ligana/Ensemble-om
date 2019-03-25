@@ -1,7 +1,12 @@
 <template>
   <v-data-table
+<<<<<<< HEAD
           :items="desserts"
           class="elevat"
+=======
+          :items="htable"
+          class="elevation-1"
+>>>>>>> master
           hide-actions
           :headers="headers"
   >
@@ -17,17 +22,9 @@
         props: ["prodCharge"],
         data () {
             return {
-                desserts: [
-                    {
-                        value: false,
-                        name: 'Frozen Yogurt',
-                        calories: 159,
-                        fat: 6.0,
-                        carbs: 24,
-                        protein: 4.0,
-                        iron: '1%'
-                    }
-                ],
+                desserts: [],
+                dessert: {},
+                htable: [],
                 headers: []
             }
         },
@@ -41,9 +38,25 @@
         },
         methods: {
             getChargeDefinesInfo(prodService) {
+                this.desserts = []
                 //初始化产品对应的信息
                 this.headers=prodService.headers;
-                this.desserts=prodService.column;
+                for(let i=0; i<prodService.column.length; i++){
+                    this.dessert = {}
+                    for(let j=0; j<this.headers.length; j++){
+                        for(let key in prodService.column[i]){
+                            if(this.headers[j].value == key){
+                                this.dessert[this.headers[j].value] = prodService.column[i][key]
+                                break
+                            }else{
+                                this.dessert[this.headers[j].value] = null
+                            }
+                        }
+                    }
+                    this.desserts.push(this.dessert)
+                }
+                //this.desserts = prodService.column
+                this.htable = this.desserts
             }
         }
     }

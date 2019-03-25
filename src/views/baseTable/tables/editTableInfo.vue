@@ -4,7 +4,7 @@
             <v-form v-model="valid" v-for="(keyData ,key ,index) in editSelected" v-bind:key="key">
                 <v-layout row wrap>
                     <v-flex md12 lg12>
-                        <dc-dan-text-field
+                        <dc-text-field-table
                                 v-if="keyData.columnType=='input'"
                                 v-model="keyData.value"
                                 :counter="10"
@@ -17,8 +17,8 @@
                                 :labelDesc="keyData.columnDesc"
                                 required
                                 v-on:changeNum="changeNumChild"
-                        ></dc-dan-text-field>
-                        <dc-dan-text-field
+                        ></dc-text-field-table>
+                        <dc-text-field-table
                                 v-if="keyData.columnType == 'select' && keyData.valueScore.tableName == tableName"
                                 v-model="keyData.value"
                                 :counter="10"
@@ -31,8 +31,8 @@
                                 :labelDesc="keyData.columnDesc"
                                 required
                                 v-on:changeNum="changeNumChild"
-                        ></dc-dan-text-field>
-                        <dc-dan-multiselect
+                        ></dc-text-field-table>
+                        <dc-multiselect-table
                                 v-if="keyData.columnType == 'select' && keyData.valueScore.tableName != tableName"
                                 v-on:changeNum="changeNumChild"
                                 :isKey="keyData.key"
@@ -42,10 +42,13 @@
                                 v-model="keyData.value"
                                 :options="keyData.valueScore"
                                 class="dcMulti"
-                                :isMultiSelect=keyData.isMultiSelect
-                        ></dc-dan-multiselect>
+                                :isMultiSelect=false
+                        ></dc-multiselect-table>
                         <dc-switch v-if="keyData.columnType == 'switch'" :labelDesc="keyData.columnDesc"
                                    v-model="keyData.value"></dc-switch>
+                        <dc-date class="dcDate" :showEdit="showEdit" v-if="keyData.columnType == 'date'"
+                                 :disablePower="disablePower" :labelDesc="keyData.columnDesc" v-model="keyData.value"></dc-date>
+
                     </v-flex>
                 </v-layout>
             </v-form>
@@ -72,6 +75,7 @@
 <script>
     import columnInfo from '@/views/prodFactory/prodInfo/columnInfo'
     import {getPkList} from '@/views/prodFactory/prodInfo/pkListColumnInfo'
+<<<<<<< HEAD
     // import DcDanMultiselect from '@/components/widgets/DcDanMultiselect'
     import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
     import DcSwitch from "@/components/widgets/DcSwitch";
@@ -81,6 +85,14 @@
     import DcDate from '@/components/widgets/DcDate'
     export default {
         // components: {DcDanMultiselect, DcSwitch, DcTreeSelect,DcDate,DcDanTextField}
+=======
+    import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
+    import DcSwitch from "@/components/widgets/DcSwitch";
+    import DcTreeSelect from "@/components/widgets/DcTreeSelect";
+    import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
+    import DcDate from '@/components/widgets/DcDate'
+    export default {
+>>>>>>> master
         components: {DcMultiselectTable, DcSwitch, DcTreeSelect,DcDate,DcTextFieldTable},
         props: {
             childPd: Boolean,

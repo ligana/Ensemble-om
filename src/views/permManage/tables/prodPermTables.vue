@@ -176,8 +176,8 @@
                     that.userInfo = response.data.data.userInfo;
                     for(let i=0; i<that.userInfo.length; i++){
                         let temp={}
-                        temp["key"] = that.userInfo[i].userId
-                        temp["value"] = that.userInfo[i].userName
+                        temp["key"] = that.userInfo[i].userId;
+                        temp["value"] = that.userInfo[i].userId + '-' + that.userInfo[i].userName;
                         that.user.push(temp)
                     }
                 });
@@ -185,10 +185,10 @@
                 getParamTable("MB_PROD_CLASS").then(function (response) {
                     that.prodClass = response.data.data.columnInfo;
                     for(let k=0; k<that.prodClass.length; k++){
-                        if(that.prodClass[k].PROD_CLASS_LEVEL === "1"){
+                        if(that.prodClass[k].PROD_CLASS_LEVEL === "2"){
                             let temp={}
                             temp["key"] = that.prodClass[k].PROD_CLASS
-                            temp["value"] = that.prodClass[k].PROD_CLASS_DESC
+                            temp["value"] = that.prodClass[k].PROD_CLASS + '-' +that.prodClass[k].PROD_CLASS_DESC
                             that.model.push(temp)
                         }
                     }
