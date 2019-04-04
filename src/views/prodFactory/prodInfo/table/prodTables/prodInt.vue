@@ -8,18 +8,19 @@
             </v-card>
             <!-- 不使用固定利率列表信息-->
             <v-card class="mt-1" v-show="!switchValue">
-                <v-list>
-                    <v-list-tile v-for="item in titleList" :key="item.key" @click="chipClick(item)">
+                <v-list class="bd-t">
+                    <v-list-tile v-for="item in titleList" :key="item.key" @click="chipClick(item)" :class="{active:item.index==ins}">
                         <v-list-tile-content>
                             <v-list-tile-title style="font-size: medium">{{ item.key }}-{{ item.lable }},{{ item.key1 }}-{{ item.lable1 }}</v-list-tile-title>
+                            <div>{{item.index}}</div>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
             </v-card>
             <!-- 使用固定利率列表信息-->
             <v-card class="mt-1" v-show="switchValue && fixedInfo.length">
-                <v-list>
-                    <v-list-tile v-for="item in FixeditleList" :key="item.key" @click="fixedChipClick(item)">
+                <v-list class="bd-t">
+                    <v-list-tile v-for="item in FixeditleList" :key="item.key" @click="fixedChipClick(item)" :class="{active:item.index==fixedIndex}">
                         <v-list-tile-content>
                             <v-list-tile-title style="font-size: medium">{{ item.key }}-{{ item.lable }},{{ item.key1 }}-{{ item.lable1 }}</v-list-tile-title>
                         </v-list-tile-content>
@@ -71,6 +72,7 @@
         data: () => ({
             fixedInfo: [],
             fixedIndex: 0,
+            ins: 0,
             switchValue: false,
             titleList: [],
             FixeditleList: [],
@@ -290,6 +292,7 @@
                 this.tag = "";
                 let eventType = val.key
                 let intClass = val.key1
+                this.ins = val.index
                 for(let index in this.prodInt){
                     if(eventType == this.prodInt[index].eventType && intClass == this.prodInt[index].intClass){
                         this.selectInfo = this.prodInt[index]
@@ -467,4 +470,20 @@
         color: white;
         margin-top: -2%;
     }
+
+    .bd-t {
+        border-top: 1px solid #ccc;
+    }
+    .bd-t >>> .v-list__tile--link:hover {
+        background-color: rgba(0, 0, 0, 0) !important;
+        color: #870329 !important;
+    }
+    .bd-t >>> .v-list__tile__title {
+        transition:none;
+    }
+    .active {
+        background-color: #3C73E6;
+        color: #fff;
+    }
+
 </style>

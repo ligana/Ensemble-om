@@ -3,9 +3,10 @@
         <v-toolbar dark>
             <v-toolbar-title>元数据管理</v-toolbar-title>
             <v-spacer></v-spacer>
-<<<<<<< HEAD
-=======
+<!--<<<<<<< HEAD-->
+<!--=======-->
             <v-text-field
+                    class="search_box"
                     clearable
                     v-model="search"
                     prepend-icon="search"
@@ -13,7 +14,7 @@
                     single-line
                     hide-details
             ></v-text-field>
->>>>>>> master
+<!--&gt;>>>>>> master-->
             <v-dialog v-model="dialog" max-width="500px">
                 <v-btn slot="activator" flat color="#3C73E6" @click="addClick">添加</v-btn>
                 <v-card class="popups">
@@ -60,7 +61,7 @@
                 </v-card>
             </v-dialog>
         </v-toolbar>
-        <v-data-table :headers="headers" :items="desserts" :search="search" class="elevation-1">
+        <v-data-table :headers="headers" :items="desserts" :search="search" >
             <template slot="items" slot-scope="props">
                 <td>{{ props.item.columnId }}</td>
                 <td>{{ props.item.columnDesc }}</td>
@@ -313,5 +314,30 @@
     .bthStyle {
         color: #00b0ff;
         width: 120px;
+    }
+    .search_box {
+        height: 40px;
+        padding-top: 2px;
+    }
+    .search_box >>> .v-input__prepend-outer {
+        margin-top: 8px;
+    }
+    .search_box >>> .theme--dark.v-icon {
+        color: #7b82ee;
+    }
+    .search_box >>> .theme--dark.v-label {
+        color: #737373;
+        top: 8px;
+    }
+    .search_box >>> .v-input__slot {
+        background-color: #fff;
+        border-radius: 3px;
+    }
+    .search_box >>> .v-input__slot:before {
+        border-color: #1e19bb !important;
+    }
+    .search_box >>> .v-input__slot .v-text-field__slot input {
+        color: #000;
+        padding: 8px 10px;
     }
 </style>

@@ -318,8 +318,8 @@
         border-top-width: 0px;
     }
     .diffList:nth-child(2) {
-    border-left: 1px solid  rgba(40, 24, 31, 0.21);
-    border-right: 1px solid  rgba(40, 24, 31, 0.21);
+    border-left: 2px solid  rgba(40, 24, 31, 0.21);
+    border-right: 2px solid  rgba(40, 24, 31, 0.21);
     }
     .tbColor {
         background-color: #e3f2fd;

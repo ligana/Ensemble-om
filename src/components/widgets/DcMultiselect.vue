@@ -74,13 +74,7 @@
                 type: Object,
                 default: []
             },
-<<<<<<< HEAD
             msg: '',
-            isMultiSelect: Boolean,
-=======
-            msg: String,
-            isMultiSelect: String,
->>>>>>> master
             perShow: String,
             labelDesc: String,
 
@@ -141,14 +135,7 @@
             },
             options: {
                 handler(newValue,oldValue){
-<<<<<<< HEAD
-                    console.log(newValue,'newValue');
-                    console.log(oldValue,'oldValue');
-                    if(this._props.msg !== "undefined"&&this._props.msg !== undefined){
-                        if(typeof this._props.msg === "object" && this._props.msg !== null){
-=======
                         if(this._props.msg !== "undefined"&&this._props.msg !== undefined&&typeof this._props.msg === "object" && this._props.msg !== null){
->>>>>>> master
                             this.init(this._props.msg.attrValue)
                         }else{
                             this.init(this._props.msg)
@@ -425,7 +412,6 @@
         }
     };
 </script>
-<!--<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>-->
 <style scoped>
     .dcMulti {
         margin-top: 10px;

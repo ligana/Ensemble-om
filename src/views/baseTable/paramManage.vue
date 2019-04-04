@@ -18,39 +18,13 @@
                     </div>
                 </v-widget>
             </v-flex>
-<<<<<<< HEAD
             <v-flex md10 lg10 class="pl-4 pb-4 pr-1 pmr">
-                <v-widget :title="titleE" class="v-widget">
-                    <div slot="widget-content" >
-                        <v-data-table :headers="headers" :items="desserts" class="table">
-                            <template slot="items" slot-scope="props">
-                                <td>{{ props.item.tableName }}</td>
-                                <td>{{ props.item.tableDesc }}</td>
-                                <td>{{ props.item.system }}</td>
-                                <td>{{ props.item.modelId }}</td>
-                                <td>{{ props.item.parameter }}</td>
-                                <td v-if="props.item.icon == 'edit'">
-                                    <v-btn depressed outline icon fab dark color="" small
-                                           @click="routerTableInfo(props.item)">
-                                        <v-icon>{{ props.item.icon }}</v-icon>
-                                    </v-btn>
-                                </td>
-                                <td v-if="props.item.icon == 'person'">
-                                    <v-chip style="background-color: #3C73E6;" text-color="white">
-                                        待处理
-                                    </v-chip>
-                                </td>
-                            </template>
-                        </v-data-table>
-                    </div>
-                </v-widget>
-=======
-            <v-flex md10 lg10 class="pl-4 pb-4 pr-1">
-                <div class="elevation-4">
-                    <v-toolbar color="primary lighten-2" dark>
+                <v-card>
+                    <v-toolbar dark>
                         <v-toolbar-title>{{titleE}}</v-toolbar-title>
                         <v-spacer></v-spacer>
                         <v-text-field
+                                class="search_box"
                                 clearable
                                 v-model="search"
                                 prepend-icon="search"
@@ -59,7 +33,7 @@
                                 hide-details
                         ></v-text-field>
                     </v-toolbar>
-                    <v-data-table :headers="headers" :items="desserts" :search="search" class="elevation-4">
+                    <v-data-table :headers="headers" :items="desserts" :search="search" class="table">
                         <template slot="items" slot-scope="props">
                             <td>{{ props.item.tableName }}</td>
                             <td>{{ props.item.tableDesc }}</td>
@@ -67,12 +41,12 @@
                             <td>{{ props.item.modelId }}</td>
                             <td>{{ props.item.parameter }}</td>
                             <td v-if="props.item.icon == 'edit'">
-                                <v-btn depressed outline icon fab dark color="primary lighten-2" small @click="routerTableInfo(props.item)">
+                                <v-btn depressed outline icon fab dark color="" small @click="routerTableInfo(props.item)">
                                     <v-icon>{{ props.item.icon }}</v-icon>
                                 </v-btn>
                             </td>
                             <td v-if="props.item.icon == 'person'">
-                                <v-chip color="primary lighten-2" text-color="white">
+                                <v-chip style="background-color: #3C73E6;" text-color="white">
                                     待处理
                                 </v-chip>
                             </td>
@@ -81,8 +55,7 @@
                             Your search for "{{ search }}" found no results.
                         </v-alert>
                     </v-data-table>
-                </div>
->>>>>>> master
+                </v-card>
             </v-flex>
         </v-layout>
     </div>
@@ -106,36 +79,21 @@
                 action: 'KBS',
                 mainFlowInfo: [],
                 items: [
-<<<<<<< HEAD
-                    {title: '核心系统', name: 'ensemble', class: '', icon: 'settings', color: "blue", number: ""},
-                    {title: '核算系统', name: 'accounting', class: '', icon: 'settings', color: "blue", number: ""},
-                    {title: '利率市场化', name: 'price', class: '', icon: 'settings', color: "blue", number: ""},
-=======
-                    {title: '核心系统',name: 'KBS', class: '',icon: 'settings',color: "blue"},
-                    {title: '核算系统',name: 'GLR', class: '',icon: 'settings',color: "blue"},
-                    {title: '利率市场化',name: 'UP', class: '',icon: 'settings',color: "blue"}
->>>>>>> master
+                    {title: '核心系统',name: 'KBS', class: '',icon: 'settings',color: "blue", number: ""},
+                    {title: '核算系统',name: 'GLR', class: '',icon: 'settings',color: "blue", number: ""},
+                    {title: '利率市场化',name: 'UP', class: '',icon: 'settings',color: "blue", number: ""},
                 ],
                 window: 0,
                 windowItem: 'windowItem',
                 windowTitle: 'windowTitle',
                 dialog: false,
                 headers: [
-<<<<<<< HEAD
-                    {text: '交易ID', sortable: false},
-                    {text: '交易名称', sortable: false},
-                    {text: '所属系统', sortable: false},
-                    {text: '所属模块', sortable: false},
-                    {text: '参数类型', sortable: false},
-                    {text: 'Action', sortable: false}
-=======
                     { text: '交易ID',sortable: false,value: 'tableName'},
                     { text: '交易名称',sortable: false,value: 'tableDesc'},
                     { text: '所属系统',sortable: false,value: 'system' },
                     { text: '所属模块',sortable: false,value: 'modelId' },
                     { text: '参数类型',sortable: false,value: 'parameter' },
                     { text: 'Action',sortable: false,value: 'icon' }
->>>>>>> master
                 ],
                 desserts: [
                     {
@@ -186,15 +144,7 @@
                     that.desserts = response.data.data.tableList;
 
                     that.titleE = that.action
-<<<<<<< HEAD
-                    if (that.action === "ensemble") {
-                        that.title = "核心系统"
-                    }
-                    if (that.action === "accounting") {
-                        that.title = "核算系统"
-                    }
-                    if (that.action === "price") {
-=======
+
                     if(that.action === "KBS") {
                         that.title = "核心系统"
                     }
@@ -202,7 +152,6 @@
                         that.title = "核算系统"
                     }
                     if(that.action === "UP") {
->>>>>>> master
                         that.title = "利率市场化"
                     }
                     // that.titleNum = response.data.data.tableList.length
@@ -226,14 +175,13 @@
                     处理方法：重新查询待处理信息表，检查是否存在待处理单表交易
                     原因：交易展示界面重新查库加载 多次提交的情况下  前几次提交记录会丢失
                  */
-<<<<<<< HEAD
                 for (let key in that.items) {
                     let name = that.items[key].name;
                     console.log(name, "name");
-                    if (name === "ensemble") {
+                    if (name === "KBS") {
                         that.title = "核心系统"
                         getTableList(name).then(function (response) {
-                            console.log(response.data.data, "ensemble");
+                            that.items[key].number = response.data.data.tableList.length
                             for (let i = 0; i < response.data.data.tableList.length; i++) {
                                 let isCommit = false
                                 for (let j = 0; j < that.mainFlowInfo.length; j++) {
@@ -246,26 +194,14 @@
                                 if (!isCommit) {
                                     response.data.data.tableList[i]["icon"] = "edit"
                                 }
-                                that.items[key].number = response.data.data.tableList.length
                                 that.desserts = response.data.data.tableList;
-=======
-                getTableList("KBS").then(function (response){
-                    for(let i=0; i<response.data.data.tableList.length; i++){
-                        let isCommit = false
-                        for(let j=0; j<that.mainFlowInfo.length; j++){
-                            if(response.data.data.tableList[i].tableName === that.mainFlowInfo[j].flowManage.tranId){
-                                response.data.data.tableList[i]["icon"] = "person"
-                                isCommit = true
-                                break
->>>>>>> master
                             }
                         });
                     }
-<<<<<<< HEAD
-                    if (name === "accounting") {
+                    if (name === "GLR") {
                         that.title = "核算系统"
                         getTableList(name).then(function (response) {
-                            console.log(response.data.data, "accounting");
+                            that.items[key].number = response.data.data.tableList.length
                             for (let i = 0; i < response.data.data.tableList.length; i++) {
                                 let isCommit = false
                                 for (let j = 0; j < that.mainFlowInfo.length; j++) {
@@ -278,14 +214,13 @@
                                 if (!isCommit) {
                                     response.data.data.tableList[i]["icon"] = "edit"
                                 }
-                                that.items[key].number = response.data.data.tableList.length
                             }
                         });
                     }
-                    if (name === "price") {
+                    if (name === "UP") {
                         that.title = "利率市场化"
                         getTableList(name).then(function (response) {
-                            console.log(response.data.data, "price");
+                            that.items[key].number = response.data.data.tableList.length
                             for (let i = 0; i < response.data.data.tableList.length; i++) {
                                 let isCommit = false
                                 for (let j = 0; j < that.mainFlowInfo.length; j++) {
@@ -298,38 +233,13 @@
                                 if (!isCommit) {
                                     response.data.data.tableList[i]["icon"] = "edit"
                                 }
-                                that.items[key].number = response.data.data.tableList.length
                             }
                         });
                     }
                 }
-                // getTableList("ensemble").then(function (response) {
-                //     console.log(response.data.data,"76543");
-                //     for (let i = 0; i < response.data.data.tableList.length; i++) {
-                //         let isCommit = false
-                //         for (let j = 0; j < that.mainFlowInfo.length; j++) {
-                //             if (response.data.data.tableList[i].tableName === that.mainFlowInfo[j].flowManage.tranId) {
-                //                 response.data.data.tableList[i]["icon"] = "person"
-                //                 isCommit = true
-                //                 break
-                //             }
-                //         }
-                //         if (!isCommit) {
-                //             response.data.data.tableList[i]["icon"] = "edit"
-                //         }
-                //     }
-                //     that.desserts = response.data.data.tableList;
-                //     that.titleNum = response.data.data.tableList.length
-                //     that.title = "核心系统"
-                //     that.titleE = "ensemble"
-                // });
-=======
-                    that.desserts=response.data.data.tableList;
-                    that.titleNum = response.data.data.tableList.length
                     that.title = "核心系统"
                     that.titleE = "KBS"
-                });
->>>>>>> master
+                }
             },
             routerTableInfo(item) {
                 console.log(item.tableName," item.tableName,");
@@ -354,7 +264,7 @@
 
             }
         }
-    }
+    // }
 </script>
 <style scoped>
     .para >>> .v-card__text,
@@ -363,7 +273,7 @@
     }
     .para >>> .v-list .v-list__tile--link:hover {
         background-color: rgba(0, 0, 0, 0) !important;
-        color: rgba(85, 198, 255, 0.85) !important;
+        color: #870329 !important;
     }
     .selected {
         background-color: #3C73E6;
@@ -379,5 +289,29 @@
         caret-color: #3C73E6 !important;
 
     }
-
+    .search_box {
+        height: 40px;
+        padding-top: 2px;
+    }
+    .search_box >>> .v-input__prepend-outer {
+        margin-top: 8px;
+    }
+    .search_box >>> .theme--dark.v-icon {
+        color: #7b82ee;
+    }
+    .search_box >>> .theme--dark.v-label {
+        color: #737373;
+        top: 8px;
+    }
+    .search_box >>> .v-input__slot {
+        background-color: #fff;
+        border-radius: 3px;
+    }
+    .search_box >>> .v-input__slot:before {
+        border-color: #1e19bb !important;
+    }
+    .search_box >>> .v-input__slot .v-text-field__slot input {
+        color: #000;
+        padding: 8px 10px;
+    }
 </style>

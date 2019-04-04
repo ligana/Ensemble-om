@@ -100,6 +100,7 @@ export default {
     props: ['sendTranId','sendTranType','seqNo'],//,'prodData'
     data (){
         return {
+            model: '',
             sourceModule: [],
             spinning: false,
             RB: false,

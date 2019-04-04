@@ -1,12 +1,7 @@
 <template>
   <v-data-table
-<<<<<<< HEAD
-          :items="desserts"
-          class="elevat"
-=======
           :items="htable"
           class="elevation-1"
->>>>>>> master
           hide-actions
           :headers="headers"
   >

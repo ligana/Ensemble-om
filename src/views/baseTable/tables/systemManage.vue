@@ -1,15 +1,10 @@
 <template>
-<<<<<<< HEAD
     <v-card>
         <v-toolbar dark>
-            <v-toolbar-title>交易系统管理</v-toolbar-title>
-            <v-spacer></v-spacer>
-=======
-    <div class="elevation-4">
-        <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>系统管理</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-text-field
+                    class="search_box"
                     clearable
                     v-model="search"
                     prepend-icon="search"
@@ -17,7 +12,6 @@
                     single-line
                     hide-details
             ></v-text-field>
->>>>>>> master
             <v-dialog v-model="dialog" max-width="500px">
                 <v-btn slot="activator" flat color="#3C73E6" @click="addClick">添加</v-btn>
                 <v-card class="popups">
@@ -73,7 +67,7 @@
                 Your search for "{{ search }}" found no results.
             </v-alert>
         </v-data-table>
-     </v-card>
+    </v-card>
 </template>
 <script>
     import {getSysTable} from "@/api/url/prodInfo";
@@ -224,5 +218,30 @@
     .bthStyle {
         color: #00b0ff;
         width: 120px;
+    }
+    .search_box {
+        height: 40px;
+        padding-top: 2px;
+    }
+    .search_box >>> .v-input__prepend-outer {
+        margin-top: 8px;
+    }
+    .search_box >>> .theme--dark.v-icon {
+        color: #7b82ee;
+    }
+    .search_box >>> .theme--dark.v-label {
+        color: #737373;
+        top: 8px;
+    }
+    .search_box >>> .v-input__slot {
+        background-color: #fff;
+        border-radius: 3px;
+    }
+    .search_box >>> .v-input__slot:before {
+        border-color: #1e19bb !important;
+    }
+    .search_box >>> .v-input__slot .v-text-field__slot input {
+        color: #000;
+        padding: 8px 10px;
     }
 </style>

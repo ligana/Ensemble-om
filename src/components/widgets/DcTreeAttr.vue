@@ -1,13 +1,13 @@
 <template>
-<<<<<<< HEAD
+<!--<<<<<<< HEAD-->
     <v-card class="edit">
         <v-toolbar card color="blue-grey lighten-5" >
             <v-toolbar-title style="font-size: large; color: slategrey;">{{labelText}}</v-toolbar-title>
-=======
-    <v-card>
-        <v-toolbar card color="blue-grey lighten-5">
-            <v-toolbar-title style="font-size: large; color: slategrey">{{labelText}}</v-toolbar-title>
->>>>>>> master
+<!--=======-->
+    <!--<v-card>-->
+        <!--<v-toolbar card color="blue-grey lighten-5">-->
+            <!--<v-toolbar-title style="font-size: large; color: slategrey">{{labelText}}</v-toolbar-title>-->
+<!--&gt;>>>>>> master-->
             <v-spacer></v-spacer>
             <v-tooltip bottom color="#3C73E6">
                 <v-btn flat icon="edit" slot="activator" color="blue" @click="saveClick">
@@ -16,13 +16,13 @@
                 <span>应用</span>
             </v-tooltip>
         </v-toolbar>
-<<<<<<< HEAD
+<!--<<<<<<< HEAD-->
         <v-toolbar dense class="chat-history-toolbar prodLists">
             <v-text-field solo full-width clearable prepend-icon="search" class="top" label="请输入产品参数" v-model="searchValue"></v-text-field>
-=======
-        <v-toolbar dense>
-            <v-text-field solo clearable style="height: 100%" prepend-icon="search" label="请输入产品参数" v-model="searchValue"></v-text-field>
->>>>>>> master
+<!--=======-->
+        <!--<v-toolbar dense>-->
+            <!--<v-text-field solo clearable style="height: 100%" prepend-icon="search" label="请输入产品参数" v-model="searchValue"></v-text-field>-->
+<!--&gt;>>>>>> master-->
         </v-toolbar>
             <v-flex xs6 md12>
                 <v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll">
@@ -41,18 +41,18 @@
                     </v-treeview>
                 </v-card-text>
             </v-flex>
-<<<<<<< HEAD
-        </v-layout>
-        <v-layout v-show="searchValue">
-            <v-flex xs6 md12>
-                <v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll; ">
-                    <v-treeview slot="header" v-model="tree2" activatable :items="lists" selected-color="green" open-on-click selectable :options="options" expand-icon="mdi-assignment_turned_in-down" labelDesc="labelDesc">
-                    </v-treeview>
-                </v-card-text>
-            </v-flex>
-        </v-layout>
-=======
->>>>>>> master
+<!--<<<<<<< HEAD-->
+        <!--</v-layout>-->
+        <!--<v-layout v-show="searchValue">-->
+            <!--<v-flex xs6 md12>-->
+                <!--<v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll; ">-->
+                    <!--<v-treeview slot="header" v-model="tree2" activatable :items="lists" selected-color="green" open-on-click selectable :options="options" expand-icon="mdi-assignment_turned_in-down" labelDesc="labelDesc">-->
+                    <!--</v-treeview>-->
+                <!--</v-card-text>-->
+            <!--</v-flex>-->
+        <!--</v-layout>-->
+<!--=======-->
+<!--&gt;>>>>>> master-->
         <v-divider></v-divider>
         <v-layout>
             <v-flex xs6 md12>

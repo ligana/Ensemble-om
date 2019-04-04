@@ -3,12 +3,8 @@
         <v-toolbar dark>
             <v-toolbar-title>交易属性管理</v-toolbar-title>
             <v-spacer></v-spacer>
-<<<<<<< HEAD
-            <v-dialog v-model="dialog" max-width="500px" >
-                <v-btn slot="activator" flat color="#3C73E6" @click="addClick"> 添加 </v-btn>
-                <v-card class="popups">
-=======
             <v-text-field
+                    class="search_box"
                     clearable
                     v-model="search"
                     prepend-icon="search"
@@ -16,12 +12,9 @@
                     single-line
                     hide-details
             ></v-text-field>
-            <v-dialog v-model="dialog" max-width="500px" persistent>
-                <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
-                    <td style="color: white;margin-left: 100px">添加</td>
-                </v-btn>
-                <v-card>
->>>>>>> master
+            <v-dialog v-model="dialog" max-width="500px">
+                <v-btn slot="activator" flat color="#3C73E6" @click="addClick"> 添加 </v-btn>
+                <v-card class="popups">
                     <v-card-title>
                         <span>{{ formTitle }}</span>
                     </v-card-title>
@@ -104,11 +97,8 @@
             disabled: "false",
             system: [],
             model: [],
-<<<<<<< HEAD
             icon: String,
-=======
             searchColumn: [],
->>>>>>> master
             paramType: [
                 {
                     key: "init",
@@ -326,4 +316,33 @@
     }
 </script>
 <style scoped>
+    .bthStyle {
+        color: #00b0ff;
+        width: 120px;
+    }
+    .search_box {
+        height: 40px;
+        padding-top: 2px;
+    }
+    .search_box >>> .v-input__prepend-outer {
+        margin-top: 8px;
+    }
+    .search_box >>> .theme--dark.v-icon {
+        color: #7b82ee;
+    }
+    .search_box >>> .theme--dark.v-label {
+        color: #737373;
+        top: 8px;
+    }
+    .search_box >>> .v-input__slot {
+        background-color: #fff;
+        border-radius: 3px;
+    }
+    .search_box >>> .v-input__slot:before {
+        border-color: #1e19bb !important;
+    }
+    .search_box >>> .v-input__slot .v-text-field__slot input {
+        color: #000;
+        padding: 8px 10px;
+    }
 </style>

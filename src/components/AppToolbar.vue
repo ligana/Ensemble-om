@@ -10,15 +10,9 @@
         <v-icon @click="showSearchAction" class="material-icons">search</v-icon>
 
         <v-card :class="searchDc">
-<<<<<<< HEAD
             <v-autocomplete :items="prodList" placeholder="请输入要查询的产品类型或描述" class="primary--text px-5 pt-2"
                             @change="prodListClick" clearable flat solo-inverted></v-autocomplete>
         </v-card>
-=======
-                <v-autocomplete :items="prodList" placeholder="请输入要查询的产品类型或描述" class="primary--text px-5 pt-2"
-                                @change="prodListClick" clearable flat solo-inverted></v-autocomplete>
-              </v-card>
->>>>>>> master
         <v-btn icon @click="handleFullScreen()">
             <v-icon>fullscreen</v-icon>
         </v-btn>
@@ -146,11 +140,11 @@
                         break
                     }
                 }
-<<<<<<< HEAD
-                if(this.prodRange == "S" && this.sourceModule == "RB"){
-                    this.$router.push({
-                        name: "SoldProdForm",
-=======
+// <<<<<<< HEAD
+//                 if(this.prodRange == "S" && this.sourceModule == "RB"){
+//                     this.$router.push({
+//                         name: "SoldProdForm",
+// =======
                if(this.prodRange == "S" && this.sourceModule == "RB"){
                    this.$router.push({
                        name: "SoldProdForm",
@@ -163,58 +157,58 @@
                if(this.prodRange == "B" && this.sourceModule == "RB"){
                     this.$router.push({
                         name: "BaseProdForm",
->>>>>>> master
+// >>>>>>> master
                         params: {
                             prodClassCmp: this.prodClass,
                             prodType: this.prodCode
                         }
                     });
-<<<<<<< HEAD
-                }
-                if(this.prodRange == "B" && this.sourceModule == "RB"){
-                    this.$router.push({
-                        name: "BaseProdForm",
-=======
+// <<<<<<< HEAD
+//                 }
+//                 if(this.prodRange == "B" && this.sourceModule == "RB"){
+//                     this.$router.push({
+//                         name: "BaseProdForm",
+// =======
                }
 
                 if(this.prodRange == "S" && this.sourceModule == "CL"){
                     this.$router.push({
                         name: "SoldProdFormCl",
->>>>>>> master
+// >>>>>>> master
                         params: {
                             prodClassCmp: this.prodClass,
                             prodType: this.prodCode
                         }
                     });
                 }
-<<<<<<< HEAD
-                if(this.prodRange == "S" && this.sourceModule == "CL"){
-                    this.$router.push({
-                        name: "SoldProdFormCl",
-=======
+// <<<<<<< HEAD
+//                 if(this.prodRange == "S" && this.sourceModule == "CL"){
+//                     this.$router.push({
+//                         name: "SoldProdFormCl",
+// =======
                 if(this.prodRange == "B" && this.sourceModule == "CL"){
                     this.$router.push({
                         name: "BaseProdFormCl",
->>>>>>> master
+// >>>>>>> master
                         params: {
                             prodClassCmp: this.prodClass,
                             prodType: this.prodCode
                         }
                     });
                 }
-<<<<<<< HEAD
-                if(this.prodRange == "B" && this.sourceModule == "CL"){
-                    this.$router.push({
-                        name: "BaseProdFormCl",
-                        params: {
-                            prodClassCmp: this.prodClass,
-                            prodType: this.prodCode
-                        }
-                    });
-                }
-=======
+// <<<<<<< HEAD
+//                 if(this.prodRange == "B" && this.sourceModule == "CL"){
+//                     this.$router.push({
+//                         name: "BaseProdFormCl",
+//                         params: {
+//                             prodClassCmp: this.prodClass,
+//                             prodType: this.prodCode
+//                         }
+//                     });
+//                 }
+// =======
 
->>>>>>> master
+// >>>>>>> master
                 if(this.prodRange == "S" && this.sourceModule == "GL"){
                     this.$router.push({
                         name: "SoldProdFormGl",

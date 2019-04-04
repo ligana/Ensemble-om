@@ -7,8 +7,8 @@ import {
 
 // create an axios instance
 const service = axios.create({
-  baseURL: process.env.BASE_API, // api的base_url
-  timeout: 18000 // request timeout
+    baseURL: process.env.BASE_API, // api的base_url
+    timeout: 1800 // request timeout
 });
 
 // request interceptor

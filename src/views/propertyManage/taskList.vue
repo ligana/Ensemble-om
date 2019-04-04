@@ -1,9 +1,9 @@
 <template>
     <div class="vCard" v-show="show">
-        <v-layout row wrap>
+        <v-layout row wrap>prodCompareTitle
             <v-dialog v-model="diff" fullscreen hide-overlay transition="dialog-bottom-transition">
                 <v-card ref="print" >
-                    <v-toolbar dark color="#3C73E6!important" style="height: 64px!important">
+                    <v-toolbar dark color="#3C73E6!important" style="height: 48px!important">
                         <v-btn icon dark @click="closeDialog">
                             <v-icon>close</v-icon>
                         </v-btn>

@@ -40,11 +40,11 @@
 </template>
 
 <script>
-    //import { getMenu } from "@/api/menu";
+    import { getMenu } from "@/api/menu";
     import {login} from "@/api/login";
     import {setToken} from "@/utils/auth";
 
-<<<<<<< HEAD
+// <<<<<<< HEAD
     export default {
         data: () => ({
             alert: false,
@@ -86,41 +86,41 @@
             }
         }
     };
-=======
-  methods: {
-    login() {
-      login(this.model.userId, this.model.password)
-        .then(response => {
-          if (response.data.code !== "000000") {
-            this.loading = false;
-            this.alert = true;
-            this.alertMsg = response.data.msg;
-            this.model.password = null;
-          } else {
-            this.loading = true;
-            sessionStorage.setItem("userId", this.model.userId);
-            sessionStorage.setItem("userLevel", JSON.parse(response.data.data).omUser.userLevel);
-            sessionStorage.setItem("branch", JSON.parse(response.data.data).omUser.branch);
-            sessionStorage.setItem("company", JSON.parse(response.data.data).omUser.company);
-
-            //将用户产品权限放入
-              const levelList=JSON.parse(response.data.data).omProdPermDefList;
-             for(const index in levelList){
-                 const level=levelList[index];
-               sessionStorage.setItem("base"+level.modelType, level.baseProdLevel);
-               sessionStorage.setItem("sold"+level.modelType, level.soldProdLevel);
-             }
-            setToken(this.model.userId);
-            this.$router.push("/dashboard");
-          }
-        })
-        .catch(() => {
-          this.loading = false;
-        });
-    }
-  }
-};
->>>>>>> master
+// =======
+//   methods: {
+//     login() {
+//       login(this.model.userId, this.model.password)
+//         .then(response => {
+//           if (response.data.code !== "000000") {
+//             this.loading = false;
+//             this.alert = true;
+//             this.alertMsg = response.data.msg;
+//             this.model.password = null;
+//           } else {
+//             this.loading = true;
+//             sessionStorage.setItem("userId", this.model.userId);
+//             sessionStorage.setItem("userLevel", JSON.parse(response.data.data).omUser.userLevel);
+//             sessionStorage.setItem("branch", JSON.parse(response.data.data).omUser.branch);
+//             sessionStorage.setItem("company", JSON.parse(response.data.data).omUser.company);
+//
+//             //将用户产品权限放入
+//               const levelList=JSON.parse(response.data.data).omProdPermDefList;
+//              for(const index in levelList){
+//                  const level=levelList[index];
+//                sessionStorage.setItem("base"+level.modelType, level.baseProdLevel);
+//                sessionStorage.setItem("sold"+level.modelType, level.soldProdLevel);
+//              }
+//             setToken(this.model.userId);
+//             this.$router.push("/dashboard");
+//           }
+//         })
+//         .catch(() => {
+//           this.loading = false;
+//         });
+//     }
+//   }
+// };
+// >>>>>>> master
 </script>
 <style scoped lang="css">
     #login {

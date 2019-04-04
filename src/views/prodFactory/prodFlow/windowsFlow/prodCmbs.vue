@@ -129,6 +129,7 @@
                 //获取所有prodType
                 var _this = this
                 getAllProdList().then(response => {
+                    console.log(response.data.data,'9090909090');
                     _this.prodTypeList = response.data.data
                     _this.prodListDtl = response.data.data
                     _this.title = "产品总数"
@@ -290,11 +291,16 @@
     }
 </script>
 <style scoped>
+    .father >>> .v-input__control {
+        min-height: 38px;
+
+    }
     .father >>> .theme--light.v-text-field--solo .v-input__slot {
         border: 1px solid rgba(0, 0, 0, .12);
     }
     .father >>> .v-select {
-        padding: 14px;
+        padding: 8px 14px;
+        margin-top: 0;
     }
     .father >>> .v-text-field > .v-input__control > .v-input__slot:after {
         border-style: none !important;
@@ -305,7 +311,7 @@
         border-style: none !important;
     }
     .father .top {
-        background-color: #dbdbdb !important;
+        background-color: #b1b1b1!important;
 
     }
 
@@ -326,7 +332,7 @@
         position: absolute;
         left: 0;
         top: 0;
-        right: -18px;
+        right: -25px;
         bottom: 0;
         overflow-x: hidden;
         overflow-y: scroll;
@@ -343,7 +349,7 @@
     }
     .father >>> .v-list .v-list__tile--link:hover {
         background-color: rgba(0, 0, 0, 0) !important;
-        color: rgba(85, 198, 255, 0.85) !important;
+        color: #870329 !important;
     }
     .father >>> .v-list__tile__content {
         padding-left: 20px;

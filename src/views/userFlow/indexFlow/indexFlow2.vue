@@ -124,96 +124,61 @@
     <!--};-->
 <!--=======-->
 <template>
-  <div class="pt-4">
-    <v-card class="elevation-2 radiusDc">
-      <v-layout align-center justify-space-between row fill-height>
-        <v-flex lg2 sm2 pl-3>
-          <img src="/static/user/MyUser.png" class="imgUserIndexFlow">
-        </v-flex>
-        <v-flex lg7 sm7>
-          <v-layout>
-            <v-flex lg7 sm7 pb-3>
-              <span class="headline text-xs-center">{{userId}},你好,欢迎进入</span>
-            </v-flex>
-          </v-layout>
-          <v-layout>
-            <v-flex lg7 sm7>
-              <span class="title text-xs-center">XXX银行产品工厂 - {{userName}}</span>
-            </v-flex>
-          </v-layout>
-        </v-flex>
-        <v-flex lg3 sm3 offset-xs0 offset-lg2>
+  <div class="pt-4  father">
+      <v-layout align-center justify-space-between row fill-height class="v-card">
+          <v-flex lg8 sm7 class="wecome">
+              <span class="headline text-xs-center">admin,你好,</span>
+              <span class="title text-xs-center">欢迎进入XXX银行产品工厂</span>
+          </v-flex>
+        <v-flex lg4 sm5 class="statistics_box">
           <v-layout row wrap>
             <v-flex d-flex>
-              <div>
+              <div class="statistics">
                 <span class="title">交易数</span>
-                <br/><br/>
-                <span class="title pl-2">{{tableListNum}}</span>
+                <span class="title color1">{{tableListNum}}</span>
               </div>
             </v-flex>
             <v-flex d-flex>
               <div>
                 <span class="title">我的发布</span>
-                <br/><br/>
-                <span class="title pl-2">{{processNum}}</span>
+                <span class="title color2">{{processNum}}</span>
               </div>
             </v-flex>
             <v-flex d-flex>
               <div>
                 <span class="title">我的收藏</span>
-                <br/><br/>
-                <span class="title pl-2">{{colleceNum}}</span>
+                <span class="title color3">{{colleceNum}}</span>
               </div>
             </v-flex>
           </v-layout>
         </v-flex>
       </v-layout>
-    </v-card>
+    <!--</v-card>-->
     <v-layout row pt-4>
       <v-flex xs9 sm9 pt-2>
-        <v-card class="elevation-2 radiusDc">
-          <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" class="elevation-2" flat>
-            <v-toolbar-side-icon></v-toolbar-side-icon>
-            <v-toolbar-title>我的任务</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn icon>
-              <v-icon>more_vert</v-icon>
-            </v-btn>
-          </v-toolbar>
-          <v-card-text class="py-1">
-            <user-work-tags></user-work-tags>
-          </v-card-text>
-        </v-card>
+          <v-widget title="我的任务" class="v-widget">
+              <div slot="widget-content">
+                  <user-work-tags></user-work-tags>
+              </div>
+          </v-widget>
       </v-flex>
       <v-flex xs3 sm3 pt-2 pl-4>
-        <v-card class="elevation-2 radiusDc">
-          <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" class="elevation-2" flat>
-            <v-toolbar-side-icon></v-toolbar-side-icon>
-            <v-toolbar-title>快捷导航</v-toolbar-title>
-            <v-spacer></v-spacer>
-            <v-btn icon>
-              <v-icon>more_vert</v-icon>
-            </v-btn>
-          </v-toolbar>
-          <v-card-text style="text-align: center; " class="py-1">
-            <v-list>
-              <v-list-tile v-for="item in items" :key="item.title" avatar @click="keyboardClick(item)">
-
-                <v-list-tile-action>
-                  <v-icon v-if="item.icon" color="red">star</v-icon>
-                </v-list-tile-action>
-                <v-list-tile-content>
-                  <v-list-tile-title v-text="item.title"></v-list-tile-title>
-                </v-list-tile-content>
-                <!-- <v-list-tile-action style="min-width: 0; ">
-                  <v-chip label color="pink" text-color="white">
-                    <v-icon left color="white">start</v-icon>编辑
-                  </v-chip>
-                </v-list-tile-action> -->
-              </v-list-tile>
-            </v-list>
-          </v-card-text>
-        </v-card>
+          <v-widget title="快捷导航" class="v-widget">
+            <div slot="widget-content">
+                <!--<v-card-text style="text-align: center; " class="py-1">-->
+                    <v-list>
+                        <v-list-tile v-for="item in items" :key="item.title" avatar @click="keyboardClick(item)">
+                            <v-list-tile-action>
+                                <v-icon v-if="item.icon" color="red">star</v-icon>
+                            </v-list-tile-action>
+                            <v-list-tile-content>
+                                <v-list-tile-title v-text="item.title"></v-list-tile-title>
+                            </v-list-tile-content>
+                        </v-list-tile>
+                    </v-list>
+                <!--</v-card-text>-->
+            </div>
+          </v-widget>
       </v-flex>
     </v-layout>
     <v-dialog v-model="dialog" width="700">
@@ -222,7 +187,7 @@
   </div>
 </template>
 <script>
-
+    import VWidget from "@/components/VWidget";
     import indexFlowRoute from "./indexFlowRoute"
     import { Menu } from "@/api/menu";
     import userWorkTags from "@/views/userFlow/userWork/userWorkTags";
@@ -235,7 +200,8 @@
 export default {
     components: {
         userWorkTags,
-        indexFlowRoute
+        indexFlowRoute,
+        VWidget
     },
     data() {
         return {
@@ -273,8 +239,8 @@ export default {
             tree: [],
             userId: "",
             tableListNum: "",
-            processNum: "",
-            colleceNum: "",
+            processNum: 0,
+            colleceNum: 0,
             userName: "",
         };
     },
@@ -290,8 +256,16 @@ export default {
             this.getMenusItems(this.menus,trees)
             this.tree = trees
         })
+        this.otherFn()
     },
     methods: {
+        otherFn(){
+            try {
+                throw new Error("Whoops!");
+            } catch (e) {
+                console.log(e.name + ": " + e.message);
+            }
+        },
         getMenusItems(item,trees){
             for(let i=0; i<item.length; i++){
                 if(item[i].title != undefined && item[i].items == undefined){
@@ -357,19 +331,13 @@ export default {
         }
     }
 };
-// >>>>>>> master
 </script>
 <style scoped>
-    /*.imgUserIndexFlow {*/
-        /*width: 100px;*/
-        /*display: inline-block;*/
-    /*}*/
-
-    /*.indexFlowTitle {*/
-        /*padding: 10px;*/
-    /*}*/
     .father .v-card {
         background-color: #fff;
+    }
+    .father >>> .v-card__text {
+        padding: 0px;
     }
     .wecome {
         padding:10px 0 10px 30px;

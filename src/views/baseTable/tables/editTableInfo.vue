@@ -75,24 +75,24 @@
 <script>
     import columnInfo from '@/views/prodFactory/prodInfo/columnInfo'
     import {getPkList} from '@/views/prodFactory/prodInfo/pkListColumnInfo'
-<<<<<<< HEAD
-    // import DcDanMultiselect from '@/components/widgets/DcDanMultiselect'
+// <<<<<<< HEAD
+//     // import DcDanMultiselect from '@/components/widgets/DcDanMultiselect'
+//     import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
+//     import DcSwitch from "@/components/widgets/DcSwitch";
+//     import DcTreeSelect from "@/components/widgets/DcTreeSelect";
+//     // import DcDanTextField from "@/components/widgets/DcDanTextField";
+//     import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
+//     import DcDate from '@/components/widgets/DcDate'
+//     export default {
+//         // components: {DcDanMultiselect, DcSwitch, DcTreeSelect,DcDate,DcDanTextField}
+// =======
     import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
     import DcSwitch from "@/components/widgets/DcSwitch";
     import DcTreeSelect from "@/components/widgets/DcTreeSelect";
-    // import DcDanTextField from "@/components/widgets/DcDanTextField";
     import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
     import DcDate from '@/components/widgets/DcDate'
     export default {
-        // components: {DcDanMultiselect, DcSwitch, DcTreeSelect,DcDate,DcDanTextField}
-=======
-    import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
-    import DcSwitch from "@/components/widgets/DcSwitch";
-    import DcTreeSelect from "@/components/widgets/DcTreeSelect";
-    import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
-    import DcDate from '@/components/widgets/DcDate'
-    export default {
->>>>>>> master
+// >>>>>>> master
         components: {DcMultiselectTable, DcSwitch, DcTreeSelect,DcDate,DcTextFieldTable},
         props: {
             childPd: Boolean,

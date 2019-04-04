@@ -21,16 +21,11 @@
                 </v-list>
             </v-card>
         </v-flex>
-<<<<<<< HEAD
-        <v-flex md9 lg9 class="sort_rightAll">
-=======
-        <v-flex md9 lg9 v-show="fixed == false">
->>>>>>> master
+        <v-flex md9 lg9 v-show="fixed == false" class="sort_rightAll">
             <base-table :tableData="selectInfo" :keySet="keySet"></base-table>
         </v-flex>
-        <v-flex md9 lg9 v-show="fixed == true" class="ml-2">
-            <a-table :columns="columnsFixed" :dataSource="accountingFixed" bordered>
-            </a-table>
+        <v-flex md9 lg9 v-show="fixed == true" class="ml-2 sort_rightAll">
+            <a-table :columns="columnsFixed" :dataSource="accountingFixed" bordered ></a-table>
         </v-flex>
     </v-layout>
 </template>
@@ -163,7 +158,6 @@
     }
 </script>
 <style scoped>
-<<<<<<< HEAD
     .sort .v-list > div{
         border: 1px solid #DCE1E7;
     }
@@ -173,16 +167,4 @@
         padding-bottom: 10px;
     }
 
-=======
-    .prodList {
-        color: #00b0ff;
-        margin-left: -10px;
-    }
-    .title {
-        color: white;margin-left: auto;margin-right: auto;margin-top: 1px;margin-bottom: auto
-    }
-    .dcMulti {
-        margin-top: 10px;
-    }
->>>>>>> master
 </style>

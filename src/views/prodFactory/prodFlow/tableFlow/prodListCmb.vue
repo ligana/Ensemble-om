@@ -1,7 +1,7 @@
 <template>
     <v-card>
-        <v-toolbar card color="white" style="height: 64px!important">
-            <v-text-field flat solo prepend-icon="search" placeholder="请输入产品名称或描述" v-model="search" clearable hide-details class="hidden-sm-and-down"></v-text-field>
+        <v-toolbar card color="white" style="height: 48px!important">
+            <v-text-field tyle="min-height: 36px;!important" flat solo prepend-icon="search" placeholder="请输入产品名称或描述" v-model="search" clearable hide-details class="hidden-sm-and-down"></v-text-field>
             <v-btn color="info" @click="addCompare">加入对比</v-btn>
         </v-toolbar>
         <v-card-text class="pa-0">
@@ -22,11 +22,11 @@
                         <td>{{ props.item.baseProdType }}</td>
                         <td>{{ props.item.status === "A"?"有效":"封存"}}</td>
                         <td>
-<<<<<<< HEAD
-                            <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
-                                <v-icon>edit</v-icon>
-                            </v-btn>
-=======
+<!--<<<<<<< HEAD-->
+                            <!--<v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">-->
+                                <!--<v-icon>edit</v-icon>-->
+                            <!--</v-btn>-->
+<!--=======-->
                             <v-layout>
                                 <v-flex md6 lg6>
                                     <v-btn depressed outline icon fab dark color="primary" small @click="handleClick(props.item)">
@@ -39,7 +39,7 @@
                                     </v-btn>
                                 </v-flex>
                             </v-layout>
->>>>>>> master
+<!--&gt;>>>>>> master-->
                         </td>
                     </tr>
                 </template>
@@ -114,6 +114,7 @@
                         allowOutsideClick: false,
                         type: 'info',
                         title: "请选择需要进行对比的产品！",
+
                     })
                 }
                 if(selected.length > 5 || selected.length == 1){
@@ -142,7 +143,20 @@
                 }
                 if(prodRange == "B" && sourceModule == "CL") {
                     this.$router.push({name: "BaseProdFormCl", hash: prodType});
-<<<<<<< HEAD
+// <<<<<<< HEAD
+//                 }
+//                 if(prodRange == "B" && sourceModule == "GL") {
+//                     this.$router.push({name: "BaseProdFormGl", hash: prodType});
+//                 }
+//                 if(prodRange == "S" && sourceModule == "RB"){
+//                     this.$router.push({name: "SoldProdForm", hash: prodType});
+//                 }
+//                 if(prodRange == "S" && sourceModule == "CL"){
+//                     this.$router.push({name: "SoldProdFormCl", hash: prodType});
+//                 }
+//                 if(prodRange == "S" && sourceModule == "GL"){
+//                     this.$router.push({name: "SoldProdFormGl", hash: prodType});
+// =======
                 }
                 if(prodRange == "B" && sourceModule == "GL") {
                     this.$router.push({name: "BaseProdFormGl", hash: prodType});
@@ -152,20 +166,7 @@
                 }
                 if(prodRange == "S" && sourceModule == "CL"){
                     this.$router.push({name: "SoldProdFormCl", hash: prodType});
-                }
-                if(prodRange == "S" && sourceModule == "GL"){
-                    this.$router.push({name: "SoldProdFormGl", hash: prodType});
-=======
-                }
-                if(prodRange == "B" && sourceModule == "GL") {
-                    this.$router.push({name: "BaseProdFormGl", hash: prodType});
-                }
-                if(prodRange == "S" && sourceModule == "RB"){
-                    this.$router.push({name: "SoldProdForm", hash: prodType});
-                }
-                if(prodRange == "S" && sourceModule == "CL"){
-                    this.$router.push({name: "SoldProdFormCl", hash: prodType});
->>>>>>> master
+// >>>>>>> master
                 }
                 if(prodRange == "S" && sourceModule == "GL"){
                     this.$router.push({name: "SoldProdFormGl", hash: prodType});

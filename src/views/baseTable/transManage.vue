@@ -49,17 +49,10 @@
                 titleNum: "",
                 action: 'model',
                 items: [
-<<<<<<< HEAD
-                    {title: '交易属性管理', name: 'model', class: '', icon: 'widgets', color: "blue", number: ""},
-                    {title: '交易系统管理', name: 'system', class: '', icon: 'settings', color: "blue", number: ""},
-                    {title: '交易模块管理', name: 'module', class: '', icon: 'event', color: "blue", number: ""},
-                    {title: '元数据管理', name: 'json', class: '', icon: 'menu', color: "blue", number: ""}
-=======
-                    {title: '交易属性管理',name: 'model', class: '',icon: 'widgets',color: "blue"},
-                    {title: '系统管理',name: 'system', class: '',icon: 'settings',color: "blue"},
-                    {title: '模块管理',name: 'module', class: '', icon: 'event',color: "blue"},
-                    {title: '元数据管理',name: 'json', class: '', icon: 'menu',color: "blue"}
->>>>>>> master
+                    {title: '交易属性管理',name: 'model', class: '',icon: 'widgets',color: "blue", number: ""},
+                    {title: '系统管理',name: 'system', class: '',icon: 'settings',color: "blue", number: ""},
+                    {title: '模块管理',name: 'module', class: '', icon: 'event',color: "blue", number: ""},
+                    {title: '元数据管理',name: 'json', class: '', icon: 'menu',color: "blue", number: ""},
                 ],
                 window: 0,
                 windowItem: 'windowItem',
@@ -67,7 +60,6 @@
             }
         },
         created() {
-            // debugger
             this.getParaTable()
         },
         methods: {
@@ -80,7 +72,6 @@
                         this.title = "交易数量"
                         getSysTable("OM_TABLE_LIST").then(function (response) {
                             that.items[key].number = response.data.data.columnInfo.length
-                            console.log(that.items[key].number, "response.data.data456789");
                         });
                     }
                     if (that.items[key].name === "system") {
@@ -93,7 +84,6 @@
                         this.title = "模块数量"
                         getSysTable("OM_MODULE_ORG").then(function (response) {
                             that.items[key].number = response.data.data.columnInfo.length
-                            console.log(response.data.data, "response.data.data456789");
                         });
                     }
                     if (that.items[key].name === "json") {
@@ -113,16 +103,16 @@
             actionTag(item) {
                 let that = this
                 if(item.name === "model"){
-                    this.title = "交易数量"
+                    this.title = "交易属性管理"
                 }
                 if(item.name === "system"){
-                    this.title = "系统数量"
+                    this.title = "系统管理"
                 }
                 if(item.name === "module"){
-                    this.title = "模块数量"
+                    this.title = "模块管理"
                 }
                 if(item.name === "json"){
-                    that.title = "字段数量"
+                    that.title = "元数据管理"
                 }
                 this.action = item.name;
                 item.class="selected";
@@ -158,7 +148,7 @@
     }
     .para >>> .v-list .v-list__tile--link:hover {
         background-color: rgba(0, 0, 0, 0) !important;
-        color: rgba(85, 198, 255, 0.85) !important;
+        color: #870329 !important;
     }
     .selected {
         background-color: #3C73E6;

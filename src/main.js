@@ -18,25 +18,33 @@ import Truncate from 'lodash.truncate';
 import store from './store';
 import qs from 'qs';
 import globalConfig from "./config.js";
-
-/*import './mock';*/
-
 import './mock';
-
-
 import 'ant-design-vue/dist/antd.css';
 import 'vuetify/dist/vuetify.min.css'
-<<<<<<< HEAD
-import '../static/common/common.css'
-
-=======
 import alert from './alert.js'
->>>>>>> master
+import '../static/common/common.css'
+// import axios from 'axios'
+
+//系统错误捕获
+// Vue.prototype.axios = axios
+// // 设置axios的返回拦截（还可以设置request拦截，这里暂时用不上）
+// axios.interceptors.response.use(
+//     response => {
+//         return response;
+//     },
+//     error => {
+//         if(error.message.includes('timeout')){   // 判断请求异常信息中是否含有超时timeout字符串
+//             console.log("错误回调", error);
+//             alert("网络超时");
+//             return Promise.reject(error);          // reject这个错误信息
+//         }
+//         return Promise.reject(error);
+//     });
+//
+// Vue.config.productionTip = false
 
 // ���� table �� ��ҳ���
-
 import { Spin, Table,Divider,Tag ,Button ,Upload, Icon} from 'ant-design-vue'
-
 Vue.component(Table.name, Table)
 Vue.component(Divider.name, Divider)
 Vue.component(Tag.name, Tag)
@@ -44,7 +52,6 @@ Vue.component(Button.name, Button)
 Vue.component(Spin.name, Spin)
 Vue.component(Upload.name, Upload)
 Vue.component(Icon.name, Icon)
-
 // ע�ᵽȫ��
 Vue.prototype.$qs = qs
 //Global Config
@@ -61,37 +68,39 @@ Vue.use(VueResource)
 Vue.use(dragTreeTable)
 Vue.use(VueSweetalert2)
 Vue.use(VeeValidate, {
-  fieldsBagName: 'formFields'
+    fieldsBagName: 'formFields'
 });
 Vue.use(Vuetify, {
-  // theme: {
-  //   primary: colors.indigo.base, // #E53935
-  //   secondary: colors.indigo.lighten4, // #FFCDD2
-  //   accent: colors.indigo.base // #3F51B5
-  // },
-  options: {
-    themeVariations: ['primary', 'secondary', 'accent'],
-    extra: {
-      mainToolbar: {
-        color: 'primary',
-      },
-      sideToolbar: {},
-      sideNav: 'primary',
-      mainNav: 'primary lighten-1',
-      bodyBg: '',
+    // theme: {
+    //   primary: colors.indigo.base, // #E53935
+    //   secondary: colors.indigo.lighten4, // #FFCDD2
+    //   accent: colors.indigo.base // #3F51B5
+    // },
+    options: {
+        themeVariations: ['primary', 'secondary', 'accent'],
+        extra: {
+            mainToolbar: {
+                color: 'primary',
+            },
+            sideToolbar: {},
+            sideNav: 'primary',
+            mainNav: 'primary lighten-1',
+            bodyBg: '',
+        }
     }
-  }
 });
-// Bootstrap application component
+// Bootstrap application components
+
+
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  i18n,
-  components: {
-    App
-  },
-  template: '<App/>'
+    el: '#app',
+    router,
+    store,
+    i18n,
+    components: {
+        App
+    },
+    template: '<App/>'
 });
