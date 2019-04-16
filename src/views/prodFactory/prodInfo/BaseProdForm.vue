@@ -276,12 +276,12 @@
                     for(let q=0; q<attrClass.length; q++){
                         for(let w=0; w<attrType.length; w++){
                             if(attrType[w].ATTR_CLASS === attrClass[q].ATTR_CLASS){
-                                let temp = {}
-                                temp["key"] = attrType[w].ATTR_KEY
-                                temp["columnDesc"] = attrType[w].ATTR_DESC
-                                temp["parentCode"] = attrClass[q].ATTR_CLASS
-                                temp["parentDesc"] = attrClass[q].ATTR_CLASS_DESC
-                                that.treeOptions.push(temp)
+                                let temp = {};
+                                temp["key"] = attrType[w].ATTR_KEY;
+                                temp["columnDesc"] = attrType[w].ATTR_DESC;
+                                temp["parentCode"] = attrClass[q].ATTR_CLASS;
+                                temp["parentDesc"] = attrClass[q].ATTR_CLASS_DESC;
+                                that.treeOptions.push(temp);
                             }
                         }
                     }
