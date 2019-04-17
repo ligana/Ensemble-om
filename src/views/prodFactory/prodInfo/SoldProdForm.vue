@@ -142,7 +142,7 @@
     import DcTreeAttr from "@/components/widgets/DcTreeAttr";
     import {getParamTable} from "@/api/url/prodInfo";
     import {getCommonList} from "@/api/url/prodInfo";
-
+    import {getProdPageDefine} from "@/api/url/prodInfo";
     export default {
         name: 'SoldProdForm',
         components: {
@@ -189,6 +189,7 @@
                 sourceModule: "",
                 addColumnsRef: [],
                 addColumnInfos: [],
+                pageClass: '',
                 prodMapping: {
                     irlProdType: '',
                     glProdMappingType: ''
@@ -245,11 +246,13 @@
                 this.prodType = this.$route.hash;
                 const response = getProdData(this.$route.hash);
                 this.routPageByProd(response);
+                this.prodInfo = getProdPageDefine(this.pageClass);
             }
             if(this.$route.params.prodType !== "" && this.$route.params.prodType !== null && this.$route.params.prodType !== undefined) {
                 this.prodType = this.$route.params.prodType;
                 const response = getProdData(this.$route.params.prodType);
                 this.routPageByProd(response);
+                this.prodInfo = getProdPageDefine(this.pageClass);
             }
         },
         mounted (){
@@ -347,29 +350,28 @@
             routPageByProd(response) {
                 this.initColumnInfo();
                 this.prodData = response;
-                this.prodInfo = [];
                 let prodGroup = response.prodType.prodGroup;
                 let sourceModule = response.prodType.sourceModule;
                 //存款产品
                 if(sourceModule == "RB") {
                     //组合产品（一本通类）
                     if (response.prodDefines.AGREEMENT_TYPE == undefined && prodGroup == "Y") {
-                        this.prodInfo = prodPageInfo.rbProdGroup;
+                        this.pageClass = "RBPRODGROUP";
                         return;
                     }
                     //期次产品
                     if (response.prodDefines.FIXED_CALL != undefined && response.prodDefines.FIXED_CALL != null && response.prodDefines.FIXED_CALL.attrValue == "M") {
-                        this.prodInfo = prodPageInfo.rbProdFixed;
+                        this.pageClass = "RBPRODFIXED";
                         return;
                     }
                     //协议产品（YHT一户通）
                     if (response.prodDefines.AGREEMENT_TYPE != undefined && response.prodDefines.AGREEMENT_TYPE != null && response.prodDefines.AGREEMENT_TYPE.attrValue == "YHT" && prodGroup == "Y") {
-                        this.prodInfo = prodPageInfo.rbProdYHT;
+                        this.pageClass = "RBPRODYHT";
                         return;
                     }
                     //协议存款（资金池）
                     if (response.prodDefines.AGREEMENT_TYPE != undefined && response.prodDefines.AGREEMENT_TYPE != null && response.prodDefines.AGREEMENT_TYPE.attrValue == "PCP" && prodGroup == "Y") {
-                        this.prodInfo = prodPageInfo.rbProdPCP;
+                        this.pageClass = "RBPRODPCP";
                         return;
                     }
                 }
@@ -382,41 +384,41 @@
                     if (response.prodDefines.AGREEMENT_TYPE != undefined && response.prodDefines.AGREEMENT_TYPE != null && prodGroup == "Y") {
                         let agreeType = response.prodDefines.AGREEMENT_TYPE.attrValue;
                         if (this.checkIs(agreeType)) {
-                            this.prodInfo = prodPageInfo.rbProdZJZY;
+                            this.pageClass = "RBPRODZJZY";
                             return;
                         }
                     }
                     //定期产品
                     if (response.prodDefines.ACCT_TYPE != undefined && response.prodDefines.ACCT_TYPE != null && response.prodDefines.ACCT_TYPE.attrValue == "T") {
-                        this.prodInfo = prodPageInfo.rbProdT;
+                        this.pageClass = "RBPRODT";
                         return;
                     }
                     //默认活期产品
-                    this.prodInfo = prodPageInfo.rbProdNotT;
+                    this.pageClass = "RBPRODNOTT";
                     return;
                 }
                 if(sourceModule == "CL") {
                     //贷款组合产品
                     if (prodGroup == "Y") {
-                        this.prodInfo = prodPageInfo.clGroupProd;
+                        this.pageClass = "CLGROUPPROD";
                         return;
                     }
                     //贷款非组合产品
                     if (prodGroup != "Y") {
-                        this.prodInfo = prodPageInfo.clProdPublish;
+                        this.pageClass = "CLPRODPUBLISH";
                         return;
                     }
                 }
                 //内部账产品
                 if(sourceModule == "GL"){
-                    this.prodInfo = prodPageInfo.glProdPublish;
+                    this.pageClass = "GLPRODPUBLISH";
                     return;
                 }
             },
             //判断是否资金转移类产品
             checkIs(agreeType){
                 if(agreeType == "FIN" || agreeType == "YD" || agreeType == "XD" || agreeType == "ODF" || agreeType == "DBC" || agreeType == "DDC") {
-                    this.prodInfo = prodPageInfo.rbProdZJZY;
+                    this.pageClass = "RBPRODZJZY";
                     return true;
                 }
                 return false;

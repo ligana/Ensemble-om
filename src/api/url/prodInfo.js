@@ -435,3 +435,9 @@ export function columnInfoServ (params) {
         data: params
     });
 }
+
+export function getProdPageDefine (params) {
+    const data= {pageClass: params};
+    const reData=asyncPost('/getProdPageDefine',data);
+    return reData;
+}
