@@ -133,16 +133,29 @@
                         if(index == "prodDefine"){
                             //参数信息  （去除event定义数据）
                             for(let attr in prodData[prodCode][index]){
-                                if (prodData[prodCode][index][attr].assembleType == "ATTR" && !this.findIn(prodDefineColumn,prodData[prodCode][index][attr].assembleId)) {
+                                if (prodData[prodCode][index][attr].eventType.split("_")[0]=="BASE"&&
+                                    prodData[prodCode][index][attr].assembleType == "ATTR" &&
+                                    !this.findIn(prodDefineColumn,prodData[prodCode][index][attr].attrType)) {
                                     let tempAttr = {};
-                                    tempAttr['columnCode'] = prodData[prodCode][index][attr].assembleId;
-                                    const attrDesc = this.getAttrDesc(prodData[prodCode][index][attr].assembleId);
+                                    tempAttr['columnCode'] = prodData[prodCode][index][attr].attrType;
+                                    tempAttr['eventType'] = prodData[prodCode][index][attr].eventType.split("_")[0];
+                                    const attrDesc = this.getAttrDesc(prodData[prodCode][index][attr].attrType);
                                     tempAttr['columnDesc'] = attrDesc;
                                     prodDefineColumn.push(tempAttr);
                                 }
+                                if (prodData[prodCode][index][attr].eventType.split("_")[0]!="BASE"&&
+                                    /*prodData[prodCode][index][attr].assembleType == "ATTR" &&*/
+                                    !this.findIn(prodEventColumn,prodData[prodCode][index][attr].attrType)) {
+                                    let tempAttr = {};
+                                    tempAttr['columnCode'] = prodData[prodCode][index][attr].attrType;
+                                    tempAttr['eventType'] = prodData[prodCode][index][attr].eventType.split("_")[0];
+                                    const attrDesc = this.getAttrDesc(prodData[prodCode][index][attr].attrType);
+                                    tempAttr['columnDesc'] = attrDesc;
+                                    prodEventColumn.push(tempAttr);
+                                }
                             }
                         }
-                        if(index != "prodDefine" && index != "prodType"){
+/*                        if(index != "prodDefine" && index != "prodType"){
                             //事件参数(去除参数类型为part的参数)
                             for(let eventAttr in prodData[prodCode][index]){
                                 if(prodData[prodCode][index][eventAttr].assembleType == "ATTR" && !this.findIn(prodEventColumn,prodData[prodCode][index][eventAttr].assembleId)){
@@ -154,7 +167,7 @@
                                     prodEventColumn.push(tempEvent);
                                 }
                             }
-                        }
+                        }*/
                     }
                 }
                 //数据组装
@@ -164,12 +177,16 @@
             //存在性检查
             findIn(val,key){
                 for(let index in val){
+                    if(val[index].attrType != undefined && val[index].attrType != null && val[index].attrType == key){
+                        return true;
+                    }
                     if(val[index].columnCode != undefined && val[index].columnCode != null && val[index].columnCode == key){
                         return true;
                     }
                     if(val[index].prodType != undefined && val[index].prodType != null && val[index].prodType == key){
                         return true;
                     }
+
                 }
                 return false;
             },

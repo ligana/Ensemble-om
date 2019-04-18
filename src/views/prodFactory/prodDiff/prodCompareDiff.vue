@@ -110,10 +110,16 @@
                 }
                 if(tag == "DEFINE"){
                     //参数描述列数据组装
-                    this.prodCompList.push({item: columnInfo});
+                    let defineinfo = [];
+                    for(let info in columnInfo){
+                        if(columnInfo[info].eventType == "BASE"){
+                            defineinfo.push(columnInfo[info]);
+                        }
+                    }
+                    this.prodCompList.push({item: defineinfo});
                     //组织define参数差异数据
                     for (let attrCode in prodData) {
-                        this.initAttrData(prodData, columnInfo,attrCode);
+                        this.initAttrData(prodData, defineinfo,attrCode);
                     }
                 }
                 if(tag != null && tag != "" && tag !="TYPE" && tag != "DEFINE"){
@@ -127,7 +133,7 @@
                     this.prodCompList.push({item: tempCol});
                     //组织事件参数
                     for(let prodCode in prodData){
-                        this.initEventData(prodData,tempCol,prodCode,tag);
+                        this.initAttrData(prodData,tempCol,prodCode);
                     }
                 }
                 //组装差异数据集合
@@ -149,7 +155,7 @@
                                 continue;
                             }
                             for(let i in prodData[prodCode][index]){
-                                if(prodData[prodCode][index][i].assembleId == columnInfo[column].columnCode){
+                                if(prodData[prodCode][index][i].eventType == columnInfo[column].columnCode){
                                     let temps = {};
                                     temps["columnCode"] = columnInfo[column].columnCode;
                                     temps["columnDesc"] = prodData[prodCode][index][i].attrValue == null?"":prodData[prodCode][index][i].attrValue;
@@ -174,7 +180,7 @@
                             continue;
                         }
                         for(let i in prodData[attrCode][attrIndex]) {
-                            if (attrIndex == "prodDefine" && prodData[attrCode][attrIndex][i].assembleId == columnInfo[attrKey].columnCode && prodData[attrCode][attrIndex][i].assembleType != "EVENT") {
+                            if (attrIndex == "prodDefine" && prodData[attrCode][attrIndex][i].attrType == columnInfo[attrKey].columnCode && prodData[attrCode][attrIndex][i].assembleType != "EVENT") {
                                 let temp = {};
                                 temp["columnCode"] = columnInfo[attrKey].columnCode;
                                 temp["columnDesc"] = prodData[attrCode][attrIndex][i].attrValue == null?"":prodData[attrCode][attrIndex][i].attrValue;
@@ -259,7 +265,7 @@
             //判断key 是否存在于data数据集合
             findIn(data,key){
                 for(let index in data){
-                    if(data[index].assembleType != "EVENT" && data[index].assembleId == key){
+                    if(data[index].assembleType != "EVENT" && data[index].attrType == key){
                         return true;
                     }
                 }
