@@ -316,6 +316,9 @@
             findInArr(val,select,key) {
                 let that = this
                 let ret = 1
+                if(val==undefined||val==""){
+                    val =""
+                }
                 //判断是否存在
                 for(let j=0; j<select[key].length; j++){
                     if(key == 'sourceModel' || key =='prodRange' || key == 'status') {
@@ -324,6 +327,9 @@
                             break
                         }
                     }else if (select[key][j] == val) {
+                        ret = 2
+                        break
+                    }else if(val.indexOf(select[key][j])!=-1){
                         ret = 2
                         break
                     }
