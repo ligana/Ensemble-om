@@ -913,6 +913,35 @@ export default [
             )
     },
 
+
+    {
+        path: '/MbPartClass',
+        meta: {
+            breadcrumb: true,
+            title: '指标分类定义'
+        },
+        name: 'MbPartClass',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/prodFactory/partManage/MbPartClass.vue'],resolve
+            )
+    },
+
+    {
+        path: '/MbPartType',
+        meta: {
+            breadcrumb: true,
+            title: '指标类型定义'
+        },
+        name: 'MbPartType',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/prodFactory/partManage/MbPartType.vue'],resolve
+            )
+    },
+
 {
     path: '/prodCmbs',
         meta: {

@@ -62,7 +62,7 @@
                                     <v-text-field v-model="editedItem.valueScoreColumn" label="数据参数" hint="For example: A-B,C-D"></v-text-field>
                                 </v-flex>
                                 <v-flex xs6 sm6 md6 v-show="!show">
-                                    <v-select v-model="valueScoreColumn" label="数据参数" :items="param" item-text="value" item-value="key" multiple></v-select>
+                                    <v-select v-model="valueScoreColumn" label="数据参数" :items="param" item-text="value" item-value="key" multiple clearable></v-select>
                                 </v-flex>
                             </v-layout>
                         </v-container>

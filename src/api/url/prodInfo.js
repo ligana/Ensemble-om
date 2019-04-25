@@ -70,6 +70,11 @@ export function getProdData (prodType) {
     const reData=asyncPost('/getProdInfo',data);
     return reData;
 }
+export function getAll(TableName) {
+    const data = {tableName: TableName};
+    const reData = asyncPost('/getAll',data);
+    return reData;
+}
 //获取某个的ATTR参数的中文描述
 export function getAttrType () {
     const reData=asyncPost('/getAttrType');
@@ -375,6 +380,7 @@ export function getAttrInfo () {
     return reData;
 }
 
+
 export function getAttrInfoText () {
     return request({
         url: '/getAttrInfo',
@@ -401,6 +407,20 @@ export function findProdHistory (params) {
         url: '/findProdHistory',
         method: 'post',
         params: { tranId: params}
+    })
+}
+
+export function findAll () {
+    return request({
+        url: '/findAll',
+        method: 'post',
+    })
+}
+
+export function QueryAll () {
+    return request({
+        url: '/QueryAll',
+        method: 'post',
     })
 }
 
