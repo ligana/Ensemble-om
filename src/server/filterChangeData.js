@@ -1,6 +1,6 @@
 /**
  * Created by jiajt on 2018/8/21.
- * @param prodData 修改后的数据
+ * @param prodData 修改后的数据（只处理mb_prod_type  mb_prod_define以及涉及单表信息）
  * @param sourceProdData 修改前数据
  * @param optionType 操作类型 optionType==="Y"?复制:非复制
  * @return backData 处理后只包含变动(U,I,D)的数据集合
@@ -21,46 +21,7 @@ export function filterChangeData (prodData,sourceProdData,optionType) {
     prodTypeDeal(prodData,sourceProdData,backData,copyFlag)
     // 处理prodDefines对象数据
     prodDefinesDeal(prodData,sourceProdData,backData,copyFlag,prodRange)
-    //处理mbEventInfos对象数据
-    for (let m in prodData.mbEventInfos){
-        let mbEventAttrs = {}
-        let mbEventParts = {}
-        let mbEventType = {newData: {}, oldData: {}}
-        let newEventTypeData = {}
-        let oldEventTypeData = {}
-        let temp= {mbEventAttrs: {},mbEventParts: {},mbEventType: {}}
-        //mbEventAttrs对象
-        for (let k in prodData.mbEventInfos[m].mbEventAttrs) {
-            mbEventAttrsDeal(prodData,sourceProdData,copyFlag,m,k,mbEventAttrs,backData)
-        }
-        temp.mbEventAttrs = Object.assign(temp.mbEventAttrs,mbEventAttrs)
-        backData.mbEventInfos[m].mbEventAttrs = temp.mbEventAttrs
 
-        //mbEventParts对象
-        temp.mbEventParts = Object.assign(temp.mbEventParts,mbEventParts)
-        backData.mbEventInfos[m].mbEventParts = temp.mbEventParts
-
-        //mbEventType对象
-        for (let y in prodData.mbEventInfos[m].mbEventType){
-            if(y == "eventDesc"){
-                let newProdDesc = prodData.prodType.prodDesc;
-                let oldProdDesc = sourceProdData.prodType.prodDesc;
-                prodData.mbEventInfos[m].mbEventType[y] = newProdDesc+prodData.mbEventInfos[m].mbEventType[y].split(oldProdDesc)[1];
-            }
-            if(copyFlag === "Y") {
-                newEventTypeData[y] = prodData.mbEventInfos[m].mbEventType[y]
-            }
-        }
-        mbEventType.newData = Object.assign(mbEventType.newData,newEventTypeData)
-        mbEventType.oldData = Object.assign(mbEventType.oldData,oldEventTypeData)
-        temp.mbEventType = Object.assign(temp.mbEventType,mbEventType)
-        backData.mbEventInfos[m].mbEventType = temp.mbEventType
-
-        //该事件下所有参数均未改变时 返回给后台报文中删除该事件
-        if(JSON.stringify(mbEventAttrs)=='{}' && JSON.stringify(mbEventParts)=='{}' && JSON.stringify(mbEventType.newData)=='{}'){
-            delete backData.mbEventInfos[m]
-        }
-    }
     //处理单表数据
     //费用信息
     var backVal = []
@@ -250,30 +211,7 @@ export function getKeySetByTableName(tables) {
     keys["irlIntMatrices"] = [{key: "matrixNo"}];
     return keys[tableName];
 }
-/**
- * @description 处理mbEventPart对象数据
- * @param  m 事件
- * @param x 事件下指标
- * @param mbEventParts 事件下指标对象集合
- */
-export function mbEventPartDeal(prodData,x,m,copyFlag,mbEventParts,sourceProdData) {
-    for(let z in prodData.mbEventInfos[m].mbEventParts[x]) {
-        if (copyFlag === "Y") {
-            let newDataPart = {newData: {}, oldData: {}}
-            newDataPart.newData = prodData.mbEventInfos[m].mbEventParts[x][z]
-            let map = {}
-            map[z] = newDataPart
-            mbEventParts[x] = map
-        } else if (prodData.mbEventInfos[m].mbEventParts[x][z].attrValue !== sourceProdData.mbEventInfos[m].mbEventParts[x][z].attrValue) {
-            let newDataPart = {newData: {}, oldData: {}}
-            newDataPart.newData = prodData.mbEventInfos[m].mbEventParts[x][z]
-            newDataPart.oldData = sourceProdData.mbEventInfos[m].mbEventParts[x][z]
-            let map = {}
-            map[z] = newDataPart
-            mbEventParts[x] = map
-        }
-    }
-}
+
 /**
  * @description 处理mbProdType对象数据
 * */
@@ -304,48 +242,48 @@ export function prodDefinesDeal(prodData,sourceProdData,backData,copyFlag,prodRa
     var prodDefines = {}
     var tempObject = {}
     var prodType = prodData.prodType.prodType
-    for (let j in prodData.prodDefines) {
+    for (let j in prodData.mbProdDefine) {
         let newMap = {newData: {},oldData: {},optionType: ""}
         //前端返回数据 去除新增参数标识
-        if(prodData.prodDefines[j].newAttr !== undefined){
-            delete prodData.prodDefines[j].newAttr
+        if(prodData.mbProdDefine[j].newAttr !== undefined){
+            delete prodData.mbProdDefine[j].newAttr
         }
-        if(copyFlag === "Y" && prodData.prodDefines[j].group === "SOLD" || copyFlag === "Y" && prodRange === "B"){
+        if(copyFlag === "Y" && prodData.mbProdDefine[j].group === "SOLD" || copyFlag === "Y" && prodRange === "B"){
             //可售产品-可售产品 || 基础产品-基础产品
-            prodData.prodDefines[j].group = null
+            prodData.mbProdDefine[j].group = null
             prodDefines[j] = changeProdType(prodData,prodType,j)
         }else if(tempsDefine(prodData,copyFlag,prodRange,j)){
             //基础产品-可售产品复制
-            prodData.prodDefines[j].group = null
+            prodData.mbProdDefine[j].group = null
             prodDefines[j] = changeProdType(prodData,prodType,j)
-        } else if (sourceProdData.prodDefines[j] === undefined) {
+        } else if (sourceProdData.mbProdDefine[j] === undefined) {
             //prodDefine 增加参数
-            newMap.newData = prodData.prodDefines[j]
+            newMap.newData = prodData.mbProdDefine[j]
             newMap.optionType = "I"
             prodDefines[j] = newMap
-        } else if(prodData.prodDefines[j].attrValue !== sourceProdData.prodDefines[j].attrValue || prodData.prodDefines[j].optionPermissions !== sourceProdData.prodDefines[j].optionPermissions){
+        } else if(prodData.mbProdDefine[j].attrValue !== sourceProdData.mbProdDefine[j].attrValue || prodData.mbProdDefine[j].optionPermissions !== sourceProdData.mbProdDefine[j].optionPermissions){
             //prodDefine 修改参数value || 修改参数操作属性（E:可编辑 N：不可编辑 V:不可见）
-            prodData.prodDefines[j].group = null
-            newMap.newData = prodData.prodDefines[j]
-            newMap.oldData = sourceProdData.prodDefines[j]
+            prodData.mbProdDefine[j].group = null
+            newMap.newData = prodData.mbProdDefine[j]
+            newMap.oldData = sourceProdData.mbProdDefine[j]
             newMap.optionType = "U"
             prodDefines[j] = newMap
         }
         //判断编辑信息 E:可编辑 N:不可编辑 V:不可见 D:删除
         let optObject = {key: "",tableName: "",optPerm: ""}
-        if(dealFalg(prodData.prodDefines[j],sourceProdData.prodDefines[j])){
-            if(prodData.prodDefines[j].optionPermissions === "D"){
+        if(dealFalg(prodData.mbProdDefine[j],sourceProdData.mbProdDefine[j])){
+            if(prodData.mbProdDefine[j].optionPermissions === "D"){
                 //E-D N-D V-D 删除基础产品和继承于该基础产品的可售产品 的该条参数 optPerm = "DALL"
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
                 optObject.optPerm = "DALL"
-            }else if(sourceProdData.prodDefines[j].optionPermissions === "E" && (prodData.prodDefines[j].optionPermissions === "N" || prodData.prodDefines[j].optionPermissions === "V")){
+            }else if(sourceProdData.mbProdDefine[j].optionPermissions === "E" && (prodData.mbProdDefine[j].optionPermissions === "N" || prodData.mbProdDefine[j].optionPermissions === "V")){
                 //E-N E-V  删除继承于该基础产品的可售产品 的该条参数 optPerm = "D"
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
                 optObject.optPerm = "D"
             }
-            if(prodData.prodDefines[j].optionPermissions === "E"){
+            if(prodData.mbProdDefine[j].optionPermissions === "E"){
                 //N-E V-E 继承于该基础产品的可售产品增加该条参数 optPerm = "I"
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
@@ -361,7 +299,7 @@ export function prodDefinesDeal(prodData,sourceProdData,backData,copyFlag,prodRa
     }else{
         backData.optionPermissions = tempObject
     }
-    backData.prodDefines = prodDefines
+    backData.mbProdDefine = prodDefines
 }
 export function tempsDefine(prodData,copyFlag,prodRange,j){
     if(copyFlag === "Y" && prodRange === "S"){
@@ -375,13 +313,13 @@ export function tempsDefine(prodData,copyFlag,prodRange,j){
  * */
 export function changeProdType(prodData,prodType,j){
     let newMap = {newData: {},oldData: {},optionType: ""}
-    if(prodData.prodDefines[j].assembleType == "EVENT"){
-        prodData.prodDefines[j].prodType = prodType;
-        let assembleIds = prodData.prodDefines[j].assembleId;
+    if(prodData.mbProdDefine[j].assembleType == "EVENT"){
+        prodData.mbProdDefine[j].prodType = prodType;
+        let assembleIds = prodData.mbProdDefine[j].assembleId;
         let eventType = assembleIds.split("_")[0] + "_"+prodType;
-        prodData.prodDefines[j].assembleId = eventType
+        prodData.mbProdDefine[j].assembleId = eventType
     }
-    newMap.newData = prodData.prodDefines[j];
+    newMap.newData = prodData.mbProdDefine[j];
     newMap.optionType = "I"
     return newMap;
 }
@@ -396,86 +334,6 @@ export function dealFalg(val1,val2){
         }
     }else{
         return false
-    }
-}
-/**
- * @description 处理mbEventAttr对象数据
- * @param  m 事件
- * @param  k 事件下参数
- * @param mbEventAttrs 事件下参数对象集合
- */
-export function mbEventAttrsDeal(prodData,sourceProdData,copyFlag,m,k,mbEventAttrs,backData){
-    let prodRange = prodData.prodType.prodRange
-    var tempObjectAttr = {}
-    //前端返回数据 去除新增参数标识
-    if(prodData.mbEventInfos[m].mbEventAttrs[k].newAttr !== undefined){
-        delete prodData.mbEventInfos[m].mbEventAttrs[k].newAttr
-    }
-    let newDataMap= {newData: {}, oldData: {},optionType: ""}
-    if(copyFlag === "Y" && sourceProdData.mbEventInfos[m].mbEventAttrs[k].group === "SOLD" || copyFlag === "Y" && prodRange === "B"){
-        prodData.mbEventInfos[m].mbEventAttrs[k].group = null
-        newDataMap.newData = prodData.mbEventInfos[m].mbEventAttrs[k]
-        newDataMap.optionType = "I"
-        mbEventAttrs[k] = newDataMap
-    }else if (copyFlag === "Y" && prodRange === "S" && sourceProdData.mbEventInfos[m].mbEventAttrs[k].optionPermissions === "E"){
-        prodData.mbEventInfos[m].mbEventAttrs[k].group = null
-        newDataMap.newData = prodData.mbEventInfos[m].mbEventAttrs[k]
-        newDataMap.optionType = "I"
-        mbEventAttrs[k] = newDataMap
-    } else if (sourceProdData.mbEventInfos[m].mbEventAttrs[k] === undefined){
-        newDataMap.newData = prodData.mbEventInfos[m].mbEventAttrs[k]
-        newDataMap.optionType = "I"
-        mbEventAttrs[k] = newDataMap
-    } else if(prodData.mbEventInfos[m].mbEventAttrs[k].attrValue !== sourceProdData.mbEventInfos[m].mbEventAttrs[k].attrValue || prodData.mbEventInfos[m].mbEventAttrs[k].optionPermissions !== sourceProdData.mbEventInfos[m].mbEventAttrs[k].optionPermissions) {
-        sourceProdData.mbEventInfos[m].mbEventAttrs[k].group = null
-        prodData.mbEventInfos[m].mbEventAttrs[k].group = null
-        newDataMap.newData = prodData.mbEventInfos[m].mbEventAttrs[k]
-        newDataMap.oldData = sourceProdData.mbEventInfos[m].mbEventAttrs[k]
-        newDataMap.optionType = "U"
-        mbEventAttrs[k] = newDataMap
-    }
-    //判断编辑信息 E:可编辑 N:不可编辑 V:不可见 D:删除
-    let optObjectAttr = {eventType: "",key: "",tableName: "",optPerm: ""}
-    //处理状态位
-    dealEventOpt(prodData,sourceProdData,m,k,optObjectAttr)
-    if(optObjectAttr.key !== "" && optObjectAttr.eventType !== ""){
-        tempObjectAttr[k] = optObjectAttr
-        if(backData.optionPermissions !== "") {
-            backData.optionPermissions = Object.assign(backData.optionPermissions, tempObjectAttr)
-        }else{
-            backData.optionPermissions = tempObjectAttr
-        }
-    }
-}
-/**
- * @description 处理mbEventAttr对象数据的状态位（可编辑，不可编辑，可见，删除）
- * @param  m 事件
- * @param  k 事件下参数
- * @param optObjectAttr 一条待处理的eventAttr数据
- * @param mbEventAttrs 事件下参数对象集合
- */
-export function dealEventOpt(prodData,sourceProdData,m,k,optObjectAttr) {
-    if (sourceProdData.mbEventInfos[m].mbEventAttrs[k] !== undefined && prodData.mbEventInfos[m].mbEventAttrs[k].optionPermissions !== sourceProdData.mbEventInfos[m].mbEventAttrs[k].optionPermissions) {
-        if (prodData.mbEventInfos[m].mbEventAttrs[k].optionPermissions === "D") {
-            //E-D 删除基础产品和继承于该基础产品的可售产品 的该条参数 optPerm = "DALL"
-            optObjectAttr.eventType = m
-            optObjectAttr.key = k
-            optObjectAttr.tableName = "MB_EVENT_ATTR"
-            optObjectAttr.optPerm = "DALL"
-        } else if (sourceProdData.mbEventInfos[m].mbEventAttrs[k].optionPermissions === "E" && (prodData.mbEventInfos[m].mbEventAttrs[k].optionPermissions === "N" || prodData.mbEventInfos[m].mbEventAttrs[k].optionPermissions === "V")) {
-            //E-V E-N  删除继承于该基础产品的可售产品 的该条参数 optPerm = "D"
-            optObjectAttr.eventType = m
-            optObjectAttr.key = k
-            optObjectAttr.tableName = "MB_EVENT_ATTR"
-            optObjectAttr.optPerm = "D"
-        }
-        if (prodData.mbEventInfos[m].mbEventAttrs[k].optionPermissions === "E") {
-            //N-E V-E 继承于该基础产品的可售产品增加该条参数 optPerm = "I"
-            optObjectAttr.eventType = m
-            optObjectAttr.key = k
-            optObjectAttr.tableName = "MB_EVENT_ATTR"
-            optObjectAttr.optPerm = "I"
-        }
     }
 }
 /**

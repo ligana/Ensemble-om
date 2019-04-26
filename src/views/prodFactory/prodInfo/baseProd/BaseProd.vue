@@ -15,15 +15,16 @@
                                         </v-flex>
                                     </v-flex>
                                     <v-flex md12 lg12 v-else>
+                                        <dc-part :disablePower="disablePower" :showEdit="showEdit" v-if="keyData.columnType == 'PART'" :data="keyData"></dc-part>
                                         <dc-text-field :showEdit="showEdit" v-if="keyData.columnType == 'input'"
                                                        class="primary&#45;&#45;text mx-1 dcText" :label="keyData.columnDesc"
-                                                       name="title" :labelDesc="keyData.columnDesc" :isNumber="keyData.attrType" :disablePower="disablePower" v-model="prodDefines[keyData.key]" single-line
+                                                       name="title" :labelDesc="keyData.columnDesc" :isNumber="keyData.attrType" :disablePower="disablePower" v-model="prodDefines[key]" single-line
                                                        hide-details></dc-text-field>
-                                        <dc-multiselect :showEdit="showEdit" v-if="keyData.columnType == 'select'" :disablePower="disablePower" :labelDesc="keyData.columnDesc" v-model="prodDefines[keyData.key]"
+                                        <dc-multiselect :showEdit="showEdit" v-if="keyData.columnType == 'select'" :disablePower="disablePower" :labelDesc="keyData.columnDesc" v-model="prodDefines[key]"
                                                         :options="keyData.valueScore" class="dcMulti" :isMultiSelect=keyData.isMultiSelect></dc-multiselect>
                                         <dc-switch :showEdit="showEdit" v-if="keyData.columnType == 'switch'" :disablePower="disablePower" :labelDesc="keyData.columnDesc"
-                                                   v-model="prodDefines[keyData.key]"></dc-switch>
-                                        <dc-date class="dcDate" :showEdit="showEdit" v-if="keyData.columnType == 'date'" :disablePower="disablePower" :labelDesc="keyData.columnDesc" v-model="prodDefines[keyData.key]"></dc-date>
+                                                   v-model="prodDefines[key]"></dc-switch>
+                                        <dc-date class="dcDate" :showEdit="showEdit" v-if="keyData.columnType == 'date'" :disablePower="disablePower" :labelDesc="keyData.columnDesc" v-model="prodDefines[key]"></dc-date>
                                     </v-flex>
                                 </v-layout>
                             </v-flex>
@@ -47,6 +48,7 @@
     import DcSwitch from "@/components/widgets/DcSwitch";
     import DcTreeSelect from "@/components/widgets/DcTreeSelect";
     import DcTextField from "@/components/widgets/DcTextField";
+    import DcPart from "@/components/widgets/DcPartTable";
     import DcDate from '@/components/widgets/DcDate'
     import {saveColumn} from "@/api/url/prodInfo";
     import toast from '@/utils/toast';
@@ -55,7 +57,7 @@
     import {getParamTable} from "@/api/url/prodInfo";
 
     export default {
-        components: { DcMultiselect, DcSwitch, DcTreeSelect,DcDate,DcTextField,draggable,DcTreeview},
+        components: { DcMultiselect, DcSwitch, DcTreeSelect,DcDate,DcPart,DcTextField,draggable,DcTreeview},
         props: {
             prodType: String,
             prodDefines: String,
@@ -126,30 +128,53 @@
                     this.addAttr(newProdDefines,oldProdDefines);
                 },
             },
+            //指标组件内部属性进行深度监听
+            dataSource: {
+                handler(newData) {
+                    for(let index in newData){
+                        if(newData[index].columnType == "PART"){
+                            this.dealPartReback(newData[index]);
+                        }
+                    }
+                },
+                immediate: true,
+                deep: true
+            },
         },
         mounted() {
             this.initRefData();
+//            let flag = false;
             this.init(this._props.prodDefines);
         },
         methods: {
+            //增加参数时候出发 需要处理增加指标时候怎么处理
             addAttr(newDef,oldDef) {
+                let temp = [];
                 for(const keyNew in newDef) {
                     let flag = true;
                     for (const keyOld in oldDef) {
-                        if (keyNew === keyOld) {
+                        if (newDef[keyNew].attrType === oldDef[keyOld].attrType) {
                             flag = false;
+                            break;
                         }
                     }
-                    if (flag) {
+                    if (flag && newDef[keyNew].assembleType == 'ATTR') {
                         const dataSource = this.copy(this._props.attrColumnInfo, {});
-                        let column = dataSource[keyNew];
+                        let column = dataSource[newDef[keyNew].attrType];
                         if (column != undefined && column != 'undefined' && this._props.tags == newDef[keyNew].pageCode) {
-                            column['key'] = keyNew
+                            column['key'] = newDef[keyNew].attrType
                             column['pageSeqNo'] = newDef[keyNew].pageSeqNo
                             column['pageCode'] = newDef[keyNew].pageCode
                             this.dataSource.push(column)
                         }
                     }
+                    if(flag && newDef[keyNew].assembleType == 'PART'){
+                        temp.push(newDef[keyNew]);
+                    }
+                }
+                //新增参数存在指标的时候  加载新增的指标控件
+                if(temp.length){
+                    this.init(newDef);
                 }
             },
             initRefData() {
@@ -185,6 +210,13 @@
                 let dataSource=this.dataSource
                 for(const index in dataSource){
                     dataSource[index].pageSeqNo=parseInt(index)+1;
+                    //交换prodDefine数据
+                    let tempA = this.copy(this._props.prodDefines[index],{});
+                    let tempB = this.copy(this._props.prodDefines[parseInt(index)+1]);
+                    this._props.prodDefines[index] = tempB;
+                    if(index != dataSource.length-1){
+                        this._props.prodDefines[parseInt(index)+1] = tempA;
+                    }
                     let key = dataSource[index].key;
                     this._props.attrColumnInfo[key].pageSeqNo = parseInt(index)+1;
                 }
@@ -204,21 +236,60 @@
                 }
                 return obj;
             },
+            dealPartReback(val){
+                //指标数据修改回调
+                let partId = val.partId;
+                let child = val.children;
+                for (let index in this._props.prodDefines) {
+                    if (this._props.prodDefines[index].assembleType == 'PART' && this._props.prodDefines[index].assembleId == partId) {
+                        for (let newIndex in child) {
+                            if (child[newIndex].key == this._props.prodDefines[index].attrType) {
+                                this._props.prodDefines[index].attrValue = child[newIndex].attrValue;
+                            }
+                        }
+                    }
+                }
+
+            },
             init(prodData) {
                 let columnList=[]
                 //通过后台的产品有关信息查数据字典
                 for(const index in prodData) {
-                    const dataSource = this.copy(this._props.attrColumnInfo,{});
-                    let column = dataSource[index];
+                    const dataSource = this.copy(this._props.attrColumnInfo, {});
+                    let column = dataSource[prodData[index].attrType];
                     if (column != undefined && column != 'undefined' && this._props.tags == prodData[index].pageCode) {
-                        column['key'] = index
-                        column['pageSeqNo'] = prodData[index].pageSeqNo
-                        column['pageCode'] = prodData[index].pageCode
-                        columnList.push(column)
+                         column['key'] = prodData[index].attrType
+                         column['pageSeqNo'] = prodData[index].pageSeqNo
+                         column['pageCode'] = prodData[index].pageCode;
+                         //参数时 直接处理
+                         if(prodData[index].assembleType == 'ATTR') {
+                             columnList.push(column)
+                         }
+                        //指标信息时候  进行分组处理
+                        if(prodData[index].assembleType == 'PART'){
+                            let temp = {};
+                            let findIn = false;
+                            //组装已存在指标属性信息
+                            for(let i in columnList){
+                                if(columnList[i].partId != undefined && columnList[i].partId == prodData[index].assembleId){
+                                    column['attrValue'] = prodData[index].attrValue;
+                                    columnList[i].children.push(column);
+                                    findIn = true;
+                                }
+                            }
+                            //组装未组装的租表信息
+                            if(!findIn || !columnList.length){
+                                column['attrValue'] = prodData[index].attrValue;
+                                temp["partId"] = prodData[index].assembleId;
+                                temp["columnType"] = "PART";
+                                temp["children"] = [];
+                                temp["children"].push(column);
+                                columnList.push(temp);
+                            }
+                        }
                     }
                 }
-                this.dataSource = columnList
-
+                this.dataSource = columnList;
             }
         }
     }

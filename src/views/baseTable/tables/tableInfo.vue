@@ -164,7 +164,7 @@
             },
             getParaTable(tableName) {
                 let that = this;
-                getParamTable(tableName).then(function (response) {
+                    getParamTable(tableName).then(function (response) {
                     that.dataInfo = response.data.data.columnInfo;
                     if(that.tableDesc == '') {
                         that.tableDesc = response.data.data.tableDesc
@@ -285,7 +285,7 @@
                     for(let i=0; i<this.columns.length; i++){
                         let n = 0
                         for(let j=0; j<this.seeValueNotNull.length; j++){
-                            if(this.columns[i].code == this.seeValueNotNull[j]){
+                            if(this.columns[i].code == this.eidtColumns[j]){
                                 n++
                                 break
                             }

@@ -189,6 +189,14 @@ export function getFlowList () {
     });
 }
 
+export function getAllPartList () {
+    return request({
+        url: '/QueryAll',
+        method: 'post'
+    });
+
+}
+
 export function getParaTableInflow () {
     return request({
         url: '/getRelationInfoOfUndeal',
@@ -203,6 +211,19 @@ export function getDiffList (params) {
         data: params
     });
 }
+
+export function findByPartType (params) {
+    const data= {partType: params};
+    const reData=asyncPost('/findByPartType',data);
+    return reData;
+}
+
+export function getPartDesc (params) {
+    const data= {partType: params};
+    const reData=asyncPost('/getPartDesc',data);
+    return reData;
+}
+
 export function getDiffTable (params) {
     return request({
         url: '/getDiffTable',

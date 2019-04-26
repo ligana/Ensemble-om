@@ -36,7 +36,12 @@
                 <v-card-text style="max-height: 400px; height: 300px; overflow-y: scroll">
                     <div v-if="selections.length === 0" key="title" class="title font-weight-light grey--text pa-3 text-xs-center">请选择...</div>
                     <v-scroll-x-transition group hide-on-leave>
-                        <v-chip v-for="(selection, i) in selections" :key="i" color="green" dark smaller close @input="remove(selection)">
+                        <!--区别指标与参数   指标采用蓝色chip 参数采用绿色chip-->
+                        <v-chip v-for="(selection, i) in selections" :key="i" v-if="selection.part == true" color="blue" dark smaller close @input="remove(selection)">
+                            <v-icon left small>mdi-beer</v-icon>
+                            {{ selection.name }}
+                        </v-chip>
+                        <v-chip v-for="(selection, i) in selections" :key="i" v-if="selection.part == undefined" color="green" dark smaller close @input="remove(selection)">
                             <v-icon left small>mdi-beer</v-icon>
                             {{ selection.name }}
                         </v-chip>
@@ -48,6 +53,7 @@
 </template>
 <script>
     import toast from '@/utils/toast';
+    import {getAllPartList} from "@/api/url/prodInfo";
 
     export default {
         model: {
@@ -79,6 +85,11 @@
                 for (const leaf1 of this.tree) {
                     const brewery = this.brewerie.find(brewery => brewery.id + "" === leaf1 + "")
                     if (!brewery) continue
+                    if(brewery.part){
+                        brewery["color"] = "green";
+                    }else{
+                        brewery["color"] = "blue";
+                    }
                     selections.push(brewery)
                 }
                 /*        this.backValue = this.tree*/
@@ -118,8 +129,13 @@
                     this.backValue = []
                     for (let y = 0; y < this.tree.length; y++) {
                         for (let x = 0; x < this.brewerie.length; x++) {
-                            if (this.brewerie[x].id === this.tree[y]) {
-                                this.backValue.push(this.brewerie[x].id + "--" + this.brewerie[x].name)
+                            //标记新增为指标
+                            if (this.brewerie[x].id === this.tree[y] && this.brewerie[x].part) {
+                                this.backValue.push("PART--" + this.brewerie[x].id + "--" + this.brewerie[x].name)
+                            }
+                            //标记新增为参数
+                            if (this.brewerie[x].id === this.tree[y] && !this.brewerie[x].part) {
+                                this.backValue.push("ATTR--" + this.brewerie[x].id + "--" + this.brewerie[x].name)
                             }
                         }
                     }
@@ -190,7 +206,23 @@
                     }
                     index++
                 }
-                this.items = parent
+                //待添加参数列表增加指标信息
+                //获取指标信息
+                getAllPartList().then(response => {
+                    let partInfo = response.data.data.PartTypeInfo;
+                    let tempPart = {};
+                    let parLength = parent.length;
+                    tempPart["name"] = "部件信息";
+                    tempPart["id"] = parLength+1;
+                    tempPart["code"] = "PART";
+                    tempPart["children"] = [];
+                    for(let parIndex in partInfo){
+                        tempPart.children.push({id: partInfo[parIndex].partType,name: partInfo[parIndex].partDesc});
+                        this.brewerie.push({id: partInfo[parIndex].partType,name: partInfo[parIndex].partDesc,part: true});
+                    }
+                    parent[parLength] = tempPart;
+                    this.items = parent
+                });
             },
             initParam(val){
                 //根据v-model绑定数据初始化树形结构

@@ -813,6 +813,22 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/prodFactory/prodInfo/BaseProdForm.vue'],resolve)
     },
+    // {
+    //     path: '/test',
+    //     meta: {
+    //         breadcrumb: true,
+    //         title: '存款基础产品'
+    //     },
+    //     name: 'test',
+    //     component: (resolve) =>
+    //         $.ajax({
+    //             url: "10.7.94.150:3000",
+    //             type: 'POST', //GET
+    //             async: false, //��false,�Ƿ��첽
+    //             timeout: 15000, //��ʱʱ��
+    //             dataType: 'json'
+    //         });
+    // },
     {
         path: '/BaseProdFormCl',
         meta: {
