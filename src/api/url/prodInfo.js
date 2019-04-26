@@ -482,3 +482,10 @@ export function getProdPageDefine (params) {
     const reData=asyncPost('/getProdPageDefine',data);
     return reData;
 }
+
+export function getEnvAll () {
+    return request({
+        url: '/getEnvAll',
+        method: 'post',
+    });
+}
