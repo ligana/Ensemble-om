@@ -13,7 +13,7 @@
                                         <dc-treeview v-if="keyData.columnType == 'tree'" v-model="prodDefines[keyData.key].attrValue" :disablePower="disablePower" :options="keyData.valueScore"></dc-treeview>
                                     </v-flex>
                                     <v-flex md12 lg12 v-else>
-                                        <dc-part :disablePower="disablePower" :showEdit="showEdit" v-if="keyData.columnType == 'PART'" :data="keyData"></dc-part>
+                                        <!--<dc-part :disablePower="disablePower" :showEdit="showEdit" v-if="keyData.columnType == 'PART'" :data="keyData"></dc-part>-->
                                         <dc-text-field :baseAttr="prodDefines[keyData.key].group" v-if="keyData.columnType == 'input'"
                                                        class="primary&#45;&#45;text mx-1 dcText" :label="keyData.columnDesc"
                                                        name="title" :labelDesc="keyData.columnDesc" :disablePower="disablePower" v-model="prodDefines[keyData.key]" single-line
@@ -27,7 +27,15 @@
                                 </v-layout>
                             </v-flex>
                         </draggable>
+                        <v-flex v-for="(keyData ,key ,index) in dataSource" v-bind:key="key" lg6>
+                            <v-layout row wrap>
+                                <v-flex md12 lg12>
+                                    <dc-part :disablePower="disablePower" :showEdit="showEdit" v-if="keyData.columnType == 'PART'" :data="keyData"></dc-part>
+                                </v-flex>
+                            </v-layout>
+                        </v-flex>
                     </v-layout>
+
                     <v-layout row wrap v-if="prodMapping!= undefined ">
                         <v-flex md6 lg6>
                             <dc-multiselect :isMultiSelect="false" v-model="prodMapping.irlProdType" :options="baseProdTypeOption" labelDesc="定价工厂映射产品" :disablePower="true"></dc-multiselect>

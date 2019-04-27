@@ -620,25 +620,27 @@
                                 break;
                             }
                         }
-                        //指标时候  通过指标Id获取指标下参数
-                        const response = findByPartType(columnKey);
-                        let partAttrs  =response.partAttrList;
-                        let pageCodeP = 0;
-                        for(let newPartIndex in partAttrs){
-                            let assembleId = columnKey +'-'+partAttrs[newPartIndex].attrKey;
-                            addColumnData.prodDefines[assembleId] = {};
-                            addColumnData.prodDefines[assembleId].prodType = this.prodCode;
-                            addColumnData.prodDefines[assembleId].eventType = eventId;
-                            addColumnData.prodDefines[assembleId].assembleType = "PART";
-                            addColumnData.prodDefines[assembleId].assembleId = columnKey;
-                            addColumnData.prodDefines[assembleId].attrType = partAttrs[newPartIndex].attrKey;
-                            addColumnData.prodDefines[assembleId].attrValue = "";
-                            addColumnData.prodDefines[assembleId].status = "A";
-                            addColumnData.prodDefines[assembleId].pageCode = addColumnPageCode;
-                            addColumnData.prodDefines[assembleId].pageSeqNo = addColumnPageSeqNo+pageCodeP;
-                            addColumnData.prodDefines[assembleId].optionPermissions = "E";
-                            addColumnData.prodDefines[assembleId].newAttr = true;
-                            pageCodeP++;
+                        if(!findInPart) {
+                            //指标时候  通过指标Id获取指标下参数
+                            const response = findByPartType(columnKey);
+                            let partAttrs = response.partAttrList;
+                            let pageCodeP = 0;
+                            for (let newPartIndex in partAttrs) {
+                                let assembleId = columnKey + '-' + partAttrs[newPartIndex].attrKey;
+                                addColumnData.prodDefines[assembleId] = {};
+                                addColumnData.prodDefines[assembleId].prodType = this.prodCode;
+                                addColumnData.prodDefines[assembleId].eventType = eventId;
+                                addColumnData.prodDefines[assembleId].assembleType = "PART";
+                                addColumnData.prodDefines[assembleId].assembleId = columnKey;
+                                addColumnData.prodDefines[assembleId].attrType = partAttrs[newPartIndex].attrKey;
+                                addColumnData.prodDefines[assembleId].attrValue = "";
+                                addColumnData.prodDefines[assembleId].status = "A";
+                                addColumnData.prodDefines[assembleId].pageCode = addColumnPageCode;
+                                addColumnData.prodDefines[assembleId].pageSeqNo = addColumnPageSeqNo + pageCodeP;
+                                addColumnData.prodDefines[assembleId].optionPermissions = "E";
+                                addColumnData.prodDefines[assembleId].newAttr = true;
+                                pageCodeP++;
+                            }
                         }
                     }
                     if(columnRange == "ATTR"){
