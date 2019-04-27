@@ -153,7 +153,7 @@
                         dates = this._props.msg.attrValue
                         this.optionPermissions = this._props.msg.optionPermissions
                     }
-                    if(dates != null && dates != "" && dates != undefined) {
+                    if(dates != null && dates != "" && dates != undefined && dates.length == 8) {
                         dates = dates.toString()
                         let time = dates.substring(0, 4) + "-" + dates.substring(4, 6) + "-" + dates.substring(6)
                         this.dateFormatted = time

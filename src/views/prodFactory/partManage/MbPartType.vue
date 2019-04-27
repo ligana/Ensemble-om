@@ -229,10 +229,11 @@
             const prodClass = getAll("MB_PROD_CLASS");
             for(let indexes in prodClass){
                 let tempProd = {};
-                if(tempProd["key"]==1)
+                if(tempProd["key"]==1) {
                     tempProd["key"] = prodClass[indexes].PROD_CLASS_LEVEL;
                     tempProd["value"] = prodClass[indexes].PROD_CLASS;
-                temp3.push(tempProd);
+                    temp3.push(tempProd);
+                }
             }
             this.busiCategory = temp3;
             //法人代码备选数据

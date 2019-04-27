@@ -98,16 +98,16 @@ export function tablesDeal(prodData,sourceProdData,backVal,tables,copyFlag){
 }
 
 /**
-* @description  产品单表非复制操作时数据处理
-*               1，以界面最新数据为外层，原始数据为内层遍历。外层存在内层不包含的数据  该条数据新增数据I
-*               2，以原始数据为外层，界面数据为内层遍历，外层存在内存不包含数据，该条数据为删除数据D
-*               3，遍历过程中采用主键匹配  主键匹配上（单条数据匹配），此时比较该条数据的所有字段是否发生变化，存在变化为更新U
+ * @description  产品单表非复制操作时数据处理
+ *               1，以界面最新数据为外层，原始数据为内层遍历。外层存在内层不包含的数据  该条数据新增数据I
+ *               2，以原始数据为外层，界面数据为内层遍历，外层存在内存不包含数据，该条数据为删除数据D
+ *               3，遍历过程中采用主键匹配  主键匹配上（单条数据匹配），此时比较该条数据的所有字段是否发生变化，存在变化为更新U
  *@param prodData 界面最新数据
  * @param sourceProdData 原始数据
  * @param bakVal 引用对象 返回
  * @param tables 表名
-*
-* */
+ *
+ * */
 export function tableDealUID(prodData,sourceProdData,backVal,tables) {
     //正向遍历（组装修改U，新增I数据）
     for(let newIndex in prodData[tables]){
@@ -120,16 +120,16 @@ export function tableDealUID(prodData,sourceProdData,backVal,tables) {
             let souCol = sourceProdData[tables][index];
             for(let col in proCol){
                 // if(proCol[col] != undefined && souCol[col] != undefined && proCol[col] != "" && souCol[col] != ""){
-                    if(proCol[col] != souCol[col]){
-                        //数据被修改
-                        //组装返回数据
-                        let tempU = {newData: {}, oldData: {}, optType: ''};
-                        tempU.newData = proCol;
-                        tempU.oldData = souCol;
-                        tempU.optType = 'U'
-                        backVal.push(tempU);
-                        break;
-                    }
+                if(proCol[col] != souCol[col]){
+                    //数据被修改
+                    //组装返回数据
+                    let tempU = {newData: {}, oldData: {}, optType: ''};
+                    tempU.newData = proCol;
+                    tempU.oldData = souCol;
+                    tempU.optType = 'U'
+                    backVal.push(tempU);
+                    break;
+                }
                 // }
             }
         }
@@ -162,7 +162,7 @@ export function tableDealUID(prodData,sourceProdData,backVal,tables) {
  * @param data: 表内所有数据
  * @param tables: 表名
  * @return ret 返回数据集合：返回ret数据结构---【如果存在： ret: {flag: true,index: 该条数据再sourceProd中下标}     如果不存在：ret: {flag: false,index: null}】
-* */
+ * */
 export function findIn(col, data,tables) {
     let keySet = getKeySetByTableName(tables);
     //记录主键个数
@@ -214,7 +214,7 @@ export function getKeySetByTableName(tables) {
 
 /**
  * @description 处理mbProdType对象数据
-* */
+ * */
 export function prodTypeDeal(prodData,sourceProdData,backData,copyFlag) {
     var prodType = {newData: {},oldData: {}}
     var newProdMap = {}
@@ -242,48 +242,48 @@ export function prodDefinesDeal(prodData,sourceProdData,backData,copyFlag,prodRa
     var prodDefines = {}
     var tempObject = {}
     var prodType = prodData.prodType.prodType
-    for (let j in prodData.mbProdDefine) {
+    for (let j in prodData.prodDefines) {
         let newMap = {newData: {},oldData: {},optionType: ""}
         //前端返回数据 去除新增参数标识
-        if(prodData.mbProdDefine[j].newAttr !== undefined){
-            delete prodData.mbProdDefine[j].newAttr
+        if(prodData.prodDefines[j].newAttr !== undefined){
+            delete prodData.prodDefines[j].newAttr
         }
-        if(copyFlag === "Y" && prodData.mbProdDefine[j].group === "SOLD" || copyFlag === "Y" && prodRange === "B"){
+        if(copyFlag === "Y" && prodData.prodDefines[j].group === "SOLD" || copyFlag === "Y" && prodRange === "B"){
             //可售产品-可售产品 || 基础产品-基础产品
-            prodData.mbProdDefine[j].group = null
+            prodData.prodDefines[j].group = null
             prodDefines[j] = changeProdType(prodData,prodType,j)
         }else if(tempsDefine(prodData,copyFlag,prodRange,j)){
             //基础产品-可售产品复制
-            prodData.mbProdDefine[j].group = null
+            prodData.prodDefines[j].group = null
             prodDefines[j] = changeProdType(prodData,prodType,j)
-        } else if (sourceProdData.mbProdDefine[j] === undefined) {
+        } else if (sourceProdData.prodDefines[j] === undefined) {
             //prodDefine 增加参数
-            newMap.newData = prodData.mbProdDefine[j]
+            newMap.newData = prodData.prodDefines[j]
             newMap.optionType = "I"
             prodDefines[j] = newMap
-        } else if(prodData.mbProdDefine[j].attrValue !== sourceProdData.mbProdDefine[j].attrValue || prodData.mbProdDefine[j].optionPermissions !== sourceProdData.mbProdDefine[j].optionPermissions){
+        } else if(prodData.prodDefines[j].attrValue !== sourceProdData.prodDefines[j].attrValue || prodData.prodDefines[j].optionPermissions !== sourceProdData.prodDefines[j].optionPermissions){
             //prodDefine 修改参数value || 修改参数操作属性（E:可编辑 N：不可编辑 V:不可见）
-            prodData.mbProdDefine[j].group = null
-            newMap.newData = prodData.mbProdDefine[j]
-            newMap.oldData = sourceProdData.mbProdDefine[j]
+            prodData.prodDefines[j].group = null
+            newMap.newData = prodData.prodDefines[j]
+            newMap.oldData = sourceProdData.prodDefines[j]
             newMap.optionType = "U"
             prodDefines[j] = newMap
         }
         //判断编辑信息 E:可编辑 N:不可编辑 V:不可见 D:删除
         let optObject = {key: "",tableName: "",optPerm: ""}
-        if(dealFalg(prodData.mbProdDefine[j],sourceProdData.mbProdDefine[j])){
-            if(prodData.mbProdDefine[j].optionPermissions === "D"){
+        if(dealFalg(prodData.prodDefines[j],sourceProdData.prodDefines[j])){
+            if(prodData.prodDefines[j].optionPermissions === "D"){
                 //E-D N-D V-D 删除基础产品和继承于该基础产品的可售产品 的该条参数 optPerm = "DALL"
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
                 optObject.optPerm = "DALL"
-            }else if(sourceProdData.mbProdDefine[j].optionPermissions === "E" && (prodData.mbProdDefine[j].optionPermissions === "N" || prodData.mbProdDefine[j].optionPermissions === "V")){
+            }else if(sourceProdData.prodDefines[j].optionPermissions === "E" && (prodData.prodDefines[j].optionPermissions === "N" || prodData.prodDefines[j].optionPermissions === "V")){
                 //E-N E-V  删除继承于该基础产品的可售产品 的该条参数 optPerm = "D"
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
                 optObject.optPerm = "D"
             }
-            if(prodData.mbProdDefine[j].optionPermissions === "E"){
+            if(prodData.prodDefines[j].optionPermissions === "E"){
                 //N-E V-E 继承于该基础产品的可售产品增加该条参数 optPerm = "I"
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
@@ -299,7 +299,7 @@ export function prodDefinesDeal(prodData,sourceProdData,backData,copyFlag,prodRa
     }else{
         backData.optionPermissions = tempObject
     }
-    backData.mbProdDefine = prodDefines
+    backData.prodDefines = prodDefines
 }
 export function tempsDefine(prodData,copyFlag,prodRange,j){
     if(copyFlag === "Y" && prodRange === "S"){
@@ -313,13 +313,13 @@ export function tempsDefine(prodData,copyFlag,prodRange,j){
  * */
 export function changeProdType(prodData,prodType,j){
     let newMap = {newData: {},oldData: {},optionType: ""}
-    if(prodData.mbProdDefine[j].assembleType == "EVENT"){
-        prodData.mbProdDefine[j].prodType = prodType;
-        let assembleIds = prodData.mbProdDefine[j].assembleId;
+    if(prodData.prodDefines[j].assembleType == "EVENT"){
+        prodData.prodDefines[j].prodType = prodType;
+        let assembleIds = prodData.prodDefines[j].assembleId;
         let eventType = assembleIds.split("_")[0] + "_"+prodType;
-        prodData.mbProdDefine[j].assembleId = eventType
+        prodData.prodDefines[j].assembleId = eventType
     }
-    newMap.newData = prodData.mbProdDefine[j];
+    newMap.newData = prodData.prodDefines[j];
     newMap.optionType = "I"
     return newMap;
 }

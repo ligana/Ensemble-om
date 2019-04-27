@@ -209,7 +209,7 @@
                 //待添加参数列表增加指标信息
                 //获取指标信息
                 getAllPartList().then(response => {
-                    let partInfo = response.data.data.PartTypeInfo;
+                    let partInfo = response.data.data.partTypeInfo;
                     let tempPart = {};
                     let parLength = parent.length;
                     tempPart["name"] = "部件信息";

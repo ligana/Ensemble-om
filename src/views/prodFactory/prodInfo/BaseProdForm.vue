@@ -44,7 +44,7 @@
                     <v-tabs-items v-model="activeName" class="white elevation-2 textProd">
                         <v-tab-item v-for="i in prodInfo" :key="i.pageCode">
                             <base-desc :showEdit="showEdit" v-if="i.pageCode=='DESC'" :baseProdRange="baseProdRange" :prodType="prodData.prodType" tags="DESC"></base-desc>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='BASE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodMapping="prodMapping" :prodDefines="prodData.mbProdDefine" :disablePower="disablePower" tags="BASE"></base-prod>
+                            <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='BASE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodMapping="prodMapping" :prodDefines="prodData.prodDefines" :disablePower="disablePower" tags="BASE"></base-prod>-->
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='CONTROL'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CONTROL" :disablePower="disablePower"></base-prod>-->
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='SHIFT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="SHIFT" :disablePower="disablePower"></base-prod>-->
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='APPLY'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="APPLY" :disablePower="disablePower"></base-prod>-->
@@ -54,7 +54,7 @@
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='LIMIT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="LIMIT" :disablePower="disablePower"></base-prod>-->
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='OUT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="OUT" :disablePower="disablePower"></base-prod>-->
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='IN'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="IN" :disablePower="disablePower"></base-prod>-->
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='OPEN'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.mbProdDefine" tags="OPEN" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='OPEN'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="OPEN" :disablePower="disablePower"></base-prod>
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='CRET'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="CRET" tags="CRET" :disablePower="disablePower"></base-prod>-->
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='DEBT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="DEBT" tags="DEBT" :disablePower="disablePower"></base-prod>-->
                             <!--<base-prod :showEdit="showEdit" v-if="i.pageCode=='CLOSE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="CLOSE" tags="CLOSE" :disablePower="disablePower"></base-prod>-->
@@ -612,7 +612,7 @@
                     if(columnRange == "PART"){
                         //指标存在性检查
                         for(let attrIndex in this.prodData.mbProdDefine){
-                            if(this.prodData.mbProdDefine[attrIndex].assembleType == 'PART' && this.prodData.mbProdDefine[attrIndex].assembleId == columnKey){
+                            if(this.prodData.mbProdDefine[attrIndex].assembleType == 'PART' && this.prodData.mbProdDefine[attrIndex].assembleId.split('-')[0] == columnKey){
                                 //指标信息已经存在
                                 showFlag = 1;
                                 findInPart = true;
@@ -623,51 +623,56 @@
                         //指标时候  通过指标Id获取指标下参数
                         const response = findByPartType(columnKey);
                         let partAttrs  =response.partAttrList;
+                        let pageCodeP = 0;
                         for(let newPartIndex in partAttrs){
-                            let newPartTemp = {};
-                            newPartTemp.prodType = this.prodCode;
-                            newPartTemp.eventType = eventId;
-                            newPartTemp.assembleType = "PART";
-                            newPartTemp.assembleId = columnKey;
-                            newPartTemp.attrType = partAttrs[newPartIndex].attrKey;
-                            newPartTemp.attrValue = "";
-                            newPartTemp.status = "A";
-                            newPartTemp.pageCode = addColumnPageCode;
-                            newPartTemp.pageSeqNo = addColumnPageSeqNo;
-                            newPartTemp.optionPermissions = "E";
-                            //新增参数标识 newAttr
-                            newPartTemp.newAttr = true;
-                            addColumnData.mbProdDefine.push(newPartTemp);
+                            let assembleId = columnKey +'-'+partAttrs[newPartIndex].attrKey;
+                            addColumnData.prodDefines[assembleId] = {};
+                            addColumnData.prodDefines[assembleId].prodType = this.prodCode;
+                            addColumnData.prodDefines[assembleId].eventType = eventId;
+                            addColumnData.prodDefines[assembleId].assembleType = "PART";
+                            addColumnData.prodDefines[assembleId].assembleId = columnKey;
+                            addColumnData.prodDefines[assembleId].attrType = partAttrs[newPartIndex].attrKey;
+                            addColumnData.prodDefines[assembleId].attrValue = "";
+                            addColumnData.prodDefines[assembleId].status = "A";
+                            addColumnData.prodDefines[assembleId].pageCode = addColumnPageCode;
+                            addColumnData.prodDefines[assembleId].pageSeqNo = addColumnPageSeqNo+pageCodeP;
+                            addColumnData.prodDefines[assembleId].optionPermissions = "E";
+                            addColumnData.prodDefines[assembleId].newAttr = true;
+                            pageCodeP++;
                         }
                     }
                     if(columnRange == "ATTR"){
                         //新增参数 数据处理  正常操作逻辑处理
                         let addColumnPageSeqNo = this.getDefinedMaxSeqNo(this.prodData,addColumnPageCode)+i+1;
                         //判断新增参数是否存在
-                        for(let attrIndex in this.prodData.mbProdDefine){
-                            if(this.prodData.mbProdDefine[attrIndex].assembleType == 'ATTR' && this.prodData.mbProdDefine[attrIndex].assembleId == columnKey){
-                                //已经存在该条数据
-                                showFlag = 1;
-                                findInAttr = true;
-                                this.sweetAlert('info',"产品已存在参数" + columnKey + "【" + columnDesc + "】");
-                                break;
-                            }
+                        if (this.prodData.prodDefines[columnKey] !== undefined) {
+                            //已经存在该条数据
+                            showFlag = 1;
+                            findInAttr = true;
+                            this.sweetAlert('info',"产品已存在参数" + columnKey + "【" + columnDesc + "】")
                         }
+//                        for(let attrIndex in this.prodData.prodDefines){
+//                            if(this.prodData.mbProdDefine[attrIndex].assembleType == 'ATTR' && this.prodData.prodDefines[attrIndex].assembleId == columnKey){
+//                                //已经存在该条数据
+//                                showFlag = 1;
+//                                findInAttr = true;
+//                                this.sweetAlert('info',"产品已存在参数" + columnKey + "【" + columnDesc + "】");
+//                                break;
+//                            }
+//                        }
                         if(!findInAttr){
-                            let attrAddTemp = {};
-                            attrAddTemp.prodType = this.prodCode;
-                            attrAddTemp.eventType = eventId;
-                            attrAddTemp.assembleType = "ATTR";
-                            attrAddTemp.assembleId = columnKey;
-                            attrAddTemp.attrType = columnKey;
-                            attrAddTemp.attrValue = "";
-                            attrAddTemp.status = "A";
-                            attrAddTemp.pageCode = addColumnPageCode;
-                            attrAddTemp.pageSeqNo = addColumnPageSeqNo;
-                            attrAddTemp.optionPermissions = "E";
-                            //新增参数标识 newAttr
-                            attrAddTemp.newAttr = true;
-                            addColumnData.mbProdDefine.push(attrAddTemp);
+                            addColumnData.prodDefines[columnKey] = {}
+                            addColumnData.prodDefines[columnKey].prodType = this.prodCode;
+                            addColumnData.prodDefines[columnKey].eventType = eventId;
+                            addColumnData.prodDefines[columnKey].assembleType = "ATTR";
+                            addColumnData.prodDefines[columnKey].assembleId = columnKey;
+                            addColumnData.prodDefines[columnKey].attrType = columnKey;
+                            addColumnData.prodDefines[columnKey].attrValue = "";
+                            addColumnData.prodDefines[columnKey].status = "A";
+                            addColumnData.prodDefines[columnKey].pageCode = addColumnPageCode;
+                            addColumnData.prodDefines[columnKey].pageSeqNo = addColumnPageSeqNo;
+                            addColumnData.prodDefines[columnKey].optionPermissions = "E";
+                            addColumnData.prodDefines[columnKey].newAttr = true;
                         }
                     }
                 }
@@ -699,9 +704,9 @@
                 //获取界面元素数组
                 let SeqNoArr = []
                 let keys = "pageSeqNo";
-                for(let i in val.mbProdDefine){
-                    if(val.mbProdDefine[i].pageCode === pageCode && val.mbProdDefine[i][keys] !== null && val.mbProdDefine[i][keys] !== '') {
-                        SeqNoArr.push(val.mbProdDefine[i][keys])
+                for(let i in val.prodDefines){
+                    if(val.prodDefines[i].pageCode === pageCode && val.prodDefines[i][keys] !== null && val.prodDefines[i][keys] !== '') {
+                        SeqNoArr.push(val.prodDefines[i][keys])
                     }
                 }
                 //获取seqNoArr数组最大数据
