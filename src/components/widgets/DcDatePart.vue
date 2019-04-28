@@ -1,10 +1,4 @@
-/**
-* chengliang 20180917
-* 日期组件
-* 示例
-* 将其 value 特性绑定到一个名叫 value 的 prop 上
-* 在其 input 事件被触发时，将新的值通过自定义的 input 事件抛出
-*/
+
 <template>
     <div>
         <v-layout row wrap class="dcDate" v-if="show">
@@ -15,23 +9,11 @@
                 </v-flex>
                 </v-layout>
             </v-flex>
-            <v-flex md6 lg6>
+            <v-flex md8 lg8>
                 <v-menu transition="scale-transition" :nudge-bottom="-22" min-width="290px" :disabled="disabled" labelDesc="labelDesc">
                     <v-text-field slot="activator" v-model="dateFormatted" append-icon="event"></v-text-field>
                     <v-date-picker v-model="dateFormatted" no-title scrollable locale="zh-cn"></v-date-picker>
                 </v-menu>
-            </v-flex>
-            <v-flex md2 lg2>
-                <v-tooltip v-if="personShow==1" right :color="peopleColor">
-                    <v-btn flat small :color="peopleColor" icon="people" slot="activator" @click="peopleClick" class="dcDate1">
-                        <v-icon>people</v-icon>
-                    </v-btn>
-                    <span>{{peopleDesc}}</span>
-                </v-tooltip>
-                <dc-navbar v-if="showEdit == true" v-model="optionPermissions"></dc-navbar>
-                <i v-if="baseAttr=='BASE'" class="material-icons baseIcon small">
-                    call_merge
-                </i>
             </v-flex>
         </v-layout>
     </div>
@@ -153,7 +135,7 @@
                         dates = this._props.msg.attrValue
                         this.optionPermissions = this._props.msg.optionPermissions
                     }
-                    if(dates != null && dates != "" && dates != undefined && dates.length == 8) {
+                    if(dates != null && dates != "" && dates != undefined) {
                         dates = dates.toString()
                         let time = dates.substring(0, 4) + "-" + dates.substring(4, 6) + "-" + dates.substring(6)
                         this.dateFormatted = time

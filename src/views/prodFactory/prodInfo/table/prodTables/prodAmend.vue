@@ -49,7 +49,7 @@
                 let that = this
                 //获取基本信息
                 if(val!=undefined){
-                    that.prodAmendInfo = val.mbProdAmendMaping
+                    that.prodAmendInfo = val.rbProdAmendMaping
                 }
             },
             initTitle() {

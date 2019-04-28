@@ -54,23 +54,21 @@
                             <base-prod :showEdit="showEdit" v-if="i.pageCode=='LIMIT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="LIMIT" :disablePower="disablePower"></base-prod>
                             <base-prod :showEdit="showEdit" v-if="i.pageCode=='OUT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="OUT" :disablePower="disablePower"></base-prod>
                             <base-prod :showEdit="showEdit" v-if="i.pageCode=='IN'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="IN" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='OPEN'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="OPEN" tags="OPEN" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CRET'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="CRET" tags="CRET" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DEBT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="DEBT" tags="DEBT" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CLOSE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="CLOSE" tags="CLOSE" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='OPEN'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="OPEN" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CRET'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CRET" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DEBT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DEBT" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CLOSE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CLOSE" :disablePower="disablePower"></base-prod>
                             <group-prod v-if="i.pageCode=='GROUP'" :prodTypeCode="prodData.prodType.prodType" tags="GROUP" v-bind:prodData="prodData"></group-prod>
                             <prod-int v-if="i.pageCode=='RATEINFO'" v-bind:prodData="prodData"></prod-int>
                             <prod-charge v-if="i.pageCode=='CHARGE'" v-bind:prodData="prodData"></prod-charge>
                             <prod-accounting v-if="i.pageCode=='ACCOUNTING'" v-bind:prodData="prodData"></prod-accounting>
                             <prod-cl-accounting v-if="i.pageCode=='CLACCOUNTING'" v-bind:prodData="prodData"></prod-cl-accounting>
-
                             <!--贷款特有事件-->
                             <base-prod :showEdit="showEdit" v-if="i.pageCode=='ACCT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="ACCT" :disablePower="disablePower"></base-prod>
-
                             <base-prod :showEdit="showEdit" v-if="i.pageCode=='DISC'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DISC" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DRW'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="DRW" tags="DRW" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='REC'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="REC" tags="REC" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DUE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="DUE" tags="DUE" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DRW'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DRW" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='REC'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="REC" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DUE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DUE" :disablePower="disablePower"></base-prod>
                             <prod-amend v-if="i.pageCode=='AMEND'" v-bind:prodData="prodData"></prod-amend>
                         </v-tab-item>
                     </v-tabs-items>
@@ -79,7 +77,7 @@
             <v-flex lg3 sm3 class="v-card pl-3">
                 <v-card class="elevation-2">
                     <v-card-text>
-                        <down-action v-if="pendFlag==0" v-bind:editShow="editShow" v-on:listenToCopy="listenToCopy" v-on:saveProd="saveProd" v-on:tempProd="tempProd"></down-action>
+                        <down-action v-if="pendFlag==0" v-bind:editShow="editShow" v-on:listenToCopy="listenToCopy" v-on:saveProd="saveProd"></down-action>
                         <pending-form v-if="pendFlag==1" v-bind:prodType="prodType" v-bind:mainSeqNo="mainSeqNo"></pending-form>
                     </v-card-text>
                 </v-card>
@@ -145,6 +143,7 @@
     import {getParamTable} from "@/api/url/prodInfo";
     import {getCommonList} from "@/api/url/prodInfo";
     import {getProdPageDefine} from "@/api/url/prodInfo";
+    import {findByPartType} from "@/api/url/prodInfo";
     export default {
         name: 'BaseProdForm',
         components: {
@@ -289,6 +288,7 @@
                         }
                     }
                 });
+
             });
             //初始化产品信息
             if(this.$route.hash !== "" && this.$route.hash !== null && this.$route.hash !== undefined) {
@@ -378,6 +378,7 @@
                 }
                 this.routPageByProdTemp(sourceModule,response,prodGroup);
             },
+            //通过产品路由页签信息
             routPageByProdTemp(sourceModule,response,prodGroup){
                 //存款产品
                 if(sourceModule == "RB") {
@@ -426,6 +427,7 @@
                 }
                 return false;
             },
+            //数据取自他表的参数  点击后跳转到参数平台维护
             tapClick(val){
                 let pageCode = val
                 if(pageCode == "STAGE"){
@@ -441,6 +443,7 @@
                     hash: "MB_STAGE_DEFINE"
                 })
             },
+            //初始化元数据
             initColumnInfo() {
                 this.attrColumnInfo= getAttrInfo();
             },
@@ -508,22 +511,6 @@
                         this.spinning= false
                         let setTaskEvent= new Event("taskList");
                         window.dispatchEvent(setTaskEvent);
-                    }
-                })
-            },
-            //暂存事件
-            tempProd() {
-                this.targetData = filterChangeData(this.prodData,this.sourceProdData,this.showCopy)
-                if(this.showCopy === "Y") {
-                    this.targetData.optionType = "I"
-                }else{
-                    this.targetData.optionType = "U"
-                }
-                this.targetData.option="temp";
-                this.targetData.userName = sessionStorage.getItem("userId")
-                savaProdInfo(this.targetData).then(response => {
-                    if(response.status === 200) {
-                        this.sweetAlert('success',"暂存成功!")
                     }
                 })
             },
@@ -597,92 +584,115 @@
                     this.editColor = "orange"
                 }
             },
-            //增加参数处理事件
+            /**
+             * @description 增加参数处理事件
+             * @param val 新增参数集合  typeof(val) == Array
+             * @param columnType: ATTR-参数  PART-指标
+             * @param columnKey-参数/指标key  columnDesc-参数/指标描述
+             */
             useAddClick(val) {
-                //获取当前界面key
                 let addColumnPageCode = this.prodInfo[this.activeName].pageCode
                 let addColumnData = this.copy(this.prodData,this.addData)
-                let showFlag = 0
+                let showFlag = 0;
+                let findInAttr = false;
+                let findInPart = false;
+                let eventId = this.getEventType(addColumnPageCode,this.prodCode);
                 for(let i=0; i<val.length; i++){
-                    let columnKey = val[i].split("--")[0]
-                    let columnDesc = val[i].split("--")[1]
+                    let columnRange = val[i].split("--")[0];
+                    let columnKey = val[i].split("--")[1];
+                    let columnDesc = val[i].split("--")[2];
+                    let addColumnPageSeqNo = this.getDefinedMaxSeqNo(this.prodData,addColumnPageCode)+i+1;
                     //组装向mbProdDefine保存的数对象据
                     if(addColumnPageCode === "DESC" || addColumnPageCode === "CHARGE" || addColumnPageCode === "RATEINFO" || addColumnPageCode === "ACCOUNTING" || addColumnPageCode == "PROD" || addColumnPageCode == "STAGE" || addColumnPageCode == "AMEND"){
-                        showFlag = 1
-                        this.sweetAlert('info',"当前页签不允许增加参数!")
+                        showFlag = 1;
+                        this.sweetAlert('info',"当前页签不允许增加参数!");
+                        break;
                     }
-                    if(this.checkDefinePage(addColumnPageCode)) {
-                        //获取新增参数pageSeqNo
-                        let addColumnPageSeqNo = this.getDefinedMaxSeqNo(this.prodData,addColumnPageCode,"pageSeqNo")+i+1
-                        //获取新增参数SeqNo
-                        let addColumnSeqNo = (parseInt(this.getDefinedMaxSeqNo(this.prodData,addColumnPageCode,"seqNo"))+i+1)+""
-                        if (this.prodData.prodDefines[columnKey] !== undefined) {
-                            //已经存在该条数据
-                            showFlag = 1
-                            this.sweetAlert('info',"产品已存在参数" + columnKey + "【" + columnDesc + "】")
-                        } else {
-                            addColumnData.prodDefines[columnKey] = {}
-                            addColumnData.prodDefines[columnKey].prodType = this.prodCode
-                            addColumnData.prodDefines[columnKey].seqNo = addColumnSeqNo
-                            addColumnData.prodDefines[columnKey].pageCode = addColumnPageCode
-                            addColumnData.prodDefines[columnKey].pageSeqNo = addColumnPageSeqNo
-                            addColumnData.prodDefines[columnKey].attrKey = columnKey
-                            addColumnData.prodDefines[columnKey].attrValue = ""
-                            addColumnData.prodDefines[columnKey].status = "A"
-                            addColumnData.prodDefines[columnKey].assembleType = "ATTR"
-                            addColumnData.prodDefines[columnKey].assembleId = columnKey
-                            addColumnData.prodDefines[columnKey].optionPermissions = "E"
-                            //新增参数标识 newAttr
-                            addColumnData.prodDefines[columnKey].newAttr = true
+                    //新增指标  数据处理  通过partId获取指标下参数，装载数据到prodData(标注：增加一个指标，prodData至少增加两条参数信息)
+                    if(columnRange == "PART"){
+                        //指标存在性检查
+                        for(let attrIndex in this.prodData.mbProdDefine){
+                            if(this.prodData.mbProdDefine[attrIndex].assembleType == 'PART' && this.prodData.mbProdDefine[attrIndex].assembleId.split('-')[0] == columnKey){
+                                //指标信息已经存在
+                                showFlag = 1;
+                                findInPart = true;
+                                this.sweetAlert('info',"产品已存在指标" + columnKey + "【" + columnDesc + "】");
+                                break;
+                            }
+                        }
+                        if(!findInPart) {
+                            //指标时候  通过指标Id获取指标下参数
+                            const response = findByPartType(columnKey);
+                            let partAttrs = response.partAttrList;
+                            let pageCodeP = 0;
+                            for (let newPartIndex in partAttrs) {
+                                let assembleId = columnKey + '-' + partAttrs[newPartIndex].attrKey;
+                                addColumnData.prodDefines[assembleId] = {};
+                                addColumnData.prodDefines[assembleId].prodType = this.prodCode;
+                                addColumnData.prodDefines[assembleId].eventType = eventId;
+                                addColumnData.prodDefines[assembleId].assembleType = "PART";
+                                addColumnData.prodDefines[assembleId].assembleId = columnKey;
+                                addColumnData.prodDefines[assembleId].attrType = partAttrs[newPartIndex].attrKey;
+                                addColumnData.prodDefines[assembleId].attrValue = "";
+                                addColumnData.prodDefines[assembleId].status = "A";
+                                addColumnData.prodDefines[assembleId].pageCode = addColumnPageCode;
+                                addColumnData.prodDefines[assembleId].pageSeqNo = addColumnPageSeqNo + pageCodeP;
+                                addColumnData.prodDefines[assembleId].optionPermissions = "E";
+                                addColumnData.prodDefines[assembleId].newAttr = true;
+                                pageCodeP++;
+                            }
                         }
                     }
-                    //组装向mbEventAttr保存的数据对象
-                    if(addColumnPageCode === "OPEN" || addColumnPageCode === "CLOSE"|| addColumnPageCode === "CRET" || addColumnPageCode === "DEBT" || addColumnPageCode === "DUE" || addColumnPageCode === "DRW" || addColumnPageCode === "REC") {
-                        let eventType = addColumnPageCode+"_"+this.prodCode
-                        //获取新增参数pageSeqNo
-                        let PageSeqNo = this.getEventMaxSeqNo(this.prodData,addColumnPageCode,"pageSeqNo",eventType)+i+1
-                        //获取新增参数SeqNo
-                        let SeqNo = (parseInt(this.getEventMaxSeqNo(this.prodData,addColumnPageCode,"seqNo",eventType))+i+1)+""
-                        if(this.prodData.mbEventInfos[eventType].mbEventAttrs[columnKey] !== undefined){
+                    if(columnRange == "ATTR"){
+                        //新增参数 数据处理  正常操作逻辑处理
+                        let addColumnPageSeqNo = this.getDefinedMaxSeqNo(this.prodData,addColumnPageCode)+i+1;
+                        //判断新增参数是否存在
+                        if (this.prodData.prodDefines[columnKey] !== undefined) {
                             //已经存在该条数据
-                            showFlag = 1
-                            this.sweetAlert('info',"事件" + eventType +"已存在参数【" + columnDesc + "】")
-                        }else{
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey] = {}
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].eventType = eventType
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].seqNo = SeqNo
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].assembleType = "ATTR"
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].assembleId = columnKey
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].attrValue = ""
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].assembleRule = ""
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].perEffect = ""
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].pageCode = addColumnPageCode
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].pageSeqNo = PageSeqNo
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].optionPermissions = "E"
-
-                            //新增参数标识 newAttr
-                            addColumnData.mbEventInfos[eventType].mbEventAttrs[columnKey].newAttr = true
+                            showFlag = 1;
+                            findInAttr = true;
+                            this.sweetAlert('info',"产品已存在参数" + columnKey + "【" + columnDesc + "】")
+                        }
+//                        for(let attrIndex in this.prodData.prodDefines){
+//                            if(this.prodData.mbProdDefine[attrIndex].assembleType == 'ATTR' && this.prodData.prodDefines[attrIndex].assembleId == columnKey){
+//                                //已经存在该条数据
+//                                showFlag = 1;
+//                                findInAttr = true;
+//                                this.sweetAlert('info',"产品已存在参数" + columnKey + "【" + columnDesc + "】");
+//                                break;
+//                            }
+//                        }
+                        if(!findInAttr){
+                            addColumnData.prodDefines[columnKey] = {}
+                            addColumnData.prodDefines[columnKey].prodType = this.prodCode;
+                            addColumnData.prodDefines[columnKey].eventType = eventId;
+                            addColumnData.prodDefines[columnKey].assembleType = "ATTR";
+                            addColumnData.prodDefines[columnKey].assembleId = columnKey;
+                            addColumnData.prodDefines[columnKey].attrType = columnKey;
+                            addColumnData.prodDefines[columnKey].attrValue = "";
+                            addColumnData.prodDefines[columnKey].status = "A";
+                            addColumnData.prodDefines[columnKey].pageCode = addColumnPageCode;
+                            addColumnData.prodDefines[columnKey].pageSeqNo = addColumnPageSeqNo;
+                            addColumnData.prodDefines[columnKey].optionPermissions = "E";
+                            addColumnData.prodDefines[columnKey].newAttr = true;
                         }
                     }
                 }
                 if(showFlag === 0) {
                     this.prodData = addColumnData
                     this.initEventAttr(this.prodData)
-                    this.sweetAlert('success',"产品增加参数成功!")
+                    this.sweetAlert('success',"编辑成功!")
                     this.dialog = false
                 }
             },
-            checkDefinePage(addColumnPageCode){
-                if(addColumnPageCode === "BASE" || addColumnPageCode === "CONTROL" || addColumnPageCode === "APPLY" || addColumnPageCode === "INT" || addColumnPageCode === "SHIFT"){
-                    return true;
+            getEventType(addColumnPageCode,prodType){
+                let eventId = "";
+                if(addColumnPageCode === "OPEN" || addColumnPageCode === "CLOSE"|| addColumnPageCode === "CRET" || addColumnPageCode === "DEBT" || addColumnPageCode === "DUE" || addColumnPageCode === "DRW" || addColumnPageCode === "REC") {
+                    eventId = addColumnPageCode + "_" + prodType;
+                }else{
+                    eventId = "BASE_" + prodType;
                 }
-                if(addColumnPageCode === "RULE" || addColumnPageCode === "PRICE" || addColumnPageCode === "LIMIT" || addColumnPageCode === "OUT" || addColumnPageCode === "IN"){
-                    return true;
-                }
-                if(addColumnPageCode === "ACCT" || addColumnPageCode === "INT" || addColumnPageCode === "DISC"){
-                    return true;
-                }
-                return false;
+                return eventId;
             },
             addClick() {
                 this.addColumnPageDesc = this.prodInfo[this.activeName].text
@@ -692,16 +702,13 @@
                 }
             },
             //获取mbProdDefine最大seqNo val:目标集合 pageCode：当前所属界面标志
-            getDefinedMaxSeqNo(val,pageCode,key) {
+            getDefinedMaxSeqNo(val,pageCode) {
                 //获取界面元素数组
                 let SeqNoArr = []
-                let keys = key
+                let keys = "pageSeqNo";
                 for(let i in val.prodDefines){
-                    if(keys === "pageSeqNo" && val.prodDefines[i].pageCode === pageCode && val.prodDefines[i][keys] !== null && val.prodDefines[i][keys] !== '') {
+                    if(val.prodDefines[i].pageCode === pageCode && val.prodDefines[i][keys] !== null && val.prodDefines[i][keys] !== '') {
                         SeqNoArr.push(val.prodDefines[i][keys])
-                    }else if(keys === "seqNo" && val.prodDefines[i].prodType === this.prodCode){
-                        let key = parseInt(val.prodDefines[i][keys]);
-                        SeqNoArr.push(key);
                     }
                 }
                 //获取seqNoArr数组最大数据
@@ -711,33 +718,6 @@
                     for (let j = 1; j < SeqNoArr.length; j++) {
                         if (maxSeqNo < SeqNoArr[j]) {
                             maxSeqNo = SeqNoArr[j];
-                        }
-                    }
-                }
-                return maxSeqNo
-            },
-            //获取mbEventAttr最大seqNo val:目标集合 pageCode：当前所属界面标志
-            getEventMaxSeqNo(val,pageCode,key,eventType) {
-                //获取界面元素数组
-                let SeqNoArr = []
-                let keys = key
-                for(let i in val.mbEventInfos[eventType].mbEventAttrs){
-                    if(keys === "pageSeqNo" && val.mbEventInfos[eventType].mbEventAttrs[i].pageCode === pageCode && val.mbEventInfos[eventType].mbEventAttrs[i][keys] !== null && val.mbEventInfos[eventType].mbEventAttrs[i][keys] !== '') {
-                        SeqNoArr.push(parseInt(val.mbEventInfos[eventType].mbEventAttrs[i][keys]))
-                    }else if(keys === "seqNo"){
-                        for(let x in val.mbEventInfos){
-                            if(x === eventType){
-                                SeqNoArr.push(parseInt(val.mbEventInfos[eventType].mbEventAttrs[i][keys]))
-                            }
-                        }
-                    }
-                }
-                //获取seqNoArr数组最大数据
-                let maxSeqNo = 0;
-                if(SeqNoArr.length) {
-                    for (let y = 1; y < SeqNoArr.length; y++) {
-                        if (maxSeqNo < SeqNoArr[y]) {
-                            maxSeqNo = SeqNoArr[y]
                         }
                     }
                 }
@@ -753,8 +733,8 @@
                 }
                 return events
             },
+            //用户维度  检查用户是否收藏该产品
             getCollectInfo(){
-                //用户维度  检查用户是否收藏该产品
                 let userId = sessionStorage.getItem("userId");
                 let that = this;
                 let prodCode = that.prodCode;

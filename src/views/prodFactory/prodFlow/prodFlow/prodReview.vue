@@ -147,6 +147,15 @@
             <v-stepper-content step="3">
               <v-layout wrap>
                 <v-flex xs12 md2 lg2>
+                  <v-subheader class="descClass">发布系统:</v-subheader>
+                </v-flex>
+                <v-flex md10 lg10>
+                  <multiselect v-model="releaseInfo.omorg" :options = "envInfo" placeholder="请选择..." :searchable="false" :close-on-select="false" :show-labels="false"
+                               @tag="addTag" :taggable="true" :multiple="true" label="envDesc" track-by="envId">
+
+                  </multiselect>
+                </v-flex>
+                <v-flex xs12 md2 lg2>
                   <v-subheader class="descClass">发布人:</v-subheader>
                 </v-flex>
                 <v-flex md10 lg10>
@@ -176,7 +185,7 @@
 <script>
     import prodDiffTable from '@/views/prodFactory/prodDiff/prodDiffTable'
     import baseTable from '@/views/prodFactory/prodInfo/table/baseTable'
-
+    import Multiselect from "vue-multiselect"
     import {PrintInfo} from '@/utils/print/print'
     import DcTextField from '@/components/widgets/DcTextField'
     import TaskListFlex from '@/views/propertyManage/taskListFlex'
@@ -188,8 +197,12 @@
     import {
         tranFlowRelease
     } from '@/api/url/prodInfo';
+    import {
+        getEnvAll
+    } from '@/api/url/prodInfo';
     export default {
         components: {
+            Multiselect,
             baseTable,
             TaskListFlex,
             DcTextField,
@@ -198,6 +211,8 @@
         props: ["prodData"],
         data (){
             return {
+
+                envInfo: [],
                 sourceModule: [],
                 spinning: false,
                 RB: false,
@@ -209,6 +224,7 @@
                 releaseInfo: {
                     mainSeqNo: '',
                     date: '',
+                    omorg: [],
                     isApproved: 'Y',
                     userId: '',
                     remark: '',
@@ -291,6 +307,9 @@
             this.getDate()
             //初始化流程信息
             this.initFlowInfo(this.$route.params)
+            getEnvAll().then(response => {
+                this.envInfo=response.data.data.envInfoAll
+            })
         },
         methods: {
             initFlowInfo(val) {
@@ -350,6 +369,14 @@
                     this.title = "交易发布流程"
                 }
             },
+            addTag (newTag) {
+                const tag = {
+                    name: newTag,
+                    code: newTag.substring(0, 2) + Math.floor((Math.random() * 10000000))
+                }
+                this.options.push(tag)
+                this.value.push(tag)
+            }
         }
     }
 </script>

@@ -1,21 +1,17 @@
 <template>
   <div>
     <v-layout row wrap v-if="edit == 'false'">
-      <v-flex md4 lg4>
-          <v-btn color="success" depressed="" @click="temp"><v-icon >assignment_turned_in</v-icon>暂存</v-btn>
+      <v-flex md5 lg5>
+          <v-btn color="success" depressed="" @click='showCopy=!showCopy' class="downClass"><v-icon >history</v-icon>复制</v-btn>
       </v-flex>
-      <v-flex md4 lg4>
-          <v-btn color="success" depressed="" @click='showCopy=!showCopy'><v-icon >history</v-icon>复制</v-btn>
-      </v-flex>
-      <v-flex md4 lg4>
-          <v-btn color="success" depressed="" @click="save"><v-icon >history</v-icon>保存</v-btn>
+      <v-spacer></v-spacer>
+
+      <v-flex md5 lg5>
+          <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >history</v-icon>保存</v-btn>
       </v-flex>
     </v-layout>
     <v-layout row wrap v-if="edit == 'true'">
-      <v-flex md6 lg6>
-        <v-btn color="success" depressed="" @click="temp" class="downClass"><v-icon >assignment_turned_in</v-icon>暂存</v-btn>
-      </v-flex>
-      <v-flex md6 lg6>
+      <v-flex md12 lg12>
         <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >history</v-icon>保存</v-btn>
       </v-flex>
     </v-layout>
@@ -97,16 +93,15 @@ export default {
       },
       save(){
           this.$emit('saveProd')
-      },
-      temp(){
-          this.$emit('tempProd')
       }
   }
 };
 </script>
 <style scoped>
   .downClass {
-    width: 80%;
-    margin-left: 10%
+    width: 100%;
+    margin-left: 0%;
+    text-align: center;
+    margin-right: auto;
   }
 </style>
