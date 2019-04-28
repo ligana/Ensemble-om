@@ -54,7 +54,7 @@
                 let that = this
                 //获取基本信息
                 if(val!=undefined&&val.prodType!=undefined){
-                    that.prodChargeInfo = val.mbProdCharge
+                    that.prodChargeInfo = val.rbProdCharge
                 }
             },
             initTitle() {
