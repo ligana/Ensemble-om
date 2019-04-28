@@ -26,7 +26,7 @@ export function filterChangeData (prodData,sourceProdData,optionType) {
     //费用信息
     var backVal = []
     if(acctType != "T") {
-        tablesDeal(prodData, sourceProdData, backVal, "mbProdCharge", copyFlag)
+        tablesDeal(prodData, sourceProdData, backVal, "rbProdCharge", copyFlag)
         backData.mbProdCharge = backVal
     }
     //核算信息
@@ -55,7 +55,7 @@ export function filterChangeData (prodData,sourceProdData,optionType) {
     backData.irlIntMatrices = backVal
     //处理产品变更信息
     backVal = []
-    tablesDeal(prodData,sourceProdData,backVal,"mbProdAmendMaping",copyFlag)
+    tablesDeal(prodData,sourceProdData,backVal,"rbProdAmendMaping",copyFlag)
     backData.mbProdAmendMaping = backVal
     backVal = []
     tablesDeal(prodData,sourceProdData,backVal,"mbProdGroup",copyFlag)
@@ -200,14 +200,14 @@ export function getKeySetByTableName(tables) {
     let tableName = tables;
     let keys ={};
     keys["mbProdGroup"] = [{key: "prodType"},{key: "prodSubType"}];
-    keys["mbProdCharge"] = [{key: "prodType"},{key: "feeType"}];
+    keys["rbProdCharge"] = [{key: "prodType"},{key: "feeType"}];
     keys["glProdAccounting"] = [{key: "prodType"},{key: "accountingStatus"}];
     keys["glProdMappings"] = [{key: "mappingType"}];
     keys["irlProdTypes"] = [{key: "prodType"}];
     keys["glProdCodeMappings"] = [{key: "prodType"},{key: "status"},{key: "amtType"}];
     keys["irlProdInt"] = [{key: "prodType"},{key: "eventType"},{key: "intClass"},{key: "splitId"},{key: "ruleid"}];
     keys["irlBasisRateList"] = [{key: "intBasis"},{key: "ccy"},{key: "effectDate"}];
-    keys["mbProdAmendMaping"] = [{key: "prodType"}];
+    keys["rbProdAmendMaping"] = [{key: "prodType"}];
     keys["irlIntMatrices"] = [{key: "matrixNo"}];
     return keys[tableName];
 }
