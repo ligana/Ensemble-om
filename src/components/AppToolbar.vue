@@ -112,6 +112,7 @@
                         window.getApp.$emit("APP_PERM_PERMISSIONS");
                     }
                 },
+
                 {
                     icon: "settings",
                     href: "#",

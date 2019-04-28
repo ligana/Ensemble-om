@@ -927,7 +927,6 @@ export default [
             require(['@/views/environmentManage/environmentManageIndex.vue'],resolve
             )
     },
-
     {
         path: '/paramFlow',
         meta: {
