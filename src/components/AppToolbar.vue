@@ -113,6 +113,14 @@
                     }
                 },
                 {
+                    icon: "settings",
+                    href: "#",
+                    title: "环境管理",
+                    click: e => {
+                        window.getApp.$emit("APP_ENV_MANAGEMENT");
+                    }
+                },
+                {
                     icon: "fullscreen_exit",
                     href: "#",
                     title: "登出",

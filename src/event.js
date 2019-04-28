@@ -23,6 +23,13 @@ export default [
         }
     },
     {
+
+        name: 'APP_ENV_MANAGEMENT',
+        callback: function (e) {
+            this.$router.replace({ path: '/environmentManageIndex' });
+        }
+    },
+    {
         name: 'APP_PERM_PERMISSIONS',
         callback: function (e) {
             this.$router.replace({ path: '/permManageIndex' });

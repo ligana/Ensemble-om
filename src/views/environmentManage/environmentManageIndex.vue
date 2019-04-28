@@ -95,7 +95,7 @@
    import {filterTableChangeData} from "@/server/filterTableChangeData";
    import {saveSysTable} from "@/api/url/prodInfo";
    import toast from '@/utils/toast';
-   import {findAll} from "@/api/url/prodInfo";
+   import {getEnvInfo} from "@/api/url/prodInfo";
 
    export default {
        props: ["title"],
@@ -164,15 +164,15 @@
        },
 
        created () {
-           this.findAll()
+           this.getEnvInfo()
        },
 
        methods: {
-           findAll () {
+           getEnvInfo () {
                let that = this;
 
                //获取环境信息
-               findAll().then(function (response) {
+               getEnvInfo().then(function (response) {
                    that.desserts = response.data.data.envInfo;
                    that.sourceData = that.copy(that.desserts,that.sourceData)
 

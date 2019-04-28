@@ -898,6 +898,19 @@ export default [
             require(['@/views/baseTable/transManage.vue'],resolve
 )
 },
+    {
+        path: '/environmentManageIndex',
+        meta: {
+            breadcrumb: true,
+            title: '环境管理'
+        },
+        name: 'environmentManageIndex',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/environmentManage/environmentManageIndex.vue'],resolve
+            )
+    },
 
     {
         path: '/paramFlow',

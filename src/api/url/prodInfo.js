@@ -294,6 +294,13 @@ export function saveTable (params) {
         data: params
     })
 }
+//查询全部信息环境
+export function getEnvInfo () {
+    return request({
+        url: '/getEnvInfo',
+        method: 'post',
+    });
+}
 export function saveParam (params) {
     return request({
         url: '/saveParam',
