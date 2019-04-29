@@ -1,10 +1,8 @@
 <template>
   <a-spin tip="Loading..." size="large" :spinning="spinning">
-    <div class="ml-4">
+    <div class="ml-0 mt-3">
       <v-layout row wrap>
         <v-flex md8 lg8>
-          <!--<tran-check-flow-info v-if="optKey==3"></tran-check-flow-info>-->
-          <!--<tran-release-flow-info v-if="optKey==4"></tran-release-flow-info>-->
           <!--复核流程信息-->
           <prod-review v-on:setCheckInfo="setCheckInfo" v-on:setReleaseInfo="setReleaseInfo" v-on:setReleaseFlowInfo="setReleaseFlowInfo"></prod-review>
         </v-flex>
@@ -14,7 +12,7 @@
         </v-flex>
       </v-layout>
       <v-card class="elevation-2 radiusDc">
-        <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" class="elevation-4 mt-4" flat>
+        <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" class="elevation-4 mt-3" flat>
           <v-toolbar-side-icon @click="showClick"></v-toolbar-side-icon>
           <v-toolbar-title class="white--text">修改差异展示</v-toolbar-title>
           <v-spacer></v-spacer>

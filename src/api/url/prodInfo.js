@@ -492,7 +492,7 @@ export function getProdPageDefine (params) {
 
 export function getEnvAll () {
     return request({
-        url: '/getEnvAll',
+        url: '/getEnvInfo',
         method: 'post',
     });
 }

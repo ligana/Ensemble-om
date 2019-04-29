@@ -1,9 +1,7 @@
 <template>
-  <div class="ml-4">
-        <!--<tran-check-flow-info v-if="optKey==3"></tran-check-flow-info>-->
-        <!--<tran-release-flow-info v-if="optKey==4"></tran-release-flow-info>-->
+  <div class="ml-0">
         <!--复核流程信息-->
-        <v-card class="mt-4 elevation-4 radiusDc">
+        <v-card class="elevation-4 radiusDc">
           <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
             <v-icon>call_split</v-icon>
             <v-toolbar-title>{{title}}</v-toolbar-title>
@@ -317,7 +315,7 @@
             //初始化流程信息
             this.initFlowInfo(this.$route.params)
             getEnvAll().then(response => {
-                this.envInfo=response.data.data.envInfoAll
+                this.envInfo=response.data.data.envInfo
             })
         },
         methods: {

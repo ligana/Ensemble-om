@@ -1,5 +1,5 @@
 <template>
-  <v-card class="elevation-4 mt-4 ml-4 radiusDc">
+  <v-card class="elevation-4 ml-3 radiusDc">
     <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
       <v-toolbar-title>任务列表</v-toolbar-title>
     </v-toolbar>
