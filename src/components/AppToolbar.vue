@@ -145,6 +145,9 @@
                 this.getInitProdList();
             }
         },
+     /*  created () {
+         this.handleDrawerToggle();
+         },*/
         methods: {
             handleDrawerToggle() {
                 window.getApp.$emit("APP_DRAWER_TOGGLED");

@@ -101,8 +101,8 @@ export default {
     return {
         titleName: this.globalConfig.name,
         mini: false,
-        drawer: false,
-        menuSwitch: false,
+        drawer: true,
+        menuSwitch: true,
         menus: Menu,
         scrollSettings: {
           maxScrollbarLength: 160

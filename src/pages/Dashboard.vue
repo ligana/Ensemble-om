@@ -1,9 +1,10 @@
+
 <template>
   <div id="pageDashboard">
     <v-container grid-list-xl fluid class="pb-5">
       <v-layout row wrap>
         <!-- mini statistic start -->
-        <v-flex lg3 sm6 xs12>
+        <v-flex lg3 sm6 xs12 @click = "存款产品">
           <mini-statistic
                   icon="fa fa-facebook"
                   mark="RB"

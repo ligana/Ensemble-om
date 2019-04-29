@@ -6,7 +6,7 @@
 // 我可以提供尽量多的配置, 但尽量不要太个性化, 接口的路径/名称/格式之类的
 // 遵循统一的规范, 好维护, 交给其他人也比较简单
 const config = {
-  name: "XX银行产品工厂", // 项目的名字
+  name: "天津银行产品工厂", // 项目的名字
   favicon: "http://jxy.me/favicon.ico", // 设置网页的favicon, 可以是外链, 也可以是本地
   footer: '<a target="_blank" href="http://jxy.me">foolbear</a>版权所有 © 2015-2099', // footer中显示的字, 可以嵌入html标签
 
