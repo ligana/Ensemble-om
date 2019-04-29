@@ -1,14 +1,12 @@
 <template>
-    <div class="elevation-4">
+    <div class="pt-3 pl-1">
         <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>用户管理</v-toolbar-title>
             <v-spacer></v-spacer>
-
-            <v-dialog v-model="dialog" max-width="500px">
+            <v-dialog v-model="dialog" max-width="500px" persistent>
                 <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
                     <td style="color: white;margin-left: 100px">添加</td>
                 </v-btn>
-
                 <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
                     <v-toolbar-title>{{ formTitle }}</v-toolbar-title>
                 </v-toolbar>
@@ -72,6 +70,9 @@
                     </v-tooltip>
                 </td>
             </template>
+            <v-alert slot="no-results" :value="true" color="error" icon="warning">
+                Your search for "{{ search }}" found no results.
+            </v-alert>
         </v-data-table>
     </div>
 </template>
@@ -89,7 +90,7 @@
         data: () => ({
             dialog: false,
             disabled: "false",
-
+            search: '',
             headers: [
                 {text: '用户ID',sortable: false},
                 { text: '用户名称',sortable: false},

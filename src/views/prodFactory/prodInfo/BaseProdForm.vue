@@ -92,7 +92,7 @@
                         </v-item-group>
                     </v-card-actions>
                     <v-window-item v-for="n in length" :key="`card-${n}`" class="elevation-2">
-                        <prod-list-form v-if="n == 2 || windowShow == 0" v-bind:prodClass="prodClass" v-on:listenToProdList="listenToProdList" v-bind:prodRange="prodRange"></prod-list-form>
+                        <prod-list-form v-if="n == 2 || windowShow == 0" v-bind:prodType="prodType" v-on:listenToProdList="listenToProdList" v-bind:prodRange="prodRange"></prod-list-form>
                         <dc-treeAttr v-if="n == 1 && windowShow != 0" v-model="tree" :options="treeOptions" labelDesc="产品参数"></dc-treeAttr>
                     </v-window-item>
                 </v-window>

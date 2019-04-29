@@ -97,31 +97,6 @@
                     }
                 },
                 {
-                    icon: "settings",
-                    href: "#",
-                    title: "系统管理",
-                    click: e => {
-                        window.getApp.$emit("APP_SYSTEM_MANAGEMENT");
-                    }
-                },
-                {
-                    icon: "settings",
-                    href: "#",
-                    title: "权限管理",
-                    click: e => {
-                        window.getApp.$emit("APP_PERM_PERMISSIONS");
-                    }
-                },
-
-                {
-                    icon: "settings",
-                    href: "#",
-                    title: "环境管理",
-                    click: e => {
-                        window.getApp.$emit("APP_ENV_MANAGEMENT");
-                    }
-                },
-                {
                     icon: "fullscreen_exit",
                     href: "#",
                     title: "登出",

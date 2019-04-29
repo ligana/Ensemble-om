@@ -58,10 +58,13 @@
     import {
         getProdType
     } from '@/api/url/prodInfo'
+    import {
+        getAllProdList
+    } from '@/api/url/prodInfo'
 
     export default {
 
-        props: ["prodClass","prodRange"],
+        props: ["prodType","prodRange"],
         data: () => ({
             isRB: false,
             isCL: false,
@@ -70,16 +73,11 @@
             folders: [],
             list: [],
             prodType: '',
+            prod: '',
             depositTree: 'depositTree',
             searchValue: '',
         }),
         watch: {
-            prodClass(val) {
-                this.initProdList(val)
-            },
-            prodRange(val) {
-                this.initProdList(this._props.prodClass)
-            },
             searchValue() {
                 if(this.searchValue==''){
                     this.list=[]
@@ -95,35 +93,46 @@
 
         },
         mounted() {
-            this.initProdList(this._props.prodClass)
+            this.prod = this._props.prodType
+            this.initProdList(this._props.prodType)
         },
         methods: {
             initProdList(val) {
-                if(val!=''&&val!=undefined){
-                    getProdType(val).then(response => {
-                        let length = response.data.data.length
+                let that = this
+                getAllProdList().then(response => {
+                    that.folders = []
+                    let prodType = that._props.prodType
+                    let length = response.data.data.length
+                    if(prodType == val){
+                        for(let i = 0; i<length; i++){
+                            if(response.data.data[i].prodType == val){
+                                that.folders.push(response.data.data[i])
+                            }
+                            if(response.data.data[i].baseProdType == val){
+                                that.folders.push(response.data.data[i])
+                            }
+                        }
+                    }else{
                         for(let j = 0; j<length; j++){
-                            if(response.data.data[j].prodRange == this._props.prodRange){
-                                this.folders.push(response.data.data[j])
+                            if(response.data.data[j].baseProdType == val){
+                                that.folders.push(response.data.data[j])
                             }
                         }
-                        if(this.folders.length != 0){
-                            if(this.folders[0].sourceModule == "RB"){
-                                this.isRB = true
-                            }
-                            if(this.folders[0].sourceModule == "CL"){
-
-                                this.isCL = true
-                            }
-                            if(this.folders[0].sourceModule == "GL"){
-                                this.isGL = true
-                            }
-                        }
-                    });
-                }
+                    }
+                    if(that.folders[0].sourceModule == "RB"){
+                        that.isRB = true
+                    }
+                    if(that.folders[0].sourceModule == "CL"){
+                        that.isCL = true
+                    }
+                    if(that.folders[0].sourceModule == "GL"){
+                        that.isGL = true
+                    }
+                });
             },
             handleClick(value) {
                 this.prodType = value.prodType
+                this.initProdList(this.prod)
                 this.$emit('listenToProdList',{'prodType': this.prodType})
             },
         }

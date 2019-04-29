@@ -901,6 +901,67 @@ export default [
     /* webpackMode: "lazy-once" */
     require(['@/views/baseTable/paramManage.vue'],resolve)
   },
+    {
+        path: '/systemManage',
+        meta: {
+            breadcrumb: true,
+            title: '交易系统管理'
+        },
+        name: 'systemManage',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/tables/systemManage.vue'],resolve)
+    },
+    {
+        path: '/moduleManage',
+        meta: {
+            breadcrumb: true,
+            title: '交易模块管理'
+        },
+        name: 'moduleManage',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/tables/moduleManage.vue'],resolve)
+    },
+    {
+        path: '/tableListManage',
+        meta: {
+            breadcrumb: true,
+            title: '交易属性管理'
+        },
+        name: 'tableListManage',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/tables/tableListManage.vue'],resolve)
+    },
+    {
+        path: '/tableColumnManage',
+        meta: {
+            breadcrumb: true,
+            title: '元数据管理'
+        },
+        name: 'tableColumnManage',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/tables/tableColumnManage.vue'],resolve)
+    },
+    {
+        path: '/paramManage',
+        meta: {
+            breadcrumb: true,
+            title: '核心参数'
+        },
+        name: 'paramManage',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/paramManage.vue'],resolve)
+    },
+
 {
     path: '/transManage',
         meta: {
@@ -1036,14 +1097,73 @@ export default [
         meta: {
     breadcrumb: true,
         title: '系统管理'
-},
+    },
     name: 'systemManageIndex',
         component: (resolve) =>
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
-            require(['@/views/systemManage/systemManageIndex.vue'],resolve
-)
-},
+            require(['@/views/systemManage/systemManageIndex.vue'],resolve)
+    },
+    {
+        path: '/menuTables',
+        meta: {
+            breadcrumb: true,
+            title: '菜单管理'
+        },
+        name: 'menuTables',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/systemManage/tables/menuTables.vue'],resolve)
+    },
+    {
+        path: '/roleTables',
+        meta: {
+            breadcrumb: true,
+            title: '角色管理'
+        },
+        name: 'roleTables',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/systemManage/tables/roleTables.vue'],resolve)
+    },
+    {
+        path: '/userTables',
+        meta: {
+            breadcrumb: true,
+            title: '用户管理'
+        },
+        name: 'userTables',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/systemManage/tables/userTables.vue'],resolve)
+    },
+    {
+        path: '/roleMenuRelationTables',
+        meta: {
+            breadcrumb: true,
+            title: '角色菜单授权'
+        },
+        name: 'roleMenuRelationTables',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/systemManage/tables/roleMenuRelationTables.vue'],resolve)
+    },
+    {
+        path: '/userRoleRelationTables',
+        meta: {
+            breadcrumb: true,
+            title: '用户角色授权'
+        },
+        name: 'userRoleRelationTables',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/systemManage/tables/userRoleRelationTables.vue'],resolve)
+    },
 {
     path: '/permManageIndex',
         meta: {
@@ -1056,6 +1176,30 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/permManage/permManageIndex.vue'],resolve)
 },
+    {
+        path: '/prodPermTables',
+        meta: {
+            breadcrumb: true,
+            title: '产品工厂权限管理'
+        },
+        name: 'prodPermTables',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/permManage/tables/prodPermTables.vue'],resolve)
+    },
+    {
+        path: '/paramPermTables',
+        meta: {
+            breadcrumb: true,
+            title: '参数工厂权限管理'
+        },
+        name: 'paramPermTables',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/permManage/tables/paramPermTables.vue'],resolve)
+    },
     {
         path: '/userInfoIndex',
         meta: {

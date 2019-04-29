@@ -1,5 +1,5 @@
 <template>
-    <div class="elevation-4">
+    <div class="pt-3 pl-1">
         <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>元数据管理</v-toolbar-title>
             <v-spacer></v-spacer>
@@ -13,7 +13,7 @@
             ></v-text-field>
             <v-dialog v-model="dialog" max-width="600px" persistent>
                 <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
-                    <td style="color: white;margin-left: 100px">添加</td>
+                    <td style="color: white">添加</td>
                 </v-btn>
                 <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
                     <v-toolbar-title>{{ formTitle }}</v-toolbar-title>

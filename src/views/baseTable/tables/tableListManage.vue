@@ -1,5 +1,5 @@
 <template>
-    <div class="elevation-4">
+    <div class="pt-3 pl-1">
         <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>交易属性管理</v-toolbar-title>
             <v-spacer></v-spacer>
@@ -13,7 +13,7 @@
             ></v-text-field>
             <v-dialog v-model="dialog" max-width="500px" persistent>
                 <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
-                    <td style="color: white;margin-left: 100px">添加</td>
+                    <td style="color: white">添加</td>
                 </v-btn>
                 <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
                     <v-toolbar-title>{{ formTitle }}</v-toolbar-title>
@@ -33,9 +33,6 @@
                                 </v-flex>
                                 <v-flex xs6 sm6 md6>
                                     <v-select v-model="editedItem.system" label="所属系统" :items="system" item-text="value" item-value="key"></v-select>
-                                </v-flex>
-                                <v-flex xs6 sm6 md6>
-                                    <v-select v-model="editedItem.modelId" label="所属模块" :items="model" item-text="value" item-value="key"></v-select>
                                 </v-flex>
                                 <v-flex xs6 sm6 md6>
                                     <v-select v-model="editedItem.parameter" label="参数类型" :items="paramType" item-text="value" item-value="key"></v-select>
@@ -62,7 +59,6 @@
                 <td>{{ props.item.tableName }}</td>
                 <td>{{ props.item.tableDesc }}</td>
                 <td>{{ props.item.system }}</td>
-                <td>{{ props.item.modelId }}</td>
                 <td>{{ props.item.parameter }}</td>
                 <td>{{ props.item.searchColumn }}</td>
                 <td>{{ props.item.eidtColumns }}</td>
@@ -125,7 +121,6 @@
                 { text: '交易ID',sortable: false,value: 'tableName'},
                 { text: '交易名称',sortable: false,value: 'tableDesc'},
                 { text: '所属系统',sortable: false,value: 'system' },
-                { text: '所属模块',sortable: false,value: 'modelId' },
                 { text: '参数类型',sortable: false,value: 'parameter' },
                 { text: '检索条件',sortable: false,value: 'searchColumn' },
                 { text: '可见参数',sortable: false,value: 'eidtColumns' },
@@ -146,7 +141,6 @@
                 tableName: '',
                 tableDesc: '',
                 system: '',
-                modelId: '',
                 parameter: '',
                 searchColumn: '',
                 eidtColumns: ''
@@ -155,7 +149,6 @@
                 tableName: '',
                 tableDesc: '',
                 system: '',
-                modelId: '',
                 parameter: '',
                 searchColumn: '',
                 eidtColumns: ''
@@ -230,7 +223,6 @@
                 that.editedItem['tableName'] = changeItem.tableName
                 that.editedItem['tableDesc'] = changeItem.tableDesc
                 that.editedItem['system'] = changeItem.system
-                that.editedItem['modelId'] = changeItem.modelId
                 that.editedItem['parameter'] = changeItem.parameter
                 if(changeItem.searchColumn != null && changeItem.searchColumn != ""){
                     let searchColumns = changeItem.searchColumn.split(",")
@@ -306,7 +298,6 @@
                     changeItem['tableName'] = this.editedItem.tableName
                     changeItem['tableDesc'] = this.editedItem.tableDesc
                     changeItem['system'] = this.editedItem.system
-                    changeItem['modelId'] = this.editedItem.modelId
                     changeItem['parameter'] = this.editedItem.parameter
 
                     if (this.editedIndex > -1) {
@@ -340,9 +331,6 @@
                     error = true
                 } else if(this.editedItem.system == "" || this.editedItem.system == undefined){
                     this.sweetAlert('info', "所属系统不能为空!")
-                    error = true
-                } else if(this.editedItem.modelId == "" || this.editedItem.modelId == undefined){
-                    this.sweetAlert('info', "所属模块不能为空!")
                     error = true
                 } else if(this.show != true){
                     for(let i=0; i<this.desserts.length; i++){

@@ -1,5 +1,5 @@
 <template>
-    <div class="elevation-4">
+    <div class="pt-3 pl-1">
         <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>角色管理</v-toolbar-title>
             <v-spacer></v-spacer>
