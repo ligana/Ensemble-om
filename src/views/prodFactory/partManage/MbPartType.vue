@@ -1,5 +1,5 @@
 <template>
-    <div class="elevation-4">
+    <div class="pt-5 pl-4">
         <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>指标类型定义</v-toolbar-title>
             <v-spacer></v-spacer>
@@ -8,11 +8,11 @@
                 <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
                     <td style="color: white;margin-left: 100px">添加</td>
                 </v-btn>
+                <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
+                    <v-toolbar-title>{{ formTitle }}</v-toolbar-title>
+                </v-toolbar>
                 <v-card>
-                    <v-card-title>
-                        <span style="color: #00b0ff;font-size: x-large;margin-left: 5%">{{ formTitle }}</span>
-                    </v-card-title>
-                    <v-card-text style="margin-top: -10%">
+                    <v-card-text style="padding-top: 0px">
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm6 md6 v-if="disabled=='false'">
@@ -118,6 +118,7 @@
             menu2: [],
             sourceData: [],
             dess: [],
+            sourceDataOld: [],
             ATTR_COLUMN: [],
             attrColum: [],
             partClass: [],
@@ -192,8 +193,15 @@
                 ATTR_COLUMN: '',
             },
             backValue: {},
-            backValueRole: {}
+            backValueRole: {},
+            partTypeCopy: [],
         }),
+
+        computed: {
+            formTitle () {
+                return this.editedIndex === -1 ? '新增指标类型列表' : '修改指标类型列表'
+            }
+        },
 
 
         watch: {
@@ -228,12 +236,13 @@
             let temp3 = [];
             const prodClass = getAll("MB_PROD_CLASS");
             for(let indexes in prodClass){
-                let tempProd = {};
-                if(tempProd["key"]==1) {
-                    tempProd["key"] = prodClass[indexes].PROD_CLASS_LEVEL;
-                    tempProd["value"] = prodClass[indexes].PROD_CLASS;
-                    temp3.push(tempProd);
-                }
+                    //let tempProd;
+                    if(prodClass[indexes].PROD_CLASS_LEVEL == "1"){
+                        //tempProd["key"] = prodClass[indexes].PROD_CLASS_LEVEL;
+                        //tempProd["value"] = prodClass[indexes].PROD_CLASS;
+                        temp3.push(prodClass[indexes].PROD_CLASS_LEVEL);
+                        temp3.push(prodClass[indexes].PROD_CLASS);
+                    }
             }
             this.busiCategory = temp3;
             //法人代码备选数据
@@ -269,21 +278,25 @@
                                 }
                             }
                         }
-                        that.partType[typeIndex]['attrColumn'] = partAttrColumn;
+                        that.partType[typeIndex]['ATTR_COLUMN'] = partAttrColumn;
                     }
+                    //将新数据的主键转换为大写与源数据做过滤比较
                     that.desserts = that.partType;
                     for(let i=0; i<that.desserts.length; i++){
                         that.dess.push(that.changeDesc(that.desserts[i]))
                     }
-                   that.sourceDataType = that.copy(that.partType,that.sourceData)
-                   that.sourceDataAttr = that.copy(that.partAttr,that.sourceData)
+                    //将源数据的主键转换为大写与新数据做过滤比较
+                   that.sourceData = that.copy(that.partType,that.sourceData);
+                    for(let j=0; j<that.sourceData.length; j++){
+                        that.sourceDataOld.push(that.changeDesc(that.sourceData[j]))
+                    }
+                   //that.sourceData = that.copy(that.partAttr,that.sourceData)
 
                 });
 
             },
 
             editItem (item) {
-                //this.ATTR_COLUMN = [],
                 this.show = false;
                 this.editedIndex = this.dess.indexOf(item);
                 this.editedItem = Object.assign({}, item);
@@ -310,7 +323,7 @@
                     this.dess.splice(index, 1)
                     //保存数据落库
                     this.backValue.data = filterTableChangeData(this.keySet,this.dess,this.sourceData)
-                    this.backValue.userName = sessionStorage.getItem("partType")
+                    //this.backValue.userName = sessionStorage.getItem("partType")
                     this.backValue.userName = sessionStorage.getItem("userId");
                     this.backValue.tableName = "MB_PART_TYPE"
                     this.backValue.keySet = "ATTR_KEY"
@@ -356,22 +369,64 @@
                     alert("状态不能为空")
                 }else{
                     //保存数据落库
-                    let newPart
-                    this.backValueType.data = filterTableChangeData(this.keySet,this.partType,this.sourceData)
-                    this.backValueAttr.data = filterTableChangeData(this.keySet,this.partAttr,this.sourceData)
-                    this.backValueType.userName = sessionStorage.getItem("partType")
-                    this.backValueAttr.userName = sessionStorage.getItem("partAttr")
-                    this.backValueType.tableName = "MB_PART_TYPE"
-                    this.backValueAttr.tableName = "MB_PART_ATTR"
-                    this.backValueType.keySet = "PART_TYPE"
-                    this.backValueAttr.keySet = "PART_TYPE"
-                    this.backValueType.userName = sessionStorage.getItem("userId");
-                    this.backValueAttr.userName = sessionStorage.getItem("userId");
-                    saveTable(this.backValue).then(response => {
+//                    let newType = this.copy(this.dess,newType)
+//                    for(let n in newType){
+//                        delete newType[n].ATTR_COLUMN
+//                    }
+//                    let asddf = []
+//                    for(let j=0; j<this.partTypeCopy.length; j++){
+//                        asddf.push(this.changeDesc(this.partTypeCopy[j]))
+//                    }
+//                    let diff = filterTableChangeData(this.keySet,newType,asddf)
+
+                    this.backValue.data = filterTableChangeData(this.keySet,this.dess,this.sourceDataOld)
+
+                    //attr差异
+                    let attr = []
+                    let attrData = {}
+                    let newData = {}
+                    let oldData = {}
+                    let attrValue = {};
+                    newData.ATTR_COLUMN = this.backValue.data[0].newData.ATTR_COLUMN
+                    if(this.backValue.data[0].oldData.ATTR_COLUMN != undefined){
+                        oldData.ATTR_COLUMN = this.backValue.data[0].oldData.ATTR_COLUMN
+                    }
+                    attrData.newData = newData
+                    attrData.oldData = oldData
+                    attrData.optType = this.backValue.data[0].optType
+                    attr.push(attrData)
+                    attrValue.data = attr;
+                    attrValue.tableName = "MB_PART_ATTR";
+                    attrValue.keySet = "PART_TYPE";
+                    attrValue.userName = sessionStorage.getItem("userId");
+                    saveTable(attrValue).then(response => {
                         if (response.status === 200) {
-                            this.sweetAlert('success',"保存成功!")
+                            //this.sweetAlert('success',"保存成功!")
                         }
                     });
+
+
+                    let type = []
+                    type = this.copy(type,this.backValue.data)
+                    delete type[0].newData.ATTR_COLUMN
+                    delete type[0].oldData.ATTR_COLUMN
+                    let typeValue = {};
+                    typeValue.data = type;
+                    typeValue.tableName = "MB_PART_TYPE";
+                    typeValue.keySet = "PART_TYPE";
+                    typeValue.userName = sessionStorage.getItem("userId");
+                    saveTable(typeValue).then(response => {
+                        if (response.status === 200) {
+                            //this.sweetAlert('success',"保存成功!")
+                        }
+                    });
+                    //this.backValue.userName = sessionStorage.getItem("partType")
+                    this.backValue.tableName = "MB_PART_TYPE"
+                    this.backValue.keySet = "PART_TYPE"
+                    this.backValue.userName = sessionStorage.getItem("userId");
+                    this.sourceData = []
+                    this.sourceData = this.copy(this.dess,this.sourceDataOld)
+
                     this.close();
                 }
                 this.initialize()
@@ -389,7 +444,7 @@
                 }
                 return obj;
             },
-            saveClick() {
+           /* saveClick() {
                 //保存数据落库
                 this.backValue.data = filterTableChangeData(this.keySet,this.dess,this.sourceData)
                 this.backValue.userName = sessionStorage.getItem("attrKey")
@@ -400,7 +455,7 @@
                         toast.success("提交成功！");
                     }
                 })
-            },
+            },*/
             getBigDesc(val){
                 if(/[a-z]/.test(val)){
                     val = val.replace(/([A-Z])/g,"_$1").toUpperCase();

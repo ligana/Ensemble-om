@@ -1,5 +1,5 @@
 <template>
-    <div class="elevation-4">
+    <div class="pt-5 pl-4">
         <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>环境管理</v-toolbar-title>
             <v-spacer></v-spacer>
@@ -8,11 +8,11 @@
                 <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
                     <td style="color: white;margin-left: 100px">添加</td>
                 </v-btn>
+                <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
+                    <v-toolbar-title>{{ formTitle }}</v-toolbar-title>
+                </v-toolbar>
                 <v-card>
-                    <v-card-title>
-                        <span style="color: #00b0ff;font-size: x-large;margin-left: 5%">{{ formTitle }}</span>
-                    </v-card-title>
-                    <v-card-text style="margin-top: -10%">
+                    <v-card-text style="padding-top: 0px">
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm6 md6 v-if="disabled=='false'">
@@ -155,6 +155,11 @@
            backValueRole: {},
        }),
 
+       computed: {
+           formTitle () {
+               return this.editedIndex === -1 ? '新增环境信息' : '修改环境信息'
+           }
+       },
 
        watch: {
            dialog (val) {

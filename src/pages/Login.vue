@@ -8,7 +8,7 @@
               <v-card-text>
                 <div class="layout column align-center">
                   <img src="/static/logo.png" alt="SmartEnsemble-om<" width="120" height="120">
-                  <h1 class="flex my-4 primary--text">神州数码-产品工厂</h1>
+                  <h1 class="flex my-4 primary--text">天津银行-参数平台</h1>
                   <h2 class="flex my-4 primary--text">SmartEnsemble-om</h2>
                 </div>
                 <v-form ref="model">
