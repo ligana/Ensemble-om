@@ -30,7 +30,7 @@
                     </v-layout>
                     <v-layout row wrap>
                         <v-flex v-for="(keyData ,key ,index) in dataSource" v-bind:key="key" lg6>
-                            <v-layout row wrap  v-if="keyData.columnType == 'PART'">
+                            <v-layout row wrap v-if="keyData.columnType == 'PART'">
                                 <v-flex md12 lg12>
                                     <dc-part :disablePower="disablePower" :showEdit="showEdit" v-if="keyData.columnType == 'PART'" :data="keyData"></dc-part>
                                 </v-flex>
