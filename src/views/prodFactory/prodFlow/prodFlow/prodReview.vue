@@ -175,7 +175,7 @@
                           v-model="releaseInfo.omorg"
                           :items="envInfo"
                           item-text = "envDesc"
-                          :menu-props="{ maxHeight: '200' ,  }"
+                          :menu-props="{ maxHeight: '200'}"
                           return-object
                           cache-items
                           clearable
