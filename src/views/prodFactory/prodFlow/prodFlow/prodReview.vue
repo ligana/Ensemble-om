@@ -147,15 +147,6 @@
             <v-stepper-content step="3">
               <v-layout wrap>
                 <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">发布系统:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <multiselect v-model="releaseInfo.omorg" :options = "envInfo" placeholder="请选择..." :searchable="false" :close-on-select="false" :show-labels="false"
-                               @tag="addTag" :taggable="true" :multiple="true" label="envDesc" track-by="envId">
-
-                  </multiselect>
-                </v-flex>
-                <v-flex xs12 md2 lg2>
                   <v-subheader class="descClass">发布人:</v-subheader>
                 </v-flex>
                 <v-flex md10 lg10>
@@ -175,6 +166,24 @@
                 <v-flex md10 lg10>
                   <v-text-field class="primary--text mx-1 textBox" label="" name="title" v-model="releaseInfo.remark" single-line hide-details>
                   </v-text-field>
+                </v-flex>
+                <v-flex xs12 md2 lg2>
+                  <v-subheader class="descClass">发布系统:</v-subheader>
+                </v-flex>
+                <v-flex md10 lg10>
+                  <v-select
+                          v-model="releaseInfo.omorg"
+                          :items="envInfo"
+                          item-text = "envDesc"
+                          :menu-props="{ maxHeight: '200' ,  }"
+                          return-object
+                          cache-items
+                          clearable
+                          chips
+                          deletable-chips
+                          placeholder="请选择..."
+                          multiple
+                  ></v-select>
                 </v-flex>
               </v-layout>
             </v-stepper-content>
