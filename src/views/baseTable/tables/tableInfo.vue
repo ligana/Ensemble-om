@@ -46,16 +46,9 @@
                     <v-divider></v-divider>
                 </v-card-text>
 
-
-                <v-dialog
-                        v-model="dialog"
-                        width="500"
-                        persistent
-                        z-index="100"
-                >
+                <v-dialog v-model="dialog" width="800px" persistent z-index="100">
                     <edit-table-info v-if="dialog" :selected="selected" :columns="seeColumns" :tableName="tableName" :childPd="childPd"
                                      v-on:editAction="editAction" v-on:changeNum="changeNum"></edit-table-info>
-
                 </v-dialog>
             </v-card>
         </v-flex>

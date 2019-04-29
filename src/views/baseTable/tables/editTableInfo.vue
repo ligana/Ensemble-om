@@ -1,13 +1,19 @@
 <template>
     <div>
-        <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
+        <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat class="mb-2">
             <v-toolbar-title>{{ formTitle }}</v-toolbar-title>
+            <v-spacer></v-spacer>
+            <v-tooltip bottom color="orange" style="margin-bottom: 2%">
+                <v-btn flat icon="close" slot="activator" @click="close">
+                    <v-icon>close</v-icon>
+                </v-btn>
+                <span>关闭</span>
+            </v-tooltip>
         </v-toolbar>
         <v-card>
             <v-card-text style="margin-top: -2%">
-                <v-form v-model="valid" v-for="(keyData ,key ,index) in editSelected" v-bind:key="key">
                     <v-layout row wrap>
-                        <v-flex md12 lg12>
+                        <v-flex v-for="(keyData ,key ,index) in editSelected" v-bind:key="key" lg6>
                             <dc-text-field-table
                                     v-if="keyData.columnType=='input'"
                                     v-model="keyData.value"
@@ -54,12 +60,9 @@
                                      :disablePower="disablePower" :labelDesc="keyData.columnDesc" v-model="keyData.value"></dc-date>
                         </v-flex>
                     </v-layout>
-                </v-form>
             </v-card-text>
             <v-card-actions>
-                <v-btn color="info" @click="submit" class="bthStyle" style="margin-left: 6%">保存</v-btn>
-                <v-spacer></v-spacer>
-                <v-btn color="info" @click="close" class="bthStyle" style="margin-right: 6%">取消</v-btn>
+                <v-btn color="info" @click="submit" class="bthStyle" style="margin-left: 80%">保存</v-btn>
             </v-card-actions>
         </v-card>
     </div>
