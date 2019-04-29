@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-4">
+    <div class="pt-3">
         <v-dialog
                 v-model="dialog"
                 width="500"

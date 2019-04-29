@@ -17,7 +17,7 @@
                 <td>{{ props.item.tableName }}</td>
                 <td>{{ props.item.tableDesc }}</td>
                 <td>{{ props.item.system }}</td>
-                <td>{{ props.item.modelId }}</td>
+                <!--<td>{{ props.item.modelId }}</td>-->
                 <td>{{ props.item.parameter }}</td>
                 <td v-if="props.item.icon == 'edit'">
                     <v-btn depressed outline icon fab dark color="primary lighten-2" small @click="routerTableInfo(props.item)">
@@ -63,7 +63,7 @@
                     { text: '交易ID',sortable: false,value: 'tableName'},
                     { text: '交易名称',sortable: false,value: 'tableDesc'},
                     { text: '所属系统',sortable: false,value: 'system' },
-                    { text: '所属模块',sortable: false,value: 'modelId' },
+//                    { text: '所属模块',sortable: false,value: 'modelId' },
                     { text: '参数类型',sortable: false,value: 'parameter' },
                     { text: 'Action',sortable: false,value: 'icon' }
                 ],
@@ -72,7 +72,7 @@
                         tableName: '',
                         tableDesc: '',
                         system: '',
-                        modelId: '',
+//                        modelId: '',
                         parameter: '',
                         icon: ''
                     }
@@ -82,7 +82,7 @@
                     tableName: '',
                     tableDesc: '',
                     system: '',
-                    modelId: '',
+//                    modelId: '',
                     parameter: ''
                 },
                 search: '',

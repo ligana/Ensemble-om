@@ -16,33 +16,33 @@
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title @click="listClick(item)">{{ item.prodType }}-{{item.prodDesc}}</v-list-tile-title>
-                <v-list-tile-sub-title @click="listClick(item)">收藏日期:【{{ item.date }}】状态:【{{ item.status }}】</v-list-tile-sub-title>
+                <v-list-tile-sub-title @click="listClick(item)">收藏日期:【{{ item.date }}】产品当前状态:【{{ item.status }}】</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
         </v-card>
-      <v-card class="cardClass ml-3">
-        <v-toolbar color="primary lighten-2" dark>
-          <v-toolbar-title>贷款产品</v-toolbar-title>
-        </v-toolbar>
-        <v-list two-line subheader>
-          <v-list-tile v-for="item in itemsCL" :key="item.title" avatar @click="nullClick">
-            <v-list-tile-avatar>
-              <v-tooltip bottom color="orange">
-                <v-btn flat icon="edit" slot="activator" @click="deleteClick(item)" :color="orgen">
-                  <v-icon style="color: red">delete</v-icon>
-                </v-btn>
-                <span>移除</span>
-              </v-tooltip>
-            </v-list-tile-avatar>
-            <v-list-tile-content>
-              <v-list-tile-title @click="listClick(item)">{{ item.prodType }}-{{item.prodDesc}}</v-list-tile-title>
-              <v-list-tile-sub-title @click="listClick(item)">收藏日期:【{{ item.date }}】 产品状态:【{{ item.status }}】</v-list-tile-sub-title>
-            </v-list-tile-content>
-          </v-list-tile>
-        </v-list>
-      </v-card>
-      <v-card class="cardClass ml-3">
+      <!--<v-card class="cardClass ml-3">-->
+        <!--<v-toolbar color="primary lighten-2" dark>-->
+          <!--<v-toolbar-title>贷款产品</v-toolbar-title>-->
+        <!--</v-toolbar>-->
+        <!--<v-list two-line subheader>-->
+          <!--<v-list-tile v-for="item in itemsCL" :key="item.title" avatar @click="nullClick">-->
+            <!--<v-list-tile-avatar>-->
+              <!--<v-tooltip bottom color="orange">-->
+                <!--<v-btn flat icon="edit" slot="activator" @click="deleteClick(item)" :color="orgen">-->
+                  <!--<v-icon style="color: red">delete</v-icon>-->
+                <!--</v-btn>-->
+                <!--<span>移除</span>-->
+              <!--</v-tooltip>-->
+            <!--</v-list-tile-avatar>-->
+            <!--<v-list-tile-content>-->
+              <!--<v-list-tile-title @click="listClick(item)">{{ item.prodType }}-{{item.prodDesc}}</v-list-tile-title>-->
+              <!--<v-list-tile-sub-title @click="listClick(item)">收藏日期:【{{ item.date }}】 产品状态:【{{ item.status }}】</v-list-tile-sub-title>-->
+            <!--</v-list-tile-content>-->
+          <!--</v-list-tile>-->
+        <!--</v-list>-->
+      <!--</v-card>-->
+      <v-card class="cardClass ml-4">
         <v-toolbar color="primary lighten-2" dark>
           <v-toolbar-title>内部账产品</v-toolbar-title>
         </v-toolbar>
@@ -174,7 +174,7 @@
 </script>
 <style scoped>
   .cardClass {
-    width: 33%;
+    width: 48%;
     height: 580px;
   }
 </style>

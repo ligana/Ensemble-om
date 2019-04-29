@@ -1,5 +1,5 @@
 <template>
-    <v-layout justify-center pt-4 class="ml-4 mr-4">
+    <v-layout justify-center class="ml-1 mt-3">
         <v-flex xs12 sm12>
             <v-card class="radiusDc">
                 <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>

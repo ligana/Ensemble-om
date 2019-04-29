@@ -6,16 +6,6 @@
             <span class="hidden-sm-and-down pr-3">{{titleName}}</span>
             <v-toolbar-side-icon v-if="dcSwitch" @click.stop="handleDrawerToggle" class="ml-3"></v-toolbar-side-icon>
         </v-toolbar-title>
-        <!--<v-text-field-->
-        <!--flat-->
-        <!--solo-inverted-->
-        <!--prepend-icon="search"-->
-        <!--label="Search"-->
-        <!--class="hidden-sm-and-down"-->
-        <!--:items="prodList"-->
-        <!--v-model="country"-->
-        <!--&gt;-->
-        <!--</v-text-field>-->
 
         <v-spacer></v-spacer>
         <v-switch v-model="dcSwitch" @change="switchChange" class="pt-4 pr-2" style="flex:none"></v-switch>

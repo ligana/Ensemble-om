@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-5 pl-4">
+    <div class="pt-3 pl-1">
         <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>指标分类定义</v-toolbar-title>
             <v-spacer></v-spacer>
@@ -57,8 +57,6 @@
                 <td>{{ props.item.PART_CLASS_LEVEL }}</td>
                 <td>{{ props.item.PARENT_PART_CLASS }}</td>
                 <td>{{ props.item.COMPANY }}</td>
-                <td>{{ props.item.TRAN_TIMESTAMP }}</td>
-                <td>{{ props.item.TRAN_TIME }}</td>
                 <td style="width: 50px">
                     <v-tooltip bottom color="blue" style="margin-left: -40px">
                         <v-btn flat icon="edit" slot="activator" @click="editItem(props.item)">
