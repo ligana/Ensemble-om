@@ -261,7 +261,7 @@
                         for(let i in columnList){
                             if(columnList[i].partId != undefined && columnList[i].partId == prodData[index].assembleId){
                                 columnPart['attrValue'] = prodData[index].attrValue;
-                                columnPart['key'] = prodData[index].attrType;
+                                columnPart['key'] = prodData[index].attrKey;
                                 columnList[i].children.push(columnPart);
                                 findIn = true;
                             }
@@ -269,7 +269,7 @@
                         //组装未组装的租表信息
                         if(!findIn || !columnList.length){
                             columnPart['attrValue'] = prodData[index].attrValue;
-                            columnPart['key'] = prodData[index].attrType;
+                            columnPart['key'] = prodData[index].attrKey;
                             temp["partId"] = prodData[index].assembleId;
                             temp["columnType"] = "PART";
                             temp["children"] = [];

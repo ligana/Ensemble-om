@@ -632,7 +632,7 @@
                                 addColumnData.prodDefines[assembleId].eventType = eventId;
                                 addColumnData.prodDefines[assembleId].assembleType = "PART";
                                 addColumnData.prodDefines[assembleId].assembleId = columnKey;
-                                addColumnData.prodDefines[assembleId].attrType = partAttrs[newPartIndex].attrKey;
+                                addColumnData.prodDefines[assembleId].attrKey = partAttrs[newPartIndex].attrKey;
                                 addColumnData.prodDefines[assembleId].attrValue = "";
                                 addColumnData.prodDefines[assembleId].status = "A";
                                 addColumnData.prodDefines[assembleId].pageCode = addColumnPageCode;
@@ -668,7 +668,7 @@
                             addColumnData.prodDefines[columnKey].eventType = eventId;
                             addColumnData.prodDefines[columnKey].assembleType = "ATTR";
                             addColumnData.prodDefines[columnKey].assembleId = columnKey;
-                            addColumnData.prodDefines[columnKey].attrType = columnKey;
+                            addColumnData.prodDefines[columnKey].attrKey = columnKey;
                             addColumnData.prodDefines[columnKey].attrValue = "";
                             addColumnData.prodDefines[columnKey].status = "A";
                             addColumnData.prodDefines[columnKey].pageCode = addColumnPageCode;
