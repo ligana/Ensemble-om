@@ -1,8 +1,7 @@
 <template>
-  <div id="pageDashboard">
-    <v-container grid-list-xl fluid class="pb-5">
+  <div id="pageDashboard" class="pt-3">
+    <!--<v-container grid-list-xl fluid class="pb-0">-->
       <v-layout row wrap>
-        <!-- mini statistic start -->
         <v-flex lg3 sm6 xs12>
           <mini-statistic
                   icon="fa fa-facebook"
@@ -14,7 +13,7 @@
           >
           </mini-statistic>
         </v-flex>
-        <v-flex lg3 sm6 xs12>
+        <v-flex lg3 sm6 xs12 class="pl-3">
           <mini-statistic
                   icon="fa fa-google"
                   class="elevation-2 radiusDc"
@@ -25,7 +24,7 @@
           >
           </mini-statistic>
         </v-flex>
-        <v-flex lg3 sm6 xs12>
+        <v-flex lg3 sm6 xs12 class="pl-3">
           <mini-statistic
                   icon="fa fa-twitter"
                   mark="GL"
@@ -36,7 +35,7 @@
           >
           </mini-statistic>
         </v-flex>
-        <v-flex lg3 sm6 xs12>
+        <v-flex lg3 sm6 xs12 class="pl-3">
           <mini-statistic
                   icon="fa fa-instagram"
                   mark="SF"
@@ -47,8 +46,7 @@
           >
           </mini-statistic>
         </v-flex>
-        <!-- mini statistic  end -->
-        <v-flex lg8 sm12 xs12>
+        <v-flex lg8 sm12 xs12 class="pt-3">
           <v-widget title="系统发布统计" content-bg="white" class="elevation-2">
             <v-btn icon slot="widget-header-action">
               <v-icon class="text--secondary">refresh</v-icon>
@@ -78,7 +76,7 @@
             </div>
           </v-widget>
         </v-flex>
-        <v-flex lg4 sm12 xs12>
+        <v-flex lg4 sm12 xs12 class="pt-3 pl-3">
           <v-widget title="产品扇形图" content-bg="white" class="elevation-2">
             <div slot="widget-content">
               <e-chart
@@ -99,16 +97,8 @@
             </div>
           </v-widget>
         </v-flex>
-        <!-- social/weather card start -->
-
       </v-layout>
-
-    </v-container>
-    <!--    <v-footer height="auto" class="white pa-3 app&#45;&#45;footer elevation-2 dcFooter">
-          <span class="caption">SmartEnsemble-om &copy; {{ new Date().getFullYear() }}</span>
-          <v-spacer></v-spacer>
-          <span class="caption mr-1"> ensemble-om </span> <v-icon color="pink" class="mr-2" small>favorite</v-icon>
-        </v-footer>-->
+    <!--</v-container>-->
   </div>
 
 </template>
@@ -236,15 +226,6 @@
                         value: 100,
                         color: "error"
                     }
-//<<<<<<< HEAD
-//                    let data = {}
-//                    data['prodClass'] = this.prod[i].prodClass
-//                    data['prodDesc'] = this.prod[i].prodDesc.substring(0,3)
-//                    data['num'] = num
-//                    data['color'] = this.colorInfo[i%4]
-//                    this.prodType.push(data)
-//=======
-//>>>>>>> 修改最大超时时间
                 }
             ]
         }),
@@ -264,10 +245,3 @@
         }
     };
 </script>
-<style lang="stylus" scoped>
-  .dcFooter{
-    position:absolute
-    bottom 0;
-    width: 100%
-  }
-</style>

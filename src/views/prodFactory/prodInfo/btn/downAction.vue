@@ -7,12 +7,12 @@
       <v-spacer></v-spacer>
 
       <v-flex md5 lg5>
-          <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >history</v-icon>保存</v-btn>
+          <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >save</v-icon>保存</v-btn>
       </v-flex>
     </v-layout>
     <v-layout row wrap v-if="edit == 'true'">
       <v-flex md12 lg12>
-        <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >history</v-icon>保存</v-btn>
+        <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >save</v-icon>保存</v-btn>
       </v-flex>
     </v-layout>
     <div v-show="showCopy">

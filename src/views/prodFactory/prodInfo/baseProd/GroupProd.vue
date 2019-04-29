@@ -29,7 +29,7 @@
         <v-layout>
             <v-flex>
                 <v-toolbar dense class="chat-history-toolbar">
-                <v-text-field style="padding-top: 1%" solo single-line clearable prepend-icon="search" class="top" label="请输入产品参数" v-model="search"></v-text-field>
+                <v-text-field style="padding-top: 1.7%" solo single-line clearable prepend-icon="search" class="top" label="请输入产品参数" v-model="search"></v-text-field>
                 </v-toolbar>
                 <v-card-text style="max-height: 500px;overflow-y: scroll">
                     <v-treeview
@@ -82,7 +82,7 @@
                     flat
                     @click="tree = []"
             >
-                Reset
+                重置
             </v-btn>
             <v-spacer></v-spacer>
         </v-card-actions>

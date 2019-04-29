@@ -125,9 +125,9 @@
         /*color: #ff110e;*/
     }
     .border {
-        border-right-style: dashed;border-right-width: 1px;border-right-color: #1565C0;
-        border-left-style: dashed;border-left-width: 1px;border-left-color: #1565C0;
-        border-bottom-style: dashed;border-bottom-width: 1px;border-bottom-color: #1565C0;
+        /*border-right-style: dashed;border-right-width: 1px;border-right-color: #1565C0;*/
+        /*border-left-style: dashed;border-left-width: 1px;border-left-color: #1565C0;*/
+        /*border-bottom-style: dashed;border-bottom-width: 1px;border-bottom-color: #1565C0;*/
         border-top-style: dashed; border-top-width: 1px;border-top-color: #1565C0;
         margin-left: 8%;
         margin-top: 6%;

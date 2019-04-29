@@ -1,8 +1,8 @@
 <template>
     <a-spin tip="Loading..." size="large" :spinning="spinning">
-        <v-layout row wrap class="app-container pt-4">
+        <v-layout row wrap class="app-container pt-3">
             <v-flex lg9 sm9 class="v-card elevation-2">
-                <v-toolbar color="primary lighten-2" dark tabs>
+                <v-toolbar color="primary lighten-2" dark tabs style="height: 7%">
                     <v-tooltip bottom color="orange">
                         <v-btn flat icon="edit" slot="activator" @click="collectClick" :color="collectColor">
                             <v-icon>favorite</v-icon>
@@ -38,10 +38,10 @@
 
                 <!--产品展示界面-->
                 <v-tabs slot="extension" v-model="activeName" grow show-arrows>
-                    <v-tab v-for="n in prodInfo" :key="n.pageCode" @click="tapClick(n.pageCode)">
+                    <v-tab v-for="n in prodInfo" :key="n.pageCode" @click="tapClick(n.pageCode)" style="margin-top: -0%">
                         {{ n.text}}
                     </v-tab>
-                    <v-tabs-items v-model="activeName" class="white elevation-2 textProd">
+                    <v-tabs-items v-model="activeName" class="white textProd">
                         <v-tab-item v-for="i in prodInfo" :key="i.pageCode">
                             <base-desc :showEdit="showEdit" v-if="i.pageCode=='DESC'" :baseProdRange="baseProdRange" :prodType="prodData.prodType" tags="DESC"></base-desc>
                             <base-prod :showEdit="showEdit" v-if="i.pageCode=='BASE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodMapping="prodMapping" :prodDefines="prodData.prodDefines" :disablePower="disablePower" tags="BASE"></base-prod>
@@ -773,14 +773,15 @@
                 collect["prodDesc"] = this.prodDesc;
                 collect["sourceModule"] = this.sourceModule;
                 collect["prodRange"] = this.prodRange;
+                let color = this.collectColor;
                 saveCollectProd(collect).then(response => {
                     if(response.status === 200) {
-                        if(this.collectColor == "red") {
+                        if(color == "red") {
                             this.collectColor = "write";
                             this.collectDesc = "收藏";
                             this.sweetAlert('success', "取消收藏成功!")
                         }
-                        if(this.collectColor == "write"){
+                        if(color == "write"){
                             this.collectColor = "red";
                             this.collectDesc = "取消收藏";
                             this.sweetAlert('success', "收藏成功!")
