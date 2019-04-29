@@ -16,16 +16,6 @@
                                      :limit="limitNum" :limit-text="limitTextFaction"
                         >
                             <template slot="option" slot-scope="props"><span>{{props.option.key}}-{{props.option.value}}</span></template>
-                            <template slot="afterList" slot-scope="props">
-                                <div v-if="rfTableInfo.isRf" style="text-align: left">
-                                    <v-tooltip bottom>
-                                        <span slot="activator" @click="toMoreTable" class="jump">
-                                        >>>
-                                    </span>
-                                        <span>跳转到{{rfTableInfo.tableName}}</span>
-                                    </v-tooltip>
-                                </div>
-                            </template>
                             <template slot="limit" slot-scope="props">
                                 <th>
                                 <span>还有{{limitIndex}}个为展示选项</span>

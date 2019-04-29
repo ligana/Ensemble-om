@@ -1,7 +1,7 @@
 <template>
-    <v-layout row>
+    <v-layout row class="pt-3">
         <v-card class="cardClass">
-          <v-toolbar color="cyan" dark>
+          <v-toolbar color="primary lighten-2" dark>
             <v-toolbar-title>存款产品</v-toolbar-title>
           </v-toolbar>
           <v-list two-line subheader>
@@ -16,13 +16,13 @@
               </v-list-tile-avatar>
               <v-list-tile-content>
                 <v-list-tile-title @click="listClick(item)">{{ item.prodType }}-{{item.prodDesc}}</v-list-tile-title>
-                <v-list-tile-sub-title @click="listClick(item)">收藏日期:【{{ item.date }}】 产品状态:【{{ item.status }}】</v-list-tile-sub-title>
+                <v-list-tile-sub-title @click="listClick(item)">收藏日期:【{{ item.date }}】状态:【{{ item.status }}】</v-list-tile-sub-title>
               </v-list-tile-content>
             </v-list-tile>
           </v-list>
         </v-card>
-      <v-card class="cardClass">
-        <v-toolbar color="light-blue" dark>
+      <v-card class="cardClass ml-3">
+        <v-toolbar color="primary lighten-2" dark>
           <v-toolbar-title>贷款产品</v-toolbar-title>
         </v-toolbar>
         <v-list two-line subheader>
@@ -42,8 +42,8 @@
           </v-list-tile>
         </v-list>
       </v-card>
-      <v-card class="cardClass">
-        <v-toolbar color="orange lighten-1" dark>
+      <v-card class="cardClass ml-3">
+        <v-toolbar color="primary lighten-2" dark>
           <v-toolbar-title>内部账产品</v-toolbar-title>
         </v-toolbar>
         <v-list two-line subheader>
@@ -174,9 +174,7 @@
 </script>
 <style scoped>
   .cardClass {
-    margin-top: 3%;
-    width: 30%;
-    margin-left: 2%;
-    height: 550px
+    width: 33%;
+    height: 580px;
   }
 </style>

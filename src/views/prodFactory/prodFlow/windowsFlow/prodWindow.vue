@@ -1,8 +1,7 @@
 <template>
-    <div>
+    <div class="pt-3">
         <v-card class="card radiusDc">
             <v-toolbar color="#FFFFFF" dark scroll-off-screen style="height: 40px; color: #01579B" scroll-target="#scrolling-techniques" flat>
-                <!--<v-icon style="color: #01579B">call_split</v-icon>-->
                 <v-toolbar-title>筛选</v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-tooltip bottom color="primary lighten-2">
@@ -13,14 +12,11 @@
                 </v-tooltip>
             </v-toolbar>
             <v-divider class="elevation-2" style="margin-top: 10px"></v-divider>
-
             <v-card-text>
                 <v-layout class="layoutTitle">
                     <v-subheader class="primary--text subheading">所属模块：</v-subheader>
                     <v-checkbox v-model="sourceModelArr" label="存款产品" value="RB"></v-checkbox>
-                    <v-checkbox v-model="sourceModelArr" label="贷款产品" value="CL"></v-checkbox>
                     <v-checkbox v-model="sourceModelArr" label="内部账产品" value="GL"></v-checkbox>
-                    <v-checkbox v-model="sourceModelArr" label="货币市场类" value="MM"></v-checkbox>
                 </v-layout>
                 <v-divider class="elevation-0" style="margin-top: -20px;margin-bottom: 15px"></v-divider>
                 <v-layout class="layoutTitle">
@@ -37,19 +33,6 @@
                     <v-checkbox v-model="ccyTypeArr" label="新加坡元" value="SGD"></v-checkbox>
                 </v-layout>
                 <v-divider class="elevation-0" style="margin-top: -20px;margin-bottom: 15px"></v-divider>
-
-                <!--<v-layout class="layoutTitle">-->
-                    <!--<v-subheader class="primary&#45;&#45;text subheading">产品期限：</v-subheader>-->
-                    <!--<v-checkbox v-model="freqArr" label="7天(含)以下" value="1"></v-checkbox>-->
-                    <!--<v-checkbox v-model="freqArr" label="7天-14天(含)" value="2"></v-checkbox>-->
-                    <!--<v-checkbox v-model="freqArr" label="15天-30天(含)" value="3"></v-checkbox>-->
-                    <!--<v-checkbox v-model="freqArr" label="31天-90天(含)" value="4"></v-checkbox>-->
-                    <!--<v-checkbox v-model="freqArr" label="91天-180天(含)" value="5"></v-checkbox>-->
-                    <!--<v-checkbox v-model="freqArr" label="181天-365天(含)" value="6"></v-checkbox>-->
-                    <!--<v-checkbox v-model="freqArr" label="1年以上" value="7"></v-checkbox>-->
-                <!--</v-layout>-->
-                <!--<v-divider v-if="showFlag" class="elevation-0" style="margin-top: -20px;margin-bottom: 15px"></v-divider>-->
-
                 <v-layout class="layoutTitle">
                     <v-subheader class="primary--text subheading">所属机构：</v-subheader>
                     <v-checkbox v-model="branchArr" label="全行" value="ALL"></v-checkbox>
@@ -74,7 +57,7 @@
             </v-card-text>
         </v-card>
         <v-btn class="showClass" style="background-color: white" @click="showCilck">{{showDesc}}</v-btn>
-        <v-card class="card1 radiusDc">
+        <v-card class="card radiusDc">
             <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
                 <v-icon>menu</v-icon>
                 <v-toolbar-title>产品列表</v-toolbar-title>
@@ -82,11 +65,11 @@
                 <v-layout row wrap>
                     <v-flex xs12 sm4>
                     </v-flex>
-                    <v-flex xs12 sm6>
+                    <v-flex xs12 sm7>
                         <v-text-field prepend-icon="search" flat placeholder="请输入产品类型" v-model="search" clearable ></v-text-field>
                     </v-flex>
-                    <v-flex xs12 sm2>
-                        <v-btn depressed large color="primary lighten-2" @click="searchProduct(search)">搜索</v-btn>
+                    <v-flex xs12 sm1>
+                        <v-btn style="margin-left: -5%" depressed large color="primary lighten-2" @click="searchProduct(search)">搜索</v-btn>
                     </v-flex>
                 </v-layout>
             </v-toolbar>
@@ -436,14 +419,6 @@
 </script>
 <style scoped>
     .card {
-        margin-left: 150px;
-        margin-right: 150px;
-        margin-top: 40px;
-        height: auto;
-    }
-    .card1 {
-        margin-left: 150px;
-        margin-right: 150px;
         height: auto;
     }
     .layoutTitle {

@@ -1,9 +1,8 @@
 <template>
-    <v-layout class="pt-4">
-        <v-flex md3 lg3 class="ml-4">
+    <v-layout class="pt-3 pl-0">
+        <v-flex md3 lg3 class="ml-1">
             <v-flex xs12>
                 <v-card class="elevation-4 radiusDc">
-
                     <v-card-media src="/static/bg/18.jpg" style="height: 150px">
                         <v-card-title class="pb-0" style="font-size: xx-large">
                             <h2 class="title">{{title}}</h2>
@@ -36,7 +35,7 @@
                 </v-card>
             </v-flex>
         </v-flex>
-        <v-flex md9 lg9 class="pl-4">
+        <v-flex md9 lg9 class="pl-3">
             <prod-list-cmb :items="prodListDtl"></prod-list-cmb>
         </v-flex>
     </v-layout>
