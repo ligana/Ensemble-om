@@ -37,7 +37,7 @@
                 </v-dialog>
 
                 <!--产品展示界面-->
-                <v-tabs slot="extension" v-model="activeName" grow show-arrows>
+                <v-tabs slot="extension" v-model="activeName">
                     <v-tab v-for="n in prodInfo" :key="n.pageCode" @click="tapClick(n.pageCode)" style="margin-top: -0%">
                         {{ n.text}}
                     </v-tab>

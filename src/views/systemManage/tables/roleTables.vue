@@ -40,7 +40,7 @@
                 </v-card>
             </v-dialog>
         </v-toolbar>
-        <v-data-table :headers="headers" :items="desserts" class="elevation-1">
+        <v-data-table :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" :headers="headers" :items="desserts" class="elevation-1">
             <template slot="items" slot-scope="props">
                 <td>{{ props.item.roleId }}</td>
                 <td>{{ props.item.roleName }}</td>

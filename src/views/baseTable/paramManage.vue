@@ -12,7 +12,7 @@
                     hide-details
             ></v-text-field>
         </v-toolbar>
-        <v-data-table :headers="headers" :items="desserts" :search="search" class="elevation-4">
+        <v-data-table :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" :headers="headers" :items="desserts" :search="search" class="elevation-4">
             <template slot="items" slot-scope="props">
                 <td>{{ props.item.tableName }}</td>
                 <td>{{ props.item.tableDesc }}</td>

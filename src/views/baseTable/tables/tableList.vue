@@ -4,6 +4,8 @@
             :items="projects"
             hide-actions
             class="elevation-1"
+            :rows-per-page-items="[10,25,50,{text:'All','value':-1}]"
+
     >
         <template slot="items" slot-scope="props">
             <td class="text-xs-left">{{ props.item.tableName }}</td>
