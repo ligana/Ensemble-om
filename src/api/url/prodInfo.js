@@ -367,7 +367,13 @@ export function saveSysTable (params) {
         data: params
     })
 }
-
+export function saveRoleMenuTable (params) {
+    return request({
+        url: '/saveRoleMenuTable',
+        method: 'post',
+        data: params
+    })
+}
 export function getCommonList (params) {
     return request({
         url: '/getCommonList',
