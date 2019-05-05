@@ -25,10 +25,7 @@
                                     <v-text-field v-model="editedItem.envDesc" label="环境描述"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="editedItem.systemId" label="系统ID"></v-text-field>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="editedItem.module" label="模块"></v-text-field>
+                                    <v-select v-model="editedItem.systemId" label="系统ID" :items="systemId" item-text="value" item-value="key"></v-select>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <v-text-field v-model="editedItem.url" label="HTTP接入URL"></v-text-field>
@@ -64,7 +61,6 @@
                 <td>{{ props.item.envId }}</td>
                 <td>{{ props.item.envDesc }}</td>
                 <td>{{ props.item.systemId }}</td>
-                <td>{{ props.item.module }}</td>
                 <td>{{ props.item.url }}</td>
                 <td>{{ props.item.serviceCode }}</td>
                 <td>{{ props.item.messageCode }}</td>
@@ -96,6 +92,7 @@
    import {saveSysTable} from "@/api/url/prodInfo";
    import toast from '@/utils/toast';
    import {getEnvInfo} from "@/api/url/prodInfo";
+   import {getAll} from "@/api/url/prodInfo";
 
    export default {
        props: ["title"],
@@ -106,7 +103,6 @@
                { text: '环境ID',sortable: false},
                {text: '环境描述',sortable: false},
                {text: '系统ID',sortable: false,size: "medium"},
-               { text: '模块',sortable: false},
                { text: 'HTTP接入URL',sortable: false },
                { text: '服务代码',sortable: false },
                { text: '报文代码',sortable: false },
@@ -118,6 +114,7 @@
            desserts: [],
            menu: [],
            menu2: [],
+           systemId: [],
            sourceData: [],
            keySet: [
                {
@@ -131,7 +128,6 @@
                envDesc: '',
                envId: '',
                systemId: '',
-               module: '',
                url: '',
                serviceCode: '',
                messageCode: '',
@@ -143,7 +139,6 @@
                envDesc: '',
                envId: '',
                systemId: '',
-               module: '',
                url: '',
                serviceCode: '',
                messageCode: '',
@@ -169,6 +164,17 @@
 
        created () {
            this.getEnvInfo()
+
+           //加载系统ID备选数据
+           let temp = [];
+           const attrData = getAll("OM_SYSTEM_ORG");
+           for(let index in attrData){
+               let tempAttr = {};
+               tempAttr["key"] = attrData[index].SYSTEM_ID;
+               tempAttr["value"] = attrData[index].SYSTEM_DESC;
+               temp.push(tempAttr);
+           }
+           this.systemId = temp;
        },
 
        methods: {
