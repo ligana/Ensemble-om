@@ -165,24 +165,6 @@
                   <v-text-field class="primary--text mx-1 textBox" label="" name="title" v-model="releaseInfo.remark" single-line hide-details>
                   </v-text-field>
                 </v-flex>
-                <v-flex xs12 md2 lg2>
-                  <v-subheader class="descClass">发布系统:</v-subheader>
-                </v-flex>
-                <v-flex md10 lg10>
-                  <v-select
-                          v-model="releaseInfo.omorg"
-                          :items="envInfo"
-                          item-text = "envDesc"
-                          :menu-props="{ maxHeight: '200'}"
-                          return-object
-                          cache-items
-                          clearable
-                          chips
-                          deletable-chips
-                          placeholder="请选择..."
-                          multiple
-                  ></v-select>
-                </v-flex>
               </v-layout>
             </v-stepper-content>
           </v-stepper>
@@ -218,8 +200,6 @@
         props: ["prodData"],
         data (){
             return {
-
-                envInfo: [],
                 sourceModule: [],
                 spinning: false,
                 RB: false,
@@ -231,7 +211,6 @@
                 releaseInfo: {
                     mainSeqNo: '',
                     date: '',
-                    omorg: [],
                     isApproved: 'Y',
                     userId: '',
                     remark: '',
@@ -314,9 +293,6 @@
             this.getDate()
             //初始化流程信息
             this.initFlowInfo(this.$route.params)
-            getEnvAll().then(response => {
-                this.envInfo=response.data.data.envInfo
-            })
         },
         methods: {
             initFlowInfo(val) {

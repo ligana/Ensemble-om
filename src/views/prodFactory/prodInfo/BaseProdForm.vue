@@ -2,7 +2,7 @@
     <a-spin tip="Loading..." size="large" :spinning="spinning">
         <v-layout row wrap class="app-container pt-3">
             <v-flex lg9 sm9 class="v-card elevation-2">
-                <v-toolbar color="primary lighten-2" dark tabs style="height: 7%">
+                <v-toolbar color="primary lighten-2" dark tabs>
                     <v-tooltip bottom color="orange">
                         <v-btn flat icon="edit" slot="activator" @click="collectClick" :color="collectColor">
                             <v-icon>favorite</v-icon>

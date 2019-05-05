@@ -32,6 +32,12 @@
                                     <v-text-field v-model="editedItem.tableDesc" label="交易名称"></v-text-field>
                                 </v-flex>
                                 <v-flex xs6 sm6 md6>
+                                    <v-select v-model="editedItem.loadModel" label="处理方式" :items="loadModel" item-text="value" item-value="key" @change="modelClick"></v-select>
+                                </v-flex>
+                                <v-flex xs6 sm6 md6>
+                                    <v-text-field v-model="editedItem.loadPath" label="加载路径"></v-text-field>
+                                </v-flex>
+                                <v-flex xs6 sm6 md6>
                                     <v-select v-model="editedItem.system" label="所属系统" :items="system" item-text="value" item-value="key"></v-select>
                                 </v-flex>
                                 <v-flex xs6 sm6 md6>
@@ -62,6 +68,9 @@
                 <td>{{ props.item.parameter }}</td>
                 <td>{{ props.item.searchColumn }}</td>
                 <td>{{ props.item.eidtColumns }}</td>
+                <td>{{ props.item.loadModel }}</td>
+                <td>{{ props.item.loadPath }}</td>
+
                 <td>
                     <v-layout wrap>
                         <v-flex xs6 sm6 md6>
@@ -104,7 +113,6 @@
             dialog: false,
             disabled: "false",
             system: [],
-            model: [],
             searchColumn: [],
             eidtColumns: [],
             paramType: [
@@ -117,6 +125,16 @@
                     value: "业务参数"
                 }
             ],
+            loadModel: [
+                {
+                    key: "P",
+                    value: "统一处理"
+                },
+                {
+                    key: "S",
+                    value: "特殊处理"
+                }
+            ],
             headers: [
                 { text: '交易ID',sortable: false,value: 'tableName'},
                 { text: '交易名称',sortable: false,value: 'tableDesc'},
@@ -124,6 +142,8 @@
                 { text: '参数类型',sortable: false,value: 'parameter' },
                 { text: '检索条件',sortable: false,value: 'searchColumn' },
                 { text: '可见参数',sortable: false,value: 'eidtColumns' },
+                { text: '处理方式',sortable: false,value: 'loadModel' },
+                { text: '加载路径',sortable: false,value: 'loadPath' },
                 { text: 'Action',sortable: false, }
             ],
             desserts: [],
@@ -143,7 +163,9 @@
                 system: '',
                 parameter: '',
                 searchColumn: '',
-                eidtColumns: ''
+                eidtColumns: '',
+                loadModel: '',
+                loadPath: ''
             },
             defaultItem: {
                 tableName: '',
@@ -151,7 +173,9 @@
                 system: '',
                 parameter: '',
                 searchColumn: '',
-                eidtColumns: ''
+                eidtColumns: '',
+                loadModel: '',
+                loadPath: ''
             },
             backValue: {},
             search: '',
@@ -176,6 +200,14 @@
         },
 
         methods: {
+            modelClick(val){
+                if('P' == val){
+                    this.editedItem.loadPath = 'tableListManage';
+                }
+                if('S' == val){
+                    this.editedItem.loadPath = '';
+                }
+            },
             initialize () {
                 let that = this
                 getSysTable("OM_TABLE_LIST").then(function (response) {
@@ -191,19 +223,8 @@
                     for(let i=0; i<data.length; i++){
                         let temp={}
                         temp["key"] = data[i].systemId
-                        temp["value"] = data[i].systemDesc
+                        temp["value"] = data[i].systemName
                         that.system.push(temp)
-                    }
-                });
-
-                getSysTable("OM_MODULE_ORG").then(function (response) {
-                    let data1 = []
-                    data1 = response.data.data.columnInfo
-                    for(let j=0; j<data1.length; j++){
-                        let temp={}
-                        temp["key"] = data1[j].moduleId
-                        temp["value"] = data1[j].moduleDesc
-                        that.model.push(temp)
                     }
                 });
             },
@@ -237,7 +258,8 @@
                 that.show = true
                 that.editedIndex = this.desserts.indexOf(item)
                 let changeItem = Object.assign({}, item)
-
+                that.editedItem['loadModel'] = changeItem.loadModel
+                that.editedItem['loadPath'] = changeItem.loadPath
                 that.editedItem['tableName'] = changeItem.tableName
                 that.editedItem['tableDesc'] = changeItem.tableDesc
                 that.editedItem['system'] = changeItem.system
@@ -317,7 +339,8 @@
                     changeItem['tableDesc'] = this.editedItem.tableDesc
                     changeItem['system'] = this.editedItem.system
                     changeItem['parameter'] = this.editedItem.parameter
-
+                    changeItem['loadModel'] = this.editedItem.loadModel
+                    changeItem['loadPath'] = this.editedItem.loadPath
                     if (this.editedIndex > -1) {
                         Object.assign(this.desserts[this.editedIndex], changeItem)
                     } else {
@@ -332,7 +355,7 @@
                     this.sourceData = this.copy(this.desserts,this.sourceData)
                     saveSysTable(this.backValue).then(response => {
                         if(response.status === 200){
-                            this.sweetAlert('success',"提交成功!")
+                            this.sweetAlert('success',"保存成功!")
                         }
                     })
                     this.close()
