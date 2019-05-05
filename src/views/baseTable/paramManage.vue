@@ -122,8 +122,9 @@
                 });
             },
             routerTableInfo(item) {
+                let loadPath = item.loadPath;
                 this.$router.push({
-                    name: 'tableInfo',
+                    name: loadPath,
                     hash: item.tableName
                 })
             },

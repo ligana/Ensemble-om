@@ -7,7 +7,6 @@
                   icon="fa fa-facebook"
                   mark="RB"
                   title="存款产品"
-                  class="elevation-2 radiusDc"
                   sub-title="210"
                   color="indigo"
           >
@@ -16,7 +15,6 @@
         <v-flex lg3 sm6 xs12 class="pl-3">
           <mini-statistic
                   icon="fa fa-google"
-                  class="elevation-2 radiusDc"
                   mark="CL"
                   title="贷款产品"
                   sub-title="187"
@@ -28,7 +26,6 @@
           <mini-statistic
                   icon="fa fa-twitter"
                   mark="GL"
-                  class="elevation-2 radiusDc"
                   title="内部帐"
                   sub-title="120"
                   color="light-blue"
@@ -39,7 +36,6 @@
           <mini-statistic
                   icon="fa fa-instagram"
                   mark="SF"
-                  class="elevation-2 radiusDc"
                   title="特色理财"
                   sub-title="20"
                   color="purple"
