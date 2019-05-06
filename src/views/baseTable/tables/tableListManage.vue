@@ -202,7 +202,7 @@
         methods: {
             modelClick(val){
                 if('P' == val){
-                    this.editedItem.loadPath = 'tableListManage';
+                    this.editedItem.loadPath = 'tableInfo';
                 }
                 if('S' == val){
                     this.editedItem.loadPath = '';
