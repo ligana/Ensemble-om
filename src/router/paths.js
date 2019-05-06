@@ -889,18 +889,6 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/prodFactory/prodInfo/SoldProdForm.vue'],resolve)
     },
-  {
-    path: '/paramManage',
-    meta: {
-      breadcrumb: true,
-      title: '参数管理'
-    },
-    name: 'paramManage',
-    component: (resolve) =>
-    /* webpackChunkName: "routes" */
-    /* webpackMode: "lazy-once" */
-    require(['@/views/baseTable/paramManage.vue'],resolve)
-  },
     {
         path: '/systemManage',
         meta: {
@@ -1236,4 +1224,65 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/systemManage/upload/upload.vue'],resolve)
     },
+
+    {
+        path: '/paramManageRb',
+        meta: {
+            breadcrumb: true,
+            title: '存款系统参数'
+        },
+        name: 'paramManageRb',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/paramManage.vue'],resolve)
+    },
+    {
+        path: '/paramManageCif',
+        meta: {
+            breadcrumb: true,
+            title: '客户系统参数'
+        },
+        name: 'paramManageCif',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/paramManage.vue'],resolve)
+    },
+    {
+        path: '/paramManagePf',
+        meta: {
+            breadcrumb: true,
+            title: '公共系统参数'
+        },
+        name: 'paramManagePf',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/paramManage.vue'],resolve)
+    },
+    {
+        path: '/paramManageAc',
+        meta: {
+            breadcrumb: true,
+            title: '核算系统参数'
+        },
+        name: 'paramManageAc',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/paramManage.vue'],resolve)
+    },
+    {
+        path: '/paramManageBo',
+        meta: {
+            breadcrumb: true,
+            title: '运营系统参数'
+        },
+        name: 'paramManageBo',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/paramManage.vue'],resolve)
+    }
 ];
