@@ -277,17 +277,20 @@ export function prodDefinesDeal(prodData,sourceProdData,backData,copyFlag,prodRa
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
                 optObject.optPerm = "DALL"
+                optObject.attrRange = prodData.prodDefines[j].assembleType;
             }else if(sourceProdData.prodDefines[j].optionPermissions === "E" && (prodData.prodDefines[j].optionPermissions === "N" || prodData.prodDefines[j].optionPermissions === "V")){
                 //E-N E-V  删除继承于该基础产品的可售产品 的该条参数 optPerm = "D"
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
                 optObject.optPerm = "D"
+                optObject.attrRange = prodData.prodDefines[j].assembleType;
             }
             if(prodData.prodDefines[j].optionPermissions === "E"){
                 //N-E V-E 继承于该基础产品的可售产品增加该条参数 optPerm = "I"
                 optObject.key = j
                 optObject.tableName = "MB_PROD_DEFINE"
                 optObject.optPerm = "I"
+                optObject.attrRange = prodData.prodDefines[j].assembleType;
             }
         }
         if(optObject.key !== ""){

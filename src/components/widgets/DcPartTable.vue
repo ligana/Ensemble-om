@@ -64,20 +64,24 @@
                 flag: true,
                 partIcon: "expand_more",
                 dataSource: {},
-                optionPermissions: '',
+                optionPermissions: 'D',
                 partId: '',
                 partDesc: "",
                 test: "",
             };
+        },
+        watch: {
+            optionPermissions: {
+                handler(msg) {
+                    this.optPerChange(msg)
+                }
+            }
         },
         created() {
             //控件加载处理
             this.initPartInfo();
 
         },
-//        mounted() {
-//            this.initPartInfo();
-//        },
         methods: {
             initPartInfo() {
                 let that = this;
@@ -85,10 +89,15 @@
                 that.partDesc = getPartDesc(that._props.data.partId).partDesc;
                 that.partId = that._props.data.partId;
                 that.dataSource = that._props.data.children;
+                that.optionPermissions = that._props.data.optPerm;
+
             },
             titleClick() {
                 this.flag = this.flag==true?false:true;
                 this.partIcon = this.partIcon == "expand_more"?"arrow_forward_ios":"expand_more";
+            },
+            optPerChange(val){
+                this._props.data.optPerm = val;
             }
         }
     };

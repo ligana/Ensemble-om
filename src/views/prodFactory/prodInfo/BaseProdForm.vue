@@ -826,7 +826,7 @@
         font-size: 17px;
     }
     .RB >>> .primary--text {
-        color: #111111!important;
+        color: #000000!important;
         font-size: 16px;
     }
     .RB >>> .theme--light.v-label {

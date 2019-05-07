@@ -269,6 +269,7 @@
                             columnPart['key'] = prodData[index].attrKey;
                             temp["partId"] = prodData[index].assembleId;
                             temp["columnType"] = "PART";
+                            temp["optPerm"] = prodData[index].optionPermissions;
                             temp["children"] = [];
                             temp["children"].push(columnPart);
                             columnList.push(temp);
@@ -287,6 +288,8 @@
                     for (let index in this._props.prodDefines) {
                         if(index == assembleId){
                             this._props.prodDefines[index].attrValue = child[newIndex].attrValue;
+                            this._props.prodDefines[index].optionPermissions = val.optPerm;
+
                         }
                     }
                 }
