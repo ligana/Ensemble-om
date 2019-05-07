@@ -208,6 +208,7 @@
                              let setTaskEvent = new Event("taskList");
                              window.dispatchEvent(setTaskEvent);
                           }
+                        this.spinning = false
                         });
                     }
                 }

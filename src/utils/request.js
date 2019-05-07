@@ -64,7 +64,10 @@ service.interceptors.response.use(
   },
   error => {
     console.log('err' + error) // for debug
-    return Promise.reject(error)
+      const res =error.response.data
+    //return Promise.reject(error)
+      toast.error(res.msg || "错误信息未定义!")
+      return error.response
   })
 
 export default service;
