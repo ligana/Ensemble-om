@@ -1,6 +1,6 @@
 <template>
     <v-card>
-        <v-toolbar card color="blue-grey lighten-5">
+        <v-toolbar dense card color="blue-grey lighten-5">
             <v-toolbar-title style="font-size: large; color: slategrey">{{labelText}}</v-toolbar-title>
             <v-spacer></v-spacer>
             <v-tooltip bottom color="orange">
@@ -10,8 +10,8 @@
                 <span>应用</span>
             </v-tooltip>
         </v-toolbar>
-        <v-toolbar dense>
-            <v-text-field solo clearable style="height: 100%" prepend-icon="search" label="请输入产品参数" v-model="searchValue"></v-text-field>
+        <v-toolbar dense class="chat-history-toolbar prodLists">
+            <v-text-field style="height: 100%" prepend-icon="search" label="请输入产品参数" v-model="searchValue"></v-text-field>
         </v-toolbar>
             <v-flex xs6 md12>
                 <v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll">
@@ -241,5 +241,9 @@
 <style scoped>
     .btn {
         width: 200px;
+    }
+    .chat-history-toolbar {
+        /*padding: 5px 0;*/
+        box-shadow: none;
     }
 </style>

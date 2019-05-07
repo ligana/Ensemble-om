@@ -12,8 +12,8 @@
                     hide-details
             ></v-text-field>
             <v-dialog v-model="dialog" max-width="500px" persistent>
-                <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
-                    <td style="color: white">添加</td>
+                <v-btn outline fab small color="write" slot="activator" @click="addClick" class="mt-2">
+                    <v-icon small>add</v-icon>
                 </v-btn>
                 <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
                     <v-toolbar-title>{{ formTitle }}</v-toolbar-title>
@@ -75,15 +75,15 @@
                     <v-layout wrap>
                         <v-flex xs6 sm6 md6>
                             <v-tooltip bottom color="blue" style="margin-left: -20px">
-                                <v-btn flat icon="edit" slot="activator" @click="editItem(props.item)">
-                                    <v-icon small class="mr-2" style="color: #0d47a1">edit</v-icon>
+                                <v-btn outline color="primary lighten-2" icon="edit" slot="activator" @click="editItem(props.item)">
+                                    <v-icon small style="color: #0d47a1">edit</v-icon>
                                 </v-btn>
                                 <span>修改</span>
                             </v-tooltip>
                         </v-flex>
                         <v-flex xs6 sm6 md6>
                             <v-tooltip bottom color="red" style="margin-left: -20px">
-                                <v-btn flat icon="delete" slot="activator" @click="deleteItem(props.item)">
+                                <v-btn outline color="primary lighten-2" icon="delete" slot="activator" @click="deleteItem(props.item)">
                                     <v-icon small style="color: red">delete</v-icon>
                                 </v-btn>
                                 <span>删除</span>

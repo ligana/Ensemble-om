@@ -1,17 +1,11 @@
 <template>
-  <v-navigation-drawer
-    id="appDrawer"
-    fixed
-    :dark="$vuetify.dark"
-    :temporary="!menuSwitch"
-    app
-    v-model="drawer"
-    width="260"
-    >
+  <v-navigation-drawer id="appDrawer" fixed :dark="$vuetify.dark" :temporary="!menuSwitch" app v-model="drawer" width="260">
+    <v-layout row wrap>
     <v-flex lg4 pl-4 pt-3>
         <v-card-media src="/static/avatar/per1.jpg">
       </v-card-media>
     </v-flex>
+      <v-flex lg8 pl-8 mt-4>
       <v-list>
         <v-list-tile>
           <v-list-tile-content>
@@ -20,6 +14,8 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
+    </v-flex>
+    </v-layout>
     <vue-perfect-scrollbar class="drawer-menu--scroll" :settings="scrollSettings">
       <v-list dense expand>
         <template v-for="(item, i) in menus">

@@ -103,5 +103,7 @@ export default {
     margin-left: 0%;
     text-align: center;
     margin-right: auto;
+    margin-top: -2px;
+    height: 100%;
   }
 </style>

@@ -1,14 +1,8 @@
 <template>
-    <a-spin tip="Loading..." size="large" :spinning="spinning">
+    <a-spin tip="Loading..." size="large" :spinning="spinning" class="RB">
         <v-layout row wrap class="app-container pt-3">
-            <v-flex lg9 sm9 class="v-card elevation-2">
-                <v-toolbar color="primary lighten-2" dark tabs>
-                    <v-tooltip bottom color="orange">
-                        <v-btn flat icon="edit" slot="activator" @click="collectClick" :color="collectColor">
-                            <v-icon>favorite</v-icon>
-                        </v-btn>
-                        <span>{{collectDesc}}</span>
-                    </v-tooltip>
+            <v-flex lg9 sm9 class="v-card" style=" border:1px solid #DCE1E7!important;">
+                <v-toolbar color="primary lighten-2" dark tabs dense>
                     <v-toolbar-title class="white--text">{{prodCode}}-{{prodDesc}}</v-toolbar-title>
                     <v-spacer></v-spacer>
                     <v-tooltip bottom color="orange">
@@ -18,10 +12,16 @@
                         <span>{{editDesc}}</span>
                     </v-tooltip>
                     <v-tooltip bottom color="orange">
-                        <v-btn flat icon="refresh" slot="activator" @click="refreshClick">
+                        <v-btn flat icon="refresh" slot="activator" @click="refreshClick" color="primary lighten-2">
                             <v-icon>refresh</v-icon>
                         </v-btn>
                         <span>刷新</span>
+                    </v-tooltip>
+                    <v-tooltip bottom color="orange">
+                        <v-btn flat icon="star" slot="activator" @click="collectClick" :color="collectColor">
+                            <v-icon>star</v-icon>
+                        </v-btn>
+                        <span>{{collectDesc}}</span>
                     </v-tooltip>
                 </v-toolbar>
                 <v-dialog v-model="dialogStage" width="450" persistent z-index="100">
@@ -37,7 +37,7 @@
                 </v-dialog>
 
                 <!--产品展示界面-->
-                <v-tabs slot="extension" v-model="activeName">
+                <v-tabs slot="extension" v-model="activeName" grow show-arrows>
                     <v-tab v-for="n in prodInfo" :key="n.pageCode" @click="tapClick(n.pageCode)" style="margin-top: -0%">
                         {{ n.text}}
                     </v-tab>
@@ -74,14 +74,14 @@
                     </v-tabs-items>
                 </v-tabs>
             </v-flex>
-            <v-flex lg3 sm3 class="v-card pl-3">
-                <v-card class="elevation-2">
-                    <v-card-text>
+            <v-flex lg3 sm3 class="v-card pl-2">
+                <v-card class="elevation-1">
+                    <v-card-text style="height: 48px">
                         <down-action v-if="pendFlag==0" v-bind:editShow="editShow" v-on:listenToCopy="listenToCopy" v-on:saveProd="saveProd"></down-action>
                         <pending-form v-if="pendFlag==1" v-bind:prodType="prodType" v-bind:mainSeqNo="mainSeqNo"></pending-form>
                     </v-card-text>
                 </v-card>
-                <v-window v-model="onboarding" :class="depositTree" class="pt-2">
+                <v-window v-model="onboarding" :class="depositTree" class="pt-1">
                     <v-card-actions v-if="windowShow == 3" class="elevation-2">
                         <v-item-group v-model="onboarding" style="margin-left: 30%">
                             <v-item v-for="n in length" :key="`btn-${n}`">
@@ -91,7 +91,7 @@
                             </v-item>
                         </v-item-group>
                     </v-card-actions>
-                    <v-window-item v-for="n in length" :key="`card-${n}`" class="elevation-2">
+                    <v-window-item v-for="n in length" :key="`card-${n}`" class="elevation-1">
                         <prod-list-form v-if="n == 2 || windowShow == 0" v-bind:prodType="prodType" v-on:listenToProdList="listenToProdList" v-bind:prodRange="prodRange"></prod-list-form>
                         <dc-treeAttr v-if="n == 1 && windowShow != 0" v-model="tree" :options="treeOptions" labelDesc="产品参数"></dc-treeAttr>
                     </v-window-item>
@@ -213,8 +213,8 @@
                 targetData: {},
                 treeOptions: [],
                 tree: [],
-                editColor: "write",
-                collectColor: "write",
+                editColor: "primary lighten-2",
+                collectColor: "primary lighten-2",
                 collectDesc: "收藏",
                 disablePower: true,
                 editDesc: "编辑模式",
@@ -577,7 +577,7 @@
                 if(this.showAdd){
                     this.showAdd = false
                     this.editDesc = "编辑模式"
-                    this.editColor = "write"
+                    this.editColor = "primary lighten-2"
                 }else{
                     this.showAdd = true
                     this.editDesc = "退出编辑"
@@ -743,14 +743,14 @@
                     let flag = false;
                     for(let key in data){
                         if(data[key].prodType == prodCode){
-                            that.collectColor = "red";
+                            that.collectColor = "orange lighten-1";
                             that.collectDesc = "取消收藏";
                             flag = true;
                             break;
                         }
                     }
                     if(!flag){
-                        that.collectColor = "write";
+                        that.collectColor = "primary lighten-2";
                         that.collectDesc = "收藏";
                     }
                 })
@@ -758,11 +758,11 @@
             //点击收藏事件
             collectClick(){
                 let optType = "";
-                if(this.collectColor == "write"){
+                if(this.collectColor == "primary lighten-2"){
                     //收藏
                     optType = "I";
                 }
-                if(this.collectColor == "red"){
+                if(this.collectColor == "orange lighten-1"){
                     //取消收藏
                     optType = "D";
                 }
@@ -776,13 +776,13 @@
                 let color = this.collectColor;
                 saveCollectProd(collect).then(response => {
                     if(response.status === 200) {
-                        if(color == "red") {
-                            this.collectColor = "write";
+                        if(color == "orange lighten-1") {
+                            this.collectColor = "primary lighten-2";
                             this.collectDesc = "收藏";
                             this.sweetAlert('success', "取消收藏成功!")
                         }
-                        if(color == "write"){
-                            this.collectColor = "red";
+                        if(color == "primary lighten-2"){
+                            this.collectColor = "orange lighten-1";
                             this.collectDesc = "取消收藏";
                             this.sweetAlert('success', "收藏成功!")
                         }
@@ -799,4 +799,65 @@
         min-height: calc(90vh - 24px);
         padding-bottom: 120px;
     }
+    .RB >>> .v-tabs__container {
+        border-bottom: 1px solid #DCE1E7;
+        background-color: #fff!important;
+
+    }
+    .RB >>> .v-tabs__wrapper {
+        padding-top: 0px;
+        height: 48px!important;
+    }
+    .RB >>> .v-tabs__item:hover {
+        color: #3C73E6 !important;
+    }
+
+    .RB >>> .v-tabs__item--active {
+        box-shadow: none !important;
+        color: #3C73E6 !important;
+        background-color: #fff;
+        font-weight: bold;
+        height: 48px !important;
+        border-radius: 0px;
+        border-bottom: 2px solid #3C73E6;
+        font-size: 17px;
+    }
+    .RB >>> .v-tabs__item {
+        font-size: 17px;
+    }
+    .RB >>> .primary--text {
+        color: #111111!important;
+        font-size: 16px;
+    }
+    .RB >>> .theme--light.v-label {
+        color: #B7B7B7;
+    }
+    .RB >>> .v-card__text {
+        padding: 16px!important;
+        background: #F4F5F8;
+        border: 1px solid #DCE1E7;
+        border-bottom: none;
+    }
+    /*.RB >>> .v-card {*/
+        /*box-shadow: none!important;*/
+    /*}*/
+    .RB >>>.primary.lighten-2 {
+        background-color: #F4F5F8!important;
+        border-bottom:1px solid #DCE1E7!important;
+        box-shadow: none!important;
+
+    }
+    .RB >>> .primary.lighten-2 .white--text {
+        color: #2C2F43!important;
+    }
+    /*.RB >>> .success {*/
+        /*background-color: #D9DEE5!important;*/
+        /*color: #4b4c55!important;*/
+    /*}*/
+    /*.RB >>> .success > .v-ripple__container {*/
+        /*background-color: rgba(60,115,230,.5) !important;*/
+    /*}*/
+    /*.RB >>> .text-xs-center {*/
+        /*margin-top: 10px;*/
+    /*}*/
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <v-layout row wrap>
-        <v-btn color="warning" block @click='showPending=!showPending'>存在待处理的数据</v-btn>
+    <v-layout row wrap style="margin-top: -5%">
+        <v-btn color="success" block @click='showPending=!showPending' style="height: 30px">存在待处理的数据</v-btn>
     </v-layout>
     <div v-show="showPending">
-      <v-layout row wrap style="margin-top: -10px">
+      <v-layout row wrap style="margin-top: 0px">
         <v-flex md4 lg4>
           <v-subheader class="primary--text subheading">交易单号:</v-subheader>
         </v-flex>
@@ -69,7 +69,7 @@
     </v-layout>
 
     <div class="text-xs-center">
-    <v-btn color="primary lighten-2" @click="dealPending" dark style="height: 35px">
+    <v-btn color="success" @click="dealPending" dark style="height: 35px">
       <v-icon>done</v-icon>
       去处理
     </v-btn>
