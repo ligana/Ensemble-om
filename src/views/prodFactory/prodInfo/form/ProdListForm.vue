@@ -3,19 +3,11 @@
     <v-layout row wrap>
       <v-flex md12 lg12>
         <v-toolbar dense class="chat-history-toolbar prodLists">
-          <v-text-field prepend-icon="search" label="请输入产品代码或描述" v-model="searchValue"></v-text-field>
+          <v-text-field single-line prepend-icon="search" label="请输入产品代码或描述" v-model="searchValue"></v-text-field>
         </v-toolbar>
         <v-list two-line subheader :class="depositTree" v-show="searchValue">
           <v-list-tile class="chat-list prodList" avatar v-for="item of list" :key="item.title" @click="handleClick(item)">
-            <!--<div v-show="isRB == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-              <!--<img src="../../../../../static/prod/prodCun.png" height=100% >-->
-            <!--</div>-->
-            <!--<div v-show="isCL == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-              <!--<img src="../../../../../static/prod/prodDai.png" height=100% >-->
-            <!--</div>-->
-            <!--<div v-show="isGL == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-              <!--<img src="../../../../../static/prod/prodNei.png" height=100% >-->
-            <!--</div>-->
+
             <v-list-tile-avatar>
               <v-icon :class="['amber white--text']">{{ 'call_to_action'}}</v-icon>
             </v-list-tile-avatar>

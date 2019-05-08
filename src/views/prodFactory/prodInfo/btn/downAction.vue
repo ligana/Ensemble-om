@@ -2,17 +2,17 @@
   <div>
     <v-layout row wrap v-if="edit == 'false'">
       <v-flex md5 lg5>
-          <v-btn color="success" depressed="" @click='showCopy=!showCopy' class="downClass"><v-icon >history</v-icon>复制</v-btn>
+          <v-btn color="success" depressed="" @click='showCopy=!showCopy' class="downClass"><v-icon style="margin-right: 15%">history</v-icon>复制</v-btn>
       </v-flex>
       <v-spacer></v-spacer>
 
       <v-flex md5 lg5>
-          <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >save</v-icon>保存</v-btn>
+          <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon style="margin-right: 15%">save</v-icon>保存</v-btn>
       </v-flex>
     </v-layout>
     <v-layout row wrap v-if="edit == 'true'">
       <v-flex md12 lg12>
-        <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon >save</v-icon>保存</v-btn>
+        <v-btn color="success" depressed="" @click="save" class="downClass"><v-icon style="margin-right: 15%">save</v-icon>保存</v-btn>
       </v-flex>
     </v-layout>
     <div v-show="showCopy">
@@ -21,22 +21,22 @@
         <v-subheader class="primary--text pt-3 subheading">产品类型</v-subheader>
       </v-flex>
       <v-flex md8 lg8>
-        <v-text-field class="primary--text" label="产品类型" name="title" v-model="prodType" single-line hide-details>
+        <v-text-field class="primary--text" label="" name="title" v-model="prodType" single-line hide-details>
         </v-text-field>
       </v-flex>
       <v-flex md4 lg4>
         <v-subheader class="primary--text pt-3 subheading">产品描述</v-subheader>
       </v-flex>
       <v-flex md8 lg8>
-        <v-text-field class="primary--text" label="产品描述" name="title" v-model="prodDesc" single-line hide-details/>
+        <v-text-field class="primary--text" label="" name="title" v-model="prodDesc" single-line hide-details/>
       </v-flex>
     </v-layout>
 
-      <div class="text-xs-center" v-if="edit == 'false'">
-          <v-btn color="cyan" @click="copyOn" dark>
-              <v-icon>done</v-icon>
-            确认
-          </v-btn>
+      <div class="downClass" v-if="edit == 'false'" color="success">
+        <v-btn color="success" depressed="" @click='copyOn' class="copOn">
+          <v-icon style="margin-right: 15%">done</v-icon>
+          确认
+        </v-btn>
       </div>
     </div>
   </div>
@@ -105,5 +105,12 @@ export default {
     margin-right: auto;
     margin-top: -2px;
     height: 100%;
+  }
+  .copOn {
+    text-align: center;
+    width: 40%;
+    height: 150%;
+    margin-top: 4%;
+    margin-bottom: -3%;
   }
 </style>

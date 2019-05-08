@@ -76,7 +76,7 @@
             </v-flex>
             <v-flex lg3 sm3 class="v-card pl-2">
                 <v-card class="elevation-1">
-                    <v-card-text style="height: 48px">
+                    <v-card-text>
                         <down-action v-if="pendFlag==0" v-bind:editShow="editShow" v-on:listenToCopy="listenToCopy" v-on:saveProd="saveProd"></down-action>
                         <pending-form v-if="pendFlag==1" v-bind:prodType="prodType" v-bind:mainSeqNo="mainSeqNo"></pending-form>
                     </v-card-text>

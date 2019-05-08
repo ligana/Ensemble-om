@@ -69,10 +69,10 @@
     </v-layout>
 
     <div class="text-xs-center">
-    <v-btn color="success" @click="dealPending" dark style="height: 35px">
-      <v-icon>done</v-icon>
-      去处理
-    </v-btn>
+      <v-btn color="success" depressed="" @click='dealPending' class="copOn">
+        <v-icon style="margin-right: 15%">done</v-icon>
+        去处理
+      </v-btn>
     </div>
     </div>
   </div>
@@ -139,3 +139,12 @@
   }
 };
 </script>
+<style scoped>
+  .copOn {
+    text-align: center;
+    width: 40%;
+    height: 150%;
+    margin-top: 4%;
+    margin-bottom: -3%;
+  }
+</style>
