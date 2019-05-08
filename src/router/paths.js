@@ -1253,7 +1253,7 @@ export default [
         path: '/paramManagePf',
         meta: {
             breadcrumb: true,
-            title: '公共系统参数'
+            title: '产品利率参数'
         },
         name: 'paramManagePf',
         component: (resolve) =>
@@ -1280,6 +1280,18 @@ export default [
             title: '运营系统参数'
         },
         name: 'paramManageBo',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/baseTable/paramManage.vue'],resolve)
+    },
+    {
+        path: '/paramManageCm',
+        meta: {
+            breadcrumb: true,
+            title: '公共参数'
+        },
+        name: 'paramManageCm',
         component: (resolve) =>
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */

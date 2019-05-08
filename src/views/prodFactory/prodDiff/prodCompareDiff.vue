@@ -265,7 +265,7 @@
             //判断key 是否存在于data数据集合
             findIn(data,key){
                 for(let index in data){
-                    if(data[index].assembleType != "EVENT" && data[index].attrType == key){
+                    if(data[index].assembleType != "EVENT" && data[index].attrKey == key){
                         return true;
                     }
                 }

@@ -135,21 +135,21 @@
                             for(let attr in prodData[prodCode][index]){
                                 if (prodData[prodCode][index][attr].eventType.split("_")[0]=="BASE"&&
                                     prodData[prodCode][index][attr].assembleType == "ATTR" &&
-                                    !this.findIn(prodDefineColumn,prodData[prodCode][index][attr].attrType)) {
+                                    !this.findIn(prodDefineColumn,prodData[prodCode][index][attr].attrKey)) {
                                     let tempAttr = {};
-                                    tempAttr['columnCode'] = prodData[prodCode][index][attr].attrType;
+                                    tempAttr['columnCode'] = prodData[prodCode][index][attr].attrKey;
                                     tempAttr['eventType'] = prodData[prodCode][index][attr].eventType.split("_")[0];
-                                    const attrDesc = this.getAttrDesc(prodData[prodCode][index][attr].attrType);
+                                    const attrDesc = this.getAttrDesc(prodData[prodCode][index][attr].attrKey);
                                     tempAttr['columnDesc'] = attrDesc;
                                     prodDefineColumn.push(tempAttr);
                                 }
                                 if (prodData[prodCode][index][attr].eventType.split("_")[0]!="BASE"&&
                                     /*prodData[prodCode][index][attr].assembleType == "ATTR" &&*/
-                                    !this.findIn(prodEventColumn,prodData[prodCode][index][attr].attrType)) {
+                                    !this.findIn(prodEventColumn,prodData[prodCode][index][attr].attrKey)) {
                                     let tempAttr = {};
-                                    tempAttr['columnCode'] = prodData[prodCode][index][attr].attrType;
+                                    tempAttr['columnCode'] = prodData[prodCode][index][attr].attrKey;
                                     tempAttr['eventType'] = prodData[prodCode][index][attr].eventType.split("_")[0];
-                                    const attrDesc = this.getAttrDesc(prodData[prodCode][index][attr].attrType);
+                                    const attrDesc = this.getAttrDesc(prodData[prodCode][index][attr].attrKey);
                                     tempAttr['columnDesc'] = attrDesc;
                                     prodEventColumn.push(tempAttr);
                                 }
@@ -177,7 +177,7 @@
             //存在性检查
             findIn(val,key){
                 for(let index in val){
-                    if(val[index].attrType != undefined && val[index].attrType != null && val[index].attrType == key){
+                    if(val[index].attrKey != undefined && val[index].attrKey != null && val[index].attrKey == key){
                         return true;
                     }
                     if(val[index].columnCode != undefined && val[index].columnCode != null && val[index].columnCode == key){
