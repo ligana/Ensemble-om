@@ -14,7 +14,7 @@
                                 <a-button type="primary" @click="onAdd">新增</a-button>
                                 <a-button type="primary" @click="onEdit" class="ml-2">修改</a-button>
                                 <a-button type="primary" @click="onDelete" class="ml-2">删除</a-button>
-                                <a-button type="primary" @click="onSave" class="ml-2">提交</a-button>
+                                <a-button v-if="notCommit" type="primary" @click="onSave" class="ml-2">提交</a-button>
                             </div>
                         </v-flex>
                         <v-flex xd7 lg7>
@@ -90,6 +90,7 @@
                 sourceDataInfo: [],
                 disabledFlag: false,
                 prodType: '',
+                notCommit: true,
                 open: true,
                 prodTypeSearch: '',
                 prodClassSearch: 'RB100',
@@ -359,9 +360,13 @@
                 }else{
                     saveTable(this.backValue).then(response => {
                         if (response.status === 200) {
+                            this.notCommit = false;
                             this.sweetAlert('success',"保存成功!")
-                            this.$router.push({ name: "paramManage", params: { tableName: this.tableName} });
-                            let setTaskEvent= new Event("taskList");
+                        //保存成功后隐藏提交按钮  不允许再进行参数修改提交
+//                        this.$router.push({ name: "paramManageCif", params: { tableName: this.tableName} });
+//                        this.$store.dispatch("delVisitedViews", this.$route);
+//                        this.$router.push({ name: "paramManageCif", params: { tableName: this.tableName} });
+                        let setTaskEvent= new Event("taskList");
                             window.dispatchEvent(setTaskEvent);
                         }
                     });
