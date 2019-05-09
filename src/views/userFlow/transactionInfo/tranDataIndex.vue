@@ -175,10 +175,12 @@
                         tranFlowInfo(this.confirmInfo).then(response => {
                         if(response.status === 200 && this.confirmInfo.isApproved === "Y"){
                             this.sweetAlert('success', "复核成功!")
+                            this.$store.dispatch("delVisitedViews", this.$route);
                             this.$router.push({name: 'userIndexFlow'});
                         }
                         if (response.status === 200 && this.confirmInfo.isApproved === "N") {
-                            this.sweetAlert('success', "驳回成功!")
+                            this.sweetAlert('success', "驳回成功!");
+                            this.$store.dispatch("delVisitedViews", this.$route);
                             this.$router.push({name: 'userIndexFlow'});
                             let setTaskEvent = new Event("taskList");
                             window.dispatchEvent(setTaskEvent);
@@ -199,12 +201,14 @@
                         tranFlowRelease(this.confirmInfo).then(response => {
                           if(response.status === 200 && this.confirmInfo.isApproved === "Y"){
                              this.sweetAlert('success', "发布成功!")
-                             this.spinning = false
-                             this.$router.push({name: 'userIndexFlow'});
+                             this.spinning = false;
+                              this.$store.dispatch("delVisitedViews", this.$route);
+                              this.$router.push({name: 'userIndexFlow'});
                           }
                           if (response.status === 200 && this.confirmInfo.isApproved === "N") {
                              this.sweetAlert('success', "驳回成功!")
-                             this.$router.push({name: 'userIndexFlow'});
+                              this.$store.dispatch("delVisitedViews", this.$route);
+                              this.$router.push({name: 'userIndexFlow'});
                              let setTaskEvent = new Event("taskList");
                              window.dispatchEvent(setTaskEvent);
                           }
