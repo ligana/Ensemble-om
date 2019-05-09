@@ -57,6 +57,7 @@
                             <sold-prod v-if="i.pageCode=='CRET'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CRET" :disablePower="disablePower"></sold-prod>
                             <sold-prod v-if="i.pageCode=='DEBT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DEBT" :disablePower="disablePower"></sold-prod>
                             <sold-prod v-if="i.pageCode=='CLOSE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CLOSE" :disablePower="disablePower"></sold-prod>
+                            <sold-prod v-if="i.pageCode=='CYCLE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CYCLE" :disablePower="disablePower"></sold-prod>
                             <group-prod v-if="i.pageCode=='GROUP'" :prodTypeCode="prodData.prodType.prodType" tags="GROUP" v-bind:prodData="prodData"></group-prod>
                             <prod-int v-if="i.pageCode=='RATEINFO'" v-bind:prodData="prodData"></prod-int>
                             <prod-charge v-if="i.pageCode=='CHARGE'" v-bind:prodData="prodData"></prod-charge>
