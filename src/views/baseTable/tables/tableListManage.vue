@@ -32,7 +32,7 @@
                                     <v-text-field v-model="editedItem.tableDesc" label="交易名称"></v-text-field>
                                 </v-flex>
                                 <v-flex xs6 sm6 md6>
-                                    <v-select v-model="editedItem.loadModel" label="处理方式" :items="loadModel" item-text="value" item-value="key" @change="modelClick"></v-select>
+                                    <v-select v-model="editedItem.loadModel" label="参数属性" :items="loadModel" item-text="value" item-value="key" @change="modelClick"></v-select>
                                 </v-flex>
                                 <v-flex xs6 sm6 md6>
                                     <v-text-field v-model="editedItem.loadPath" label="加载路径"></v-text-field>
@@ -128,11 +128,11 @@
             loadModel: [
                 {
                     key: "P",
-                    value: "统一处理"
+                    value: "单系统参数"
                 },
                 {
                     key: "S",
-                    value: "特殊处理"
+                    value: "多系统参数"
                 }
             ],
             headers: [
@@ -142,7 +142,7 @@
                 { text: '参数类型',sortable: false,value: 'parameter' },
                 { text: '检索条件',sortable: false,value: 'searchColumn' },
                 { text: '可见参数',sortable: false,value: 'eidtColumns' },
-                { text: '处理方式',sortable: false,value: 'loadModel' },
+                { text: '参数属性',sortable: false,value: 'loadModel' },
                 { text: '加载路径',sortable: false,value: 'loadPath' },
                 { text: 'Action',sortable: false, }
             ],
