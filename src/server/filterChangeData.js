@@ -316,12 +316,10 @@ export function tempsDefine(prodData,copyFlag,prodRange,j){
  * */
 export function changeProdType(prodData,prodType,j){
     let newMap = {newData: {},oldData: {},optionType: ""}
-    if(prodData.prodDefines[j].assembleType == "EVENT"){
-        prodData.prodDefines[j].prodType = prodType;
-        let assembleIds = prodData.prodDefines[j].assembleId;
-        let eventType = assembleIds.split("_")[0] + "_"+prodType;
-        prodData.prodDefines[j].assembleId = eventType
-    }
+    prodData.prodDefines[j].prodType = prodType;
+    let eventType = prodData.prodDefines[j].eventType;
+    let newEventType = eventType.split("_")[0] + "_"+prodType;
+    prodData.prodDefines[j].eventType = newEventType
     newMap.newData = prodData.prodDefines[j];
     newMap.optionType = "I"
     return newMap;
