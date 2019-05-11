@@ -1,5 +1,4 @@
 <template>
-    <v-card class="ml-2">
     <v-layout wrap>
         <v-flex xs12 sm6 m6>
             <dc-select :isMultiSelect="false" v-model="selectedProdInt.eventType" :options="eventOption" labelDesc="事件类型" :disablePower="true"></dc-select>
@@ -14,7 +13,6 @@
             <dc-text labelDesc="固定利率" v-model="selectedProdBase.intBasisRate" :disabled="textDiasbled"></dc-text>
         </v-flex>
     </v-layout>
-    </v-card>
 </template>
 
 <script>

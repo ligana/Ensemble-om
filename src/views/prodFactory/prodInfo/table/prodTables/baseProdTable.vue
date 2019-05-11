@@ -1,34 +1,32 @@
 <template>
-    <v-card class="ml-2">
-        <v-layout row wrap>
-            <v-flex v-for="(keyData ,key ,index) in dataSource" v-bind:key="key" lg6>
-                <v-layout row wrap>
-                    <v-flex md12 lg12 style="margin-right: -10%">
-                        <dc-text-field :showEdit="showEdit" v-if="keyData.columnType == 'input'" :label="keyData.columnDesc"
-                                       name="title" :labelDesc="keyData.columnDesc" v-model="tableData[keyData.key]" single-line hide-details>
-                        </dc-text-field>
-                        <dc-multiselect :showEdit="showEdit" v-if="keyData.columnType == 'select'" :disablePower="keyData.disable" :labelDesc="keyData.columnDesc" v-model="tableData[keyData.key]"
-                                        :options="keyData.valueScore" class="dcMulti" :isMultiSelect=false></dc-multiselect>
-                        <dc-switch :showEdit="showEdit" v-if="keyData.columnType == 'switch'" :labelDesc="keyData.columnDesc" v-model="tableData[keyData.key]"></dc-switch>
-                        <dc-date :showEdit="showEdit" v-if="keyData.columnType == 'date'" :labelDesc="keyData.columnDesc" v-model="tableData[keyData.key]"></dc-date>
-                    </v-flex>
-                </v-layout>
-            </v-flex>
-            <v-layout row wrap v-if="tag != undefined">
-                <v-flex md4 lg4>
-                    <v-subheader class="primary--text subheading" style="margin-left: 15%">首个分段ID:</v-subheader>
-                </v-flex>
-                <v-flex md2 lg2>
-                    <v-tooltip bottom color="orange">
-                        <v-btn @click="showClick" slot="activator" color="blue" style="width: 120px; height: 30px; margin-top: 25%; margin-left: auto;margin-right: 0%">
-                             {{tag}}
-                        </v-btn>
-                        <span>显示利率代码详情</span>
-                    </v-tooltip>
+    <v-layout row wrap>
+        <v-flex v-for="(keyData ,key ,index) in dataSource" v-bind:key="key" lg6>
+            <v-layout row wrap>
+                <v-flex md12 lg12 style="margin-right: -10%">
+                    <dc-text-field :showEdit="showEdit" v-if="keyData.columnType == 'input'" :label="keyData.columnDesc"
+                                   name="title" :labelDesc="keyData.columnDesc" v-model="tableData[keyData.key]" single-line hide-details>
+                    </dc-text-field>
+                    <dc-multiselect :showEdit="showEdit" v-if="keyData.columnType == 'select'" :disablePower="keyData.disable" :labelDesc="keyData.columnDesc" v-model="tableData[keyData.key]"
+                                    :options="keyData.valueScore" class="dcMulti" :isMultiSelect=false></dc-multiselect>
+                    <dc-switch :showEdit="showEdit" v-if="keyData.columnType == 'switch'" :labelDesc="keyData.columnDesc" v-model="tableData[keyData.key]"></dc-switch>
+                    <dc-date :showEdit="showEdit" v-if="keyData.columnType == 'date'" :labelDesc="keyData.columnDesc" v-model="tableData[keyData.key]"></dc-date>
                 </v-flex>
             </v-layout>
+        </v-flex>
+        <v-layout row wrap v-if="tag != undefined">
+            <v-flex md4 lg4>
+                <v-subheader class="primary--text subheading" style="margin-left: 15%">首个分段ID:</v-subheader>
+            </v-flex>
+            <v-flex md2 lg2>
+                <v-tooltip bottom color="orange">
+                    <v-btn @click="showClick" slot="activator" color="blue" style="width: 120px; height: 30px; margin-top: 25%; margin-left: auto;margin-right: 0%">
+                         {{tag}}
+                    </v-btn>
+                    <span>显示利率代码详情</span>
+                </v-tooltip>
+            </v-flex>
         </v-layout>
-    </v-card>
+    </v-layout>
 </template>
 
 <script>

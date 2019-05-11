@@ -1,7 +1,6 @@
 <template>
     <v-layout class="pt-1" v-show="prodAccounting.length">
-        <v-flex md3 lg3 class="ml-3">
-            <v-card class="pt-1 elevation-1">
+        <v-flex md3 lg3 class="flex">
                 <v-list>
                     <v-list-tile v-for="item in titleList" :key="item.key" @click="chipClick(item)" :class="item.class">
                         <v-list-tile-content>
@@ -9,19 +8,17 @@
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
-            </v-card>
-            <v-card class="mt-1">
-                <v-list>
+            <v-divider></v-divider>
+
+            <v-list>
                     <v-list-tile v-for="item in titleListCheck" :key="item.key" @click="chipClickCheck(key)" :class="item.class">
                         <v-list-tile-content>
                             <v-list-tile-title style="font-size: medium">{{item.desc}}</v-list-tile-title>
                         </v-list-tile-content>
                     </v-list-tile>
                 </v-list>
-            </v-card>
         </v-flex>
         <v-flex md9 lg9 v-show="fixed == false">
-            <v-card class="ml-2">
                 <v-layout row wrap>
                     <v-flex md6 lg6>
                         <dc-multiselect :options="eventOption" labelDesc="产品类型" :disablePower="disablePower" :isMultiSelect="false" v-model="selectInfo.prodType" class="dcMulti"></dc-multiselect>
@@ -54,7 +51,6 @@
                         <dc-multiselect :options="glCodeLOption" labelDesc="应急利息科目" :isMultiSelect="false" v-model="selectInfo.glCodeIntAcr" class="dcMulti"></dc-multiselect>
                     </v-flex>
                 </v-layout>
-            </v-card>
         </v-flex>
         <v-flex md9 lg9 v-show="fixed == true" class="ml-2">
             <a-table :columns="columnsFixed" :dataSource="accountingFixed" bordered>
@@ -219,5 +215,8 @@
     }
     .select{
         background-color:gainsboro!important;
+    }
+    .flex {
+        border-right-style: solid;border-right-width: 1px;border-right-color: #ccc5c5;
     }
 </style>

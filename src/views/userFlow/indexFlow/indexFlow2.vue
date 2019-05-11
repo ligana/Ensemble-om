@@ -13,7 +13,7 @@
           </v-layout>
           <v-layout>
             <v-flex lg7 sm7>
-              <span class="title text-xs-center">天津银行产品工厂 - {{userName}}</span>
+              <span class="title text-xs-center">天津银行 - {{userName}}</span>
             </v-flex>
           </v-layout>
         </v-flex>

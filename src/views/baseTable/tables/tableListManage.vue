@@ -1,8 +1,10 @@
 <template>
-    <div class="pt-3 pl-1">
-        <v-toolbar color="primary lighten-2" dark>
-            <v-toolbar-title>交易属性管理</v-toolbar-title>
-            <v-spacer></v-spacer>
+    <div class="pt-3 pl-1 tt">
+        <!--<v-toolbar color="primary lighten-2" dark>-->
+        <v-card>
+            <v-card-title style="height: 50px">
+                <h4 style="margin-top: -1%">交易属性管理</h4>
+
             <v-text-field
                     clearable
                     v-model="search"
@@ -10,9 +12,11 @@
                     label="Search"
                     single-line
                     hide-details
+                    style="margin-left: 40%;margin-top: -2%"
             ></v-text-field>
+
             <v-dialog v-model="dialog" max-width="500px" persistent>
-                <v-btn outline fab small color="write" slot="activator" @click="addClick" class="mt-2">
+                <v-btn outline fab small color="primary lighten-2" slot="activator" @click="addClick" class="mt-2">
                     <v-icon small>add</v-icon>
                 </v-btn>
                 <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
@@ -59,8 +63,10 @@
                     </v-card-actions>
                 </v-card>
             </v-dialog>
-        </v-toolbar>
-        <v-data-table :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" :headers="headers" :items="desserts" :search="search" class="elevation-1">
+            </v-card-title>
+
+            <!--</v-toolbar>-->
+        <v-data-table :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" style="font-size: large" :headers="headers" :items="desserts" :search="search" class="elevation-1">
             <template slot="items" slot-scope="props">
                 <td>{{ props.item.tableName }}</td>
                 <td>{{ props.item.tableDesc }}</td>
@@ -96,6 +102,8 @@
                 Your search for "{{ search }}" found no results.
             </v-alert>
         </v-data-table>
+        </v-card>
+
     </div>
 </template>
 <script>
@@ -229,24 +237,6 @@
                 });
             },
             addClick() {
-                let all = "INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('RB_ACCT_LINKMAN_TYPE', '账户联系人类型表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('RB_ACCT_NATURE_DEF', '账户属性定义 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('RB_ACCT_NATURE_RESTRAINTS', '账户属性与账户限制关联配置 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('RB_AMT_CALC_TYPE', '金额计算类型定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('RB_ANNUAL_SURVEY', '账户年检管理表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('RB_AVAILBAL_CALC_TYPE', '可用余额计算类型定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('RB_CASH_ITEM', '现金项目定义 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('RB_CERTIFICATE_TYPE', '产权证明种类 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_clean_parameter', '账户清理参数表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_dep_wtd_tran_type', '存入支取交易类型定义表', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_exchange_tran_type', '结售汇交易类型  ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_file_dir', '核心文件路径配置表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_file_table_def', '根据配置属性生成数据文件 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_fin_agrt_type', '活期理财协议表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_fund_tran_ctl', '账户类别交易控制表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_link_condition', '链接条件定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_open_ctl', '开户数量控制表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_parameter', '存款参数表  ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_password_type', '密码类型参数表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_pcp_group_def', '资金池账户组定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_pcp_parameter', '资金池参数表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_prod_amend_maping', '产品变更映射表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_prod_charge', '产品类型费用类型关联表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_purpose', '资金用途 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_reason_code', '原因代码 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_renewal_type', '定期产品比例定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_restraint_type', '账户限制类型定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_settle_acct_class', '结算账户分类定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_settle_acct_mapping', '结算账户分类映射表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_settle_tran_mapping', '结算交易类型映射表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_stage_info', '期次信息表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_stage_int', '期次管理利率信息表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_stat_amt_define', '账户统计金额定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_tran_control', '交易控制表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_tran_def', '交易类型定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_tran_limit_def', '限额定义表 ', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_tran_purpose', '交易目的表', 'RB', 'busi', '', 'ALL');INSERT INTO `om_table_list` (`TABLE_NAME`, `TABLE_DESC`, `SYSTEM`, `PARAMETER`, `SEARCH_COLUMN`, `EIDT_COLUMNS` ) VALUES ('rb_acct_close_reason', '账户销户原因定义表 ', 'RB', 'busi', '', 'ALL')";
-                let allArr = all.split(';');
-                let ok = '';
-                for(let iii in allArr) {
-                    let test = allArr[iii];
-                    let arr = test.split(') VALUES (')[1];
-                    let r = arr.split(',');
-                    let i = arr.split(',')[0];
-                    let val = i.replace(/([A-Z])/g, "_$1").toUpperCase();
-                    let ret = test.split(') VALUES (')[0] + ') VALUES (' + val;
-                    for (let j in r) {
-                        if (j != 0) {
-                            ret = ret + ',';
-                            ret = ret + r[j];
-                        }
-                    }
-                    ok = ok+ret+";";
-                }
                 this.show = false
                 this.editedItem = []
                 this.disabled = "false"
@@ -434,5 +424,16 @@
     .bthStyle {
         color: #00b0ff;
         width: 120px;
+    }
+    .tt >>>.table.v-table thead th {
+        font-weight: 500;
+        font-size: 20px;
+        -webkit-transition: .3s cubic-bezier(.25,.8,.5,1);
+        transition: .3s cubic-bezier(.25,.8,.5,1);
+        white-space: nowrap;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
     }
 </style>

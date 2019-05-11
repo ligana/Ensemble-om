@@ -949,6 +949,18 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/baseTable/paramManage.vue'],resolve)
     },
+    {
+        path: '/paramSynch',
+        meta: {
+            breadcrumb: true,
+            title: '参数同步管理'
+        },
+        name: 'paramSynch',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/paramSynch.vue'],resolve)
+    },
 
 {
     path: '/transManage',

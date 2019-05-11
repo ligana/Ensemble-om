@@ -103,6 +103,7 @@
             },
             computeLogo() {
                 return "/static/prod/dcLog1.png";
+//                return "/static/prod/tjBank.jpg";
             },
         },
         mounted() {

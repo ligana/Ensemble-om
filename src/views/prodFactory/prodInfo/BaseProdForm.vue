@@ -840,9 +840,6 @@
         border: 1px solid #DCE1E7;
         border-bottom: none;
     }
-    /*.RB >>> .v-card {*/
-        /*box-shadow: none!important;*/
-    /*}*/
     .RB >>>.primary.lighten-2 {
         background-color: #F4F5F8!important;
         border-bottom:1px solid #DCE1E7!important;
@@ -852,14 +849,5 @@
     .RB >>> .primary.lighten-2 .white--text {
         color: #2C2F43!important;
     }
-    /*.RB >>> .success {*/
-        /*background-color: #D9DEE5!important;*/
-        /*color: #4b4c55!important;*/
-    /*}*/
-    /*.RB >>> .success > .v-ripple__container {*/
-        /*background-color: rgba(60,115,230,.5) !important;*/
-    /*}*/
-    /*.RB >>> .text-xs-center {*/
-        /*margin-top: 10px;*/
-    /*}*/
+
 </style>

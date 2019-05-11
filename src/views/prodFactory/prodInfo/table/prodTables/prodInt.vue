@@ -1,31 +1,25 @@
 <template>
     <v-layout class="pt-1" v-show="prodInt.length">
-        <v-flex md3 lg3 class="ml-3">
-            <v-card style="margin-top: -5%">
-                <v-flex md12 lg12 class="switchClass">
-                    <v-switch v-model="switchValue" :label="switchValue == true?'使用固定利率值':'不使用固定利率值'"></v-switch>
-                </v-flex>
-            </v-card>
+        <v-flex md3 lg3 class="flex">
+            <v-switch class="switchClass" v-model="switchValue" :label="switchValue == true?'使用固定利率值':'不使用固定利率值'"></v-switch>
+            <v-divider></v-divider>
             <!-- 不使用固定利率列表信息-->
-            <v-card class="mt-1" v-show="!switchValue">
-                <v-list>
-                    <v-list-tile v-for="item in titleList" :key="item.key" @click="chipClick(item)" :class="item.class">
-                        <v-list-tile-content>
-                            <v-list-tile-title style="font-size: medium">{{ item.key }}-{{ item.lable }},{{ item.key1 }}-{{ item.lable1 }}</v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list>
-            </v-card>
+            <v-list v-show="!switchValue">
+                <v-list-tile v-for="item in titleList" :key="item.key" @click="chipClick(item)" :class="item.class">
+                    <v-list-tile-content>
+                        <v-list-tile-title style="font-size: medium">{{ item.key }}-{{ item.lable }},{{ item.key1 }}-{{ item.lable1 }}</v-list-tile-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
             <!-- 使用固定利率列表信息-->
-            <v-card class="mt-1" v-show="switchValue && fixedInfo.length">
-                <v-list>
-                    <v-list-tile v-for="item in FixeditleList" :key="item.key" @click="fixedChipClick(item)" :class="item.class">
-                        <v-list-tile-content>
-                            <v-list-tile-title style="font-size: medium">{{ item.key }}-{{ item.lable }},{{ item.key1 }}-{{ item.lable1 }}</v-list-tile-title>
-                        </v-list-tile-content>
-                    </v-list-tile>
-                </v-list>
-            </v-card>
+            <v-list v-show="switchValue && fixedInfo.length">
+                <v-list-tile v-for="item in FixeditleList" :key="item.key" @click="fixedChipClick(item)" :class="item.class">
+                    <v-list-tile-content>
+                        <v-list-tile-title style="font-size: medium">{{ item.key }}-{{ item.lable }},{{ item.key1 }}-{{ item.lable1 }}</v-list-tile-title>
+                        <v-list-tile-sub-title></v-list-tile-sub-title>
+                    </v-list-tile-content>
+                </v-list-tile>
+            </v-list>
         </v-flex>
         <!-- 不使用固定利率展示-->
         <v-flex md9 lg9 v-show="!switchValue">
@@ -456,5 +450,8 @@
     }
     .select{
         background-color:gainsboro!important;
+    }
+    .flex {
+        border-right-style: solid;border-right-width: 1px;border-right-color: #ccc5c5;
     }
 </style>
