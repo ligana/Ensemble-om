@@ -2,19 +2,11 @@
     <v-layout justify-center class="mt-2">
         <v-flex xs12 sm12>
             <v-card class="radiusDc" style="height: 730px">
-                <!--<v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>-->
-                <!--<v-icon>widgets</v-icon>-->
-                <!--<v-toolbar-title>{{tableName}}-[{{tableDesc}}]</v-toolbar-title>-->
-                <!--<v-spacer></v-spacer>-->
-                <!--</v-toolbar>-->
                 <v-card-text>
                     <v-layout row wrap>
                         <v-flex xd3 lg3>
                             <div>
                                 <a-button type="primary" @click="onAdd">新增</a-button>
-                                <!--<v-navigation-drawer temporary right v-model="editFlag" hide-overlay fixed>-->
-                                <!--<theme-settings></theme-settings>-->
-                                <!--</v-navigation-drawer>-->
                                 <a-button type="primary" @click="onEdit" class="ml-2">修改</a-button>
                                 <a-button type="primary" @click="onDelete" class="ml-2">删除</a-button>
                                 <a-button v-if="notCommit" type="primary" @click="onSave" class="ml-2">提交</a-button>
@@ -48,29 +40,18 @@
                     </a-table>
                     <v-divider></v-divider>
                 </v-card-text>
-
-                <!--<v-dialog v-model="dialog" width="800px" persistent z-index="100">-->
-                <!--<edit-table-info v-if="dialog" :selected="selected" :columns="seeColumns" :tableName="tableName" :childPd="childPd"-->
-                <!--v-on:editAction="editAction" v-on:changeNum="changeNum"></edit-table-info>-->
-                <!--</v-dialog>-->
-                <v-navigation-drawer v-model="drawer" :right="true" :width="500" absolute temporary>
-                    <v-layout>
-                        <td style="font-size: 20px; margin-top: 5%;margin-left: 5%; color: #616665">新增参数信息</td>
-                    </v-layout>
-                    <!--<v-layout>-->
-                    <!--<v-card style="height: 500px">-->
-
-                    <!--<edit-table-info :selected="selected" :columns="seeColumns" :tableName="tableName" :childPd="childPd"-->
-                                     <!--v-on:editAction="editAction" v-on:changeNum="changeNum"></edit-table-info>-->
-                    <!--</v-card>-->
-                    <!--</v-layout>-->
-                </v-navigation-drawer>
+                <v-dialog v-model="dialog" width="800px" persistent z-index="100">
+                <edit-table-info v-if="dialog" :selected="selected" :columns="seeColumns" :tableName="tableName" :childPd="childPd"
+                v-on:editAction="editAction" v-on:changeNum="changeNum"></edit-table-info>
+                </v-dialog>
             </v-card>
         </v-flex>
     </v-layout>
 </template>
 <script>
     import {getParamTable} from "@/api/url/prodInfo";
+    import EditTableInfo from '../../../views/baseTable/tables/editTableInfo'
+
     import {saveTable} from "@/api/url/prodInfo";
     import toast from '@/utils/toast';
     import DcTextField from "@/components/widgets/DcTextField";
@@ -89,7 +70,8 @@
             DcMultiselect,
             DcTextField,
             DcTextFieldTable,
-            DcMultiselectTable
+            DcMultiselectTable,
+            EditTableInfo
         },
         data() {
             return {
@@ -169,7 +151,7 @@
                 this.childEditSelected = editSelected
             },
             initTableInfo() {
-                this.tableName = this.$route.hash
+                this.tableName = "MB_PART_CLASS";
                 this.getParaTable(this.tableName);
             },
             getParaTable(tableName) {
@@ -362,6 +344,7 @@
             onAdd() {
                 this.tbd.style = '';
                 this.selected = {};
+                this.dialog = true;
                 this.addorchange = true;
                 this.drawer = !this.drawer;
             },
@@ -387,10 +370,6 @@
                         if (response.status === 200) {
                             this.notCommit = false;
                             this.sweetAlert('success',"保存成功!")
-                            //保存成功后隐藏提交按钮  不允许再进行参数修改提交
-//                        this.$router.push({ name: "paramManageCif", params: { tableName: this.tableName} });
-//                        this.$store.dispatch("delVisitedViews", this.$route);
-//                        this.$router.push({ name: "paramManageCif", params: { tableName: this.tableName} });
                             let setTaskEvent= new Event("taskList");
                             window.dispatchEvent(setTaskEvent);
                         }

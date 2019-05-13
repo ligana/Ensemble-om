@@ -813,22 +813,7 @@ export default [
             /* webpackMode: "lazy-once" */
             require(['@/views/prodFactory/prodInfo/BaseProdForm.vue'],resolve)
     },
-    // {
-    //     path: '/test',
-    //     meta: {
-    //         breadcrumb: true,
-    //         title: '存款基础产品'
-    //     },
-    //     name: 'test',
-    //     component: (resolve) =>
-    //         $.ajax({
-    //             url: "10.7.94.150:3000",
-    //             type: 'POST', //GET
-    //             async: false, //��false,�Ƿ��첽
-    //             timeout: 15000, //��ʱʱ��
-    //             dataType: 'json'
-    //         });
-    // },
+
     {
         path: '/BaseProdFormCl',
         meta: {
@@ -1018,16 +1003,29 @@ export default [
     },
 
     {
-        path: '/MbPartType',
+        path: '/partTypeManage',
         meta: {
             breadcrumb: true,
-            title: '部件类型定义'
+            title: '部件类型管理'
         },
-        name: 'MbPartType',
+        name: 'partTypeManage',
         component: (resolve) =>
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
-            require(['@/views/prodFactory/partManage/MbPartType.vue'],resolve
+            require(['@/views/paramManage/part/partTypeManage.vue'],resolve
+            )
+    },
+    {
+        path: '/partAttrManage',
+        meta: {
+            breadcrumb: true,
+            title: '部件属性管理'
+        },
+        name: 'partAttrManage',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/part/partAttrManage.vue'],resolve
             )
     },
 
