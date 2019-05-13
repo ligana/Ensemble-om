@@ -135,12 +135,12 @@
             ],
             loadModel: [
                 {
-                    key: "P",
-                    value: "单系统参数"
+                    key: "M",
+                    value: "多系统参数"
                 },
                 {
                     key: "S",
-                    value: "多系统参数"
+                    value: "单系统参数"
                 }
             ],
             headers: [

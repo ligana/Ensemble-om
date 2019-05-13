@@ -1004,16 +1004,16 @@ export default [
 
 
     {
-        path: '/MbPartClass',
+        path: '/partClassManage',
         meta: {
             breadcrumb: true,
-            title: '部件分类定义'
+            title: '部件分类管理'
         },
-        name: 'MbPartClass',
+        name: 'partClassManage',
         component: (resolve) =>
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
-            require(['@/views/prodFactory/partManage/MbPartClass.vue'],resolve
+            require(['@/views/paramManage/part/partClassManage.vue'],resolve
             )
     },
 
