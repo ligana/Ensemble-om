@@ -283,8 +283,11 @@
                 //指标数据修改回调
                 let partId = val.partId;
                 let child = val.children;
+                let tag = this._props.tags;
+                let prodCode = this._props.prodTypeCode;
+
                 for (let newIndex in child) {
-                    let assembleId = partId + '-' + child[newIndex].key;
+                    let assembleId = partId + '-' + child[newIndex].key+"-"+tag+"_"+prodCode;
                     for (let index in this._props.prodDefines) {
                         if(index == assembleId){
                             this._props.prodDefines[index].attrValue = child[newIndex].attrValue;
