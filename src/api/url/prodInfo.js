@@ -70,6 +70,10 @@ export function getProdData (prodType) {
     const reData=asyncPost('/getProdInfo',data);
     return reData;
 }
+export function getAllTableInfo () {
+    const reData=asyncPost('/getAllTableInfo');
+    return reData;
+}
 export function getAll(TableName) {
     const data = {tableName: TableName};
     const reData = asyncPost('/getAll',data);
@@ -462,6 +466,15 @@ export function saveCollectProd (params) {
 
     return request({
         url: '/saveCollectProd',
+        method: 'post',
+        data: params
+    });
+}
+
+export function asyncParam (params) {
+
+    return request({
+        url: '/asyncParam',
         method: 'post',
         data: params
     });

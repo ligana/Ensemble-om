@@ -11,7 +11,7 @@
             </v-tooltip>
         </v-toolbar>
         <v-toolbar dense class="chat-history-toolbar prodLists">
-            <v-text-field style="height: 100%" prepend-icon="search" label="请输入产品参数" v-model="searchValue"></v-text-field>
+            <v-text-field single-line style="height: 100%" prepend-icon="search" label="请输入产品参数" v-model="searchValue"></v-text-field>
         </v-toolbar>
             <v-flex xs6 md12>
                 <v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll">

@@ -1,8 +1,19 @@
 <template>
-    <v-card class="mt-2">
-        <v-layout row wrap>
+    <a-spin tip="全量脚本生成中,请稍候... ..." size="large" :spinning="spinning">
+
+    <v-card class="elevation-0 mt-3">
+        <v-layout>
+            <v-flex xs6 md6>
+                <v-text-field single-line style="height: 100%" prepend-icon="search" label="请输入需要同步的表名" v-model="searchValue"></v-text-field>
+            </v-flex>
+            <v-flex xs6 md6 class="mt-3">
+
+            <a-button type="primary" @click="start" style="height: 28px; margin-left: 60%">开始同步</a-button>
+                <a-button type="primary" @click="release" class="ml-4" style="height: 28px">撤销同步</a-button>
+            </v-flex>
+        </v-layout>
+        <v-layout>
         <v-flex xs6 md6>
-        <v-text-field style="height: 100%" prepend-icon="search" label="请输入产品参数" v-model="searchValue"></v-text-field>
             <v-card-text style="height: 400px; max-height: 350px;overflow-y: scroll">
                 <v-treeview
                         :search="searchValue"
@@ -19,17 +30,11 @@
                 </v-treeview>
             </v-card-text>
         </v-flex>
-
             <v-flex xs6 md6>
                 <v-card-text style="max-height: 400px; height: 300px; overflow-y: scroll">
-                    <div v-if="selections.length === 0" key="title" class="title font-weight-light grey--text pa-3 text-xs-center">请选择...</div>
+                    <div v-if="selections.length === 0" key="title" class="title font-weight-light grey--text pa-3 text-xs-center">待同步参数表...</div>
                     <v-scroll-x-transition group hide-on-leave>
-                        <!--区别指标与参数   指标采用蓝色chip 参数采用绿色chip-->
-                        <v-chip v-for="(selection, i) in selections" :key="i" v-if="selection.part == true" color="blue" dark smaller close @input="remove(selection)">
-                            <v-icon left small>mdi-beer</v-icon>
-                            {{ selection.name }}
-                        </v-chip>
-                        <v-chip v-for="(selection, i) in selections" :key="i" v-if="selection.part == undefined" color="green" dark smaller close @input="remove(selection)">
+                        <v-chip v-for="(selection, i) in selections" :key="i" color="green" dark smaller close @input="remove(selection)">
                             <v-icon left small>mdi-beer</v-icon>
                             {{ selection.name }}
                         </v-chip>
@@ -38,11 +43,12 @@
             </v-flex>
         </v-layout>
     </v-card>
+    </a-spin>
 </template>
 <script>
     import toast from '@/utils/toast';
-    import {getAllPartList} from "@/api/url/prodInfo";
-
+    import { getAllTableInfo } from "@/api/url/prodInfo";
+    import { asyncParam } from "@/api/url/prodInfo";
     export default {
         model: {
             prop: "msg",
@@ -56,6 +62,7 @@
                 brewerie: [],
                 tree: [],
                 tLen: '',
+                spinning: false,
                 copTree: [],
                 diffTree: [],
                 options: [],
@@ -80,54 +87,51 @@
                     }
                     selections.push(brewery)
                 }
-                /*        this.backValue = this.tree*/
                 return selections
             }
         },
-        watch: {
-            msg: {
-                handler(msg) {
-                    this.initParam(msg);
-                }
-            },
-            options: {
-                handler(msg){
-                    this.init(msg);
-                }
-            },
-            tree: {
-                handler(msg){
-                    console.log(msg)
-                }
-            },
-        },
         mounted() {
-            this.init();
+            this.getTableInfo();
             this.initParam()
         },
         methods: {
-            saveClick() {
+            getTableInfo() {
+                let tagInfo = [];
+                const response = getAllTableInfo();
+                let omEnvInfo = response.omEnvOrg;
+                let tableInfo = response.omTableList;
+                for(let envIndex in omEnvInfo){
+                    for(let tableIndex in tableInfo){
+                        if(omEnvInfo[envIndex].systemId == (tableInfo[tableIndex].system).split(",")[0]){
+                            let temp = {};
+                            temp["key"] = tableInfo[tableIndex].tableName;
+                            temp["columnDesc"] = tableInfo[tableIndex].tableDesc;
+                            temp["parentCode"] = omEnvInfo[envIndex].systemId;
+                            temp["parentDesc"] = omEnvInfo[envIndex].envDesc;
+                            tagInfo.push(temp);
+                        }
+                    }
+                }
+                //获取参数信息
+                this.init(tagInfo);
+            },
+            start() {
                 if(!this.tree.length){
                     this.$swal({
                         allowOutsideClick: false,
                         type: 'info',
-                        title: "请选择要添加的信息!",
+                        title: "请选择需要同步的参数表!",
                     })
                 }else {
-                    this.backValue = []
-                    for (let y = 0; y < this.tree.length; y++) {
-                        for (let x = 0; x < this.brewerie.length; x++) {
-                            //标记新增为指标
-                            if (this.brewerie[x].id === this.tree[y] && this.brewerie[x].part) {
-                                this.backValue.push("PART--" + this.brewerie[x].id + "--" + this.brewerie[x].name)
-                            }
-                            //标记新增为参数
-                            if (this.brewerie[x].id === this.tree[y] && !this.brewerie[x].part) {
-                                this.backValue.push("ATTR--" + this.brewerie[x].id + "--" + this.brewerie[x].name)
-                            }
+                    this.spinning = true;
+                    let selectedTable = {};
+                    selectedTable["tableInfo"] = this.tree;
+                    asyncParam(selectedTable).then(response => {
+                        if(response.status === 200) {
+                            this.spinning = false;
+                            this.sweetAlert('success', "参数全量文件生成成功!");
                         }
-                    }
-                    this.$emit("getVue", this.backValue);
+                    })
                 }
             },
             remove(name) {
@@ -146,12 +150,9 @@
                     this.tree.splice(this.tree.indexOf(id),1)
                 }
             },
-            init() {
-                if(typeof this._props.labelDesc !== "undefined") {
-                    this.labelText = this._props.labelDesc;
-                }
+            init(val) {
                 //加工树形结构数据
-                let options = this._props.options
+                let options = val;
                 let parent = []
                 for(let i=0; i<options.length; i++){
                     if(i === 0){
@@ -194,23 +195,7 @@
                     }
                     index++
                 }
-                //待添加参数列表增加指标信息
-                //获取指标信息
-                getAllPartList().then(response => {
-                    let partInfo = response.data.data.partTypeInfo;
-                    let tempPart = {};
-                    let parLength = parent.length;
-                    tempPart["name"] = "部件信息";
-                    tempPart["id"] = parLength+1;
-                    tempPart["code"] = "PART";
-                    tempPart["children"] = [];
-                    for(let parIndex in partInfo){
-                        tempPart.children.push({id: partInfo[parIndex].partType,name: partInfo[parIndex].partDesc});
-                        this.brewerie.push({id: partInfo[parIndex].partType,name: partInfo[parIndex].partDesc,part: true});
-                    }
-                    parent[parLength] = tempPart;
-                    this.items = parent
-                });
+                this.items = parent
             },
             initParam(val){
                 //根据v-model绑定数据初始化树形结构
