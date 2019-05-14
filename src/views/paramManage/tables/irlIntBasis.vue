@@ -2,7 +2,7 @@
     <div class="pt-3 pl-1">
         <v-toolbar color="primary lighten-2" dark>
             <v-icon>widgets</v-icon>
-            <v-toolbar-title>基准利率信息表-[IRL_BASIS_RATE]</v-toolbar-title>
+            <v-toolbar-title>基准利率类型表-[IRL_INT_BASIS]</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <v-dialog v-model="dialog" width="1000px" persistent z-index="100">
@@ -14,7 +14,7 @@
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm6 md6>
-                                        <dc-text-field-table
+                                    <dc-text-field-table
                                             v-model="editedItem.intBasis"
                                             :counter="10"
                                             :isNotNull="headers[0].key"
@@ -26,46 +26,40 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-multiselect-table
-                                            :isKey="headers[4].key"
-                                            :childPd="childPd"
-                                            :isNotNull="headers[4].key"
-                                            :labelDesc="headers[4].title"
-                                            v-model="editedItem.company"
-                                            :options="headers[4].valueScore"
-                                            class="dcMulti"
-                                            :isMultiSelect=false
-                                    ></dc-multiselect-table>
+                                    <dc-text-field-table
+                                            v-model="editedItem.intBasisDesc"
+                                            :counter="10"
+                                            :isNotNull="headers[1].key"
+                                            :isKey= "headers[1].key"
+                                            :lengths= "headers[1].lengths"
+                                            :label= "headers[1].title"
+                                            :labelDesc= "headers[1].title"
+                                            required
+                                    ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-multiselect-table
-                                            :isKey="headers[1].key"
+                                            :isKey="headers[3].key"
                                             :childPd="childPd"
-                                            :isNotNull="headers[1].key"
-                                            :labelDesc="headers[1].title"
-                                            v-model="editedItem.ccy"
-                                            :options="headers[1].valueScore"
+                                            :isNotNull="headers[3].key"
+                                            :labelDesc="headers[3].title"
+                                            v-model="editedItem.company"
+                                            :options="headers[3].valueScore"
                                             class="dcMulti"
                                             :isMultiSelect=false
                                     ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
-                                            v-model="editedItem.intBasisRate"
+                                            v-model="editedItem.routerKey"
                                             :counter="10"
-                                            :isNotNull="headers[3].key"
-                                            :isKey= "headers[3].key"
-                                            :lengths= "headers[3].lengths"
-                                            :label= "headers[3].title"
-                                            :labelDesc= "headers[3].title"
+                                            :isNotNull="headers[2].key"
+                                            :isKey= "headers[2].key"
+                                            :lengths= "headers[2].lengths"
+                                            :label= "headers[2].title"
+                                            :labelDesc= "headers[2].title"
                                             required
                                     ></dc-text-field-table>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <dc-date class="dcDate"
-                                             :disablePower="disablePower" :labelDesc="headers[2].title" v-model="editedItem.effectDate"
-                                             :isNotNull="headers[2].key" :isKey= "headers[2].key"
-                                    ></dc-date>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -98,14 +92,10 @@
     </div>
 </template>
 <script>
-    import {getSysTable} from "@/api/url/prodInfo";
-    import { getPkListColumnRf } from "@/api/url/prodInfo";
-    import {getPkList} from '@/views/prodFactory/prodInfo/pkListColumnInfo'
     import {filterTableChangeData} from "@/server/filterTableChangeData";
     import {saveTable} from "@/api/url/prodInfo";
     import toast from '@/utils/toast';
     import {getParamTable} from "@/api/url/prodInfo";
-    import {getAll} from "@/api/url/prodInfo";
     import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
     import DcDate from '@/components/widgets/DcDate'
     import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
@@ -121,18 +111,15 @@
             disabled: false,
             dialog: false,
             headers: [
-                { dataIndex: 'INT_BASIS',title: '基准利率类型代码',key: "true",lengths: "2"},
-                { dataIndex: 'CCY',title: '币种',key: "true",lengths: "3",valueScore: []},
-                { dataIndex: 'EFFECT_DATE',title: '生效日期',key: "true",lengths: "8"},
-                { dataIndex: 'INT_BASIS_RATE',title: '利率',lengths: "15"},
+                { dataIndex: 'INT_BASIS',title: '基准利率类型',key: "true",lengths: "2"},
+                { dataIndex: 'INT_BASIS_DESC',title: '基准利率类型描述',key: "true",lengths: "60"},
+                { dataIndex: 'ROUTER_KEY',title: '分库路由关键字',lengths: "100"},
                 { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
             ],
-            ccyType: {columnCode: "CCY", columnDesc: "CCY_DESC", tableName: "FM_CURRENCY"},
             dessert: {
                 INT_BASIS: '',
-                CCY: '',
-                EFFECT_DATE: '',
-                INT_BASIS_RATE: '',
+                INT_BASIS_DESC: '',
+                ROUTER_KEY: '',
                 COMPANY: '',
             },
             desserts: [],
@@ -150,16 +137,14 @@
             title: "",
             editedItem: {
                 intBasis: '',
-                ccy: '',
-                effectDate: '',
-                intBasisRate: '',
+                intBasisDesc: '',
+                routerKey: '',
                 company: '',
             },
             defaultItem: {
                 intBasis: '',
-                ccy: '',
-                effectDate: '',
-                intBasisRate: '',
+                intBasisDesc: '',
+                routerKey: '',
                 company: '',
             },
             backValue: {},
@@ -172,14 +157,14 @@
 
         computed: {
             formTitle () {
-                return this.editedIndex === -1 ? '新增基准利率信息' : '修改基准利率信息'
+                return this.editedIndex === -1 ? '新增基准利率类型' : '修改基准利率类型'
             }
         },
-/*           watch: {
-            dialog (val) {
-                val || this.close()
-            }
-        },*/
+        /*           watch: {
+         dialog (val) {
+         val || this.close()
+         }
+         },*/
         mounted: function () {
             this.initTableInfo()
         },
@@ -194,9 +179,6 @@
                     that.desserts = response.data.data.columnInfo;
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 })
-                getPkListColumnRf(this.ccyType).then(function (response) {
-                    that.headers[1].valueScore = response.data.data
-                })
             },
 
             editItem () {
@@ -206,9 +188,8 @@
                     return
                 }
                 this.editedItem.intBasis = obj.INT_BASIS
-                this.editedItem.ccy= obj.CCY
-                this.editedItem.effectDate = obj.EFFECT_DATE
-                this.editedItem.intBasisRate = ""+obj.INT_BASIS_RATE
+                this.editedItem.intBasisDesc= obj.INT_BASIS_DESC
+                this.editedItem.routerKey = obj.ROUTER_KEY
                 this.editedItem.company = obj.COMPANY
                 this.dialog = true
                 this.disabled = "true"
@@ -235,9 +216,8 @@
             save () {
                 const obj = this.dessert
                 obj.INT_BASIS = this.editedItem.intBasis
-                obj.CCY = this.editedItem.ccy
-                obj.EFFECT_DATE = this.editedItem.effectDate
-                obj.INT_BASIS_RATE = this.editedItem.intBasisRate
+                obj.INT_BASIS_DESC = this.editedItem.intBasisDesc
+                obj.ROUTER_KEY = this.editedItem.routerKey
                 obj.COMPANY = this.editedItem.company
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)

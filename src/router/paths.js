@@ -1318,5 +1318,89 @@ export default [
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
             require(['@/views/paramManage/tables/irlBasisRate.vue'],resolve)
+    },
+    {
+        path: '/irlIntBasis',
+        meta: {
+            breadcrumb: true,
+            title: '基准利率类型参数'
+        },
+        name: 'irlIntBasis',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/tables/irlIntBasis.vue'],resolve)
+    },
+    {
+        path: '/irlIntMatrix',
+        meta: {
+            breadcrumb: true,
+            title: '利率税率阶梯参数'
+        },
+        name: 'irlIntMatrix',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/tables/irlIntMatrix.vue'],resolve)
+    },
+    {
+        path: '/irlIntRate',
+        meta: {
+            breadcrumb: true,
+            title: '利率税率信息参数'
+        },
+        name: 'irlIntRate',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/tables/irlIntRate.vue'],resolve)
+    },
+    {
+        path: '/irlIntType',
+        meta: {
+            breadcrumb: true,
+            title: '利率税率类型参数'
+        },
+        name: 'irlIntType',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/tables/irlIntType.vue'],resolve)
+    },
+    {
+        path: '/irlPeriSplit',
+        meta: {
+            breadcrumb: true,
+            title: '周期分段参数'
+        },
+        name: 'irlPeriSplit',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/tables/irlPeriSplit.vue'], resolve)
+    },
+    {
+        path: '/irlProdInt',
+        meta: {
+            breadcrumb: true,
+            title: '产品利率参数'
+        },
+        name: 'irlProdInt',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/tables/irlProdInt.vue'], resolve)
+    },
+    {
+        path: '/irlRuleMessage',
+        meta: {
+            breadcrumb: true,
+            title: '规则信息参数'
+        },
+        name: 'irlRuleMessage',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/tables/irlRuleMessage.vue'], resolve)
     }
 ];

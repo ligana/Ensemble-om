@@ -2,10 +2,10 @@
     <div class="pt-3 pl-1">
         <v-toolbar color="primary lighten-2" dark>
             <v-icon>widgets</v-icon>
-            <v-toolbar-title>基准利率信息表-[IRL_BASIS_RATE]</v-toolbar-title>
+            <v-toolbar-title>利率税率类型表-[IRL_INT_TYPE]</v-toolbar-title>
             <v-spacer></v-spacer>
 
-            <v-dialog v-model="dialog" width="1000px" persistent z-index="100">
+            <v-dialog v-model="dialog" width="1200px" persistent z-index="100">
                 <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
                     <v-toolbar-title>{{ formTitle }}</v-toolbar-title>
                 </v-toolbar>
@@ -14,10 +14,10 @@
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm6 md6>
-                                        <dc-text-field-table
-                                            v-model="editedItem.intBasis"
+                                    <dc-text-field-table
+                                            v-model="editedItem.intTaxType"
                                             :counter="10"
-                                            :isNotNull="headers[0].key"
+                                            :isNotNull="headers[0].isNull"
                                             :isKey= "headers[0].key"
                                             :lengths= "headers[0].lengths"
                                             :label= "headers[0].title"
@@ -26,34 +26,34 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-multiselect-table
-                                            :isKey="headers[4].key"
-                                            :childPd="childPd"
-                                            :isNotNull="headers[4].key"
-                                            :labelDesc="headers[4].title"
-                                            v-model="editedItem.company"
-                                            :options="headers[4].valueScore"
-                                            class="dcMulti"
-                                            :isMultiSelect=false
-                                    ></dc-multiselect-table>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <dc-multiselect-table
-                                            :isKey="headers[1].key"
-                                            :childPd="childPd"
-                                            :isNotNull="headers[1].key"
-                                            :labelDesc="headers[1].title"
-                                            v-model="editedItem.ccy"
-                                            :options="headers[1].valueScore"
-                                            class="dcMulti"
-                                            :isMultiSelect=false
-                                    ></dc-multiselect-table>
+                                    <dc-text-field-table
+                                            v-model="editedItem.prodGrp"
+                                            :counter="10"
+                                            :isNotNull="headers[2].isNull"
+                                            :isKey= "headers[2].key"
+                                            :lengths= "headers[2].lengths"
+                                            :label= "headers[2].title"
+                                            :labelDesc= "headers[2].title"
+                                            required
+                                    ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
-                                            v-model="editedItem.intBasisRate"
+                                            v-model="editedItem.intTaxTypeDesc"
                                             :counter="10"
-                                            :isNotNull="headers[3].key"
+                                            :isNotNull="headers[1].isNull"
+                                            :isKey= "headers[1].key"
+                                            :lengths= "headers[1].lengths"
+                                            :label= "headers[1].title"
+                                            :labelDesc= "headers[1].title"
+                                            required
+                                    ></dc-text-field-table>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
+                                    <dc-text-field-table
+                                            v-model="editedItem.rateLadder"
+                                            :counter="10"
+                                            :isNotNull="headers[3].isNull"
                                             :isKey= "headers[3].key"
                                             :lengths= "headers[3].lengths"
                                             :label= "headers[3].title"
@@ -62,10 +62,40 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-date class="dcDate"
-                                             :disablePower="disablePower" :labelDesc="headers[2].title" v-model="editedItem.effectDate"
-                                             :isNotNull="headers[2].key" :isKey= "headers[2].key"
-                                    ></dc-date>
+                                    <dc-text-field-table
+                                            v-model="editedItem.IntTaxFlag"
+                                            :counter="10"
+                                            :isNotNull="headers[5].isNull"
+                                            :isKey= "headers[5].key"
+                                            :lengths= "headers[5].lengths"
+                                            :label= "headers[5].title"
+                                            :labelDesc= "headers[5].title"
+                                            required
+                                    ></dc-text-field-table>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
+                                    <dc-multiselect-table
+                                            :isKey="headers[4].key"
+                                            :childPd="childPd"
+                                            :isNotNull="headers[4].isNull"
+                                            :labelDesc="headers[4].title"
+                                            v-model="editedItem.company"
+                                            :options="headers[4].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
+                                    <dc-text-field-table
+                                            v-model="editedItem.taxLadder"
+                                            :counter="10"
+                                            :isNotNull="headers[6].isNull"
+                                            :isKey= "headers[6].key"
+                                            :lengths= "headers[6].lengths"
+                                            :label= "headers[6].title"
+                                            :labelDesc= "headers[6].title"
+                                            required
+                                    ></dc-text-field-table>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -98,14 +128,11 @@
     </div>
 </template>
 <script>
-    import {getSysTable} from "@/api/url/prodInfo";
-    import { getPkListColumnRf } from "@/api/url/prodInfo";
-    import {getPkList} from '@/views/prodFactory/prodInfo/pkListColumnInfo'
     import {filterTableChangeData} from "@/server/filterTableChangeData";
+    import { getPkListColumnRf } from "@/api/url/prodInfo";
     import {saveTable} from "@/api/url/prodInfo";
     import toast from '@/utils/toast';
     import {getParamTable} from "@/api/url/prodInfo";
-    import {getAll} from "@/api/url/prodInfo";
     import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
     import DcDate from '@/components/widgets/DcDate'
     import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
@@ -121,19 +148,23 @@
             disabled: false,
             dialog: false,
             headers: [
-                { dataIndex: 'INT_BASIS',title: '基准利率类型代码',key: "true",lengths: "2"},
-                { dataIndex: 'CCY',title: '币种',key: "true",lengths: "3",valueScore: []},
-                { dataIndex: 'EFFECT_DATE',title: '生效日期',key: "true",lengths: "8"},
-                { dataIndex: 'INT_BASIS_RATE',title: '利率',lengths: "15"},
-                { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
+                { dataIndex: 'INT_TAX_TYPE',title: '利率税率类型',key: "true",lengths: "3",isNull: "true"},
+                { dataIndex: 'INT_TAX_TYPE_DESC',title: '利率税率类型描述',lengths: "50",isNull: "true"},
+                { dataIndex: 'PROD_GRP',title: '产品组',lengths: "20",isNull: "true"},
+                { dataIndex: 'RATE_LADDER',title: '利息计算模型',lengths: "1",isNull: "true"},
+                { dataIndex: 'COMPANY',title: '法人代码',lengths: "66",isNull: "false",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
+                { dataIndex: 'INT_TAX_FLAG',title: '利率类型税率类型标志',lengths: "3",isNull: "true"},
+                { dataIndex: 'TAX_LADDER',title: '税率计算模型',lengths: "1",isNull: "false"},
+
             ],
-            ccyType: {columnCode: "CCY", columnDesc: "CCY_DESC", tableName: "FM_CURRENCY"},
             dessert: {
-                INT_BASIS: '',
-                CCY: '',
-                EFFECT_DATE: '',
-                INT_BASIS_RATE: '',
-                COMPANY: '',
+                INT_TAX_TYPE: "",
+                INT_TAX_TYPE_DESC: "",
+                PROD_GRP: "",
+                RATE_LADDER: "",
+                COMPANY: "",
+                INT_TAX_FLAG: "",
+                TAX_LADDER: ""
             },
             desserts: [],
             menu: [],
@@ -149,18 +180,22 @@
             editedIndex: -1,
             title: "",
             editedItem: {
-                intBasis: '',
-                ccy: '',
-                effectDate: '',
-                intBasisRate: '',
-                company: '',
+                intTaxType: "",
+                intTaxTypeDesc: "",
+                prodGrp: "",
+                rateLadder: "",
+                company: "",
+                IntTaxFlag: "",
+                taxLadder: ""
             },
             defaultItem: {
-                intBasis: '',
-                ccy: '',
-                effectDate: '',
-                intBasisRate: '',
-                company: '',
+                intTaxType: "",
+                intTaxTypeDesc: "",
+                prodGrp: "",
+                rateLadder: "",
+                company: "",
+                IntTaxFlag: "",
+                taxLadder: ""
             },
             backValue: {},
             backValueRole: {},
@@ -172,14 +207,14 @@
 
         computed: {
             formTitle () {
-                return this.editedIndex === -1 ? '新增基准利率信息' : '修改基准利率信息'
+                return this.editedIndex === -1 ? '新增利率税率类型' : '修改利率税率类型'
             }
         },
-/*           watch: {
-            dialog (val) {
-                val || this.close()
-            }
-        },*/
+        /*           watch: {
+         dialog (val) {
+         val || this.close()
+         }
+         },*/
         mounted: function () {
             this.initTableInfo()
         },
@@ -194,22 +229,21 @@
                     that.desserts = response.data.data.columnInfo;
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 })
-                getPkListColumnRf(this.ccyType).then(function (response) {
-                    that.headers[1].valueScore = response.data.data
-                })
             },
 
             editItem () {
                 let obj = this.selected
-                if(this.selected.INT_BASIS == undefined){
+                if(this.selected.INT_TAX_TYPE == undefined){
                     this.sweetAlert('info',"请选择一条数据!")
                     return
                 }
-                this.editedItem.intBasis = obj.INT_BASIS
-                this.editedItem.ccy= obj.CCY
-                this.editedItem.effectDate = obj.EFFECT_DATE
-                this.editedItem.intBasisRate = ""+obj.INT_BASIS_RATE
+                this.editedItem.intTaxType = obj.INT_TAX_TYPE
+                this.editedItem.intTaxTypeDesc = obj.INT_TAX_TYPE_DESC
+                this.editedItem.prodGrp = obj.PROD_GRP
+                this.editedItem.rateLadder = obj.RATE_LADDER
+                this.editedItem.IntTaxFlag = obj.INT_TAX_FLAG
                 this.editedItem.company = obj.COMPANY
+                this.editedItem.taxLadder = obj.TAX_LADDER
                 this.dialog = true
                 this.disabled = "true"
                 this.addorchange = false
@@ -234,11 +268,13 @@
 
             save () {
                 const obj = this.dessert
-                obj.INT_BASIS = this.editedItem.intBasis
-                obj.CCY = this.editedItem.ccy
-                obj.EFFECT_DATE = this.editedItem.effectDate
-                obj.INT_BASIS_RATE = this.editedItem.intBasisRate
+                obj.INT_TAX_TYPE = this.editedItem.intTaxType
+                obj.INT_TAX_TYPE_DESC = this.editedItem.intTaxTypeDesc
+                obj.PROD_GRP = this.editedItem.prodGrp
+                obj.RATE_LADDER = this.editedItem.rateLadder
+                obj.INT_TAX_FLAG = this.editedItem.IntTaxFlag
                 obj.COMPANY = this.editedItem.company
+                obj.TAX_LADDER = this.editedItem.taxLadder
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}

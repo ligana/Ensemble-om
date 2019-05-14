@@ -2,7 +2,7 @@
     <div class="pt-3 pl-1">
         <v-toolbar color="primary lighten-2" dark>
             <v-icon>widgets</v-icon>
-            <v-toolbar-title>基准利率信息表-[IRL_BASIS_RATE]</v-toolbar-title>
+            <v-toolbar-title>利率税率信息表-[IRL_INT_RATE]</v-toolbar-title>
             <v-spacer></v-spacer>
 
             <v-dialog v-model="dialog" width="1000px" persistent z-index="100">
@@ -14,10 +14,10 @@
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm6 md6>
-                                        <dc-text-field-table
-                                            v-model="editedItem.intBasis"
+                                    <dc-text-field-table
+                                            v-model="editedItem.irlSeqNo"
                                             :counter="10"
-                                            :isNotNull="headers[0].key"
+                                            :isNotNull="headers[0].isNull"
                                             :isKey= "headers[0].key"
                                             :lengths= "headers[0].lengths"
                                             :label= "headers[0].title"
@@ -27,44 +27,74 @@
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-multiselect-table
-                                            :isKey="headers[4].key"
+                                            :isKey="headers[2].key"
                                             :childPd="childPd"
-                                            :isNotNull="headers[4].key"
-                                            :labelDesc="headers[4].title"
-                                            v-model="editedItem.company"
-                                            :options="headers[4].valueScore"
-                                            class="dcMulti"
-                                            :isMultiSelect=false
-                                    ></dc-multiselect-table>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <dc-multiselect-table
-                                            :isKey="headers[1].key"
-                                            :childPd="childPd"
-                                            :isNotNull="headers[1].key"
-                                            :labelDesc="headers[1].title"
+                                            :isNotNull="headers[2].isNull"
+                                            :labelDesc="headers[2].title"
                                             v-model="editedItem.ccy"
-                                            :options="headers[1].valueScore"
+                                            :options="headers[2].valueScore"
                                             class="dcMulti"
                                             :isMultiSelect=false
                                     ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
-                                            v-model="editedItem.intBasisRate"
+                                            v-model="editedItem.yearBasis"
                                             :counter="10"
-                                            :isNotNull="headers[3].key"
-                                            :isKey= "headers[3].key"
-                                            :lengths= "headers[3].lengths"
-                                            :label= "headers[3].title"
-                                            :labelDesc= "headers[3].title"
+                                            :isNotNull="headers[5].isNull"
+                                            :isKey= "headers[5].key"
+                                            :lengths= "headers[5].lengths"
+                                            :label= "headers[5].title"
+                                            :labelDesc= "headers[5].title"
                                             required
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
+                                    <dc-text-field-table
+                                            v-model="editedItem.intType"
+                                            :counter="10"
+                                            :isNotNull="headers[1].isNull"
+                                            :isKey= "headers[1].key"
+                                            :lengths= "headers[1].lengths"
+                                            :label= "headers[1].title"
+                                            :labelDesc= "headers[1].title"
+                                            required
+                                    ></dc-text-field-table>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
+                                    <dc-text-field-table
+                                            v-model="editedItem.branch"
+                                            :counter="10"
+                                            :isNotNull="headers[6].isNull"
+                                            :isKey= "headers[6].key"
+                                            :lengths= "headers[6].lengths"
+                                            :label= "headers[6].title"
+                                            :labelDesc= "headers[6].title"
+                                            required
+                                    ></dc-text-field-table>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
+                                    <dc-multiselect-table
+                                            :isKey="headers[8].key"
+                                            :childPd="childPd"
+                                            :isNotNull="headers[8].isNull"
+                                            :labelDesc="headers[8].title"
+                                            v-model="editedItem.company"
+                                            :options="headers[8].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
                                     <dc-date class="dcDate"
-                                             :disablePower="disablePower" :labelDesc="headers[2].title" v-model="editedItem.effectDate"
-                                             :isNotNull="headers[2].key" :isKey= "headers[2].key"
+                                             :disablePower="disablePower" :labelDesc="headers[3].title" v-model="editedItem.effectDate"
+                                             :isNotNull="headers[3].isNull" :isKey= "headers[3].key"
+                                    ></dc-date>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
+                                    <dc-date class="dcDate"
+                                             :disablePower="disablePower" :labelDesc="headers[4].title" v-model="editedItem.endDate"
+                                             :isNotNull="headers[4].key" :isKey= "headers[4].key"
                                     ></dc-date>
                                 </v-flex>
                             </v-layout>
@@ -98,14 +128,11 @@
     </div>
 </template>
 <script>
-    import {getSysTable} from "@/api/url/prodInfo";
-    import { getPkListColumnRf } from "@/api/url/prodInfo";
-    import {getPkList} from '@/views/prodFactory/prodInfo/pkListColumnInfo'
     import {filterTableChangeData} from "@/server/filterTableChangeData";
+    import { getPkListColumnRf } from "@/api/url/prodInfo";
     import {saveTable} from "@/api/url/prodInfo";
     import toast from '@/utils/toast';
     import {getParamTable} from "@/api/url/prodInfo";
-    import {getAll} from "@/api/url/prodInfo";
     import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
     import DcDate from '@/components/widgets/DcDate'
     import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
@@ -121,19 +148,27 @@
             disabled: false,
             dialog: false,
             headers: [
-                { dataIndex: 'INT_BASIS',title: '基准利率类型代码',key: "true",lengths: "2"},
-                { dataIndex: 'CCY',title: '币种',key: "true",lengths: "3",valueScore: []},
-                { dataIndex: 'EFFECT_DATE',title: '生效日期',key: "true",lengths: "8"},
-                { dataIndex: 'INT_BASIS_RATE',title: '利率',lengths: "15"},
-                { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
+                { dataIndex: 'IRL_SEQ_NO',title: '序号',key: "true",lengths: "50",isNull: "true"},
+                { dataIndex: 'INT_TYPE',title: '利率类型',key: "true",lengths: "3",isNull: "true"},
+                { dataIndex: 'CCY',title: '币种',lengths: "3",isNull: "true",valueScore: []},
+                { dataIndex: 'EFFECT_DATE',title: '生效日期',lengths: "8",isNull: "true"},
+                { dataIndex: 'END_DATE',title: '失效日期',lengths: "8",isNull: "false"},
+                { dataIndex: 'YEAR_BASIS',title: '年基准天数',lengths: "3",isNull: "true"},
+                { dataIndex: 'BRANCH',title: '机构代码',lengths: "20",isNull: "true"},
+                { dataIndex: 'LAST_CHG_RUN_DATE',title: '最后修改日期',lengths: "8",isNull: "false"},
+                { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",isNull: "false",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
             ],
             ccyType: {columnCode: "CCY", columnDesc: "CCY_DESC", tableName: "FM_CURRENCY"},
             dessert: {
-                INT_BASIS: '',
-                CCY: '',
-                EFFECT_DATE: '',
-                INT_BASIS_RATE: '',
-                COMPANY: '',
+                IRL_SEQ_NO: "",
+                INT_TYPE: "",
+                CCY: "",
+                EFFECT_DATE: "",
+                END_DATE: "",
+                YEAR_BASIS: "",
+                BRANCH: "",
+                LAST_CHG_RUN_DATE: "",
+                COMPANY: "",
             },
             desserts: [],
             menu: [],
@@ -149,18 +184,26 @@
             editedIndex: -1,
             title: "",
             editedItem: {
-                intBasis: '',
-                ccy: '',
-                effectDate: '',
-                intBasisRate: '',
-                company: '',
+                irlSeqNo: "",
+                intType: "",
+                ccy: "",
+                effectDate: "",
+                endDate: "",
+                yearBasis: "",
+                branch: "",
+                lastChgRunDate: "",
+                company: "",
             },
             defaultItem: {
-                intBasis: '',
-                ccy: '',
-                effectDate: '',
-                intBasisRate: '',
-                company: '',
+                irlSeqNo: "",
+                intType: "",
+                ccy: "",
+                effectDate: "",
+                endDate: "",
+                yearBasis: "",
+                branch: "",
+                lastChgRunDate: "",
+                company: "",
             },
             backValue: {},
             backValueRole: {},
@@ -172,14 +215,14 @@
 
         computed: {
             formTitle () {
-                return this.editedIndex === -1 ? '新增基准利率信息' : '修改基准利率信息'
+                return this.editedIndex === -1 ? '新增利率税率信息' : '修改利率税率信息'
             }
         },
-/*           watch: {
-            dialog (val) {
-                val || this.close()
-            }
-        },*/
+        /*           watch: {
+         dialog (val) {
+         val || this.close()
+         }
+         },*/
         mounted: function () {
             this.initTableInfo()
         },
@@ -195,20 +238,23 @@
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 })
                 getPkListColumnRf(this.ccyType).then(function (response) {
-                    that.headers[1].valueScore = response.data.data
+                    that.headers[2].valueScore = response.data.data
                 })
             },
 
             editItem () {
                 let obj = this.selected
-                if(this.selected.INT_BASIS == undefined){
+                if(this.selected.IRL_SEQ_NO == undefined){
                     this.sweetAlert('info',"请选择一条数据!")
                     return
                 }
-                this.editedItem.intBasis = obj.INT_BASIS
-                this.editedItem.ccy= obj.CCY
+                this.editedItem.irlSeqNo = obj.IRL_SEQ_NO
+                this.editedItem.intType = obj.INT_TYPE
+                this.editedItem.ccy = obj.CCY
                 this.editedItem.effectDate = obj.EFFECT_DATE
-                this.editedItem.intBasisRate = ""+obj.INT_BASIS_RATE
+                this.editedItem.endDate = obj.END_DATE
+                this.editedItem.yearBasis = obj.YEAR_BASIS
+                this.editedItem.branch = obj.BRANCH
                 this.editedItem.company = obj.COMPANY
                 this.dialog = true
                 this.disabled = "true"
@@ -235,10 +281,21 @@
             save () {
                 const obj = this.dessert
                 obj.INT_BASIS = this.editedItem.intBasis
+                obj.INT_BASIS_DESC = this.editedItem.intBasisDesc
+                obj.ROUTER_KEY = this.editedItem.routerKey
+                obj.COMPANY = this.editedItem.company
+                obj.IRL_SEQ_NO = this.editedItem.irlSeqNo
+                obj.INT_TYPE = this.editedItem.intType
                 obj.CCY = this.editedItem.ccy
                 obj.EFFECT_DATE = this.editedItem.effectDate
-                obj.INT_BASIS_RATE = this.editedItem.intBasisRate
+                obj.END_DATE = this.editedItem.endDate
+                obj.YEAR_BASIS = this.editedItem.yearBasis
+                obj.BRANCH = this.editedItem.branch
                 obj.COMPANY = this.editedItem.company
+                var date = new Date();
+                var month = (""+(date.getMonth()+1)).length == 1? "0"+(date.getMonth()+1):""+(date.getMonth()+1)
+                var day = (""+date.getDate()).length == 1? "0"+(date.getDate()):""+(date.getDate())
+                obj.LAST_CHG_RUN_DATE = date.getFullYear()+""+month+""+day
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
