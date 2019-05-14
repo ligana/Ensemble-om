@@ -22,19 +22,19 @@
                                     <v-text-field v-model="editedItem.menuSeqNo" label="菜单序号" disabled></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="editedItem.menuId" label="菜单ID"></v-text-field>
+                                    <v-select v-model="editedItem.menuParentId" @change="getMenu" label="父级菜单" :items="parent" item-text="value" item-value="key"></v-select>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
+                                    <v-text-field v-model="editedItem.menuId" label="菜单ID" :items="menu" item-text="value" item-value="key"></v-text-field>
+                                </v-flex>
+                                <v-flex xs12 sm6 md6>
+                                    <v-text-field v-model="editedItem.menuLevel" label="菜单等级"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <v-text-field v-model="editedItem.menuParams" label="菜单参数"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <v-text-field v-model="editedItem.menuTitle" label="菜单名称"></v-text-field>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <v-select v-model="editedItem.menuParentId" label="父级菜单" :items="parent" item-text="value" item-value="key"></v-select>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="editedItem.menuLevel" label="菜单等级"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <v-text-field v-model="editedItem.menuStatus" label="状态"></v-text-field>
@@ -59,11 +59,11 @@
         <v-data-table :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" :headers="headers" :items="desserts" class="elevation-1">
             <template slot="items" slot-scope="props">
                 <td>{{ props.item.menuSeqNo }}</td>
+                <td>{{ props.item.menuParentId }}</td>
                 <td>{{ props.item.menuId }}</td>
+                <td>{{ props.item.menuLevel }}</td>
                 <td>{{ props.item.menuParams }}</td>
                 <td>{{ props.item.menuTitle }}</td>
-                <td>{{ props.item.menuParentId }}</td>
-                <td>{{ props.item.menuLevel }}</td>
                 <td>{{ props.item.menuStatus }}</td>
                 <td>{{ props.item.menuIcon }}</td>
                 <td>{{ props.item.menuComponent }}</td>
@@ -101,11 +101,11 @@
             disabled: "false",
             headers: [
                 {text: '菜单序号',sortable: false},
+                { text: '父级菜单',sortable: false },
                 {text: '菜单ID',sortable: false,size: "medium"},
+                { text: '菜单等级',sortable: false },
                 { text: '菜单参数',sortable: false},
                 { text: '菜单名称',sortable: false},
-                { text: '父级菜单',sortable: false },
-                { text: '菜单等级',sortable: false },
                 { text: '状态',sortable: false },
                 { text: '菜单标识',sortable: false},
                 { text: '菜单URL',sortable: false },
@@ -125,22 +125,22 @@
             title: "",
             editedItem: {
                 menuSeqNo: '',
+                menuParentId: '',
                 menuId: '',
+                menuLevel: '',
                 menuParams: '',
                 menuTitle: '',
-                menuParentId: '',
-                menuLevel: '',
                 menuStatus: '',
                 menuIcon: '',
                 menuComponent: ''
             },
             defaultItem: {
                 menuSeqNo: '',
+                menuParentId: '',
                 menuId: '',
+                menuLevel: '',
                 menuParams: '',
                 menuTitle: '',
-                menuParentId: '',
-                menuLevel: '',
                 menuStatus: '',
                 menuIcon: '',
                 menuComponent: ''
@@ -164,7 +164,47 @@
             this.initialize();
             this.initMenuSeqNo();
         },
+
         methods: {
+
+            getMenu(val){
+                console.log(val);
+                let menus = this.menuInfo
+                let parId = val;
+                let menuSonId = [];
+                for(let index in menus){
+                    if(parId == menus[index].menuParentId){
+                        menuSonId[menuSonId.length] = menus[index].menuId;
+                    }
+                }
+                //找出最大menuId+1
+                let maxId = 0;
+                let tagMenuId ="";
+                if(menuSonId.length == 0){
+                    tagMenuId = parseInt(val+"0");
+                }else{
+                    maxId = parseInt(menuSonId[0]);
+                    for(let i=1; i<menuSonId.length; i++){
+                        if(parseInt(maxId)<parseInt(menuSonId[i])){
+                            maxId = parseInt(menuSonId[i]);
+                        }
+                    }
+                    tagMenuId = (maxId+1).toString();
+                }
+                this.editedItem.menuId = tagMenuId;
+                //获取新增菜单等级
+                let patMenuLevel = 0;
+
+                for (let flag in menus){
+                    if (val == menus[flag].menuId){
+                        patMenuLevel = parseInt(menus[flag].menuLevel);
+                        break;
+                    }
+                }
+                let newMenuLevel = (patMenuLevel+1).toString();
+                this.editedItem.menuLevel = newMenuLevel;
+
+            },
             initialize () {
                 let that = this
                 let userId = sessionStorage.getItem("userId")
@@ -173,12 +213,12 @@
                     that.desserts = response.data.data.columnInfo;
                     //初始化 新增时候  父级菜单信息
                     for(let i=0; i<that.desserts.length; i++){
-                        if(that.desserts[i].menuLevel === userLevel){
+                        //if(that.desserts[i].menuLevel === userLevel){
                             let temp={}
                             temp["key"] = that.desserts[i].menuId
                             temp["value"] = that.desserts[i].menuTitle
                             that.parent.push(temp)
-                        }
+                      //  }
                     }
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 });
