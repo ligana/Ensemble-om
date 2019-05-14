@@ -108,6 +108,9 @@
         getProdType
     } from '@/api/url/prodInfo'
     import {
+        getAllProdList
+    } from '@/api/url/prodInfo'
+    import {
         getAttrInfo
     } from '@/api/url/prodInfo'
     import {
@@ -184,6 +187,7 @@
                 prodClass: '',
                 activeName: null,
                 eventList: {},
+                demo: {},
                 showEdit: false,
                 attrColumnInfo: [],
                 baseAttr: true,
@@ -518,16 +522,20 @@
             },
             //产品菜单列表监听
             listenToProdList(value) {
-                this.prodCode = value.prodType
                 this.getCollectInfo();
                 this.prodData = {}
-                getProdDataAsync(this.prodCode).then(response => {
-                    this.prodData = response.data.data
-                    this.prodDesc = response.data.data.prodType.prodDesc;
-                    this.sourceModule = response.data.data.prodType.sourceModule;
-                    this.sourceProdData = this.copy(this.prodData,this.sourceProdData)
-                    this.initEventAttr(this.prodData)
-                });
+                        const response = getProdData(value.prodType);
+                        let newProdRange = response.prodType.prodRange;
+                        if("B"==newProdRange) {
+
+                            getProdDataAsync(this.prodCode).then(response => {
+                                this.prodData = response.data.data
+                                this.prodDesc = response.data.data.prodType.prodDesc;
+                                this.sourceModule = response.data.data.prodType.sourceModule;
+                                this.sourceProdData = this.copy(this.prodData, this.sourceProdData)
+                                this.initEventAttr(this.prodData)
+                            });
+                        }
             },
             //对象浅复制
             copy(obj1,obj2) {
