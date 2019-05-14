@@ -7,15 +7,6 @@
         </v-toolbar>
         <v-list two-line subheader :class="depositTree" v-show="searchValue">
           <v-list-tile class="chat-list prodList" avatar v-for="item of list" :key="item.title" @click="handleClick(item)">
-            <!--<div v-show="isRB == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-              <!--<img src="../../../../../static/prod/prodCun.png" height=100% >-->
-            <!--</div>-->
-            <!--<div v-show="isCL == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-              <!--<img src="../../../../../static/prod/prodDai.png" height=100% >-->
-            <!--</div>-->
-            <!--<div v-show="isGL == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-              <!--<img src="../../../../../static/prod/prodNei.png" height=100% >-->
-            <!--</div>-->
             <v-list-tile-avatar>
               <v-icon :class="['amber white--text']">{{ 'call_to_action'}}</v-icon>
             </v-list-tile-avatar>
@@ -28,15 +19,6 @@
         <vue-perfect-scrollbar >
           <v-list two-line subheader :class="depositTree" v-show="!searchValue">
             <v-list-tile class="chat-list prodList" avatar v-for="(item, index ) in folders" :key="item.title" @click="handleClick(item)">
-              <!--<div v-show="isRB == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-                <!--<img src="../../../../../static/prod/prodCun.png" height=100% >-->
-              <!--</div>-->
-              <!--<div v-show="isCL == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-                <!--<img src="../../../../../static/prod/prodDai.png" height=100% >-->
-              <!--</div>-->
-              <!--<div v-show="isGL == true" style="width: 20%;height: 60%;padding-left: -20%">-->
-                <!--<img src="../../../../../static/prod/prodNei.png" height=100% >-->
-              <!--</div>-->
               <v-list-tile-avatar>
                 <v-icon :class="['amber white--text']">{{ 'call_to_action'}}</v-icon>
               </v-list-tile-avatar>
@@ -63,10 +45,6 @@
 
         props: ["prodType","prodRange"],
         data: () => ({
-            isRB: false,
-            isCL: false,
-            isGL: false,
-            isMM: false,
             folders: [],
             list: [],
             prodType: '',
@@ -114,16 +92,10 @@
                             if(response.data.data[j].baseProdType == val){
                                 that.folders.push(response.data.data[j])
                             }
+                            if(response.data.data[j].prodType == val){
+                                that.folders.push(response.data.data[j])
+                            }
                         }
-                    }
-                    if(that.folders[0].sourceModule == "RB"){
-                        that.isRB = true
-                    }
-                    if(that.folders[0].sourceModule == "CL"){
-                        that.isCL = true
-                    }
-                    if(that.folders[0].sourceModule == "GL"){
-                        that.isGL = true
                     }
                 });
             },
