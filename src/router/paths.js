@@ -1306,5 +1306,17 @@ export default [
             /* webpackChunkName: "routes" */
             /* webpackMode: "lazy-once" */
             require(['@/views/baseTable/paramManage.vue'],resolve)
+    },    
+    {
+        path: '/irlBasisRate',
+        meta: {
+            breadcrumb: true,
+            title: '基准利率信息参数'
+        },
+        name: 'irlBasisRate',
+        component: (resolve) =>
+            /* webpackChunkName: "routes" */
+            /* webpackMode: "lazy-once" */
+            require(['@/views/paramManage/tables/irlBasisRate.vue'],resolve)
     }
 ];
