@@ -287,12 +287,11 @@
                 let prodCode = this._props.prodTypeCode;
 
                 for (let newIndex in child) {
-                    let assembleId = partId + '-' + child[newIndex].key+"-"+tag+"_"+prodCode;
+                    let assembleId = partId + '-' + child[newIndex].key+"-"+tag+"_";
                     for (let index in this._props.prodDefines) {
-                        if(index == assembleId){
+                        if(index.indexOf(assembleId) != -1){
                             this._props.prodDefines[index].attrValue = child[newIndex].attrValue;
                             this._props.prodDefines[index].optionPermissions = val.optPerm;
-
                         }
                     }
                 }
