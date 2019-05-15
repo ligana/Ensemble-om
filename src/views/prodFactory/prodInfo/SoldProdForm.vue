@@ -604,8 +604,8 @@
                     //新增指标  数据处理  通过partId获取指标下参数，装载数据到prodData(标注：增加一个指标，prodData至少增加两条参数信息)
                     if(columnRange == "PART"){
                         //指标存在性检查
-                        for(let attrIndex in this.prodData.mbProdDefine){
-                            if(this.prodData.mbProdDefine[attrIndex].assembleType == 'PART' && this.prodData.mbProdDefine[attrIndex].assembleId.split('-')[0] == columnKey){
+                        for(let attrIndex in this.prodData.prodDefines){
+                            if(this.prodData.prodDefines[attrIndex].assembleType == 'PART' && attrIndex.indexOf(addColumnPageCode) != -1 && attrIndex.indexOf(columnKey)!= -1){
                                 //指标信息已经存在
                                 showFlag = 1;
                                 findInPart = true;
@@ -619,7 +619,7 @@
                             let partAttrs = response.partAttrList;
                             let pageCodeP = 0;
                             for (let newPartIndex in partAttrs) {
-                                let assembleId = columnKey + '-' + partAttrs[newPartIndex].attrKey;
+                                let assembleId = columnKey + '-' + partAttrs[newPartIndex].attrKey+'-'+eventId;
                                 addColumnData.prodDefines[assembleId] = {};
                                 addColumnData.prodDefines[assembleId].prodType = this.prodCode;
                                 addColumnData.prodDefines[assembleId].eventType = eventId;
@@ -640,25 +640,27 @@
                         //新增参数 数据处理  正常操作逻辑处理
                         let addColumnPageSeqNo = this.getDefinedMaxSeqNo(this.prodData,addColumnPageCode)+i+1;
                         //判断新增参数是否存在
-                        if (this.prodData.prodDefines[columnKey] !== undefined) {
+                        let attrs = columnKey+'-'+eventId;
+
+                        if (this.prodData.prodDefines[attrs] !== undefined) {
                             //已经存在该条数据
                             showFlag = 1;
                             findInAttr = true;
                             this.sweetAlert('info',"产品已存在参数" + columnKey + "【" + columnDesc + "】")
                         }
                         if(!findInAttr){
-                            addColumnData.prodDefines[columnKey] = {}
-                            addColumnData.prodDefines[columnKey].prodType = this.prodCode;
-                            addColumnData.prodDefines[columnKey].eventType = eventId;
-                            addColumnData.prodDefines[columnKey].assembleType = "ATTR";
-                            addColumnData.prodDefines[columnKey].assembleId = columnKey;
-                            addColumnData.prodDefines[columnKey].attrKey = columnKey;
-                            addColumnData.prodDefines[columnKey].attrValue = "";
-                            addColumnData.prodDefines[columnKey].status = "A";
-                            addColumnData.prodDefines[columnKey].pageCode = addColumnPageCode;
-                            addColumnData.prodDefines[columnKey].pageSeqNo = addColumnPageSeqNo;
-                            addColumnData.prodDefines[columnKey].optionPermissions = "E";
-                            addColumnData.prodDefines[columnKey].newAttr = true;
+                            addColumnData.prodDefines[attrs] = {}
+                            addColumnData.prodDefines[attrs].prodType = this.prodCode;
+                            addColumnData.prodDefines[attrs].eventType = eventId;
+                            addColumnData.prodDefines[attrs].assembleType = "ATTR";
+                            addColumnData.prodDefines[attrs].assembleId = columnKey;
+                            addColumnData.prodDefines[attrs].attrKey = columnKey;
+                            addColumnData.prodDefines[attrs].attrValue = "";
+                            addColumnData.prodDefines[attrs].status = "A";
+                            addColumnData.prodDefines[attrs].pageCode = addColumnPageCode;
+                            addColumnData.prodDefines[attrs].pageSeqNo = addColumnPageSeqNo;
+                            addColumnData.prodDefines[attrs].optionPermissions = "E";
+                            addColumnData.prodDefines[attrs].newAttr = true;
                         }
                     }
                 }

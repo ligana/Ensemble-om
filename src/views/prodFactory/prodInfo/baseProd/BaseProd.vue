@@ -165,7 +165,7 @@
                     }
                     if (flag && newDef[keyNew].assembleType == 'ATTR') {
                         const dataSource = this.copy(this._props.attrColumnInfo, {});
-                        let column = dataSource[keyNew];
+                        let column = dataSource[keyNew.split("-")[0]];
                         if (column != undefined && column != 'undefined' && this._props.tags == newDef[keyNew].pageCode) {
                             column['key'] = keyNew
                             column['pageSeqNo'] = newDef[keyNew].pageSeqNo
