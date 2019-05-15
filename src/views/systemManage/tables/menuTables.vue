@@ -25,10 +25,10 @@
                                     <v-select v-model="editedItem.menuParentId" @change="getMenu" label="父级菜单" :items="parent" item-text="value" item-value="key"></v-select>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="editedItem.menuId" label="菜单ID" :items="menu" item-text="value" item-value="key"></v-text-field>
+                                    <v-text-field v-model="editedItem.menuId" label="菜单ID" disabled></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <v-text-field v-model="editedItem.menuLevel" label="菜单等级"></v-text-field>
+                                    <v-text-field v-model="editedItem.menuLevel" label="菜单等级" disabled></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <v-text-field v-model="editedItem.menuParams" label="菜单参数"></v-text-field>
@@ -88,7 +88,6 @@
 <script>
     import {getSysTable} from "@/api/url/prodInfo";
     import {getSysInfoByUser} from "@/api/url/prodInfo";
-
     import {getPkList} from '@/views/prodFactory/prodInfo/pkListColumnInfo'
     import {filterTableChangeData} from "@/server/filterTableChangeData";
     import {saveSysTable} from "@/api/url/prodInfo";

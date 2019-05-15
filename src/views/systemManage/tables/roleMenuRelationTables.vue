@@ -16,10 +16,10 @@
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm12 md12>
-                                    <v-select v-model="editedItem.roleId" label="角色ID" :items="roleRef" item-text="value" item-value="key"></v-select>
+                                    <v-select v-model="editedItem.roleId" label="角色ID" :items="roleInfo" item-text="value" item-value="key" ></v-select>
                                 </v-flex>
                                 <v-flex xs12 sm12 md12 >
-                                    <v-select v-model="editedItem.menuId" label="菜单ID" :items="muneRef" item-text="value" item-value="key"></v-select>
+                                    <v-select v-model="editedItem.menuId" label="菜单ID" :items="muneInfo" item-text="value" item-value="key"></v-select>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -68,6 +68,9 @@
             ],
             muneRef: [{key: "",value: ""}],
             roleRef: [{key: "",value: ""}],
+            roleInfo: [],
+            muneInfo: [],
+            columnInfo: [],
             desserts: [],
             sourceData: [],
             keySet: [
@@ -118,8 +121,31 @@
                 //获取角色信息
                 getSysInfoByUser(userId).then(function (response) {
                     that.desserts = response.data.data.menuRoleInfo;
+                    let menu = response.data.data.columnInfo;
+                    let role = response.data.data.roleInfo;
+                    for (let index in menu){
+                        let info = {}
+                        info['key'] = menu[index].menuId;
+                        info['value'] = menu[index].menuId;
+                        that.muneInfo.push(info)
+
+                    }
+                    for(let j=0; j<role.length; j++){
+                        let info = {}
+                        info['key'] = role[j].roleId;
+                        info['value'] = role[j].roleId;
+                        that.roleInfo.push(info)
+                    }
+
+
+                    /*for(let i=0; i<menu.length; i++){
+
+                    }*/
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 });
+            },
+            addClick() {
+                this.disabled = "false"
             },
             initRf() {
                 //装载菜单列表
