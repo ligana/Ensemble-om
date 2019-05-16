@@ -14,7 +14,6 @@
                     hide-details
                     style="margin-left: 40%;margin-top: -2%"
             ></v-text-field>
-
             <v-dialog v-model="dialog" max-width="500px" persistent>
                 <v-btn outline fab small color="primary lighten-2" slot="activator" @click="addClick" class="mt-2">
                     <v-icon small>add</v-icon>

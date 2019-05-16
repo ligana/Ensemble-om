@@ -175,6 +175,7 @@
                 this.changeNum()
                 this.trueOrFalse = true
             },
+
             numberAmount(num){
                 if(this.isNumber == "DOUBLE"){
                     num = num.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符
@@ -212,6 +213,9 @@
                 }else{
                     reValue = value
                 }
+                if(this._props.isNumber == "DOUBLE"){
+                    reValue = parseFloat(reValue);
+                }
                 if(reValue != undefined){
                     this.$emit("getVue", reValue);
                 }
@@ -237,6 +241,7 @@
                 }
             },
             init(msg) {
+
                 if(typeof this._props.labelDesc !== "undefined") {
                     this.labelText = this._props.labelDesc + ' :';
                 }
@@ -246,6 +251,9 @@
                     this.optionPermissions = this._props.msg.optionPermissions
                 }else if(typeof this._props.msg === "string" || typeof this._props.msg === "undefined" || this._props.msg === null){
                     this.value = this._props.msg
+                }
+                if(this._props.isNumber == "DOUBLE"){
+                    this.value = this._props.msg.toString();
                 }
                 //判断是否显示分户生效标识
                 if(this._props.perShow !== undefined && this._props.perShow === true){

@@ -25,6 +25,7 @@
                                     :isNotNull="keyData.isNull"
                                     :label="keyData.columnDesc"
                                     :labelDesc="keyData.columnDesc"
+                                    :isNumber="keyData.attrType"
                                     required
                                     v-on:changeNum="changeNumChild"
                             ></dc-text-field-table>
@@ -39,6 +40,7 @@
                                     :isNotNull="keyData.isNull"
                                     :label="keyData.columnDesc"
                                     :labelDesc="keyData.columnDesc"
+                                    :isNumber="keyData.attrType"
                                     required
                                     v-on:changeNum="changeNumChild"
                             ></dc-text-field-table>
@@ -115,7 +117,7 @@
         },
         methods: {
             changeNumChild(num) {
-                this.num = num
+              this.num = num;
             },
             changeNumFather(){
                 this.$emit('changeNum',this.num,this.editSelected)
@@ -135,8 +137,9 @@
                         }
                         let column = this.getAttr(key);
                         if (column != undefined && column != 'undefined'){
-                            column['value']=value
+                            column['value']=value;
                             column['key']=columns[index].key
+                            column['attrType']=this.attr[key].attrType;
                             column['isNull']=columns[index].isNull
                             column['lengths']=columns[index].lengths
                             column['dataIndex']=columns[index].dataIndex

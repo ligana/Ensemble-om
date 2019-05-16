@@ -424,20 +424,22 @@
                 let keyCoName = []
                 let num = 0
                 for(let j=0; j<this.dataInfo.length; j++){
-                    if(editSelected[this.key[0].code].value == this.dataInfo[j][this.key[0].code]){
-                        if(num == this.key.length){
-                            break
-                        }
-                        num++
-                        keyCoName.push(this.key[0].title)
-                        for(let n=1; n<this.key.length; n++){
-                            if(editSelected[this.key[n].code].value == this.dataInfo[j][this.key[n].code]){
-                                num++
-                                keyCoName.push(this.key[n].title)
-                            }else{
-                                num=0
-                                keyCoName = []
+                    if(this.key.length != 0) {
+                        if (editSelected[this.key[0].code].value == this.dataInfo[j][this.key[0].code]) {
+                            if (num == this.key.length) {
                                 break
+                            }
+                            num++
+                            keyCoName.push(this.key[0].title)
+                            for (let n = 1; n < this.key.length; n++) {
+                                if (editSelected[this.key[n].code].value == this.dataInfo[j][this.key[n].code]) {
+                                    num++
+                                    keyCoName.push(this.key[n].title)
+                                } else {
+                                    num = 0
+                                    keyCoName = []
+                                    break
+                                }
                             }
                         }
                     }
@@ -472,20 +474,22 @@
                     }
                 }
                 for(let j=0; j<this.dataInfo.length; j++){
-                    if(editSelected[this.key[0].code].value == this.dataInfo[j][this.key[0].code]){
-                        if(num == this.key.length){
-                            break
-                        }
-                        num++
-                        keyCoName.push(this.key[0].title)
-                        for(let n=1; n<this.key.length; n++){
-                            if(editSelected[this.key[n].code].value == this.dataInfo[j][this.key[n].code]){
-                                num++
-                                keyCoName.push(this.key[n].title)
-                            }else{
-                                num=0
-                                keyCoName = []
+                    if(this.key.length != 0) {
+                        if (editSelected[this.key[0].code].value == this.dataInfo[j][this.key[0].code]) {
+                            if (num == this.key.length) {
                                 break
+                            }
+                            num++
+                            keyCoName.push(this.key[0].title)
+                            for (let n = 1; n < this.key.length; n++) {
+                                if (editSelected[this.key[n].code].value == this.dataInfo[j][this.key[n].code]) {
+                                    num++
+                                    keyCoName.push(this.key[n].title)
+                                } else {
+                                    num = 0
+                                    keyCoName = []
+                                    break
+                                }
                             }
                         }
                     }
@@ -504,7 +508,7 @@
                 if(keyIsNull == true){
                     this.sweetAlert('error',"带*号的字段不能为空!")
                     return false
-                }else if(num == this.key.length){
+                }else if(num == this.key.length && this.key.length!=0){
                     this.sweetAlert('error',keyCoName+"不能重复!")
                     return false
                 }else{
@@ -520,7 +524,7 @@
                     if (this.addorchange == true) {
                         for (const key in editSelected) {
                             if (editSelected[key] !== undefined) {
-                                selected[key] = editSelected[key].value
+                                selected[key] = editSelected[key].value;
                             }
                         }
                         for(let n=0; n<this.unSeeValue.length; n++){

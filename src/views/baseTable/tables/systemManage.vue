@@ -1,8 +1,12 @@
 <template>
     <div class="pt-3 pl-1">
-        <v-toolbar color="primary lighten-2" dark>
-            <v-toolbar-title>系统管理</v-toolbar-title>
-            <v-spacer></v-spacer>
+        <!--<v-toolbar color="primary lighten-2" dark>-->
+
+        <v-card>
+            <v-card-title style="height: 50px">
+                <h4 style="margin-top: -1%">系统管理</h4>
+
+
             <v-text-field
                     clearable
                     v-model="search"
@@ -10,10 +14,11 @@
                     label="Search"
                     single-line
                     hide-details
+                    style="margin-left: 40%;margin-top: -2%"
             ></v-text-field>
             <v-dialog v-model="dialog" max-width="500px">
-                <v-btn slot="activator" flat color="primary lighten-2" @click="addClick">
-                    <td style="color: white">添加</td>
+                <v-btn outline fab small color="primary lighten-2" slot="activator" @click="addClick" class="mt-2">
+                    <v-icon small>add</v-icon>
                 </v-btn>
                 <v-toolbar color="primary lighten-2" dark scroll-off-screen scroll-target="#scrolling-techniques" flat>
                     <v-toolbar-title>{{ formTitle }}</v-toolbar-title>
@@ -44,7 +49,9 @@
                     </v-card-actions>
                 </v-card>
             </v-dialog>
-        </v-toolbar>
+            </v-card-title>
+        </v-card>
+      <!--  </v-toolbar>-->
         <v-data-table :rows-per-page-items="[10,25,50,{text:'All','value':-1}]" :headers="headers" :items="desserts" :search="search" class="elevation-1">
             <template slot="items" slot-scope="props">
                 <td>{{ props.item.systemId }}</td>
