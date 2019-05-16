@@ -22,6 +22,7 @@
                                             :lengths= "headers[0].lengths"
                                             :label= "headers[0].title"
                                             :labelDesc= "headers[0].title"
+                                            :disabled="disabled"
                                             required
                                     ></dc-text-field-table>
                                 </v-flex>
@@ -50,16 +51,16 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.periodFreq"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[3].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[3].isNull"
-                                            :isKey= "headers[3].key"
-                                            :lengths= "headers[3].lengths"
-                                            :label= "headers[3].title"
-                                            :labelDesc= "headers[3].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[3].title"
+                                            v-model="editedItem.periodFreq"
+                                            :options="headers[3].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -74,16 +75,16 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intBasis"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[5].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[5].isNull"
-                                            :isKey= "headers[5].key"
-                                            :lengths= "headers[5].lengths"
-                                            :label= "headers[5].title"
-                                            :labelDesc= "headers[5].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[5].title"
+                                            v-model="editedItem.intBasis"
+                                            :options="headers[5].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -158,40 +159,40 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.subIntType"
-                                            :counter="12"
+                                    <dc-multiselect-table
+                                            :isKey="headers[12].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[12].isNull"
-                                            :isKey= "headers[12].key"
-                                            :lengths= "headers[12].lengths"
-                                            :label= "headers[12].title"
-                                            :labelDesc= "headers[12].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[12].title"
+                                            v-model="editedItem.subIntType"
+                                            :options="headers[12].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.isOver"
-                                            :counter="13"
+                                    <dc-multiselect-table
+                                            :isKey="headers[13].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[13].isNull"
-                                            :isKey= "headers[13].key"
-                                            :lengths= "headers[13].lengths"
-                                            :label= "headers[13].title"
-                                            :labelDesc= "headers[13].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[13].title"
+                                            v-model="editedItem.isOver"
+                                            :options="headers[13].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.company"
-                                            :counter="14"
+                                    <dc-multiselect-table
+                                            :isKey="headers[14].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[14].isNull"
-                                            :isKey= "headers[14].key"
-                                            :lengths= "headers[14].lengths"
-                                            :label= "headers[14].title"
-                                            :labelDesc= "headers[14].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[14].title"
+                                            v-model="editedItem.company"
+                                            :options="headers[14].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -232,6 +233,7 @@
     import DcDate from '@/components/widgets/DcDate'
     import DcMultiselectTable from '@/components/widgets/DcMultiselectTable'
     import {remove} from '@/utils/util'
+    import { getPkListColumnRf } from "@/api/url/prodInfo";
     export default {
         components: {
             DcTextFieldTable,
@@ -246,19 +248,22 @@
                 { dataIndex: 'MATRIX_NO',title: '阶梯序号',key: "true",lengths: "50",isNull: "true"},
                 { dataIndex: 'IRL_SEQ_NO',title: '序号',lengths: "50",isNull: "true"},
                 { dataIndex: 'MATRIX_AMT',title: '阶梯金额',lengths: "17",isNull: "true"},
-                { dataIndex: 'PERIOD_FREQ',title: '频率类型',lengths: "2",isNull: "false"},
+                { dataIndex: 'PERIOD_FREQ',title: '结转频率',lengths: "2",isNull: "false",valueScore: []},
                 { dataIndex: 'DAY_NUM',title: '每期天数',lengths: "5",isNull: "false"},
-                { dataIndex: 'INT_BASIS',title: '基准利率类型',lengths: "2",isNull: "false"},
+                { dataIndex: 'INT_BASIS',title: '基准利率类型',lengths: "2",isNull: "false",valueScore: []},
                 { dataIndex: 'BASE_RATE',title: '基准利率',lengths: "15",isNull: "false"},
                 { dataIndex: 'SPREAD_RATE',title: '浮动点数',lengths: "15",isNull: "false"},
                 { dataIndex: 'SPREAD_PERCENT',title: '利率浮动百分比',lengths: "5",isNull: "false"},
                 { dataIndex: 'ACTUAL_RATE',title: '实际利率',lengths: "15",isNull: "false"},
                 { dataIndex: 'MIN_RATE',title: '最小利率',lengths: "15",isNull: "false"},
                 { dataIndex: 'MAX_RATE',title: '最大利率',lengths: "15",isNull: "false"},
-                { dataIndex: 'SUB_INT_TYPE',title: '子利率类型',lengths: "3",isNull: "false"},
-                { dataIndex: 'IS_OVER',title: '利率终结标志',lengths: "1",isNull: "false"},
-                { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",isNull: "false"}
+                { dataIndex: 'SUB_INT_TYPE',title: '子利率类型',lengths: "3",isNull: "false",valueScore: []},
+                { dataIndex: 'IS_OVER',title: '利率终结标志',lengths: "1",isNull: "false",valueScore: [{value: "是", key: "Y"},{value: "否", key: "N"}]},
+                { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",isNull: "false",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]}
             ],
+            freqType: {columnCode: "PERIOD_FREQ", columnDesc: "PERIOD_FREQ_DESC", tableName: "FM_PERIOD_FREQ"},
+            basisType: {columnCode: "INT_BASIS", columnDesc: "INT_BASIS_DESC", tableName: "IRL_INT_BASIS"},
+            subType: {columnCode: "INT_TAX_TYPE", columnDesc: "INT_TAX_TYPE_DESC", tableName: "IRL_INT_TYPE"},
             dessert: {
                 MATRIX_NO: '',
                 IRL_SEQ_NO: '',
@@ -355,6 +360,16 @@
                     that.desserts = response.data.data.columnInfo;
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 })
+                getPkListColumnRf(this.freqType).then(function (response) {
+                    that.headers[3].valueScore = response.data.data
+                })
+                getPkListColumnRf(this.basisType).then(function (response) {
+                    that.headers[5].valueScore = response.data.data
+                })
+                getPkListColumnRf(this.subType).then(function (response) {
+                    that.headers[12].valueScore = response.data.data
+                })
+
             },
 
             editItem () {
@@ -365,16 +380,16 @@
                 }
                 this.editedItem.matrixNo = obj.MATRIX_NO
                 this.editedItem.irlSeqNo = obj.IRL_SEQ_NO
-                this.editedItem.matrixAmt = ""+obj.MATRIX_AMT
+                this.editedItem.matrixAmt = obj.MATRIX_AMT==null?null:obj.MATRIX_AMT.toString()
                 this.editedItem.periodFreq = obj.PERIOD_FREQ
                 this.editedItem.dayNum = obj.DAY_NUM
                 this.editedItem.intBasis =obj.INT_BASIS
-                this.editedItem.baseRate = ""+obj.BASE_RATE
-                this.editedItem.spreadRate = ""+obj.SPREAD_RATE
-                this.editedItem.spreadPercent = ""+obj.SPREAD_PERCENT
-                this.editedItem.actualRate =""+ obj.ACTUAL_RATE
-                this.editedItem.minRate = ""+obj.MIN_RATE
-                this.editedItem.maxRate = ""+obj.MAX_RATE
+                this.editedItem.baseRate = obj.BASE_RATE==null?null:obj.BASE_RATE.toString()
+                this.editedItem.spreadRate = obj.SPREAD_RATE==null?null:obj.SPREAD_RATE.toString()
+                this.editedItem.spreadPercent = obj.SPREAD_PERCENT==null?null:obj.SPREAD_PERCENT.toString()
+                this.editedItem.actualRate = obj.ACTUAL_RATE==null?null:obj.ACTUAL_RATE.toString()
+                this.editedItem.minRate = obj.MIN_RATE==null?null:obj.MIN_RATE.toString()
+                this.editedItem.maxRate = obj.MAX_RATE==null?null:obj.MAX_RATE.toString()
                 this.editedItem.subIntType =obj.SUB_INT_TYPE
                 this.editedItem.isOver = obj.IS_OVER
                 this.editedItem.company =obj.COMPANY
@@ -417,6 +432,9 @@
                 obj.SUB_INT_TYPE = this.editedItem.subIntType
                 obj.IS_OVER = this.editedItem.isOver
                 obj.COMPANY = this.editedItem.company
+                if(!this.limit(obj)){
+                    return
+                }
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
@@ -487,6 +505,32 @@
                     });
                 }
             },
+            limit(editSelected){
+                for(let i=0; i<this.headers.length; i++){
+                    if(this.headers[i].isNull!=undefined && this.headers[i].isNull != null&&this.headers[i].isNull !="null"&&this.headers[i].isNull =="true"){
+                        if(editSelected[this.headers[i].dataIndex] == []){
+                            this.sweetAlert('error',"带*号的字段不能为空!")
+                            return false
+                        }
+                    }
+                }
+                for(let j=0; j<this.sourceData.length; j++){
+                    let str = []
+                    for(let m=0; m<this.headers.length; m++){
+                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                break
+                            }
+                            str.push(this.headers[m].title)
+                        }
+                        if(m==(this.headers.length-1)){
+                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
 
         }
     }

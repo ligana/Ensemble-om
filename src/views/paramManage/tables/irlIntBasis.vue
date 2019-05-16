@@ -17,11 +17,12 @@
                                     <dc-text-field-table
                                             v-model="editedItem.intBasis"
                                             :counter="10"
-                                            :isNotNull="headers[0].key"
+                                            :isNotNull="headers[0].isNull"
                                             :isKey= "headers[0].key"
                                             :lengths= "headers[0].lengths"
                                             :label= "headers[0].title"
                                             :labelDesc= "headers[0].title"
+                                            :disabled="disabled"
                                             required
                                     ></dc-text-field-table>
                                 </v-flex>
@@ -29,7 +30,7 @@
                                     <dc-text-field-table
                                             v-model="editedItem.intBasisDesc"
                                             :counter="10"
-                                            :isNotNull="headers[1].key"
+                                            :isNotNull="headers[1].isNull"
                                             :isKey= "headers[1].key"
                                             :lengths= "headers[1].lengths"
                                             :label= "headers[1].title"
@@ -41,7 +42,7 @@
                                     <dc-multiselect-table
                                             :isKey="headers[3].key"
                                             :childPd="childPd"
-                                            :isNotNull="headers[3].key"
+                                            :isNotNull="headers[3].isNull"
                                             :labelDesc="headers[3].title"
                                             v-model="editedItem.company"
                                             :options="headers[3].valueScore"
@@ -53,7 +54,7 @@
                                     <dc-text-field-table
                                             v-model="editedItem.routerKey"
                                             :counter="10"
-                                            :isNotNull="headers[2].key"
+                                            :isNotNull="headers[2].isNull"
                                             :isKey= "headers[2].key"
                                             :lengths= "headers[2].lengths"
                                             :label= "headers[2].title"
@@ -111,8 +112,8 @@
             disabled: false,
             dialog: false,
             headers: [
-                { dataIndex: 'INT_BASIS',title: '基准利率类型',key: "true",lengths: "2"},
-                { dataIndex: 'INT_BASIS_DESC',title: '基准利率类型描述',key: "true",lengths: "60"},
+                { dataIndex: 'INT_BASIS',title: '基准利率类型',key: "true",lengths: "2",isNull: "true"},
+                { dataIndex: 'INT_BASIS_DESC',title: '基准利率类型描述',lengths: "60",isNull: "true"},
                 { dataIndex: 'ROUTER_KEY',title: '分库路由关键字',lengths: "100"},
                 { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
             ],
@@ -219,6 +220,9 @@
                 obj.INT_BASIS_DESC = this.editedItem.intBasisDesc
                 obj.ROUTER_KEY = this.editedItem.routerKey
                 obj.COMPANY = this.editedItem.company
+                if(!this.limit(obj)){
+                    return
+                }
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
@@ -289,6 +293,32 @@
                     });
                 }
             },
+            limit(editSelected){
+                for(let i=0; i<this.headers.length; i++){
+                    if(this.headers[i].isNull!=undefined && this.headers[i].isNull != null&&this.headers[i].isNull !="null"&&this.headers[i].isNull =="true"){
+                        if(editSelected[this.headers[i].dataIndex] == []){
+                            this.sweetAlert('error',"带*号的字段不能为空!")
+                            return false
+                        }
+                    }
+                }
+                for(let j=0; j<this.sourceData.length; j++){
+                    let str = []
+                    for(let m=0; m<this.headers.length; m++){
+                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                break
+                            }
+                            str.push(this.headers[m].title)
+                        }
+                        if(m==(this.headers.length-1)){
+                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
 
         }
     }

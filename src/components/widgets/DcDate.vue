@@ -17,7 +17,7 @@
             </v-flex>
             <v-flex md6 lg6>
                 <v-menu transition="scale-transition" :nudge-bottom="-22" min-width="290px" :disabled="disabled" labelDesc="labelDesc">
-                    <v-text-field slot="activator" v-model="dateFormatted" append-icon="event"></v-text-field>
+                    <v-text-field slot="activator" v-model="dateFormatted" append-icon="event" :disabled="disabled"></v-text-field>
                     <v-date-picker v-model="dateFormatted" no-title scrollable locale="zh-cn"></v-date-picker>
                 </v-menu>
             </v-flex>
@@ -47,6 +47,7 @@
             event: "getVue"
         },
         props: {
+            disabled: Boolean,
             options: String,
             msg: String,
             perShow: String,

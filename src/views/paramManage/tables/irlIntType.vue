@@ -22,20 +22,21 @@
                                             :lengths= "headers[0].lengths"
                                             :label= "headers[0].title"
                                             :labelDesc= "headers[0].title"
+                                            :disabled="disabled"
                                             required
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.prodGrp"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[2].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[2].isNull"
-                                            :isKey= "headers[2].key"
-                                            :lengths= "headers[2].lengths"
-                                            :label= "headers[2].title"
-                                            :labelDesc= "headers[2].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[2].title"
+                                            v-model="editedItem.prodGrp"
+                                            :options="headers[2].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -86,16 +87,16 @@
                                     ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.taxLadder"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[6].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[6].isNull"
-                                            :isKey= "headers[6].key"
-                                            :lengths= "headers[6].lengths"
-                                            :label= "headers[6].title"
-                                            :labelDesc= "headers[6].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[6].title"
+                                            v-model="editedItem.taxLadder"
+                                            :options="headers[6].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                             </v-layout>
                         </v-container>
@@ -150,13 +151,14 @@
             headers: [
                 { dataIndex: 'INT_TAX_TYPE',title: '利率税率类型',key: "true",lengths: "3",isNull: "true"},
                 { dataIndex: 'INT_TAX_TYPE_DESC',title: '利率税率类型描述',lengths: "50",isNull: "true"},
-                { dataIndex: 'PROD_GRP',title: '产品组',lengths: "20",isNull: "true"},
-                { dataIndex: 'RATE_LADDER',title: '利息计算模型',lengths: "1",isNull: "true"},
+                { dataIndex: 'PROD_GRP',title: '产品组',lengths: "20",isNull: "true",valueScore: [{value: "资产", key: "CL"},{value: "总账", key: "GL"},{value: "货币市场", key: "MM"},{value: "负债", key: "RB"}]},
+                { dataIndex: 'RATE_LADDER',title: '利息计算模型',lengths: "1",isNull: "true",valueScore: []},
                 { dataIndex: 'COMPANY',title: '法人代码',lengths: "66",isNull: "false",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
                 { dataIndex: 'INT_TAX_FLAG',title: '利率类型税率类型标志',lengths: "3",isNull: "true"},
-                { dataIndex: 'TAX_LADDER',title: '税率计算模型',lengths: "1",isNull: "false"},
+                { dataIndex: 'TAX_LADDER',title: '税率计算模型',lengths: "1",isNull: "false",valueScore: [{value: "增值税", key: "A"},{value: "个人所得税", key: "B"}]},
 
             ],
+            /*rateLadder: {columnCode: "FIELD_VALUE", columnDesc: "DOMAIN", tableName: "FM_REF_CODE"},*/
             dessert: {
                 INT_TAX_TYPE: "",
                 INT_TAX_TYPE_DESC: "",
@@ -229,6 +231,9 @@
                     that.desserts = response.data.data.columnInfo;
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 })
+/*                getPkListColumnRf(this.rateLadder).then(function (response) {
+                    that.headers[3].valueScore = response.data.data
+                })*/
             },
 
             editItem () {
@@ -275,6 +280,9 @@
                 obj.INT_TAX_FLAG = this.editedItem.IntTaxFlag
                 obj.COMPANY = this.editedItem.company
                 obj.TAX_LADDER = this.editedItem.taxLadder
+                if(!this.limit(obj)){
+                    return
+                }
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
@@ -345,6 +353,32 @@
                     });
                 }
             },
+            limit(editSelected){
+                for(let i=0; i<this.headers.length; i++){
+                    if(this.headers[i].isNull!=undefined && this.headers[i].isNull != null&&this.headers[i].isNull !="null"&&this.headers[i].isNull =="true"){
+                        if(editSelected[this.headers[i].dataIndex] == []){
+                            this.sweetAlert('error',"带*号的字段不能为空!")
+                            return false
+                        }
+                    }
+                }
+                for(let j=0; j<this.sourceData.length; j++){
+                    let str = []
+                    for(let m=0; m<this.headers.length; m++){
+                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                break
+                            }
+                            str.push(this.headers[m].title)
+                        }
+                        if(m==(this.headers.length-1)){
+                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
 
         }
     }

@@ -14,100 +14,100 @@
                         <v-container grid-list-md>
                             <v-layout wrap>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.prodType"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[0].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[0].isNull"
-                                            :isKey= "headers[0].key"
-                                            :lengths= "headers[0].lengths"
-                                            :label= "headers[0].title"
-                                            :labelDesc= "headers[0].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[0].title"
+                                            v-model="editedItem.prodType"
+                                            :options="headers[0].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.eventType"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[1].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[1].isNull"
-                                            :isKey= "headers[1].key"
-                                            :lengths= "headers[1].lengths"
-                                            :label= "headers[1].title"
-                                            :labelDesc= "headers[1].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[1].title"
+                                            v-model="editedItem.eventType"
+                                            :options="headers[1].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intType"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[2].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[2].isNull"
-                                            :isKey= "headers[2].key"
-                                            :lengths= "headers[2].lengths"
-                                            :label= "headers[2].title"
-                                            :labelDesc= "headers[2].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[2].title"
+                                            v-model="editedItem.intType"
+                                            :options="headers[2].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intClass"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[3].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[3].isNull"
-                                            :isKey= "headers[3].key"
-                                            :lengths= "headers[3].lengths"
-                                            :label= "headers[3].title"
-                                            :labelDesc= "headers[3].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[3].title"
+                                            v-model="editedItem.intClass"
+                                            :options="headers[3].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.taxType"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[4].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[4].isNull"
-                                            :isKey= "headers[4].key"
-                                            :lengths= "headers[4].lengths"
-                                            :label= "headers[4].title"
-                                            :labelDesc= "headers[4].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[4].title"
+                                            v-model="editedItem.taxType"
+                                            :options="headers[4].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.rateAmtId"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[5].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[5].isNull"
-                                            :isKey= "headers[5].key"
-                                            :lengths= "headers[5].lengths"
-                                            :label= "headers[5].title"
-                                            :labelDesc= "headers[5].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[5].title"
+                                            v-model="editedItem.rateAmtId"
+                                            :options="headers[5].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intAmtId"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[6].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[6].isNull"
-                                            :isKey= "headers[6].key"
-                                            :lengths= "headers[6].lengths"
-                                            :label= "headers[6].title"
-                                            :labelDesc= "headers[6].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[6].title"
+                                            v-model="editedItem.intAmtId"
+                                            :options="headers[6].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.recalMethod"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[7].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[7].isNull"
-                                            :isKey= "headers[7].key"
-                                            :lengths= "headers[7].lengths"
-                                            :label= "headers[7].title"
-                                            :labelDesc= "headers[7].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[7].title"
+                                            v-model="editedItem.recalMethod"
+                                            :options="headers[7].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -122,52 +122,52 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intDaysType"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[10].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[10].isNull"
-                                            :isKey= "headers[10].key"
-                                            :lengths= "headers[10].lengths"
-                                            :label= "headers[10].title"
-                                            :labelDesc= "headers[10].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[10].title"
+                                            v-model="editedItem.intDaysType"
+                                            :options="headers[10].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intCalcBal"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[11].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[11].isNull"
-                                            :isKey= "headers[11].key"
-                                            :lengths= "headers[11].lengths"
-                                            :label= "headers[11].title"
-                                            :labelDesc= "headers[11].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[11].title"
+                                            v-model="editedItem.intCalcBal"
+                                            :options="headers[11].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intApplType"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[12].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[12].isNull"
-                                            :isKey= "headers[12].key"
-                                            :lengths= "headers[12].lengths"
-                                            :label= "headers[12].title"
-                                            :labelDesc= "headers[12].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[12].title"
+                                            v-model="editedItem.intApplType"
+                                            :options="headers[12].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.rollFreq"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[13].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[13].isNull"
-                                            :isKey= "headers[13].key"
-                                            :lengths= "headers[13].lengths"
-                                            :label= "headers[13].title"
-                                            :labelDesc= "headers[13].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[13].title"
+                                            v-model="editedItem.rollFreq"
+                                            :options="headers[13].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -206,28 +206,28 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intRateInd"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[17].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[17].isNull"
-                                            :isKey= "headers[17].key"
-                                            :lengths= "headers[17].lengths"
-                                            :label= "headers[17].title"
-                                            :labelDesc= "headers[17].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[17].title"
+                                            v-model="editedItem.intRateInd"
+                                            :options="headers[17].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.monthBasis"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[18].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[18].isNull"
-                                            :isKey= "headers[18].key"
-                                            :lengths= "headers[18].lengths"
-                                            :label= "headers[18].title"
-                                            :labelDesc= "headers[18].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[18].title"
+                                            v-model="editedItem.monthBasis"
+                                            :options="headers[18].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -278,28 +278,28 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.acctRateEffect"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[23].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[23].isNull"
-                                            :isKey= "headers[23].key"
-                                            :lengths= "headers[23].lengths"
-                                            :label= "headers[23].title"
-                                            :labelDesc= "headers[23].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[23].title"
+                                            v-model="editedItem.acctRateEffect"
+                                            :options="headers[23].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.roundDown"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[24].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[24].isNull"
-                                            :isKey= "headers[24].key"
-                                            :lengths= "headers[24].lengths"
-                                            :label= "headers[24].title"
-                                            :labelDesc= "headers[24].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[24].title"
+                                            v-model="editedItem.roundDown"
+                                            :options="headers[24].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-multiselect-table
@@ -346,6 +346,7 @@
 <script>
     import {filterTableChangeData} from "@/server/filterTableChangeData";
     import { getPkListColumnRf } from "@/api/url/prodInfo";
+    import { getAttrInfo } from "@/api/url/prodInfo";
     import {saveTable} from "@/api/url/prodInfo";
     import toast from '@/utils/toast';
     import {getParamTable} from "@/api/url/prodInfo";
@@ -371,7 +372,7 @@
                 { dataIndex: 'TAX_TYPE',title: '税率类型',lengths: "3",isNull: "false"},
                 { dataIndex: 'RATE_AMT_ID',title: '利率计算金额编码',lengths: "30",isNull: "true"},
                 { dataIndex: 'INT_AMT_ID',title: '利息计算金额编码',lengths: "30",isNull: "true"},
-                { dataIndex: 'RECAL_METHOD',title: '重算利息方法',lengths: "1",isNull: "true"},
+                { dataIndex: 'RECAL_METHOD',title: '重算过去利息',lengths: "1",isNull: "true",valueScore: [{value: "是", key: "Y"},{value: "否", key: "N"}]},
                 { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",isNull: "false",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
                 { dataIndex: 'INT_START',title: '计息起始日期取值方法',lengths: "1",isNull: "false"},
                 { dataIndex: 'INT_DAYS_TYPE',title: '靠档天数计算方式',lengths: "1",isNull: "false"},
@@ -387,9 +388,12 @@
                 { dataIndex: 'SPLIT_ID',title: '首个分段ID',lengths: "10",key: "true",isNull: "true"},
                 { dataIndex: 'SPLIT_TYPE',title: '分段类型',lengths: "3",isNull: "false"},
                 { dataIndex: 'RULEID',title: '规则ID',lengths: "50",key: "true",isNull: "true"},
-                { dataIndex: 'ACCT_RATE_EFFECT',title: '使用分户利率标志',lengths: "1",isNull: "false"},
-                { dataIndex: 'ROUND_DOWN',title: '是否截位标志',lengths: "1",isNull: "false"},
+                { dataIndex: 'ACCT_RATE_EFFECT',title: '使用分户利率标志',lengths: "1",isNull: "false",valueScore: [{value: "是", key: "Y"},{value: "否", key: "N"}]},
+                { dataIndex: 'ROUND_DOWN',title: '是否截位标志',lengths: "1",isNull: "false",valueScore: [{value: "是", key: "Y"},{value: "否", key: "N"}]},
             ],
+            prodType: {columnCode: "PROD_TYPE", columnDesc: "PROD_DESC", tableName: "MB_PROD_TYPE"},
+            eventType: {columnCode: "EVENT_DEFAULT_TYPE", columnDesc: "EVENT_DEFAULT_DESC", tableName: "MB_EVENT_DEFAULT_TYPE"},
+            subType: {columnCode: "INT_TAX_TYPE", columnDesc: "INT_TAX_TYPE_DESC", tableName: "IRL_INT_TYPE"},
             dessert: {
                 PROD_TYPE: "",
                 EVENT_TYPE: "",
@@ -512,10 +516,39 @@
             },
             getBasisRate (tableName) {
                 let that = this;
+                let data = getAttrInfo()
                 getParamTable(tableName).then(function (response) {
                     that.desserts = response.data.data.columnInfo;
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 })
+
+                getPkListColumnRf(this.prodType).then(function (response) {
+                    that.headers[0].valueScore = response.data.data
+                })
+                getPkListColumnRf(this.eventType).then(function (response) {
+                    that.headers[1].valueScore = response.data.data
+                })
+                getPkListColumnRf(this.subType).then(function (response) {
+                    that.headers[2].valueScore = response.data.data
+                })
+                that.headers[3].valueScore = data["INT_CLASS"].valueScore
+                getPkListColumnRf(this.subType).then(function (response) {
+                    that.headers[4].valueScore = response.data.data
+                })
+                getPkListColumnRf(data[that.headers[5].dataIndex].valueScore).then(function (response) {
+                    that.headers[5].valueScore = response.data.data
+                })
+                getPkListColumnRf(data[that.headers[6].dataIndex].valueScore).then(function (response) {
+                    that.headers[6].valueScore = response.data.data
+                })
+                that.headers[10].valueScore = data[that.headers[10].dataIndex].valueScore
+                that.headers[11].valueScore = data[that.headers[11].dataIndex].valueScore
+                that.headers[12].valueScore = data[that.headers[12].dataIndex].valueScore
+                getPkListColumnRf(data[that.headers[13].dataIndex].valueScore).then(function (response) {
+                    that.headers[13].valueScore = response.data.data
+                })
+                that.headers[17].valueScore = data[that.headers[17].dataIndex].valueScore
+                that.headers[18].valueScore = data[that.headers[18].dataIndex].valueScore
             },
 
             editItem () {
@@ -539,8 +572,8 @@
                 this.editedItem.intApplType = obj.INT_APPL_TYPE
                 this.editedItem.rollFreq = obj.ROLL_FREQ
                 this.editedItem.rollDay = obj.ROLL_DAY
-                this.editedItem.minRate = obj.MIN_RATE
-                this.editedItem.maxRate = obj.MAX_RATE
+                this.editedItem.minRate = obj.MIN_RATE==null?null:obj.MIN_RATE.toString()
+                this.editedItem.maxRate = obj.MAX_RATE==null?null:obj.MAX_RATE.toString()
                 this.editedItem.intRateInd = obj.INT_RATE_IND
                 this.editedItem.monthBasis = obj.MONTH_BASIS
                 this.editedItem.groupRuleType = obj.GROUP_RULE_TYPE
@@ -598,6 +631,9 @@
                 obj.RULEID= this.editedItem.ruleid
                 obj.ACCT_RATE_EFFECT= this.editedItem.acctRateEffect
                 obj.ROUND_DOWN= this.editedItem.roundDown
+                if(!this.limit(obj)){
+                    return
+                }
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
@@ -668,6 +704,32 @@
                     });
                 }
             },
+            limit(editSelected){
+                for(let i=0; i<this.headers.length; i++){
+                    if(this.headers[i].isNull!=undefined && this.headers[i].isNull != null&&this.headers[i].isNull !="null"&&this.headers[i].isNull =="true"){
+                        if(editSelected[this.headers[i].dataIndex] == []){
+                            this.sweetAlert('error',"带*号的字段不能为空!")
+                            return false
+                        }
+                    }
+                }
+                for(let j=0; j<this.sourceData.length; j++){
+                    let str = []
+                    for(let m=0; m<this.headers.length; m++){
+                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                break
+                            }
+                            str.push(this.headers[m].title)
+                        }
+                        if(m==(this.headers.length-1)){
+                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
 
         }
     }

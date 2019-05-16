@@ -22,6 +22,7 @@
                                             :lengths= "headers[0].lengths"
                                             :label= "headers[0].title"
                                             :labelDesc= "headers[0].title"
+                                            :disabled="disabled"
                                             required
                                     ></dc-text-field-table>
                                 </v-flex>
@@ -34,6 +35,7 @@
                                                 :lengths= "headers[1].lengths"
                                                 :label= "headers[1].title"
                                                 :labelDesc= "headers[1].title"
+                                                :disabled="disabled"
                                                 required
                                         ></dc-text-field-table>
                                     </v-flex>
@@ -50,28 +52,28 @@
                                         ></dc-text-field-table>
                                     </v-flex>
                                     <v-flex xs12 sm6 md6>
-                                        <dc-text-field-table
-                                                v-model="editedItem.periodType"
-                                                :counter="10"
+                                        <dc-multiselect-table
+                                                :isKey="headers[3].key"
+                                                :childPd="childPd"
                                                 :isNotNull="headers[3].isNull"
-                                                :isKey= "headers[3].key"
-                                                :lengths= "headers[3].lengths"
-                                                :label= "headers[3].title"
-                                                :labelDesc= "headers[3].title"
-                                                required
-                                        ></dc-text-field-table>
+                                                :labelDesc="headers[3].title"
+                                                v-model="editedItem.periodType"
+                                                :options="headers[3].valueScore"
+                                                class="dcMulti"
+                                                :isMultiSelect=false
+                                        ></dc-multiselect-table>
                                     </v-flex>
                                     <v-flex xs12 sm6 md6>
-                                        <dc-text-field-table
-                                                v-model="editedItem.periSplitMode"
-                                                :counter="10"
+                                        <dc-multiselect-table
+                                                :isKey="headers[4].key"
+                                                :childPd="childPd"
                                                 :isNotNull="headers[4].isNull"
-                                                :isKey= "headers[4].key"
-                                                :lengths= "headers[4].lengths"
-                                                :label= "headers[4].title"
-                                                :labelDesc= "headers[4].title"
-                                                required
-                                        ></dc-text-field-table>
+                                                :labelDesc="headers[4].title"
+                                                v-model="editedItem.periSplitMode"
+                                                :options="headers[4].valueScore"
+                                                class="dcMulti"
+                                                :isMultiSelect=false
+                                        ></dc-multiselect-table>
                                     </v-flex>
                                     <v-flex xs12 sm6 md6>
                                         <dc-text-field-table
@@ -86,28 +88,28 @@
                                         ></dc-text-field-table>
                                     </v-flex>
                                     <v-flex xs12 sm6 md6>
-                                        <dc-text-field-table
-                                                v-model="editedItem.recalMethod"
-                                                :counter="10"
+                                        <dc-multiselect-table
+                                                :isKey="headers[6].key"
+                                                :childPd="childPd"
                                                 :isNotNull="headers[6].isNull"
-                                                :isKey= "headers[6].key"
-                                                :lengths= "headers[6].lengths"
-                                                :label= "headers[6].title"
-                                                :labelDesc= "headers[6].title"
-                                                required
-                                        ></dc-text-field-table>
+                                                :labelDesc="headers[6].title"
+                                                v-model="editedItem.recalMethod"
+                                                :options="headers[6].valueScore"
+                                                class="dcMulti"
+                                                :isMultiSelect=false
+                                        ></dc-multiselect-table>
                                     </v-flex>
                                     <v-flex xs12 sm6 md6>
-                                        <dc-text-field-table
-                                                v-model="editedItem.intType"
-                                                :counter="10"
+                                        <dc-multiselect-table
+                                                :isKey="headers[7].key"
+                                                :childPd="childPd"
                                                 :isNotNull="headers[7].isNull"
-                                                :isKey= "headers[7].key"
-                                                :lengths= "headers[7].lengths"
-                                                :label= "headers[7].title"
-                                                :labelDesc= "headers[7].title"
-                                                required
-                                        ></dc-text-field-table>
+                                                :labelDesc="headers[7].title"
+                                                v-model="editedItem.intType"
+                                                :options="headers[7].valueScore"
+                                                class="dcMulti"
+                                                :isMultiSelect=false
+                                        ></dc-multiselect-table>
                                     </v-flex>
                                     <v-flex xs12 sm6 md6>
                                         <dc-text-field-table
@@ -187,14 +189,15 @@
                 { dataIndex: 'PERI_SPLIT_ID',title: '周期分段ID',key: "true",lengths: "10",isNull: "true"},
                 { dataIndex: 'PERI_SEQ_NO',title: '序号',lengths: "5",key: "true",isNull: "true"},
                 { dataIndex: 'PERIOD',title: '分段周期',lengths: "50",isNull: "false"},
-                { dataIndex: 'PERIOD_TYPE',title: '分段周期类型',lengths: "1",isNull: "false"},
-                { dataIndex: 'PERI_SPLIT_MODE',title: '分段模式',lengths: "1",isNull: "false"},
+                { dataIndex: 'PERIOD_TYPE',title: '分段周期类型',lengths: "1",isNull: "false",valueScore: [{value: "Days天", key: "D"},{value: "Months月", key: "M"},{value: "Years 年", key: "Y"}]},
+                { dataIndex: 'PERI_SPLIT_MODE',title: '分段模式',lengths: "1",isNull: "false",valueScore: [{value: "差额", key: "C"},{value: "全额", key: "Q"}]},
                 { dataIndex: 'RECAL_DAYS',title: '重算天数',lengths: "5",isNull: "false"},
-                { dataIndex: 'RECAL_METHOD',title: '重算过去利息',lengths: "1",isNull: "false"},
-                { dataIndex: 'INT_TYPE',title: '利率类型',lengths: "3",isNull: "false"},
+                { dataIndex: 'RECAL_METHOD',title: '重算过去利息',lengths: "1",isNull: "false",valueScore: [{value: "是", key: "Y"},{value: "否", key: "N"}]},
+                { dataIndex: 'INT_TYPE',title: '利率类型',lengths: "3",isNull: "false",valueScore: []},
                 { dataIndex: 'AMT_SPLIT_ID',title: '金额分段ID',lengths: "10",isNull: "false"},
                 { dataIndex: 'RULE_ID',title: '规则ID',lengths: "500",isNull: "false"},
             ],
+            subType: {columnCode: "INT_TAX_TYPE", columnDesc: "INT_TAX_TYPE_DESC", tableName: "IRL_INT_TYPE"},
             dessert: {
                 PERI_SPLIT_ID: "",
                 PERI_SEQ_NO: "",
@@ -276,6 +279,9 @@
                     that.desserts = response.data.data.columnInfo;
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 })
+                getPkListColumnRf(this.subType).then(function (response) {
+                    that.headers[7].valueScore = response.data.data
+                })
             },
 
             editItem () {
@@ -328,6 +334,9 @@
                 obj.INT_TYPE = this.editedItem.intType
                 obj.AMT_SPLIT_ID = this.editedItem.amtSplitId
                 obj.RULE_ID = this.editedItem.ruleId
+                if(!this.limit(obj)){
+                    return
+                }
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
@@ -398,6 +407,32 @@
                     });
                 }
             },
+            limit(editSelected){
+                for(let i=0; i<this.headers.length; i++){
+                    if(this.headers[i].isNull!=undefined && this.headers[i].isNull != null&&this.headers[i].isNull !="null"&&this.headers[i].isNull =="true"){
+                        if(editSelected[this.headers[i].dataIndex] == []){
+                            this.sweetAlert('error',"带*号的字段不能为空!")
+                            return false
+                        }
+                    }
+                }
+                for(let j=0; j<this.sourceData.length; j++){
+                    let str = []
+                    for(let m=0; m<this.headers.length; m++){
+                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                break
+                            }
+                            str.push(this.headers[m].title)
+                        }
+                        if(m==(this.headers.length-1)){
+                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
 
         }
     }

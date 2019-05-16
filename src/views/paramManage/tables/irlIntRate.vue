@@ -22,6 +22,7 @@
                                             :lengths= "headers[0].lengths"
                                             :label= "headers[0].title"
                                             :labelDesc= "headers[0].title"
+                                            :disabled="disabled"
                                             required
                                     ></dc-text-field-table>
                                 </v-flex>
@@ -50,28 +51,28 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intType"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[1].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[1].isNull"
-                                            :isKey= "headers[1].key"
-                                            :lengths= "headers[1].lengths"
-                                            :label= "headers[1].title"
-                                            :labelDesc= "headers[1].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[1].title"
+                                            v-model="editedItem.intType"
+                                            :options="headers[1].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.branch"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[6].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[6].isNull"
-                                            :isKey= "headers[6].key"
-                                            :lengths= "headers[6].lengths"
-                                            :label= "headers[6].title"
-                                            :labelDesc= "headers[6].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[6].title"
+                                            v-model="editedItem.branch"
+                                            :options="headers[6].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-multiselect-table
@@ -149,16 +150,18 @@
             dialog: false,
             headers: [
                 { dataIndex: 'IRL_SEQ_NO',title: '序号',key: "true",lengths: "50",isNull: "true"},
-                { dataIndex: 'INT_TYPE',title: '利率类型',key: "true",lengths: "3",isNull: "true"},
+                { dataIndex: 'INT_TYPE',title: '利率类型',key: "true",lengths: "3",isNull: "true",valueScore: []},
                 { dataIndex: 'CCY',title: '币种',lengths: "3",isNull: "true",valueScore: []},
                 { dataIndex: 'EFFECT_DATE',title: '生效日期',lengths: "8",isNull: "true"},
                 { dataIndex: 'END_DATE',title: '失效日期',lengths: "8",isNull: "false"},
                 { dataIndex: 'YEAR_BASIS',title: '年基准天数',lengths: "3",isNull: "true"},
-                { dataIndex: 'BRANCH',title: '机构代码',lengths: "20",isNull: "true"},
+                { dataIndex: 'BRANCH',title: '机构代码',lengths: "20",isNull: "true",valueScore: []},
                 { dataIndex: 'LAST_CHG_RUN_DATE',title: '最后修改日期',lengths: "8",isNull: "false"},
                 { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",isNull: "false",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
             ],
             ccyType: {columnCode: "CCY", columnDesc: "CCY_DESC", tableName: "FM_CURRENCY"},
+            subType: {columnCode: "INT_TAX_TYPE", columnDesc: "INT_TAX_TYPE_DESC", tableName: "IRL_INT_TYPE"},
+            branch: {columnCode: "BRANCH", columnDesc: "BRANCH_NAME", tableName: "FM_BRANCH"},
             dessert: {
                 IRL_SEQ_NO: "",
                 INT_TYPE: "",
@@ -240,6 +243,12 @@
                 getPkListColumnRf(this.ccyType).then(function (response) {
                     that.headers[2].valueScore = response.data.data
                 })
+                getPkListColumnRf(this.subType).then(function (response) {
+                    that.headers[1].valueScore = response.data.data
+                })
+                getPkListColumnRf(this.branch).then(function (response) {
+                    that.headers[6].valueScore = response.data.data
+                })
             },
 
             editItem () {
@@ -296,6 +305,9 @@
                 var month = (""+(date.getMonth()+1)).length == 1? "0"+(date.getMonth()+1):""+(date.getMonth()+1)
                 var day = (""+date.getDate()).length == 1? "0"+(date.getDate()):""+(date.getDate())
                 obj.LAST_CHG_RUN_DATE = date.getFullYear()+""+month+""+day
+                if(!this.limit(obj)){
+                    return
+                }
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
@@ -366,6 +378,32 @@
                     });
                 }
             },
+            limit(editSelected){
+                for(let i=0; i<this.headers.length; i++){
+                    if(this.headers[i].isNull!=undefined && this.headers[i].isNull != null&&this.headers[i].isNull !="null"&&this.headers[i].isNull =="true"){
+                        if(editSelected[this.headers[i].dataIndex] == []){
+                            this.sweetAlert('error',"带*号的字段不能为空!")
+                            return false
+                        }
+                    }
+                }
+                for(let j=0; j<this.sourceData.length; j++){
+                    let str = []
+                    for(let m=0; m<this.headers.length; m++){
+                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                break
+                            }
+                            str.push(this.headers[m].title)
+                        }
+                        if(m==(this.headers.length-1)){
+                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
 
         }
     }

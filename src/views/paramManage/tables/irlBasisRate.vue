@@ -17,11 +17,12 @@
                                         <dc-text-field-table
                                             v-model="editedItem.intBasis"
                                             :counter="10"
-                                            :isNotNull="headers[0].key"
+                                            :isNotNull="headers[0].isNull"
                                             :isKey= "headers[0].key"
                                             :lengths= "headers[0].lengths"
                                             :label= "headers[0].title"
                                             :labelDesc= "headers[0].title"
+                                            :disabled="disabled"
                                             required
                                     ></dc-text-field-table>
                                 </v-flex>
@@ -29,7 +30,7 @@
                                     <dc-multiselect-table
                                             :isKey="headers[4].key"
                                             :childPd="childPd"
-                                            :isNotNull="headers[4].key"
+                                            :isNotNull="headers[4].isNull"
                                             :labelDesc="headers[4].title"
                                             v-model="editedItem.company"
                                             :options="headers[4].valueScore"
@@ -41,11 +42,12 @@
                                     <dc-multiselect-table
                                             :isKey="headers[1].key"
                                             :childPd="childPd"
-                                            :isNotNull="headers[1].key"
+                                            :isNotNull="headers[1].isNull"
                                             :labelDesc="headers[1].title"
                                             v-model="editedItem.ccy"
                                             :options="headers[1].valueScore"
                                             class="dcMulti"
+                                            :disablePower="disabled"
                                             :isMultiSelect=false
                                     ></dc-multiselect-table>
                                 </v-flex>
@@ -53,7 +55,7 @@
                                     <dc-text-field-table
                                             v-model="editedItem.intBasisRate"
                                             :counter="10"
-                                            :isNotNull="headers[3].key"
+                                            :isNotNull="headers[3].isNull"
                                             :isKey= "headers[3].key"
                                             :lengths= "headers[3].lengths"
                                             :label= "headers[3].title"
@@ -63,8 +65,8 @@
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-date class="dcDate"
-                                             :disablePower="disablePower" :labelDesc="headers[2].title" v-model="editedItem.effectDate"
-                                             :isNotNull="headers[2].key" :isKey= "headers[2].key"
+                                             :disabled="disabled" :labelDesc="headers[2].title" v-model="editedItem.effectDate"
+                                             :isNotNull="headers[2].isNull" :isKey= "headers[2].key"
                                     ></dc-date>
                                 </v-flex>
                             </v-layout>
@@ -121,11 +123,11 @@
             disabled: false,
             dialog: false,
             headers: [
-                { dataIndex: 'INT_BASIS',title: '基准利率类型代码',key: "true",lengths: "2"},
-                { dataIndex: 'CCY',title: '币种',key: "true",lengths: "3",valueScore: []},
-                { dataIndex: 'EFFECT_DATE',title: '生效日期',key: "true",lengths: "8"},
-                { dataIndex: 'INT_BASIS_RATE',title: '利率',lengths: "15"},
-                { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
+                { dataIndex: 'INT_BASIS',title: '基准利率类型代码',key: "true",lengths: "2",isNull: "true"},
+                { dataIndex: 'CCY',title: '币种',key: "true",lengths: "3",isNull: "true",valueScore: []},
+                { dataIndex: 'EFFECT_DATE',title: '生效日期',key: "true",isNull: "true",lengths: "8"},
+                { dataIndex: 'INT_BASIS_RATE',title: '利率',lengths: "15",isNull: "true"},
+                { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",isNull: "false",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
             ],
             ccyType: {columnCode: "CCY", columnDesc: "CCY_DESC", tableName: "FM_CURRENCY"},
             dessert: {
@@ -208,7 +210,7 @@
                 this.editedItem.intBasis = obj.INT_BASIS
                 this.editedItem.ccy= obj.CCY
                 this.editedItem.effectDate = obj.EFFECT_DATE
-                this.editedItem.intBasisRate = ""+obj.INT_BASIS_RATE
+                this.editedItem.intBasisRate = obj.INT_BASIS_RATE==null?null:obj.INT_BASIS_RATE.toString()
                 this.editedItem.company = obj.COMPANY
                 this.dialog = true
                 this.disabled = "true"
@@ -239,6 +241,9 @@
                 obj.EFFECT_DATE = this.editedItem.effectDate
                 obj.INT_BASIS_RATE = this.editedItem.intBasisRate
                 obj.COMPANY = this.editedItem.company
+                if(!this.limit(obj)){
+                    return
+                }
                 if(this.addorchange){
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
@@ -309,6 +314,32 @@
                     });
                 }
             },
+            limit(editSelected){
+                for(let i=0; i<this.headers.length; i++){
+                   if(this.headers[i].isNull!=undefined && this.headers[i].isNull != null&&this.headers[i].isNull !="null"&&this.headers[i].isNull =="true"){
+                        if(editSelected[this.headers[i].dataIndex] == []){
+                            this.sweetAlert('error',"带*号的字段不能为空!")
+                            return false
+                        }
+                   }
+                }
+                for(let j=0; j<this.sourceData.length; j++){
+                    let str = []
+                    for(let m=0; m<this.headers.length; m++){
+                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                break
+                            }
+                            str.push(this.headers[m].title)
+                        }
+                        if(m==(this.headers.length-1)){
+                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                            return false
+                        }
+                    }
+                }
+               return true
+            }
 
         }
     }

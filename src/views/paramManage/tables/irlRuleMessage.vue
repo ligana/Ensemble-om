@@ -26,16 +26,16 @@
                                 ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.ruleClass1"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[1].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[1].isNull"
-                                            :isKey= "headers[1].key"
-                                            :lengths= "headers[1].lengths"
-                                            :label= "headers[1].title"
-                                            :labelDesc= "headers[1].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[1].title"
+                                            v-model="editedItem.ruleClass1"
+                                            :options="headers[1].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -86,16 +86,16 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.intFloatType"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[8].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[8].isNull"
-                                            :isKey= "headers[8].key"
-                                            :lengths= "headers[8].lengths"
-                                            :label= "headers[8].title"
-                                            :labelDesc= "headers[8].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[8].title"
+                                            v-model="editedItem.intFloatType"
+                                            :options="headers[8].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -134,28 +134,16 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.createDate"
-                                            :counter="10"
-                                            :isNotNull="headers[12].isNull"
-                                            :isKey= "headers[12].key"
-                                            :lengths= "headers[12].lengths"
-                                            :label= "headers[12].title"
-                                            :labelDesc= "headers[12].title"
-                                            required
-                                    ></dc-text-field-table>
-                                </v-flex>
-                                <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.ruleStatus"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[13].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[13].isNull"
-                                            :isKey= "headers[13].key"
-                                            :lengths= "headers[13].lengths"
-                                            :label= "headers[13].title"
-                                            :labelDesc= "headers[13].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[13].title"
+                                            v-model="editedItem.ruleStatus"
+                                            :options="headers[13].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -182,29 +170,28 @@
                                     ></dc-text-field-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.groupCcy"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[16].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[16].isNull"
-                                            :isKey= "headers[16].key"
-                                            :lengths= "headers[16].lengths"
-                                            :label= "headers[16].title"
-                                            :labelDesc= "headers[16].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[16].title"
+                                            v-model="editedItem.groupCcy"
+                                            :options="headers[16].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
-
                                 <v-flex xs12 sm6 md6>
-                                    <dc-text-field-table
-                                            v-model="editedItem.ruleFlag"
-                                            :counter="10"
+                                    <dc-multiselect-table
+                                            :isKey="headers[18].key"
+                                            :childPd="childPd"
                                             :isNotNull="headers[18].isNull"
-                                            :isKey= "headers[18].key"
-                                            :lengths= "headers[18].lengths"
-                                            :label= "headers[18].title"
-                                            :labelDesc= "headers[18].title"
-                                            required
-                                    ></dc-text-field-table>
+                                            :labelDesc="headers[18].title"
+                                            v-model="editedItem.ruleFlag"
+                                            :options="headers[18].valueScore"
+                                            class="dcMulti"
+                                            :isMultiSelect=false
+                                    ></dc-multiselect-table>
                                 </v-flex>
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
@@ -288,6 +275,8 @@
 <script>
     import {filterTableChangeData} from "@/server/filterTableChangeData";
     import {saveTable} from "@/api/url/prodInfo";
+    import { getAttrInfo } from "@/api/url/prodInfo";
+    import { getPkListColumnRf } from "@/api/url/prodInfo";
     import toast from '@/utils/toast';
     import {getParamTable} from "@/api/url/prodInfo";
     import DcTextFieldTable from "@/components/widgets/DcTextFieldTable";
@@ -437,22 +426,47 @@
             },
             getBasisRate (tableName) {
                 let that = this;
+                let data = getAttrInfo()
                 getParamTable(tableName).then(function (response) {
                     that.desserts = response.data.data.columnInfo;
                     that.sourceData = that.copy(that.desserts,that.sourceData)
                 })
+                that.headers[1].valueScore = data[that.headers[1].dataIndex].valueScore
+                that.headers[8].valueScore = data[that.headers[8].dataIndex].valueScore
+                that.headers[13].valueScore = data[that.headers[13].dataIndex].valueScore
+                getPkListColumnRf(data[that.headers[16].dataIndex].valueScore).then(function (response) {
+                    that.headers[16].valueScore = response.data.data
+                })
+                that.headers[18].valueScore = data[that.headers[18].dataIndex].valueScore
             },
 
             editItem () {
                 let obj = this.selected
-                if(this.selected.INT_BASIS == undefined){
+                if(this.selected.IRL_SEQ_NO == undefined){
                     this.sweetAlert('info',"请选择一条数据!")
                     return
                 }
-                this.editedItem.intBasis = obj.INT_BASIS
-                this.editedItem.intBasisDesc= obj.INT_BASIS_DESC
-                this.editedItem.routerKey = obj.ROUTER_KEY
-                this.editedItem.company = obj.COMPANY
+                this.editedItem.irlSeqNo= obj.IRL_SEQ_NO
+                this.editedItem.ruleClass1= obj.RULE_CLASS_1
+                this.editedItem.ruleClass2= obj.RULE_CLASS_2
+                this.editedItem.ruleClass3= obj.RULE_CLASS_3
+                this.editedItem.startDateTime= obj.START_DATE_TIME
+                this.editedItem.endDateTime= obj.END_DATE_TIME
+                this.editedItem.ruleDesc= obj.RULE_DESC
+                this.editedItem.ruleExpress= obj.RULE_EXPRESS
+                this.editedItem.intFloatType= obj.INT_FLOAT_TYPE
+                this.editedItem.floatValue= obj.FLOAT_VALUE
+                this.editedItem.checkType= obj.CHECK_TYPE
+                this.editedItem.userId= obj.USER_ID
+                this.editedItem.createDate= obj.CREATE_DATE
+                this.editedItem.ruleStatus= obj.RULE_STATUS
+                this.editedItem.importMessage= obj.IMPORT_MESSAGE
+                this.editedItem.specialRuleProcess= obj.SPECIAL_RULE_PROCESS
+                this.editedItem.groupCcy= obj.GROUP_CCY
+                this.editedItem.company= obj.RULE_FLAG
+                this.editedItem.ruleFlag= obj.RULE_FLAG
+                this.editedItem.groupType= obj.GROUP_TYPE
+                this.editedItem.ruleWeight= obj.RULE_WEIGHT
                 this.dialog = true
                 this.disabled = "true"
                 this.addorchange = false
@@ -477,14 +491,41 @@
 
             save () {
                 const obj = this.dessert
-                obj.INT_BASIS = this.editedItem.intBasis
-                obj.INT_BASIS_DESC = this.editedItem.intBasisDesc
-                obj.ROUTER_KEY = this.editedItem.routerKey
-                obj.COMPANY = this.editedItem.company
+                obj.IRL_SEQ_NO = this.editedItem.irlSeqNo
+                obj.RULE_CLASS_1 = this.editedItem.ruleClass1
+                obj.RULE_CLASS_2= this.editedItem.ruleClass2
+                obj.RULE_CLASS_3= this.editedItem.ruleClass3
+                obj.START_DATE_TIME= this.editedItem.startDateTime
+                obj.END_DATE_TIME= this.editedItem.endDateTime
+                obj.RULE_DESC= this.editedItem.ruleDesc
+                obj.RULE_EXPRESS= this.editedItem.ruleExpress
+                obj.INT_FLOAT_TYPE= this.editedItem.intFloatType
+                obj.FLOAT_VALUE= this.editedItem.floatValue
+                obj.CHECK_TYPE= this.editedItem.checkType
+                obj.USER_ID= this.editedItem.userId
+                obj.RULE_STATUS= this.editedItem.ruleStatus
+                obj.IMPORT_MESSAGE= this.editedItem.importMessage
+                obj.SPECIAL_RULE_PROCESS= this.editedItem.specialRuleProcess
+                obj.GROUP_CCY= this.editedItem.groupCcy
+                obj.RULE_FLAG= this.editedItem.company
+                obj.RULE_FLAG= this.editedItem.ruleFlag
+                obj.GROUP_TYPE= this.editedItem.groupType
+                obj.RULE_WEIGHT= this.editedItem.ruleWeight
+                var date = new Date();
+                var month = (""+(date.getMonth()+1)).length == 1? "0"+(date.getMonth()+1):""+(date.getMonth()+1)
+                var day = (""+date.getDate()).length == 1? "0"+(date.getDate()):""+(date.getDate())
                 if(this.addorchange){
+                    obj.CREATE_DATE = date.getFullYear()+""+month+""+day
+                    if(!this.limit(obj)){
+                        return
+                    }
                     this.desserts.splice(0, 0, obj)
                     this.dessert = {}
                 }else {
+                    obj.CREATE_DATE= this.editedItem.createDate
+                    if(!this.limit(obj)){
+                        return
+                    }
                     let index = this.editedIndex
                     this.desserts[index] = obj
                     this.dessert={}
@@ -551,7 +592,32 @@
                     });
                 }
             },
-
+            limit(editSelected){
+                for(let i=0; i<this.headers.length; i++){
+                    if(this.headers[i].isNull!=undefined && this.headers[i].isNull != null&&this.headers[i].isNull !="null"&&this.headers[i].isNull =="true"){
+                        if(editSelected[this.headers[i].dataIndex] == []){
+                            this.sweetAlert('error',"带*号的字段不能为空!")
+                            return false
+                        }
+                    }
+                }
+                for(let j=0; j<this.sourceData.length; j++){
+                    let str = []
+                    for(let m=0; m<this.headers.length; m++){
+                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                break
+                            }
+                            str.push(this.headers[m].title)
+                        }
+                        if(m==(this.headers.length-1)){
+                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
         }
     }
 </script>

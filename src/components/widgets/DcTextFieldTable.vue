@@ -59,6 +59,7 @@
             event: "getVue"
         },
         props: {
+            disabled: Boolean,
             dataIndex: String,
             lengths: String,
             isKey: String,
@@ -175,7 +176,6 @@
                 this.changeNum()
                 this.trueOrFalse = true
             },
-
             numberAmount(num){
                 if(this.isNumber == "DOUBLE"){
                     num = num.replace(/[^\d.]/g,"");  //清除“数字”和“.”以外的字符
@@ -241,7 +241,6 @@
                 }
             },
             init(msg) {
-
                 if(typeof this._props.labelDesc !== "undefined") {
                     this.labelText = this._props.labelDesc + ' :';
                 }
