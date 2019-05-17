@@ -126,14 +126,14 @@
                     for (let index in menu){
                         let info = {}
                         info['key'] = menu[index].menuId;
-                        info['value'] = menu[index].menuId;
+                        info['value'] = info['key']+"-"+menu[index].menuTitle;
                         that.muneInfo.push(info)
 
                     }
                     for(let j=0; j<role.length; j++){
                         let info = {}
                         info['key'] = role[j].roleId;
-                        info['value'] = role[j].roleId;
+                        info['value'] = info['key']+"-"+role[j].roleDesc;
                         that.roleInfo.push(info)
                     }
 
