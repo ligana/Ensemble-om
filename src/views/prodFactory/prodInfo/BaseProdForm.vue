@@ -44,33 +44,33 @@
                     <v-tabs-items v-model="activeName" class="white textProd">
                         <v-tab-item v-for="i in prodInfo" :key="i.pageCode">
                             <base-desc :showEdit="showEdit" v-if="i.pageCode=='DESC'" :baseProdRange="baseProdRange" :prodType="prodData.prodType" tags="DESC"></base-desc>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='BASE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodMapping="prodMapping" :prodDefines="prodData.prodDefines" :disablePower="disablePower" tags="BASE"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CONTROL'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CONTROL" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='SHIFT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="SHIFT" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='APPLY'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="APPLY" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='INT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="INT" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='RULE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="RULE" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='PRICE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="PRICE" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='LIMIT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="LIMIT" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='OUT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="OUT" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='IN'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="IN" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='OPEN'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="OPEN" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CRET'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CRET" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DEBT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DEBT" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CLOSE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CLOSE" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CYCLE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="CYCLE" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='BASE'" :prodTypeCode="thisType['BASE']" :attrColumnInfo="attrColumn['BASE']" :prodMapping="prodMapping" :prodDefines="thisData['BASE']" :disablePower="disablePower" tags="BASE"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CONTROL'" :prodTypeCode="thisType['CONTROL']" :attrColumnInfo="attrColumn['CONTROL']" :prodDefines="thisData['CONTROL']" tags="CONTROL" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='OPEN'" :prodTypeCode="thisType['OPEN']" :attrColumnInfo="attrColumn['OPEN']" :prodDefines="thisData['OPEN']" tags="OPEN" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='SHIFT'" :prodTypeCode="thisType['SHIFT']" :attrColumnInfo="attrColumn['SHIFT']" :prodDefines="thisData['SHIFT']" tags="SHIFT" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='APPLY'" :prodTypeCode="thisType['APPLY']" :attrColumnInfo="attrColumn['APPLY']" :prodDefines="thisData['APPLY']" tags="APPLY" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='INT'" :prodTypeCode="thisType['INT']" :attrColumnInfo="attrColumn['INT']" :prodDefines="thisData['INT']" tags="INT" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='RULE'" :prodTypeCode="thisType['RULE']" :attrColumnInfo="attrColumn['RULE']" :prodDefines="thisData['RULE']" tags="RULE" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='PRICE'" :prodTypeCode="thisType['PRICE']" :attrColumnInfo="attrColumn['PRICE']" :prodDefines="thisData['PRICE']" tags="PRICE" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='LIMIT'" :prodTypeCode="thisType['LIMIT']" :attrColumnInfo="attrColumn['LIMIT']" :prodDefines="thisData['LIMIT']" tags="LIMIT" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='OUT'" :prodTypeCode="thisType['OUT']" :attrColumnInfo="attrColumn['OUT']" :prodDefines="thisData['OUT']" tags="OUT" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='IN'" :prodTypeCode="thisType['IN']" :attrColumnInfo="attrColumn['IN']" :prodDefines="thisData['IN']" tags="IN" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CRET'" :prodTypeCode="thisType['CRET']" :attrColumnInfo="attrColumn['CRET']" :prodDefines="thisData['CRET']" tags="CRET" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DEBT'" :prodTypeCode="thisType['DEBT']" :attrColumnInfo="attrColumn['DEBT']" :prodDefines="thisData['DEBT']" tags="DEBT" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CLOSE'" :prodTypeCode="thisType['CLOSE']" :attrColumnInfo="attrColumn['CLOSE']" :prodDefines="thisData['CLOSE']" tags="CLOSE" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='CYCLE'" :prodTypeCode="thisType['CYCLE']" :attrColumnInfo="attrColumn['CYCLE']" :prodDefines="thisData['CYCLE']" tags="CYCLE" :disablePower="disablePower"></base-prod>
 
                             <group-prod v-if="i.pageCode=='GROUP'" :prodTypeCode="prodData.prodType.prodType" tags="GROUP" v-bind:prodData="prodData"></group-prod>
                             <prod-int v-if="i.pageCode=='RATEINFO'" v-bind:prodData="prodData"></prod-int>
                             <prod-charge v-if="i.pageCode=='CHARGE'" v-bind:prodData="prodData"></prod-charge>
                             <prod-accounting v-if="i.pageCode=='ACCOUNTING'" v-bind:prodData="prodData"></prod-accounting>
                             <prod-cl-accounting v-if="i.pageCode=='CLACCOUNTING'" v-bind:prodData="prodData"></prod-cl-accounting>
-                            <!--贷款特有事件-->
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='ACCT'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="ACCT" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DISC'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DISC" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DRW'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DRW" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='REC'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="REC" :disablePower="disablePower"></base-prod>
-                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DUE'" :prodTypeCode="prodData.prodType.prodType" :attrColumnInfo="attrColumnInfo" :prodDefines="prodData.prodDefines" tags="DUE" :disablePower="disablePower"></base-prod>
+                           <!-- &lt;!&ndash;贷款特有事件&ndash;&gt;-->
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='ACCT'" :prodTypeCode="thisType['ACCT']" :attrColumnInfo="attrColumn['ACCT']" :prodDefines="thisData['ACCT']" tags="ACCT" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DISC'" :prodTypeCode="thisType['DISC']" :attrColumnInfo="attrColumn['DISC']" :prodDefines="thisData['DISC']" tags="DISC" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DRW'" :prodTypeCode="thisType['DRW']" :attrColumnInfo="attrColumn['DRW']" :prodDefines="thisData['DRW']" tags="DRW" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='REC'" :prodTypeCode="thisType['REC']" :attrColumnInfo="attrColumn['REC']" :prodDefines="thisData['REC']" tags="REC" :disablePower="disablePower"></base-prod>
+                            <base-prod :showEdit="showEdit" v-if="i.pageCode=='DUE'" :prodTypeCode="thisType['DUE']" :attrColumnInfo="attrColumn['DUE']" :prodDefines="thisData['DUE']" tags="DUE" :disablePower="disablePower"></base-prod>
                             <prod-amend v-if="i.pageCode=='AMEND'" v-bind:prodData="prodData"></prod-amend>
                         </v-tab-item>
                     </v-tabs-items>
@@ -231,7 +231,10 @@
                     }
                 ],
                 baseProdRange: true,
-                mainSeqNo: ''
+                mainSeqNo: '',
+                thisType: [],
+                attrColumn: [],
+                thisData: []
             }
         },
         watch: {
@@ -436,6 +439,10 @@
                     //弹出跳转到参数平台提示
                     this.dialogStage = true;
                 }
+                    this.thisType[pageCode] = this.prodData.prodType.prodType
+                    this.attrColumn[pageCode] = this.attrColumnInfo
+                    this.thisData[pageCode] = this.prodData.prodDefines
+
             },
             //跳转到参数工厂，进行期次定义维护
             goParam(){
@@ -674,6 +681,7 @@
                 }
                 if(showFlag === 0) {
                     this.prodData = addColumnData
+                    this.thisData[addColumnPageCode] = this.prodData.prodDefines
                     this.initEventAttr(this.prodData)
                     this.sweetAlert('success',"编辑成功!")
                     this.dialog = false

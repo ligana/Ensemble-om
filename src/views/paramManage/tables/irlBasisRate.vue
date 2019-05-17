@@ -323,18 +323,20 @@
                         }
                    }
                 }
-                for(let j=0; j<this.sourceData.length; j++){
-                    let str = []
-                    for(let m=0; m<this.headers.length; m++){
-                        if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
-                            if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
-                                break
+                if(this.addorchange){
+                    for(let j=0; j<this.sourceData.length; j++){
+                        let str = []
+                        for(let m=0; m<this.headers.length; m++){
+                            if(this.headers[m].key!=undefined && this.headers[m].key != null&&this.headers[m].key !="null"&&this.headers[m].key =="true"){
+                                if(editSelected[this.headers[m].dataIndex] != this.sourceData[j][this.headers[m].dataIndex]){
+                                    break
+                                }
+                                str.push(this.headers[m].title)
                             }
-                            str.push(this.headers[m].title)
-                        }
-                        if(m==(this.headers.length-1)){
-                            this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
-                            return false
+                            if(m==(this.headers.length-1)){
+                                this.sweetAlert('error',str+"与第["+(j+1)+"]条重复！")
+                                return false
+                            }
                         }
                     }
                 }

@@ -125,6 +125,7 @@
             msg: {
                 handler(msg) {
                     if(typeof msg !== "undefined"&&msg!== null) {
+                        this.value = ""
                         this.init(typeof msg === "object" ? msg.attrValue : msg);
                     }
                 }

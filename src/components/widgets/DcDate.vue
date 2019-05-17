@@ -145,10 +145,11 @@
                 }
             },
             init(msg){
+                this.dateFormatted = null
                 if(typeof this._props.labelDesc !== "undefined") {
                     this.labelText = this._props.labelDesc + ' :';
                 }
-                if(msg !== null && msg !== undefined &&msg.msg!=undefined) {
+                if(msg !== null && msg !== undefined && msg!=undefined) {
                     let dates = this._props.msg
                     if (this._props.msg.attrValue != undefined) {
                         dates = this._props.msg.attrValue
