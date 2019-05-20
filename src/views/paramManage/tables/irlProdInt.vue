@@ -184,6 +184,7 @@
                                 <v-flex xs12 sm6 md6>
                                     <dc-text-field-table
                                             v-model="editedItem.minRate"
+                                            :isNumber="headers[15].attrType"
                                             :counter="10"
                                             :isNotNull="headers[15].isNull"
                                             :isKey= "headers[15].key"
@@ -372,7 +373,7 @@
                 { dataIndex: 'TAX_TYPE',title: '税率类型',lengths: "3",isNull: "false"},
                 { dataIndex: 'RATE_AMT_ID',title: '利率计算金额编码',lengths: "30",isNull: "true"},
                 { dataIndex: 'INT_AMT_ID',title: '利息计算金额编码',lengths: "30",isNull: "true"},
-                { dataIndex: 'RECAL_METHOD',title: '重算过去利息',lengths: "1",isNull: "true",valueScore: [{value: "是", key: "Y"},{value: "否", key: "N"}]},
+                { dataIndex: 'RECAL_METHOD',title: '重算过去利息',lengths: "1",isNull: "true",valueScore: [{value: "取历史计提后再按模型计算", key: "I"},{value: "取历史利率计算", key: "H"},{value: "重新按模型计算", key: "N"}]},
                 { dataIndex: 'COMPANY',title: '法人代码',lengths: "20",isNull: "false",valueScore: [{value: "DCITS-神州信息", key: "DCITS"}]},
                 { dataIndex: 'INT_START',title: '计息起始日期取值方法',lengths: "1",isNull: "false"},
                 { dataIndex: 'INT_DAYS_TYPE',title: '靠档天数计算方式',lengths: "1",isNull: "false"},
@@ -380,7 +381,7 @@
                 { dataIndex: 'INT_APPL_TYPE',title: '利率启用方式',lengths: "1",isNull: "false"},
                 { dataIndex: 'ROLL_FREQ',title: '利率变更周期',lengths: "2",isNull: "false"},
                 { dataIndex: 'ROLL_DAY',title: '利率变更日',lengths: "2",isNull: "false"},
-                { dataIndex: 'MIN_RATE',title: '最小利率',lengths: "15",isNull: "false"},
+                { dataIndex: 'MIN_RATE',title: '最小利率',lengths: "15",isNull: "false",attrType: "DOUBLE"},
                 { dataIndex: 'MAX_RATE',title: '最大利率',lengths: "15",isNull: "false"},
                 { dataIndex: 'INT_RATE_IND',title: '利率靠档标志',lengths: "1",isNull: "false"},
                 { dataIndex: 'MONTH_BASIS',title: '月基准',lengths: "3",isNull: "false"},
@@ -450,8 +451,8 @@
                 intApplType: "",
                 rollFreq: "",
                 rollDay: "",
-                minRate: "",
-                maxRate: "",
+                minRate: undefined,
+                maxRate: undefined,
                 intRateInd: "",
                 monthBasis: "",
                 groupRuleType: "",
@@ -572,7 +573,7 @@
                 this.editedItem.intApplType = obj.INT_APPL_TYPE
                 this.editedItem.rollFreq = obj.ROLL_FREQ
                 this.editedItem.rollDay = obj.ROLL_DAY
-                this.editedItem.minRate = obj.MIN_RATE==null?null:obj.MIN_RATE.toString()
+                this.editedItem.minRate = obj.MIN_RATE
                 this.editedItem.maxRate = obj.MAX_RATE==null?null:obj.MAX_RATE.toString()
                 this.editedItem.intRateInd = obj.INT_RATE_IND
                 this.editedItem.monthBasis = obj.MONTH_BASIS

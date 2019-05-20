@@ -154,7 +154,7 @@
                 intBasis: '',
                 ccy: '',
                 effectDate: '',
-                intBasisRate: '',
+                intBasisRate: undefined,
                 company: '',
             },
             defaultItem: {

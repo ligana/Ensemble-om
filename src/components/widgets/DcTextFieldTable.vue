@@ -214,7 +214,7 @@
                     reValue = value
                 }
                 if(this._props.isNumber == "DOUBLE"){
-                    reValue = parseFloat(reValue);
+                    reValue = reValue != null?parseFloat(reValue):null;
                 }
                 if(reValue != undefined){
                     this.$emit("getVue", reValue);
