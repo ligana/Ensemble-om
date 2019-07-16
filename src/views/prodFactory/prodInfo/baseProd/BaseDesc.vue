@@ -10,6 +10,9 @@
             <dc-text-field labelDesc="产品描述" v-model="prodType.prodDesc"></dc-text-field>
         </v-flex>
         <v-flex md6 lg6>
+            <dc-text-field labelDesc="产品描述信息" v-model="prodType.prodRateDesc"></dc-text-field>
+        </v-flex>
+        <v-flex md6 lg6>
             <dc-multiselect :options="sourceModuleOption" :disablePower="disablePower" labelDesc="业务模块" :isMultiSelect="false" v-model="prodType.sourceModule" class="dcMulti"></dc-multiselect>
         </v-flex>
         <v-flex md6 lg6>
